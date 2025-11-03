@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CReDo - Cascade Logic Test</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        html, body {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #cesiumContainer { width: 100%; height: 100%; }
+        
+        #controls {
+            position: absolute; top: 20px; left: 20px; width: 300px;
+            background: rgba(0, 0, 0, 0.8); color: white; padding: 20px;
+            border-radius: 10px; z-index: 1000;
+        }
+        
+        .btn {
+            display: block; width: 100%; margin: 10px 0; padding: 10px;
+            background: #333; color: white; border: none; border-radius: 5px;
+            cursor: pointer; font-size: 14px;
+        }
+        
+        .btn:hover { background: #555; }
+        .btn.active { background: #007acc; }
+        .btn.cascade { background: #dc2626; }
+        
+        #status {
+            margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.1);
+            border-radius: 5px; font-size: 12px;
+        }
+        
+        .legend {
+            margin-top: 10px; font-size: 11px;
+        }
+        
+        .legend-item {
+            display: flex; align-items: center; margin: 3px 0;
+        }
+        
+        .legend-color {
+            width: 12px; height: 12px; margin-right: 8px; border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+    
+    <div id="controls">
+        <h3>⚡ Cascade Test</h3>
+        
+        <button id="loadBuildings" class="btn active">🏢 Load Buildings</button>
+        <button id="showAssets" class="btn">⚡ Show Power Assets</button>
+        
+        <hr style="border-color: #555; margin: 15px 0;">
+        
+        <button id="primaryCascade" class="btn cascade">🚨 Primary Cascade</button>
+        <button id="secondaryCascade" class="btn cascade">🔌 Secondary Cascade</button>
+        <button id="reset" class="btn">🔄 Reset</button>
+        
+        <div id="status">
+            <div><strong>Status:</strong> <span id="statusText">Initializing...</span></div>
+            <div><strong>Mode:</strong> <span id="modeText">Ready</span></div>
+        </div>
+        
+        <div class="legend" id="legend" style="display: none;">
+            <div><strong>Impact Zones:</strong></div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #dc2626;"></div>
+                <span>Critical (100% fail)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f59e0b;"></div>
+                <span>High (95% fail)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #eab308;"></div>
+                <span>Medium (80% fail)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #22c55e;"></div>
+                <span>Low (60% fail)</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let viewer;
+        let osmBuildings = null;
+        let powerAssets = [];
+        let cascadeHandler = null;
+        
+        // Power infrastructure data
+        const infrastructure = {
+            primary: [
+                { id: "p1", name: "Vauxhall Primary", coords: [-0.1276, 51.5074] },
+                { id: "p2", name: "Canary Primary", coords: [-0.0235, 51.5054] }
+            ],
+            secondary: [
+                { id: "s1", name: "Westminster Sec", coords: [-0.1247, 51.5099] },
+                { id: "s2", name: "Lambeth Sec", coords: [-0.1156, 51.4994] },
+                { id: "s3", name: "Kennington Sec", coords: [-0.1067, 51.4889] },
+                { id: "s4", name: "Canary Sec A", coords: [-0.0198, 51.5045] }
+            ]
+        };
+        
+        // Initialize
+        async function init() {
+            try {
+                updateStatus("Setting up Cesium...");
+                
+                // Set token
+                Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0ZjFhOTM3NS03YmNhLTQxODYtYjg3Yi1lM2M3OGNkMjc4NmMiLCJpZCI6MzQzNzAyLCJpYXQiOjE3NjE1NjIyOTV9.Gi8tUMcyoo_cKyM-lhhaZ3BcA7f9xmDZ1RciL2bfI8c';
+                
+                // Create viewer
+                viewer = new Cesium.Viewer('cesiumContainer', {
+                    animation: false,
+                    baseLayerPicker: false,
+                    fullscreenButton: false,
+                    geocoder: false,
+                    homeButton: false,
+                    infoBox: true,
+                    sceneModePicker: false,
+                    selectionIndicator: true,
+                    timeline: false,
+                    navigationHelpButton: false,
+                    navigationInstructionsInitiallyVisible: false
+                });
+                
+                // Set camera to London
+                viewer.camera.setView({
+                    destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 1500),
+                    orientation: {
+                        heading: 0.0,
+                        pitch: Cesium.Math.toRadians(-45),
+                        roll: 0.0
+                    }
+                });
+                
+                cascadeHandler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+                
+                setupEvents();
+                updateStatus("Ready");
+                
+                // Auto-load buildings
+                setTimeout(loadBuildings, 1000);
+                
+            } catch (error) {
+                updateStatus("Failed: " + error.message);
+                console.error("Init failed:", error);
+            }
+        }
+        
+        function setupEvents() {
+            document.getElementById('loadBuildings').onclick = loadBuildings;
+            document.getElementById('showAssets').onclick = showAssets;
+            document.getElementById('primaryCascade').onclick = enablePrimaryCascade;
+            document.getElementById('secondaryCascade').onclick = enableSecondaryCascade;
+            document.getElementById('reset').onclick = reset;
+        }
+        
+        function updateStatus(text) {
+            document.getElementById('statusText').textContent = text;
+        }
+        
+        function updateMode(text) {
+            document.getElementById('modeText').textContent = text;
+        }
+        
+        async function loadBuildings() {
+            try {
+                updateStatus("Loading OSM Buildings...");
+                
+                if (osmBuildings) {
+                    viewer.scene.primitives.remove(osmBuildings);
+                }
+                
+                osmBuildings = await Cesium.createOsmBuildingsAsync();
+                viewer.scene.primitives.add(osmBuildings);
+                
+                updateStatus("✅ Buildings loaded");
+                
+            } catch (error) {
+                updateStatus("❌ Buildings failed");
+                console.error("Buildings failed:", error);
+            }
+        }
+        
+        function showAssets() {
+            // Clear existing
+            powerAssets.forEach(entity => viewer.entities.remove(entity));
+            powerAssets = [];
+            
+            // Add primary substations (red)
+            infrastructure.primary.forEach(asset => {
+                const entity = viewer.entities.add({
+                    id: asset.id,
+                    position: Cesium.Cartesian3.fromDegrees(asset.coords[0], asset.coords[1], 100),
+                    point: {
+                        pixelSize: 20,
+                        color: Cesium.Color.RED,
+                        outlineColor: Cesium.Color.WHITE,
+                        outlineWidth: 3,
+                        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+                    },
+                    label: {
+                        text: asset.name,
+                        font: '12pt sans-serif',
+                        fillColor: Cesium.Color.WHITE,
+                        outlineColor: Cesium.Color.BLACK,
+                        outlineWidth: 2,
+                        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                        pixelOffset: new Cesium.Cartesian2(0, -30)
+                    }
+                });
+                powerAssets.push(entity);
+            });
+            
+            // Add secondary substations (orange)
+            infrastructure.secondary.forEach(asset => {
+                const entity = viewer.entities.add({
+                    id: asset.id,
+                    position: Cesium.Cartesian3.fromDegrees(asset.coords[0], asset.coords[1], 50),
+                    point: {
+                        pixelSize: 15,
+                        color: Cesium.Color.ORANGE,
+                        outlineColor: Cesium.Color.WHITE,
+                        outlineWidth: 2,
+                        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+                    },
+                    label: {
+                        text: asset.name,
+                        font: '10pt sans-serif',
+                        fillColor: Cesium.Color.WHITE,
+                        outlineColor: Cesium.Color.BLACK,
+                        outlineWidth: 2,
+                        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                        pixelOffset: new Cesium.Cartesian2(0, -25)
+                    }
+                });
+                powerAssets.push(entity);
+            });
+            
+            updateStatus("✅ Power assets shown");
+        }
+        
+        function enablePrimaryCascade() {
+            if (!osmBuildings) {
+                alert('Load buildings first');
+                return;
+            }
+            
+            updateMode("Primary Cascade - Click red substation");
+            document.getElementById('legend').style.display = 'block';
+            
+            cascadeHandler.setInputAction(function (click) {
+                const picked = viewer.scene.pick(click.position);
+                if (picked && picked.id && picked.id.id) {
+                    const assetId = picked.id.id;
+                    const primary = infrastructure.primary.find(p => p.id === assetId);
+                    if (primary) {
+                        simulatePrimaryFailure(primary);
+                    }
+                }
+            }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+        }
+        
+        function enableSecondaryCascade() {
+            if (!osmBuildings) {
+                alert('Load buildings first');
+                return;
+            }
+            
+            updateMode("Secondary Cascade - Click orange substation");
+            document.getElementById('legend').style.display = 'block';
+            
+            cascadeHandler.setInputAction(function (click) {
+                const picked = viewer.scene.pick(click.position);
+                if (picked && picked.id && picked.id.id) {
+                    const assetId = picked.id.id;
+                    const secondary = infrastructure.secondary.find(s => s.id === assetId);
+                    if (secondary) {
+                        simulateSecondaryFailure(secondary);
+                    }
+                }
+            }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+        }
+        
+        function simulatePrimaryFailure(primary) {
+            console.log("🚨 PRIMARY FAILURE:", primary.name);
+            
+            // Show impact on secondary substations (4km radius)
+            const lat = primary.coords[1];
+            const lon = primary.coords[0];
+            
+            // Color secondaries based on distance
+            infrastructure.secondary.forEach(sec => {
+                const dist = getDistance(primary.coords, sec.coords);
+                const entity = powerAssets.find(e => e.id === sec.id);
+                
+                if (entity && dist <= 4000) {
+                    if (dist <= 500) entity.point.color = Cesium.Color.RED;
+                    else if (dist <= 1500) entity.point.color = Cesium.Color.ORANGE;
+                    else if (dist <= 3000) entity.point.color = Cesium.Color.YELLOW;
+                    else entity.point.color = Cesium.Color.GREEN;
+                }
+            });
+            
+            // Color buildings around failed secondaries
+            if (osmBuildings) {
+                const conditions = [];
+                
+                infrastructure.secondary.forEach(sec => {
+                    const dist = getDistance(primary.coords, sec.coords);
+                    if (dist <= 3000) { // Secondary likely failed
+                        const secLat = sec.coords[1];
+                        const secLon = sec.coords[0];
+                        
+                        conditions.push([
+                            `distance(vec2(\${feature['cesium#longitude']}, \${feature['cesium#latitude']}), vec2(${secLon},${secLat})) <= 0.006`,
+                            "color('#dc2626', 0.8)"
+                        ]);
+                        conditions.push([
+                            `distance(vec2(\${feature['cesium#longitude']}, \${feature['cesium#latitude']}), vec2(${secLon},${secLat})) <= 0.004`,
+                            "color('#f59e0b', 0.7)"
+                        ]);
+                    }
+                });
+                
+                conditions.push(["true", "color('#6b7280', 0.4)"]);
+                
+                osmBuildings.style = new Cesium.Cesium3DTileStyle({
+                    color: { conditions: conditions }
+                });
+            }
+            
+            updateStatus(`🚨 ${primary.name} failed - Cascade active`);
+        }
+        
+        function simulateSecondaryFailure(secondary) {
+            console.log("🔌 SECONDARY FAILURE:", secondary.name);
+            
+            const lat = secondary.coords[1];
+            const lon = secondary.coords[0];
+            
+            // Color buildings in 640m radius
+            if (osmBuildings) {
+                osmBuildings.style = new Cesium.Cesium3DTileStyle({
+                    defines: {
+                        distance: `distance(vec2(\${feature['cesium#longitude']}, \${feature['cesium#latitude']}), vec2(${lon},${lat}))`
+                    },
+                    color: {
+                        conditions: [
+                            ["${distance} > 0.006", "color('#6b7280', 0.4)"],
+                            ["${distance} > 0.005", "color('#22c55e', 0.6)"],
+                            ["${distance} > 0.004", "color('#eab308', 0.7)"],
+                            ["${distance} > 0.002", "color('#f59e0b', 0.8)"],
+                            ["${distance} > 0.0001", "color('#dc2626', 0.9)"],
+                            ["true", "color('#ffffff', 1.0)"]
+                        ]
+                    }
+                });
+            }
+            
+            updateStatus(`🔌 ${secondary.name} failed - Buildings affected`);
+        }
+        
+        function reset() {
+            // Reset building colors
+            if (osmBuildings) {
+                osmBuildings.style = undefined;
+            }
+            
+            // Reset asset colors
+            powerAssets.forEach(entity => {
+                if (entity.point) {
+                    const isPrimary = infrastructure.primary.find(p => p.id === entity.id);
+                    entity.point.color = isPrimary ? Cesium.Color.RED : Cesium.Color.ORANGE;
+                }
+            });
+            
+            // Remove click handler
+            if (cascadeHandler) {
+                cascadeHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_CLICK);
+            }
+            
+            document.getElementById('legend').style.display = 'none';
+            updateMode("Ready");
+            updateStatus("🔄 Reset complete");
+        }
+        
+        function getDistance(coord1, coord2) {
+            const R = 6371000; // Earth radius in meters
+            const lat1 = coord1[1] * Math.PI / 180;
+            const lat2 = coord2[1] * Math.PI / 180;
+            const deltaLat = (coord2[1] - coord1[1]) * Math.PI / 180;
+            const deltaLon = (coord2[0] - coord1[0]) * Math.PI / 180;
+            
+            const a = Math.sin(deltaLat/2) * Math.sin(deltaLat/2) +
+                      Math.cos(lat1) * Math.cos(lat2) *
+                      Math.sin(deltaLon/2) * Math.sin(deltaLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            
+            return R * c;
+        }
+        
+        // Start initialization
+        init();
+    </script>
+</body>
+</html>

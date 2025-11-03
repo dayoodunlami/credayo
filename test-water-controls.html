@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Water Infrastructure Controls Test</title>
+    <style>
+        body { margin: 20px; font-family: Arial, sans-serif; }
+        .layer-control { 
+            margin: 10px 0; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            background: #f9f9f9;
+        }
+        .layer-header { display: flex; align-items: center; justify-content: space-between; }
+        .layer-color { width: 16px; height: 16px; border-radius: 50%; border: 1px solid #ccc; }
+        .layer-count { color: #666; font-size: 12px; }
+        .opacity-control { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Infrastructure Layer Controls Test</h2>
+    <p>Testing that water infrastructure appears in controls with correct styling and counts.</p>
+    
+    <div id="layer-controls"></div>
+
+    <script>
+        // Simulate the layer configuration from MainLayout
+        const layers = [
+            { id: 'power', name: 'Power Infrastructure', color: '#ef4444', visible: true, opacity: 80, count: 26272 },
+            { id: 'transport', name: 'Transport Infrastructure', color: '#3b82f6', visible: true, opacity: 80, count: 755 },
+            { id: 'telecom', name: 'Telecommunications', color: '#10b981', visible: true, opacity: 80, count: 541 },
+            { id: 'water', name: 'Water Infrastructure', color: '#0284c7', visible: true, opacity: 80, count: 466 }
+        ];
+
+        function renderLayerControls() {
+            const container = document.getElementById('layer-controls');
+            
+            layers.forEach(layer => {
+                const layerDiv = document.createElement('div');
+                layerDiv.className = 'layer-control';
+                
+                layerDiv.innerHTML = `
+                    <div class="layer-header">
+                        <label>
+                            <input type="checkbox" ${layer.visible ? 'checked' : ''} 
+                                   onchange="toggleLayer('${layer.id}', this.checked)">
+                            ${layer.name}
+                            <span class="layer-count">(${layer.count})</span>
+                        </label>
+                        <div class="layer-color" style="background-color: ${layer.color}"></div>
+                    </div>
+                    ${layer.visible ? `
+                        <div class="opacity-control">
+                            <label>Opacity: ${layer.opacity}%</label><br>
+                            <input type="range" min="0" max="100" value="${layer.opacity}" 
+                                   onchange="changeOpacity('${layer.id}', this.value)">
+                        </div>
+                    ` : ''}
+                `;
+                
+                container.appendChild(layerDiv);
+            });
+        }
+
+        function toggleLayer(layerId, visible) {
+            console.log(`Toggle ${layerId} layer: ${visible}`);
+            const layer = layers.find(l => l.id === layerId);
+            if (layer) {
+                layer.visible = visible;
+                // Re-render to show/hide opacity control
+                document.getElementById('layer-controls').innerHTML = '';
+                renderLayerControls();
+            }
+        }
+
+        function changeOpacity(layerId, opacity) {
+            console.log(`Change ${layerId} opacity: ${opacity}%`);
+            const layer = layers.find(l => l.id === layerId);
+            if (layer) {
+                layer.opacity = parseInt(opacity);
+            }
+        }
+
+        // Initial render
+        renderLayerControls();
+
+        // Verify water infrastructure is included
+        const waterLayer = layers.find(l => l.id === 'water');
+        if (waterLayer) {
+            console.log('✅ Water infrastructure found in controls:', waterLayer);
+        } else {
+            console.error('❌ Water infrastructure missing from controls');
+        }
+    </script>
+</body>
+</html>

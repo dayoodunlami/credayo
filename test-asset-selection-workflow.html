@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Selection Workflow Test</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            font-family: Arial, sans-serif; 
+            background: #f5f5f5;
+        }
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .workflow-step {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: #f9fafb;
+        }
+        .workflow-step.active {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .workflow-step h3 {
+            margin: 0 0 15px 0;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .workflow-step.active h3 {
+            color: #1d4ed8;
+        }
+        .popup-preview {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 250px;
+        }
+        .popup-preview h4 {
+            margin: 0 0 10px 0;
+            font-weight: bold;
+            color: #111827;
+        }
+        .popup-preview .asset-info {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
+        .popup-preview .asset-info div {
+            margin: 5px 0;
+        }
+        .popup-preview .criticality-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .popup-preview .criticality-critical {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        .popup-preview .criticality-high {
+            background: #fed7aa;
+            color: #9a3412;
+        }
+        .popup-preview button {
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 4px 0;
+        }
+        .popup-preview .trigger-btn {
+            background: #dc2626;
+            color: white;
+        }
+        .popup-preview .configure-btn {
+            background: #2563eb;
+            color: white;
+        }
+        .control-panel-preview {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .control-panel-preview h4 {
+            margin: 0 0 10px 0;
+            color: #0c4a6e;
+        }
+        .selected-asset-display {
+            background: #dbeafe;
+            border: 1px solid #3b82f6;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .benefits {
+            background: #f0fdf4;
+            border: 1px solid #16a34a;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .benefits h4 {
+            margin: 0 0 10px 0;
+            color: #166534;
+        }
+        .benefits ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #166534;
+        }
+        .test-button {
+            background: #3b82f6;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .test-button:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Enhanced Asset Selection Workflow</h1>
+        <p>Making cascade simulation much easier to use with improved asset selection</p>
+
+        <div class="workflow-step active">
+            <h3>1️⃣ Click Any Asset on Map</h3>
+            <p>Users can now click on any infrastructure asset to see detailed information and cascade options.</p>
+            
+            <div class="popup-preview">
+                <h4>National Grid Substation</h4>
+                <div class="asset-info">
+                    <div><strong>Type:</strong> power</div>
+                    <div><strong>Criticality:</strong> <span class="criticality-badge criticality-critical">critical</span></div>
+                    <div><strong>Operator:</strong> National Grid</div>
+                </div>
+                <button class="trigger-btn">🚨 Trigger Cascade Now</button>
+                <button class="configure-btn">⚙️ Configure & Simulate</button>
+            </div>
+            
+            <p><strong>Two Options:</strong></p>
+            <ul>
+                <li><strong>Trigger Cascade Now:</strong> Immediate cascade with current settings</li>
+                <li><strong>Configure & Simulate:</strong> Load asset into controls for configuration</li>
+            </ul>
+        </div>
+
+        <div class="workflow-step active">
+            <h3>2️⃣ Asset Auto-Loaded in Controls</h3>
+            <p>When "Configure & Simulate" is clicked, the asset is automatically loaded into the simulation controls.</p>
+            
+            <div class="control-panel-preview">
+                <h4>🎯 Selected Asset</h4>
+                <div class="selected-asset-display">
+                    <div><strong>Name:</strong> National Grid Substation</div>
+                    <div><strong>Type:</strong> power</div>
+                    <div><strong>Criticality:</strong> <span class="criticality-badge criticality-critical">critical</span></div>
+                    <div><strong>Operator:</strong> National Grid</div>
+                </div>
+                
+                <h4>Trigger Asset ID</h4>
+                <input type="text" value="power_transmission_123456" style="width: 100%; padding: 8px; border: 1px solid #d1d5db; border-radius: 4px;" readonly />
+                <p style="font-size: 12px; color: #6b7280; margin: 5px 0;">💡 Click any asset on the map to auto-fill this field</p>
+            </div>
+        </div>
+
+        <div class="workflow-step active">
+            <h3>3️⃣ Configure & Launch</h3>
+            <p>Users can now adjust cascade parameters with the selected asset already loaded, then launch the simulation.</p>
+            <ul>
+                <li>Radius, speed, severity controls</li>
+                <li>Cross-sector cascade toggle</li>
+                <li>Scenario presets still available</li>
+                <li>One-click simulation start</li>
+            </ul>
+        </div>
+
+        <div class="benefits">
+            <h4>✅ Benefits of New Workflow</h4>
+            <ul>
+                <li><strong>No more guessing asset IDs</strong> - Click and select visually</li>
+                <li><strong>Rich asset information</strong> - See details before triggering</li>
+                <li><strong>Two-speed workflow</strong> - Quick trigger or detailed configuration</li>
+                <li><strong>Auto-population</strong> - Selected assets automatically fill controls</li>
+                <li><strong>Visual feedback</strong> - Clear indication of selected asset</li>
+                <li><strong>Tab switching</strong> - Automatically switches to simulation tab</li>
+            </ul>
+        </div>
+
+        <div class="workflow-step">
+            <h3>🔧 Technical Fixes Applied</h3>
+            <ul>
+                <li><strong>Fixed Popup Constructor:</strong> Proper import of Popup from @maptiler/sdk</li>
+                <li><strong>Added Selected Asset State:</strong> Track currently selected asset</li>
+                <li><strong>Enhanced Popup Content:</strong> Rich asset information with two action buttons</li>
+                <li><strong>Auto Tab Switching:</strong> Automatically switch to simulation tab when asset selected</li>
+                <li><strong>Control Integration:</strong> Selected asset appears in simulation controls</li>
+                <li><strong>Global Functions:</strong> Window functions for popup button interactions</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <button class="test-button" onclick="window.open('/', '_blank')">
+                🚀 Test Enhanced Asset Selection
+            </button>
+        </div>
+
+        <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; text-align: center;">
+            <h2>🎯 Asset Selection Made Easy!</h2>
+            <p style="color: #0c4a6e; margin: 10px 0;">
+                Click any asset → See details → Choose quick trigger or configure → Launch cascade
+            </p>
+            <p style="color: #64748b; font-size: 14px;">
+                No more hunting for asset IDs or guessing which assets exist!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        console.log('🎯 Enhanced Asset Selection Workflow:');
+        console.log('  ✅ Fixed popup constructor error');
+        console.log('  ✅ Added selected asset state management');
+        console.log('  ✅ Rich asset information popups');
+        console.log('  ✅ Two-speed workflow (quick vs configure)');
+        console.log('  ✅ Auto-population of simulation controls');
+        console.log('  ✅ Visual feedback and tab switching');
+        console.log('🚀 Ready for testing!');
+    </script>
+</body>
+</html>

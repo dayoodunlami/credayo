@@ -1,0 +1,6118 @@
+{
+  "city": "london",
+  "type": "water",
+  "timestamp": 1761445939640,
+  "count": 466,
+  "assets": [
+    {
+      "id": "water_tower_27145630",
+      "name": "Water 27145630",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4719584,
+        51.5556125
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_wastewater_31437735",
+      "name": "Sutton and East Surrey Water Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.1656206,
+        51.3146798
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_distribution_280114917",
+      "name": "Water 280114917",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.4650398,
+        51.6366044
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_320339575",
+      "name": "Eastway Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.0260289,
+        51.5477958
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_pumping_449095964",
+      "name": "Creek Works Storm Water Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.209428,
+        51.4574004
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_distribution_1409894815",
+      "name": "Old Ford Lock Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.0206927,
+        51.5380232
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_pumping_1750077456",
+      "name": "Sadler's Wells Borehole Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1063477,
+        51.5295818
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "SADLB0ZZ"
+      }
+    },
+    {
+      "id": "water_distribution_2431631720",
+      "name": "Mile End Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.040072,
+        51.5278401
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_3626462343",
+      "name": "Black Horse Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.3447016,
+        51.5478119
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_3980788851",
+      "name": "Coppermill Lock Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.4986979,
+        51.6106543
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_3980803457",
+      "name": "Cowley Lock Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.4856317,
+        51.5293905
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_3980808895",
+      "name": "Hanwell Flight Top Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.3637051,
+        51.5015593
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_3980811262",
+      "name": "Bulls Bridge Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.4059152,
+        51.4994068
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_4010964035",
+      "name": "Water 4010964035",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.1692072,
+        51.5271079
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_4010964060",
+      "name": "Water 4010964060",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.1703785,
+        51.5267709
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_4172949987",
+      "name": "Water 4172949987",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.1204571,
+        51.5090686
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_4973280953",
+      "name": "City Road Lock Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.099892,
+        51.5328792
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_6447195285",
+      "name": "Water 6447195285",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.1112304,
+        51.502742
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_6633187881",
+      "name": "Little Venice Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.184453,
+        51.5213676
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_6638667053",
+      "name": "Victoria Park Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.0457715,
+        51.5326959
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_6638667054",
+      "name": "Victoria Park Old Ford Lock Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.0455469,
+        51.5325689
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_6679714939",
+      "name": "Cassiobridge Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.4277828,
+        51.6548705
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_6679741067",
+      "name": "Batchworth Lock Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.4665743,
+        51.6347592
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_6750159208",
+      "name": "Picketts Lock Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.0325787,
+        51.6260841
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_6750159210",
+      "name": "Stonebridge Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.049971,
+        51.5977166
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_distribution_7813212291",
+      "name": "Ponders End Water Point",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.0300839,
+        51.6415172
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Canal and River Trust"
+      }
+    },
+    {
+      "id": "water_pumping_8924807974",
+      "name": "Water 8924807974",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0172384,
+        51.66765
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_8924807975",
+      "name": "Water 8924807975",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0171283,
+        51.6706034
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_8924807976",
+      "name": "Water 8924807976",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.01321,
+        51.6671249
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_8925056637",
+      "name": "Water 8925056637",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0138516,
+        51.6662671
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_8925056638",
+      "name": "Water 8925056638",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0145759,
+        51.6711532
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_8925056639",
+      "name": "Water 8925056639",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0129225,
+        51.6653311
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_8925056640",
+      "name": "Water 8925056640",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0141911,
+        51.6660278
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_tower_8983990317",
+      "name": "Water 8983990317",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        0.0909282,
+        51.5635874
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_9285523217",
+      "name": "Water 9285523217",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.2097483,
+        51.5282946
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_9439791638",
+      "name": "Water 9439791638",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        0.1409414,
+        51.4591742
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_9439815385",
+      "name": "Water 9439815385",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        0.1405994,
+        51.4609538
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_pumping_9474351286",
+      "name": "Water 9474351286",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1627574,
+        51.5236553
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_tower_9679632705",
+      "name": "Water 9679632705",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4876465,
+        51.5031641
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Ashville Aggregates"
+      }
+    },
+    {
+      "id": "water_pumping_10308098794",
+      "name": "Water 10308098794",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0700497,
+        51.3536905
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "009001"
+      }
+    },
+    {
+      "id": "water_treatment_10542928600",
+      "name": "Kenley Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.0964101,
+        51.3238898
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "SES Water"
+      }
+    },
+    {
+      "id": "water_distribution_10584105594",
+      "name": "Water 10584105594",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        0.1985246,
+        51.446357
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_pumping_10761757252",
+      "name": "Common Road Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.4114798,
+        51.2841639
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_distribution_10827883870",
+      "name": "Water 10827883870",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.3302921,
+        51.4501133
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_10879229262",
+      "name": "Water 10879229262",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.4148835,
+        51.4919197
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_11003300161",
+      "name": "Water 11003300161",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.140638,
+        51.4617532
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_11069615813",
+      "name": "Water 11069615813",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.1303356,
+        51.4239359
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_pumping_11820152702",
+      "name": "Tiptree Crescent (Ilford) Sewage Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0689243,
+        51.5894486
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water Utilities Limited",
+        "reference": "TIPTP1ZZ"
+      }
+    },
+    {
+      "id": "water_distribution_11860471063",
+      "name": "Water 11860471063",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        -0.0721837,
+        51.5143035
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_treatment_12239943422",
+      "name": "Water 12239943422",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        0.0754894,
+        51.5430252
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_treatment_12239943423",
+      "name": "Water 12239943423",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        0.0747406,
+        51.5428878
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_distribution_12441833568",
+      "name": "Water 12441833568",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        0.0435859,
+        51.552608
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_12441833569",
+      "name": "Water 12441833569",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        0.0371459,
+        51.5520526
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_distribution_12441833570",
+      "name": "Water 12441833570",
+      "type": "water",
+      "subtype": "distribution",
+      "coordinates": [
+        0.0359543,
+        51.5517012
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_storage_2954289",
+      "name": "Brent Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.2469959,
+        51.5722922
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_3171810",
+      "name": "Lockwood Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.0480598,
+        51.5947271
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_3171879",
+      "name": "Low Maynard Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.0490982,
+        51.5890861
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_3172042",
+      "name": "Reservoir №4",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.0477559,
+        51.5841534
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_3296922",
+      "name": "Hilfield Park Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3278066,
+        51.6504342
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_3871200",
+      "name": "Ruislip Lido",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4304055,
+        51.5919571
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_4049105",
+      "name": "West Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.0905651,
+        51.5684471
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_4049122",
+      "name": "East Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.0858093,
+        51.5712938
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_4208584",
+      "name": "Sawyers Lake",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.3317866,
+        51.4393804
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_4236656",
+      "name": "Water 4236656",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.0026984,
+        51.6526678
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_4253226",
+      "name": "Mogden Sewage Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.3402621,
+        51.4627273
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_4441702",
+      "name": "Water 4441702",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.1255854,
+        51.6685973
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_4449832",
+      "name": "Red House Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3895712,
+        51.4202542
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_5110847",
+      "name": "Long Reach Sewage Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.2353543,
+        51.4678385
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_5185039",
+      "name": "Water 5185039",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1379416,
+        51.5035631
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_8056987",
+      "name": "Water 8056987",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.1186867,
+        51.5937765
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_8059957",
+      "name": "Troy Lake",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.5004621,
+        51.6030773
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_8059966",
+      "name": "Water 8059966",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.5030308,
+        51.5991771
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_12303418",
+      "name": "Water 12303418",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.0530027,
+        51.5861767
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_17506884",
+      "name": "Beckton Sewage Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.0836316,
+        51.5196667
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "BECKS1ZZ"
+      }
+    },
+    {
+      "id": "water_wastewater_21384960",
+      "name": "Ripley STW",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.5039347,
+        51.3035447
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "RIPLS1ZZ"
+      }
+    },
+    {
+      "id": "water_treatment_22589785",
+      "name": "Hornsey Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.1180256,
+        51.5935172
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_wastewater_22696811",
+      "name": "Acton Storm Tanks",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.2548987,
+        51.5028076
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_23043779",
+      "name": "Hogsmill STW Nature Reserve",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.2830254,
+        51.3993594
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_wastewater_23070525",
+      "name": "Riverside Sewage Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.1811081,
+        51.5183964
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_23129884",
+      "name": "William Girling Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.0256937,
+        51.629531
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_23161630",
+      "name": "Banbury Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.0351131,
+        51.6049321
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_treatment_23451418",
+      "name": "Kempton Park Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.4027671,
+        51.4269252
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_tower_23699364",
+      "name": "Water 23699364",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2900775,
+        51.4887332
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_wastewater_24508238",
+      "name": "Water 24508238",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.4560749,
+        51.4507703
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_pumping_24838664",
+      "name": "Shad Thames Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0726659,
+        51.5026066
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_treatment_26149359",
+      "name": "Water 26149359",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.4507906,
+        51.5760407
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_pumping_27674677",
+      "name": "Leatherhead Pumping Station New Works",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.3347607,
+        51.293755
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_29120021",
+      "name": "Crossness Sewage Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.1415753,
+        51.5048549
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_tower_29256417",
+      "name": "Water 29256417",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.128477,
+        51.5359382
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "St Pancras Cruising Club"
+      }
+    },
+    {
+      "id": "water_pumping_33904699",
+      "name": "Western Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1481755,
+        51.4862435
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_37798930",
+      "name": "Lots Road pumping station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1797216,
+        51.4789361
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_wastewater_38229103",
+      "name": "Northfleet Wastewater Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.3277412,
+        51.4377449
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Southern Water"
+      }
+    },
+    {
+      "id": "water_treatment_38681690",
+      "name": "Wilmington water treatment works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        0.2191352,
+        51.4329344
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_41742359",
+      "name": "Manorway Sewage Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0591861,
+        51.5182784
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_42875013",
+      "name": "King George V Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0167226,
+        51.6633583
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_wastewater_43081973",
+      "name": "Esher Sewage Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.3721171,
+        51.3840039
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_44207998",
+      "name": "Water 44207998",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3984271,
+        51.4030626
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_44208047",
+      "name": "Water 44208047",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3978136,
+        51.4048901
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_44208080",
+      "name": "Water 44208080",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3988249,
+        51.4045391
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_45197498",
+      "name": "Aldenham Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3121399,
+        51.6460296
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_46100350",
+      "name": "Blackbirds Sewage Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.3421672,
+        51.6883538
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "BLACS1ZZ"
+      }
+    },
+    {
+      "id": "water_storage_47313794",
+      "name": "Staples Road Flood Storage Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.0491719,
+        51.6509216
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_47922002",
+      "name": "Deephams Sewage Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.0386653,
+        51.6244596
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_48982488",
+      "name": "Raw Water Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1041602,
+        51.6208508
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982493",
+      "name": "Water 48982493",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1041547,
+        51.6221868
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982498",
+      "name": "Water 48982498",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1042419,
+        51.622551
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982512",
+      "name": "Water 48982512",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1043278,
+        51.6229095
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982513",
+      "name": "Water 48982513",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1044143,
+        51.6232667
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982517",
+      "name": "Water 48982517",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1045188,
+        51.6236947
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982546",
+      "name": "Water 48982546",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1046061,
+        51.6240639
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982565",
+      "name": "Water 48982565",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1046919,
+        51.624414
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982566",
+      "name": "Water 48982566",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1047763,
+        51.624767
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982569",
+      "name": "Water 48982569",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1048629,
+        51.6251283
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982573",
+      "name": "Water 48982573",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1035506,
+        51.6252541
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982577",
+      "name": "Water 48982577",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1034655,
+        51.6248907
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982597",
+      "name": "Water 48982597",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1033809,
+        51.6245385
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982605",
+      "name": "Water 48982605",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1032972,
+        51.624183
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982606",
+      "name": "Water 48982606",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1032107,
+        51.6238128
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982677",
+      "name": "Water 48982677",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1031094,
+        51.6233903
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982682",
+      "name": "Water 48982682",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1030242,
+        51.6230323
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982918",
+      "name": "Water 48982918",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1029377,
+        51.6226697
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982977",
+      "name": "Water 48982977",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1028526,
+        51.6223046
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_48982980",
+      "name": "Washwater Lagoon",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1072917,
+        51.6231977
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_56117482",
+      "name": "Maple Cross Sewage Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.4993418,
+        51.6189189
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_treatment_58476180",
+      "name": "East Ham Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        0.0711562,
+        51.5386465
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_68899625",
+      "name": "Water 68899625",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4420909,
+        51.3844984
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_68899626",
+      "name": "Water 68899626",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4408178,
+        51.3849528
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_68899627",
+      "name": "Water 68899627",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.441455,
+        51.3862975
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_68899629",
+      "name": "Water 68899629",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4413083,
+        51.3859848
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_68899630",
+      "name": "Water 68899630",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4395201,
+        51.3855486
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_68899631",
+      "name": "Water 68899631",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4409779,
+        51.3852883
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_68899632",
+      "name": "Water 68899632",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4399143,
+        51.3864406
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_68899633",
+      "name": "Water 68899633",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4411422,
+        51.3856307
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_68899634",
+      "name": "Water 68899634",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4426776,
+        51.3848165
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_68899635",
+      "name": "Water 68899635",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4419182,
+        51.3842642
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_68899636",
+      "name": "Water 68899636",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4406543,
+        51.384607
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_69365946",
+      "name": "Fortis Green Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1505423,
+        51.5863984
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_96651610",
+      "name": "Water 96651610",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.230791,
+        51.4036576
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_102950669",
+      "name": "Nags Head Lane Sewage Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.2583719,
+        51.6008231
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "NAGSS1ZZ"
+      }
+    },
+    {
+      "id": "water_storage_112779200",
+      "name": "Water 112779200",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.0024633,
+        51.6535581
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_114421643",
+      "name": "Wandle Valley Sewage Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.180773,
+        51.4209223
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_115489531",
+      "name": "Merton Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1774133,
+        51.4150216
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_120476099",
+      "name": "Pumphouse",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0930258,
+        51.5293445
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_tower_127581032",
+      "name": "Water 127581032",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        0.2958283,
+        51.6001207
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_tower_129961969",
+      "name": "Water 129961969",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0161125,
+        51.67049
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_pumping_132958058",
+      "name": "Canning Town Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0059071,
+        51.5158339
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_147189989",
+      "name": "Queen Mary Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4603972,
+        51.4160386
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_147637935",
+      "name": "Knight Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3959848,
+        51.3995506
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_147637938",
+      "name": "Island Barn Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3644706,
+        51.3908959
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_147638018",
+      "name": "Queen Elizabeth II Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3934681,
+        51.3913156
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_147638019",
+      "name": "Bessborough Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3892176,
+        51.4014312
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_147667105",
+      "name": "Water 147667105",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.1642465,
+        51.3877247
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_147855517",
+      "name": "King George VI Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.5024647,
+        51.4486365
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_148728663",
+      "name": "Water 148728663",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4427839,
+        51.3840209
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_148787485",
+      "name": "Water 148787485",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4940236,
+        51.4025174
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_148812861",
+      "name": "Water 148812861",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.452293,
+        51.4448822
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_tower_148899292",
+      "name": "Water 148899292",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2389788,
+        51.6469128
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_treatment_149202051",
+      "name": "Chigwell Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        0.1051785,
+        51.6234369
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_151331641",
+      "name": "Limes Road Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.4612287,
+        51.3703041
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water Utilities Ltd"
+      }
+    },
+    {
+      "id": "water_wastewater_152380203",
+      "name": "Weybridge Sewage Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.4676968,
+        51.3581002
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_152468826",
+      "name": "Water 152468826",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3789641,
+        51.4122648
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_152468830",
+      "name": "Water 152468830",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3804802,
+        51.4130482
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_152468831",
+      "name": "Water 152468831",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3791976,
+        51.412989
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_152468832",
+      "name": "Stain Hill West Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3867324,
+        51.4123519
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_152468833",
+      "name": "Stain Hill East Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3840016,
+        51.4121507
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_152468844",
+      "name": "Sunnyside Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3810432,
+        51.4090663
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_152468846",
+      "name": "Grand Junction Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.376686,
+        51.4126416
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_152468851",
+      "name": "Water 152468851",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3801955,
+        51.4121724
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_155236183",
+      "name": "Water 155236183",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4420101,
+        51.415844
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_155531172",
+      "name": "Water 155531172",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4029033,
+        51.4262161
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_158290039",
+      "name": "Theydon Bois WwTW",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.1335132,
+        51.6610774
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "THEYS1ZZ"
+      }
+    },
+    {
+      "id": "water_wastewater_161757079",
+      "name": "Doddinghurst STW",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.3201842,
+        51.6667011
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Anglian Water",
+        "reference": "DODHST"
+      }
+    },
+    {
+      "id": "water_storage_162961306",
+      "name": "Water 162961306",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3176701,
+        51.3929286
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_162961307",
+      "name": "Water 162961307",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3654384,
+        51.4122805
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_162961308",
+      "name": "Water 162961308",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3183998,
+        51.3925117
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_162961313",
+      "name": "Water 162961313",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3689835,
+        51.4117109
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_162961314",
+      "name": "Water 162961314",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3671275,
+        51.4121241
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_162961318",
+      "name": "Water 162961318",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3699706,
+        51.4124888
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_162961321",
+      "name": "Water 162961321",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3125137,
+        51.3962971
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_162961322",
+      "name": "Water 162961322",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3663281,
+        51.412176
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_treatment_162967632",
+      "name": "Ashford Common Advanced Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.4376909,
+        51.4173551
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_tower_166268948",
+      "name": "Water 166268948",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.057071,
+        51.3496406
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_pumping_171799199",
+      "name": "West Wickham PS",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0189295,
+        51.3634438
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "WWICR1ZZ"
+      }
+    },
+    {
+      "id": "water_pumping_173430119",
+      "name": "Water 173430119",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0169572,
+        51.5085859
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_tower_176569484",
+      "name": "Water 176569484",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1523748,
+        51.6587969
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_storage_177497257",
+      "name": "Water 177497257",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4007221,
+        51.4058811
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_treatment_177497263",
+      "name": "Walton Advanced Water treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.3977858,
+        51.4044028
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_181838239",
+      "name": "Abbey Mills Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0021366,
+        51.5294174
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_182344203",
+      "name": "Water 182344203",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0580336,
+        51.3785735
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_185669880",
+      "name": "New River Head",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1094017,
+        51.5281576
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_wastewater_187708460",
+      "name": "Iver North Wastewater Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.4980501,
+        51.5161167
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "IVERS1ZZ"
+      }
+    },
+    {
+      "id": "water_wastewater_188603903",
+      "name": "Iver South Sludge Dewatering Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.5079731,
+        51.4913404
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_196384564",
+      "name": "Store Road Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0603116,
+        51.4995886
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_197093402",
+      "name": "Water 197093402",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1961141,
+        51.4709668
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_217105683",
+      "name": "Water 217105683",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4439662,
+        51.3852667
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_217105685",
+      "name": "Water 217105685",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4436592,
+        51.3854621
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_218389293",
+      "name": "Stanford Rivers WWTW",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.23514,
+        51.6759636
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_218543659",
+      "name": "Water 218543659",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.2282878,
+        51.3514123
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_treatment_220994657",
+      "name": "Water 220994657",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.4098346,
+        51.6350765
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_pumping_222635978",
+      "name": "Water 222635978",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.3686453,
+        51.527827
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_tower_222635979",
+      "name": "Water 222635979",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3680701,
+        51.5281016
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_wastewater_231426068",
+      "name": "Fiddlers Hamlet WWTW",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.1368367,
+        51.6837648
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_tower_235066383",
+      "name": "Water 235066383",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1308696,
+        51.5369409
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_treatment_235168545",
+      "name": "Water 235168545",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        0.0509248,
+        51.62329
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_pumping_235214173",
+      "name": "Water 235214173",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.3678087,
+        51.679873
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_treatment_251693886",
+      "name": "Chertsey Water Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.4951042,
+        51.39959
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "capacity": "41 MLD"
+      }
+    },
+    {
+      "id": "water_storage_251693887",
+      "name": "Water 251693887",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4959986,
+        51.3999666
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_251693888",
+      "name": "Water 251693888",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4954396,
+        51.400052
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_251693889",
+      "name": "Water 251693889",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4948892,
+        51.4001308
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_251693890",
+      "name": "Water 251693890",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4943648,
+        51.4002095
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_251693891",
+      "name": "Water 251693891",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.493804,
+        51.4002905
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_265879386",
+      "name": "Water 265879386",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.032932,
+        51.3475949
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_273191161",
+      "name": "Hackney Marshes Water Treatment Plant",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.0200454,
+        51.5515864
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Environment Agency"
+      }
+    },
+    {
+      "id": "water_tower_287956827",
+      "name": "Thames Water Tower",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2166438,
+        51.504898
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Thames Water Tower"
+      }
+    },
+    {
+      "id": "water_storage_326353277",
+      "name": "Side Pond",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3483967,
+        51.5053213
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_326353278",
+      "name": "Side Pond",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3459076,
+        51.5043883
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_326353279",
+      "name": "Side Pond",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3470352,
+        51.5049801
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_326353280",
+      "name": "Side Pond",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3447624,
+        51.5037148
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_326353281",
+      "name": "Side Pond",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3500612,
+        51.505315
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_326950871",
+      "name": "Water 326950871",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.3934498,
+        51.4545338
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_332802854",
+      "name": "Water 332802854",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.0926637,
+        51.5159747
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_361474335",
+      "name": "Water 361474335",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0408824,
+        51.5750501
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_361512529",
+      "name": "Heathwall Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1356393,
+        51.4827159
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_379652733",
+      "name": "Barnes Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.2405082,
+        51.4882133
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_treatment_383792470",
+      "name": "Water 383792470",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.2254203,
+        51.3086385
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_treatment_384995339",
+      "name": "Hampton Water Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.3768012,
+        51.4112942
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_tower_388152915",
+      "name": "Havering-Atte-Bower Water Tower",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        0.1899566,
+        51.6165737
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_pumping_389935067",
+      "name": "Littleton Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.477022,
+        51.4155296
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_wastewater_427654722",
+      "name": "Wisley WWTW",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.4802468,
+        51.3264379
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_439347077",
+      "name": "Water 439347077",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0851576,
+        51.5273929
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_439439886",
+      "name": "Horseshoe Corner Sluice",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1322274,
+        51.5192964
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_449442201",
+      "name": "Water 449442201",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4561256,
+        51.4496728
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_461536470",
+      "name": "Woodford Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0082532,
+        51.5931951
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_treatment_465939152",
+      "name": "Coppermills Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.0468718,
+        51.5765085
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_475874280",
+      "name": "Row Dow Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.2135785,
+        51.3165214
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_478934241",
+      "name": "Water 478934241",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.28361,
+        51.6037258
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_503644470",
+      "name": "Hammersmith Sewage Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.2256546,
+        51.4879536
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_506483940",
+      "name": "Cricklewood Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.2277897,
+        51.5582036
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_tower_510824535",
+      "name": "Historic Water Tower",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1928221,
+        51.5965018
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_pumping_512859604",
+      "name": "Holland Park Avenue Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.2166625,
+        51.5046338
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_524917090",
+      "name": "Brixton Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1246322,
+        51.4530307
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_529925954",
+      "name": "Earl Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0403563,
+        51.4918045
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_treatment_530037281",
+      "name": "Pumping Station",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.488339,
+        51.5855337
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_storage_542043730",
+      "name": "Water 542043730",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4042518,
+        51.4265942
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_542043732",
+      "name": "Water 542043732",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4039536,
+        51.427005
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_542043733",
+      "name": "Water 542043733",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4036561,
+        51.4274193
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_542043734",
+      "name": "Water 542043734",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4033153,
+        51.4279056
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_542043735",
+      "name": "Water 542043735",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4030056,
+        51.4283185
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_542043736",
+      "name": "Water 542043736",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4027106,
+        51.4287317
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_542043737",
+      "name": "Water 542043737",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4026081,
+        51.4266283
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_542043738",
+      "name": "Water 542043738",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4023056,
+        51.4270382
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_542043739",
+      "name": "Water 542043739",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4019691,
+        51.4275313
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_542043740",
+      "name": "Water 542043740",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4016558,
+        51.427944
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_542043741",
+      "name": "Water 542043741",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4013648,
+        51.4283543
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_treatment_542126453",
+      "name": "Chingford Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.0162822,
+        51.6361384
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_542430482",
+      "name": "Water 542430482",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0315079,
+        51.6176217
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_550750173",
+      "name": "Water 550750173",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.3152206,
+        51.4636891
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_550750174",
+      "name": "Water 550750174",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.3155842,
+        51.4638645
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_550756559",
+      "name": "Water 550756559",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.3144105,
+        51.4644164
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_551863925",
+      "name": "Water 551863925",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1388546,
+        51.5032987
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_551936229",
+      "name": "Pond No.3",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1379886,
+        51.5097105
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_553127669",
+      "name": "Water 553127669",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2306776,
+        51.4644147
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_553127670",
+      "name": "Water 553127670",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2263036,
+        51.4643894
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_553127671",
+      "name": "The Bridge, Dartford Binnie Road Pumping Station 6",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2232748,
+        51.464408
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Independent Water Networks",
+        "reference": "N7045422"
+      }
+    },
+    {
+      "id": "water_tower_572193008",
+      "name": "Warlingham Park Hospital Water Tower",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0302199,
+        51.318871
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_pumping_586640150",
+      "name": "Pump House",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1358243,
+        51.4743786
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Carey Gardens Co-Operative Ltd."
+      }
+    },
+    {
+      "id": "water_treatment_646316450",
+      "name": "Thames Gateway Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        0.0918879,
+        51.5165529
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_wastewater_656736112",
+      "name": "Beddington WwTW",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.1366479,
+        51.3794713
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "BEDDS1ZZ"
+      }
+    },
+    {
+      "id": "water_treatment_670828562",
+      "name": "Thames Water",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.2623707,
+        51.3376886
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_680236187",
+      "name": "Water 680236187",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.2353207,
+        51.404473
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_680909743",
+      "name": "Falconbrook Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1774743,
+        51.4676641
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_694110505",
+      "name": "Water 694110505",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.3134869,
+        51.4394375
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_694110506",
+      "name": "Water 694110506",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.3135412,
+        51.4386595
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_tower_712897178",
+      "name": "Addington Tower",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0566822,
+        51.3595052
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "ADDIT1ZZ",
+        "capacity": "19000"
+      }
+    },
+    {
+      "id": "water_pumping_716671860",
+      "name": "Bexley Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1359311,
+        51.4343077
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_tower_725154870",
+      "name": "Water 725154870",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0926373,
+        51.5799782
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_pumping_727889197",
+      "name": "Streatham Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1379395,
+        51.4231058
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_734222651",
+      "name": "Ladywell Fields Borehole Source",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0274497,
+        51.4466455
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "LADYBOZZ"
+      }
+    },
+    {
+      "id": "water_pumping_741708112",
+      "name": "Lower Sunbury Sewage Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.3909811,
+        51.4103493
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_765645946",
+      "name": "Water 765645946",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4944277,
+        51.4659391
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_773572278",
+      "name": "Battersea Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1415001,
+        51.4813216
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_treatment_775769359",
+      "name": "Kenley Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.0958075,
+        51.3232511
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "SES Water"
+      }
+    },
+    {
+      "id": "water_storage_787659044",
+      "name": "Water 787659044",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.2772429,
+        51.5779239
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_797595261",
+      "name": "Water 797595261",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1085225,
+        51.5092117
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_808367948",
+      "name": "Water 808367948",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.2574123,
+        51.3910056
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_808367949",
+      "name": "Water 808367949",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.2580373,
+        51.3900011
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_808590426",
+      "name": "Water 808590426",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.3064674,
+        51.4532818
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Southern Water"
+      }
+    },
+    {
+      "id": "water_treatment_813621614",
+      "name": "Chorleywood Pumping Station",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.5033447,
+        51.6687081
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Affinity Water"
+      }
+    },
+    {
+      "id": "water_wastewater_820401226",
+      "name": "Beckton Activated Sludge Plant",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.087822,
+        51.5152798
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_821257090",
+      "name": "Watling Street Sewage Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2392588,
+        51.4405138
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "WATLP1ZZ"
+      }
+    },
+    {
+      "id": "water_treatment_824380470",
+      "name": "Darenth water treatment works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        0.2331474,
+        51.4250462
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_825179166",
+      "name": "Water 825179166",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.2465912,
+        51.2978426
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_825983691",
+      "name": "Water 825983691",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.4200692,
+        51.5959286
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_832753371",
+      "name": "Priory Road Vacuum Sewage Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2132299,
+        51.449726
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "PRIOP6ZZ"
+      }
+    },
+    {
+      "id": "water_storage_835486780",
+      "name": "Water 835486780",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3159422,
+        51.3941521
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_835486781",
+      "name": "Water 835486781",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.315522,
+        51.3938996
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_835486782",
+      "name": "Water 835486782",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3147978,
+        51.394919
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_835486783",
+      "name": "Water 835486783",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3142846,
+        51.3946552
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_835486784",
+      "name": "Water 835486784",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3137937,
+        51.3956381
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_835486785",
+      "name": "Water 835486785",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3133189,
+        51.395381
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_846440561",
+      "name": "Eastern Balancing Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.412557,
+        51.4670831
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_846440562",
+      "name": "Eastern Balancing Reservoir",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4079635,
+        51.4655189
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_846440566",
+      "name": "Water 846440566",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.4155973,
+        51.4668932
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Heathrow Airport"
+      }
+    },
+    {
+      "id": "water_pumping_852665099",
+      "name": "Water 852665099",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.4083813,
+        51.4241576
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_854167285",
+      "name": "Water 854167285",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4559153,
+        51.4507898
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_854167286",
+      "name": "Water 854167286",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.455899,
+        51.4515152
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_854167287",
+      "name": "Water 854167287",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4563158,
+        51.4521452
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_854167288",
+      "name": "Water 854167288",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4557731,
+        51.4493952
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_854167289",
+      "name": "Water 854167289",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4561265,
+        51.449703
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_858894488",
+      "name": "Water 858894488",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4048409,
+        51.4250493
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_858894489",
+      "name": "Water 858894489",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4047625,
+        51.4250247
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_858894490",
+      "name": "Water 858894490",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4046764,
+        51.4250014
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_858894491",
+      "name": "Water 858894491",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4045936,
+        51.4249774
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_858894492",
+      "name": "Water 858894492",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4045123,
+        51.4249551
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_858894493",
+      "name": "Water 858894493",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4044311,
+        51.4249336
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_860416998",
+      "name": "Jolly Farmers Trunk Sewers Compound",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.1967125,
+        51.4557184
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "GREEP1ZZ"
+      }
+    },
+    {
+      "id": "water_storage_860686759",
+      "name": "Water 860686759",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3987175,
+        51.4063955
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_860686779",
+      "name": "Water 860686779",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.3914602,
+        51.3987589
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_863993000",
+      "name": "Water 863993000",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.5027523,
+        51.6683582
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_878179775",
+      "name": "Water 878179775",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.2464847,
+        51.2978067
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_tower_884145104",
+      "name": "Water 884145104",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        0.2724802,
+        51.6655638
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_pumping_891486354",
+      "name": "Staines Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.5026561,
+        51.4377566
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_899223402",
+      "name": "Mallards Road SPS",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1088162,
+        51.5217322
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_906236201",
+      "name": "Barge House Road SPS",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0692465,
+        51.5000573
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "BARGP2ZZ"
+      }
+    },
+    {
+      "id": "water_pumping_907524899",
+      "name": "Hammersmith Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.240584,
+        51.4904642
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_914159307",
+      "name": "Water 914159307",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0131156,
+        51.6692687
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_917169514",
+      "name": "Water 917169514",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0518728,
+        51.5010506
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_926014740",
+      "name": "Water 926014740",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0046868,
+        51.6776565
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_931873215",
+      "name": "Riverside Dartford (Dartford) sewage pumping station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2190758,
+        51.451112
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "RIVEPBZZ"
+      }
+    },
+    {
+      "id": "water_treatment_932223906",
+      "name": "Iver Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.4975479,
+        51.5110611
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_treatment_934088222",
+      "name": "Dartford Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        0.2211137,
+        51.4454301
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "DARTU1ZZ"
+      }
+    },
+    {
+      "id": "water_pumping_939112936",
+      "name": "Overy Street Surface Water Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2208803,
+        51.4467992
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_wastewater_941778353",
+      "name": "Old Ford Water Recycling Plant",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.0201105,
+        51.5371095
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_951784054",
+      "name": "Summerstown SPS",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1904303,
+        51.4317142
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "SUMMP3ZZ"
+      }
+    },
+    {
+      "id": "water_pumping_955377171",
+      "name": "Woodgrange Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0474729,
+        51.5484215
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_967291537",
+      "name": "Water 967291537",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.5100314,
+        51.5807524
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_970621016",
+      "name": "Water 970621016",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1720957,
+        51.4461211
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_wastewater_981242049",
+      "name": "Leatherhead Wastewater Treatment Works",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.353642,
+        51.3082241
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "LEATS1ZZ"
+      }
+    },
+    {
+      "id": "water_storage_986209077",
+      "name": "Water 986209077",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4884426,
+        51.4027878
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_wastewater_996304542",
+      "name": "Hydro Cleansing Waste Treatment Facility",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        -0.1316809,
+        51.3833436
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Hydro Cleansing Limited"
+      }
+    },
+    {
+      "id": "water_pumping_998130303",
+      "name": "Water 998130303",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2199291,
+        51.4421671
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1000510645",
+      "name": "Water 1000510645",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1595277,
+        51.5128918
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1005026338",
+      "name": "Clarence Road Sewage Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0407571,
+        51.550408
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1010519343",
+      "name": "Water 1010519343",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.5023841,
+        51.4380433
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1014331715",
+      "name": "Water 1014331715",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.4929279,
+        51.4140197
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1018516017",
+      "name": "Water 1018516017",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.4562937,
+        51.4395863
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1025981009",
+      "name": "Greenwich Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0183784,
+        51.4771513
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_tower_1027522955",
+      "name": "Water 1027522955",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        0.1572086,
+        51.5163662
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_pumping_1027667307",
+      "name": "Chequers Lane Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1468931,
+        51.5250109
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1029315727",
+      "name": "Water 1029315727",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.3145182,
+        51.4356155
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1030215771",
+      "name": "Letts Road SPS",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.002238,
+        51.5382841
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1036861327",
+      "name": "Water 1036861327",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2354796,
+        51.4575252
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_treatment_1039138720",
+      "name": "Woodmansterne Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.1657599,
+        51.3152987
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "SSE"
+      }
+    },
+    {
+      "id": "water_storage_1049570978",
+      "name": "Water 1049570978",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.1525147,
+        51.3440804
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_treatment_1056035010",
+      "name": "Water 1056035010",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.4782692,
+        51.6532887
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_treatment_1073298587",
+      "name": "North Orpington Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        0.1042763,
+        51.3856767
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "NORPU1ZZ"
+      }
+    },
+    {
+      "id": "water_pumping_1082284662",
+      "name": "Kew Bridge Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.2929442,
+        51.488453
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1082285363",
+      "name": "Water 1082285363",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.3434042,
+        51.4657721
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1082286869",
+      "name": "Barrow Hill Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1621429,
+        51.5370887
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1082293616",
+      "name": "Stoke Newington Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.091632,
+        51.5656545
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1082298795",
+      "name": "Surbiton Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.3167253,
+        51.3920691
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1082308085",
+      "name": "Park Lane Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1515937,
+        51.5044041
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1082709590",
+      "name": "Tidal Basin Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0170352,
+        51.5086223
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_treatment_1082829236",
+      "name": "Waltham Abbey Water Treatment Works",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.0120144,
+        51.6846202
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1083021502",
+      "name": "Stratford Box Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0144648,
+        51.5436563
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_treatment_1087034492",
+      "name": "Water 1087034492",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.1613937,
+        51.5855585
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_pumping_1087376624",
+      "name": "Manor Road SPS",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1917622,
+        51.4777921
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "reference": "MANOP9ZZ"
+      }
+    },
+    {
+      "id": "water_wastewater_1088407909",
+      "name": "Nags Head Lane STW",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.3164485,
+        51.5563763
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1089626396",
+      "name": "Water 1089626396",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0536718,
+        51.4678411
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1089626406",
+      "name": "Water 1089626406",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0576854,
+        51.4675737
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1093229641",
+      "name": "Water 1093229641",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2390388,
+        51.5419252
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1094331591",
+      "name": "Stone Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2608579,
+        51.4527692
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1095697449",
+      "name": "Connaught Close SPS",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0389682,
+        51.5649248
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "CONNO1ZZ"
+      }
+    },
+    {
+      "id": "water_pumping_1095857242",
+      "name": "Water 1095857242",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.3912069,
+        51.3643983
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1101971111",
+      "name": "Deptford Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0197148,
+        51.4708607
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1104183575",
+      "name": "Water 1104183575",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2975856,
+        51.4497607
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1105689104",
+      "name": "Olympic Park Primary Sewage Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0137632,
+        51.5349009
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "HASEU1ZZ"
+      }
+    },
+    {
+      "id": "water_pumping_1106715746",
+      "name": "Waverley Gardens SPS",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0933074,
+        51.5289252
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1117949436",
+      "name": "Water 1117949436",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.3153766,
+        51.5007512
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1120681587",
+      "name": "Abbeywood Terminal SPS",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1118046,
+        51.4974099
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "ABBEP1ZZ"
+      }
+    },
+    {
+      "id": "water_tower_1122285483",
+      "name": "Water 1122285483",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1323234,
+        51.4834977
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_pumping_1128242050",
+      "name": "Water 1128242050",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0754527,
+        51.4290141
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1131149174",
+      "name": "Water 1131149174",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2695132,
+        51.4794058
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1158488461",
+      "name": "Wanstead Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0410537,
+        51.5749991
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water Utilities Ltd"
+      }
+    },
+    {
+      "id": "water_pumping_1159053576",
+      "name": "Water 1159053576",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0417764,
+        51.5831163
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1181100243",
+      "name": "Water 1181100243",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0516299,
+        51.5892474
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1182244213",
+      "name": "Water 1182244213",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.335924,
+        51.4875958
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_tower_1195121023",
+      "name": "Hither Green Water Tower",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0043642,
+        51.4489543
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_treatment_1196020675",
+      "name": "Water 1196020675",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.4114302,
+        51.2842218
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_treatment_1197230003",
+      "name": "Water 1197230003",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.059248,
+        51.3983365
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_pumping_1212388745",
+      "name": "Water 1212388745",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1139509,
+        51.647271
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1232058517",
+      "name": "Water 1232058517",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0826039,
+        51.4593967
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1232130346",
+      "name": "Water 1232130346",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0201105,
+        51.5515648
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Environment Agency"
+      }
+    },
+    {
+      "id": "water_pumping_1235496954",
+      "name": "Water 1235496954",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.2328952,
+        51.523488
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1249078878",
+      "name": "Little Ilford Sewage Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0664812,
+        51.5459619
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_1251927375",
+      "name": "Pond No.2",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1385076,
+        51.5095518
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1251927376",
+      "name": "Pond No.1",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1390058,
+        51.5093675
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1262366974",
+      "name": "Jenkins Lane Sewage Treatment Works",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.067817,
+        51.5282007
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1265236381",
+      "name": "Water 1265236381",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1684266,
+        51.4841129
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "SANDP3ZZ"
+      }
+    },
+    {
+      "id": "water_pumping_1265406102",
+      "name": "Water 1265406102",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.2496007,
+        51.4566179
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1266169167",
+      "name": "Stonewood Road SPS",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1770627,
+        51.4820254
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "STONP7ZZ"
+      }
+    },
+    {
+      "id": "water_pumping_1267021817",
+      "name": "Fraser Road SPS",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.1701778,
+        51.4812372
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "FRASP2ZZ"
+      }
+    },
+    {
+      "id": "water_pumping_1267744226",
+      "name": "Water 1267744226",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.3974765,
+        51.3681439
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_storage_1280733481",
+      "name": "Water 1280733481",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.2882189,
+        51.440991
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1281173620",
+      "name": "Water 1281173620",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.5058639,
+        51.4206637
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1289498550",
+      "name": "Water 1289498550",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0072598,
+        51.4947435
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1292238416",
+      "name": "Water 1292238416",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.048245,
+        51.4944281
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_treatment_1299802728",
+      "name": "Impounding Culvert",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        0.0781932,
+        51.5056723
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Environment Agency"
+      }
+    },
+    {
+      "id": "water_pumping_1307083318",
+      "name": "Water 1307083318",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1772299,
+        51.299634
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Sutton and East Surrey Water"
+      }
+    },
+    {
+      "id": "water_pumping_1331713289",
+      "name": "Water 1331713289",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.2838681,
+        51.351499
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1334954275",
+      "name": "Kenley Road Pump House",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1946394,
+        51.4041407
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "London Underground Ltd."
+      }
+    },
+    {
+      "id": "water_pumping_1334954280",
+      "name": "Dorset Road Pump House",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.1947018,
+        51.4085642
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "London Underground Ltd."
+      }
+    },
+    {
+      "id": "water_treatment_1341493263",
+      "name": "Water 1341493263",
+      "type": "water",
+      "subtype": "treatment",
+      "coordinates": [
+        -0.3347849,
+        51.2937951
+      ],
+      "status": "normal",
+      "criticality": "critical"
+    },
+    {
+      "id": "water_pumping_1353710436",
+      "name": "Water 1353710436",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0165432,
+        51.5591816
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_pumping_1361421019",
+      "name": "Water 1361421019",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.3547837,
+        51.2997812
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1366433314",
+      "name": "Pumping Station (South Building)",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0005091,
+        51.5322592
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1366721683",
+      "name": "Pumping Station North Building",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.0004116,
+        51.5367343
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1374130889",
+      "name": "Water 1374130889",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        0.1363738,
+        51.4150979
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1415620636",
+      "name": "Water 1415620636",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        0.3054296,
+        51.342292
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_tower_1418361563",
+      "name": "Water 1418361563",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        0.3283731,
+        51.3716888
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_wastewater_1419913745",
+      "name": "Choats Road (Barking) SPS",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.1217701,
+        51.526882
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water",
+        "reference": "CHOAP0ZZ"
+      }
+    },
+    {
+      "id": "water_storage_1422646986",
+      "name": "Water 1422646986",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4409724,
+        51.4142121
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646987",
+      "name": "Water 1422646987",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.440988,
+        51.4140749
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646988",
+      "name": "Water 1422646988",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4405214,
+        51.4146178
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646989",
+      "name": "Water 1422646989",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4398765,
+        51.414592
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646990",
+      "name": "Water 1422646990",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4406501,
+        51.4141369
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646991",
+      "name": "Water 1422646991",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4402462,
+        51.4141194
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646992",
+      "name": "Water 1422646992",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4398467,
+        51.4141065
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646993",
+      "name": "Water 1422646993",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4413736,
+        51.4142288
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646994",
+      "name": "Water 1422646994",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4416126,
+        51.4142396
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646995",
+      "name": "Water 1422646995",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4404095,
+        51.4148906
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646996",
+      "name": "Water 1422646996",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4399178,
+        51.4148698
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646997",
+      "name": "Water 1422646997",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4414377,
+        51.4158186
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646998",
+      "name": "Water 1422646998",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4408675,
+        51.4157909
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422646999",
+      "name": "Water 1422646999",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4402934,
+        51.4157682
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647000",
+      "name": "Water 1422647000",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4397234,
+        51.415738
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647001",
+      "name": "Water 1422647001",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4419029,
+        51.416848
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647002",
+      "name": "Water 1422647002",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4413246,
+        51.4168203
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647003",
+      "name": "Water 1422647003",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4401908,
+        51.4167689
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647004",
+      "name": "Water 1422647004",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4396227,
+        51.4167486
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647005",
+      "name": "Water 1422647005",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4390544,
+        51.4167283
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647006",
+      "name": "Water 1422647006",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4381137,
+        51.416676
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647007",
+      "name": "Water 1422647007",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4375363,
+        51.4166673
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647008",
+      "name": "Water 1422647008",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4369774,
+        51.4166528
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647009",
+      "name": "Water 1422647009",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4358411,
+        51.4166005
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647010",
+      "name": "Water 1422647010",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.435259,
+        51.4165657
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647011",
+      "name": "Water 1422647011",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4376527,
+        51.4156566
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647012",
+      "name": "Water 1422647012",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4370846,
+        51.4156362
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647013",
+      "name": "Water 1422647013",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4365117,
+        51.4156101
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647014",
+      "name": "Water 1422647014",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4359389,
+        51.4155868
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647015",
+      "name": "Water 1422647015",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4353754,
+        51.4155695
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647016",
+      "name": "Water 1422647016",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4380113,
+        51.4176606
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647017",
+      "name": "Water 1422647017",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4374432,
+        51.4176315
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647018",
+      "name": "Water 1422647018",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4368656,
+        51.4176112
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647019",
+      "name": "Water 1422647019",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4362929,
+        51.4175909
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647020",
+      "name": "Water 1422647020",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4357433,
+        51.4175618
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647021",
+      "name": "Water 1422647021",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4351611,
+        51.4175444
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647022",
+      "name": "Water 1422647022",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4389567,
+        51.4177042
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647023",
+      "name": "Water 1422647023",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4395109,
+        51.4177158
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647024",
+      "name": "Water 1422647024",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4400791,
+        51.4177448
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647025",
+      "name": "Water 1422647025",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4406612,
+        51.417768
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647026",
+      "name": "Water 1422647026",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4412154,
+        51.4177884
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_storage_1422647027",
+      "name": "Water 1422647027",
+      "type": "water",
+      "subtype": "storage",
+      "coordinates": [
+        -0.4418068,
+        51.4178087
+      ],
+      "status": "normal",
+      "criticality": "high"
+    },
+    {
+      "id": "water_pumping_1427670150",
+      "name": "Royal Oak (Sewardstone) Sewage Pumping Station",
+      "type": "water",
+      "subtype": "pumping",
+      "coordinates": [
+        -0.0044446,
+        51.6641634
+      ],
+      "status": "normal",
+      "criticality": "high",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    },
+    {
+      "id": "water_tower_1431536855",
+      "name": "Water 1431536855",
+      "type": "water",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0681718,
+        51.4955269
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "water_wastewater_1441835006",
+      "name": "Humberstone Road Pumping Station",
+      "type": "water",
+      "subtype": "wastewater",
+      "coordinates": [
+        0.038569,
+        51.5236356
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "metadata": {
+        "operator": "Thames Water"
+      }
+    }
+  ]
+}

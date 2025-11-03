@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phase 1: Clustering + Expandable Controls Test</title>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
+    <style>
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        #map { position: absolute; top: 0; bottom: 0; width: 70%; }
+        .controls { 
+            position: absolute; top: 0; right: 0; width: 30%; height: 100%; 
+            background: white; padding: 15px; overflow-y: auto; box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        }
+        .section { 
+            margin: 15px 0; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            overflow: hidden;
+        }
+        .section-header { 
+            background: #f8f9fa; 
+            padding: 12px; 
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .section-header:hover { background: #e9ecef; }
+        .section-content { 
+            padding: 12px; 
+            background: white;
+            display: none;
+        }
+        .section.expanded .section-content { display: block; }
+        .expand-icon { 
+            transition: transform 0.2s;
+            font-size: 12px;
+        }
+        .section.expanded .expand-icon { transform: rotate(90deg); }
+        .layer-item { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            margin: 8px 0;
+        }
+        .layer-color { 
+            width: 16px; 
+            height: 16px; 
+            border-radius: 50%; 
+            border: 1px solid #ccc; 
+        }
+        .status { 
+            background: #e0f2fe; 
+            padding: 10px; 
+            border-radius: 4px; 
+            margin: 10px 0; 
+            font-size: 12px;
+        }
+        .zoom-info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div class="zoom-info" id="zoom-info">Zoom: --</div>
+    
+    <div class="controls">
+        <h3>Phase 1: Clustering + Controls</h3>
+        <div class="status" id="status">Loading...</div>
+        
+        <!-- Power Section -->
+        <div class="section" id="power-section">
+            <div class="section-header" onclick="toggleSection('power')">
+                <div style="display: flex; align-items: center;">
+                    <span class="expand-icon">▶</span>
+                    <label style="margin-left: 8px; display: flex; align-items: center;">
+                        <input type="checkbox" id="power-toggle" checked onchange="toggleLayer('power', this.checked)">
+                        <span style="margin-left: 8px;">⚡ Power Infrastructure</span>
+                        <span style="margin-left: 8px; color: #666; font-size: 12px;" id="power-count">(0)</span>
+                    </label>
+                </div>
+                <div class="layer-color" style="background: #ef4444;"></div>
+            </div>
+            <div class="section-content">
+                <div class="layer-item">
+                    <label>
+                        <input type="checkbox" checked disabled>
+                        <span style="margin-left: 8px; color: #666;">Transmission Substations (275kV+)</span>
+                    </label>
+                    <span style="font-size: 10px; background: #dcfce7; color: #166534; padding: 2px 6px; border-radius: 4px;">Default ON</span>
+                </div>
+                <div class="layer-item">
+                    <label>
+                        <input type="checkbox" checked disabled>
+                        <span style="margin-left: 8px; color: #666;">Power Generation</span>
+                    </label>
+                    <span style="font-size: 10px; background: #dcfce7; color: #166534; padding: 2px 6px; border-radius: 4px;">Default ON</span>
+                </div>
+                <div class="layer-item">
+                    <label>
+                        <input type="checkbox" disabled>
+                        <span style="margin-left: 8px; color: #666;">Solar Panels</span>
+                    </label>
+                    <span style="font-size: 10px; background: #fef3c7; color: #92400e; padding: 2px 6px; border-radius: 4px;">Default OFF</span>
+                </div>
+                <div style="margin-top: 12px; padding: 8px; background: #f0f9ff; border-radius: 4px; font-size: 11px; color: #0369a1;">
+                    ℹ️ Sub-layer controls coming in Phase 2
+                </div>
+            </div>
+        </div>
+        
+        <!-- Water Section -->
+        <div class="section" id="water-section">
+            <div class="section-header" onclick="toggleSection('water')">
+                <div style="display: flex; align-items: center;">
+                    <span class="expand-icon">▶</span>
+                    <label style="margin-left: 8px; display: flex; align-items: center;">
+                        <input type="checkbox" id="water-toggle" checked onchange="toggleLayer('water', this.checked)">
+                        <span style="margin-left: 8px;">💧 Water Infrastructure</span>
+                        <span style="margin-left: 8px; color: #666; font-size: 12px;" id="water-count">(0)</span>
+                    </label>
+                </div>
+                <div class="layer-color" style="background: #0284c7;"></div>
+            </div>
+            <div class="section-content">
+                <div class="layer-item">
+                    <label>
+                        <input type="checkbox" checked disabled>
+                        <span style="margin-left: 8px; color: #666;">Water Treatment Plants</span>
+                    </label>
+                    <span style="font-size: 10px; background: #dcfce7; color: #166534; padding: 2px 6px; border-radius: 4px;">Default ON</span>
+                </div>
+                <div class="layer-item">
+                    <label>
+                        <input type="checkbox" checked disabled>
+                        <span style="margin-left: 8px; color: #666;">Wastewater Treatment</span>
+                    </label>
+                    <span style="font-size: 10px; background: #dcfce7; color: #166534; padding: 2px 6px; border-radius: 4px;">Default ON</span>
+                </div>
+                <div class="layer-item">
+                    <label>
+                        <input type="checkbox" disabled>
+                        <span style="margin-left: 8px; color: #666;">Storage & Reservoirs</span>
+                    </label>
+                    <span style="font-size: 10px; background: #fef3c7; color: #92400e; padding: 2px 6px; border-radius: 4px;">Default OFF</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Clustering Info -->
+        <div style="margin-top: 20px; padding: 12px; background: #f0fdf4; border-radius: 8px; border: 1px solid #bbf7d0;">
+            <h4 style="margin: 0 0 8px 0; color: #166534;">🎯 Phase 1 Features</h4>
+            <div style="font-size: 12px; color: #166534;">
+                ✅ Zoopla-style clustering<br>
+                ✅ Click clusters to zoom in<br>
+                ✅ Expandable sector menus<br>
+                ✅ Solar panels OFF by default<br>
+                ✅ Criticality-aware cluster colors
+            </div>
+        </div>
+        
+        <div style="margin-top: 12px; padding: 12px; background: #fef3c7; border-radius: 8px; border: 1px solid #fde68a;">
+            <h4 style="margin: 0 0 8px 0; color: #92400e;">⏸️ Phase 2 Coming</h4>
+            <div style="font-size: 12px; color: #92400e;">
+                • Sub-layer filtering<br>
+                • Operator search<br>
+                • Voltage range filters<br>
+                • Heatmap mode
+            </div>
+        </div>
+    </div>
+
+    <script>
+        maptilersdk.config.apiKey = '9TGjdYW7sdX8esnxc6jG';
+
+        const map = new maptilersdk.Map({
+            container: 'map',
+            style: maptilersdk.MapStyle.STREETS,
+            center: [-0.1276, 51.5074], // London
+            zoom: 10
+        });
+
+        const statusDiv = document.getElementById('status');
+        const zoomInfo = document.getElementById('zoom-info');
+        
+        function updateStatus(message) {
+            statusDiv.textContent = message;
+        }
+        
+        function updateZoomInfo() {
+            const zoom = map.getZoom().toFixed(1);
+            zoomInfo.textContent = `Zoom: ${zoom} ${zoom < 12 ? '(Clustered)' : '(Individual Assets)'}`;
+        }
+        
+        function toggleSection(sectionId) {
+            const section = document.getElementById(`${sectionId}-section`);
+            section.classList.toggle('expanded');
+        }
+        
+        function toggleLayer(layerId, visible) {
+            console.log(`🔄 Toggle ${layerId}: ${visible}`);
+            
+            // Get layer IDs for this type
+            const layerIds = getLayerIdsForType(layerId);
+            let toggledCount = 0;
+            
+            layerIds.forEach(id => {
+                try {
+                    if (map.getLayer(id)) {
+                        map.setLayoutProperty(id, 'visibility', visible ? 'visible' : 'none');
+                        toggledCount++;
+                    }
+                } catch (error) {
+                    console.warn(`Could not toggle layer ${id}:`, error);
+                }
+            });
+            
+            updateStatus(`✅ Toggled ${layerId}: ${toggledCount} layers ${visible ? 'shown' : 'hidden'}`);
+        }
+        
+        function getLayerIdsForType(layerType) {
+            switch (layerType) {
+                case 'power':
+                    return ['power-clusters', 'power-cluster-count', 'power-substations'];
+                case 'water':
+                    return ['water-clusters', 'water-cluster-count', 'water-treatment'];
+                default:
+                    return [];
+            }
+        }
+
+        // Load infrastructure with clustering
+        async function loadClusteredInfrastructure() {
+            try {
+                updateStatus('Loading clustered infrastructure...');
+                
+                // Load power data
+                const powerResponse = await fetch('/data/london-power.json');
+                const powerData = await powerResponse.json();
+                
+                // Filter out solar panels (Phase 1 requirement)
+                const filteredPowerAssets = powerData.assets.filter(asset => 
+                    !(asset.metadata?.fuel_type === 'solar')
+                );
+                
+                const powerGeoJSON = {
+                    type: 'FeatureCollection',
+                    features: filteredPowerAssets.slice(0, 1000).map(asset => ({ // Limit for demo
+                        type: 'Feature',
+                        geometry: { type: 'Point', coordinates: asset.coordinates },
+                        properties: {
+                            ...asset,
+                            voltage: asset.voltage || 0
+                        }
+                    }))
+                };
+                
+                // Add clustered power source
+                map.addSource('power-infrastructure', {
+                    type: 'geojson',
+                    data: powerGeoJSON,
+                    cluster: true,
+                    clusterRadius: 50,
+                    clusterMaxZoom: 12,
+                    clusterProperties: {
+                        'critical_count': ['+', ['case', ['==', ['get', 'criticality'], 'critical'], 1, 0]],
+                        'high_count': ['+', ['case', ['==', ['get', 'criticality'], 'high'], 1, 0]]
+                    }
+                });
+                
+                // Power clusters
+                map.addLayer({
+                    id: 'power-clusters',
+                    type: 'circle',
+                    source: 'power-infrastructure',
+                    filter: ['has', 'point_count'],
+                    paint: {
+                        'circle-color': [
+                            'case',
+                            ['>', ['get', 'critical_count'], 0], '#dc2626', // Red if critical
+                            ['>', ['get', 'high_count'], 0], '#f97316',     // Orange if high
+                            '#fbbf24' // Yellow for others
+                        ],
+                        'circle-radius': [
+                            'step', ['get', 'point_count'],
+                            15, 10,   // 15px for <10
+                            20, 30,   // 20px for 10-30
+                            25, 50,   // 25px for 30-50
+                            30        // 30px for 50+
+                        ],
+                        'circle-stroke-width': 2,
+                        'circle-stroke-color': '#ffffff'
+                    }
+                });
+                
+                // Cluster labels
+                map.addLayer({
+                    id: 'power-cluster-count',
+                    type: 'symbol',
+                    source: 'power-infrastructure',
+                    filter: ['has', 'point_count'],
+                    layout: {
+                        'text-field': '{point_count_abbreviated}',
+                        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                        'text-size': 12
+                    },
+                    paint: { 'text-color': '#ffffff' }
+                });
+                
+                // Individual points
+                map.addLayer({
+                    id: 'power-substations',
+                    type: 'circle',
+                    source: 'power-infrastructure',
+                    filter: ['!', ['has', 'point_count']],
+                    paint: {
+                        'circle-radius': 6,
+                        'circle-color': [
+                            'case',
+                            ['==', ['get', 'subtype'], 'generation'], '#7c2d12',
+                            ['>=', ['to-number', ['get', 'voltage'], 0], 275000], '#dc2626',
+                            '#f97316'
+                        ],
+                        'circle-stroke-width': 2,
+                        'circle-stroke-color': '#ffffff'
+                    }
+                });
+                
+                // Load water data (smaller dataset)
+                const waterResponse = await fetch('/data/london-water.json');
+                const waterData = await waterResponse.json();
+                
+                const waterGeoJSON = {
+                    type: 'FeatureCollection',
+                    features: waterData.assets.map(asset => ({
+                        type: 'Feature',
+                        geometry: { type: 'Point', coordinates: asset.coordinates },
+                        properties: asset
+                    }))
+                };
+                
+                map.addSource('water-infrastructure', {
+                    type: 'geojson',
+                    data: waterGeoJSON,
+                    cluster: true,
+                    clusterRadius: 60,
+                    clusterMaxZoom: 11,
+                    clusterProperties: {
+                        'critical_count': ['+', ['case', ['==', ['get', 'criticality'], 'critical'], 1, 0]]
+                    }
+                });
+                
+                // Water clusters
+                map.addLayer({
+                    id: 'water-clusters',
+                    type: 'circle',
+                    source: 'water-infrastructure',
+                    filter: ['has', 'point_count'],
+                    paint: {
+                        'circle-color': [
+                            'case',
+                            ['>', ['get', 'critical_count'], 0], '#0369a1',
+                            '#38bdf8'
+                        ],
+                        'circle-radius': [
+                            'step', ['get', 'point_count'],
+                            12, 5, 16, 15, 20, 25, 24
+                        ],
+                        'circle-stroke-width': 2,
+                        'circle-stroke-color': '#ffffff'
+                    }
+                });
+                
+                map.addLayer({
+                    id: 'water-cluster-count',
+                    type: 'symbol',
+                    source: 'water-infrastructure',
+                    filter: ['has', 'point_count'],
+                    layout: {
+                        'text-field': '{point_count_abbreviated}',
+                        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                        'text-size': 11
+                    },
+                    paint: { 'text-color': '#ffffff' }
+                });
+                
+                map.addLayer({
+                    id: 'water-treatment',
+                    type: 'circle',
+                    source: 'water-infrastructure',
+                    filter: ['!', ['has', 'point_count']],
+                    paint: {
+                        'circle-radius': 6,
+                        'circle-color': '#0284c7',
+                        'circle-stroke-width': 2,
+                        'circle-stroke-color': '#ffffff'
+                    }
+                });
+                
+                // Update counts
+                document.getElementById('power-count').textContent = `(${filteredPowerAssets.length})`;
+                document.getElementById('water-count').textContent = `(${waterData.count})`;
+                
+                // Add cluster click handlers
+                addClusterHandlers();
+                
+                updateStatus('✅ Clustered infrastructure loaded! Try zooming and clicking clusters.');
+                
+            } catch (error) {
+                updateStatus('❌ Error: ' + error.message);
+            }
+        }
+        
+        function addClusterHandlers() {
+            // Power cluster click to zoom
+            map.on('click', 'power-clusters', (e) => {
+                const features = map.queryRenderedFeatures(e.point, { layers: ['power-clusters'] });
+                if (features.length > 0) {
+                    const clusterId = features[0].properties.cluster_id;
+                    map.getSource('power-infrastructure').getClusterExpansionZoom(clusterId, (err, zoom) => {
+                        if (err) return;
+                        map.easeTo({
+                            center: features[0].geometry.coordinates,
+                            zoom: zoom + 0.5
+                        });
+                    });
+                }
+            });
+            
+            // Water cluster click to zoom
+            map.on('click', 'water-clusters', (e) => {
+                const features = map.queryRenderedFeatures(e.point, { layers: ['water-clusters'] });
+                if (features.length > 0) {
+                    const clusterId = features[0].properties.cluster_id;
+                    map.getSource('water-infrastructure').getClusterExpansionZoom(clusterId, (err, zoom) => {
+                        if (err) return;
+                        map.easeTo({
+                            center: features[0].geometry.coordinates,
+                            zoom: zoom + 0.5
+                        });
+                    });
+                }
+            });
+            
+            // Cursor pointer on hover
+            ['power-clusters', 'water-clusters'].forEach(layer => {
+                map.on('mouseenter', layer, () => map.getCanvas().style.cursor = 'pointer');
+                map.on('mouseleave', layer, () => map.getCanvas().style.cursor = '');
+            });
+        }
+
+        map.on('load', () => {
+            updateStatus('Map loaded, loading clustered infrastructure...');
+            loadClusteredInfrastructure();
+        });
+        
+        map.on('zoom', updateZoomInfo);
+        map.on('zoomend', updateZoomInfo);
+
+        map.on('error', (e) => {
+            updateStatus('❌ Map error: ' + e.error.message);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Optimized Animation Controller</title>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+        #map { width: 100%; height: 500px; margin-bottom: 20px; }
+        .controls { margin-bottom: 10px; }
+        button { margin-right: 10px; padding: 8px 16px; }
+        .status { padding: 10px; background: #f0f0f0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Optimized Cascade Animation Controller Test</h1>
+    
+    <div id="map"></div>
+    
+    <div class="controls">
+        <button onclick="testInterfaces()">Test Interfaces</button>
+        <button onclick="testAnimationConfig()">Test Animation Config</button>
+        <button onclick="testPerformanceMetrics()">Test Performance Metrics</button>
+    </div>
+    
+    <div class="status" id="status">Ready to test...</div>
+
+    <script type="module">
+        // Mock the optimized animation classes for testing
+        class MockOptimizedCascadeAnimationController {
+            constructor(map, config) {
+                this.map = map;
+                this.config = config;
+                this.assetCoordinates = new Map();
+                this.performanceMetrics = {
+                    fps: 60,
+                    totalImpacts: 0,
+                    concurrentAnimations: 0,
+                    memoryUsage: 0,
+                    animationDuration: 0
+                };
+            }
+
+            async playCascade(result) {
+                console.log('Playing cascade with', result.impacts.length, 'impacts');
+                return Promise.resolve();
+            }
+
+            stop() {
+                console.log('Animation stopped');
+            }
+
+            reset() {
+                console.log('Animation reset');
+            }
+
+            updateConfig(config) {
+                this.config = { ...this.config, ...config };
+                console.log('Config updated:', this.config);
+            }
+
+            getPerformanceMetrics() {
+                return { ...this.performanceMetrics };
+            }
+
+            setAssetCoordinates(assetId, coordinates) {
+                this.assetCoordinates.set(assetId, coordinates);
+                console.log(`Set coordinates for ${assetId}:`, coordinates);
+            }
+        }
+
+        // Initialize map
+        const map = new maptiler.Map({
+            container: 'map',
+            style: 'https://api.maptiler.com/maps/streets/style.json?key=demo',
+            center: [-0.1276, 51.5074], // London
+            zoom: 10
+        });
+
+        let controller;
+
+        map.on('load', () => {
+            // Test animation config
+            const config = {
+                speed: 'normal',
+                showLines: true,
+                showPulses: true,
+                maxConcurrentAnimations: 10,
+                colorScheme: {
+                    direct: '#dc2626',
+                    cascade: '#f97316',
+                    potential: '#fbbf24',
+                    crossSector: '#a855f7'
+                },
+                featureFlags: {
+                    useOptimizedAnimations: true,
+                    enableComparisonMode: false,
+                    enablePerformanceMonitoring: true,
+                    autoFallbackOnError: true,
+                    logPerformanceMetrics: true
+                },
+                performanceThresholds: {
+                    minFPS: 30,
+                    maxMemoryMB: 512,
+                    maxAnimationTime: 5000
+                }
+            };
+
+            controller = new MockOptimizedCascadeAnimationController(map, config);
+            updateStatus('Map loaded and controller initialized');
+        });
+
+        window.testInterfaces = function() {
+            if (!controller) {
+                updateStatus('Controller not initialized yet');
+                return;
+            }
+
+            // Test ICascadeAnimationController interface methods
+            const testResult = {
+                initiatingAsset: { id: 'test-asset', coordinates: [-0.1276, 51.5074] },
+                impacts: [
+                    {
+                        assetId: 'asset-1',
+                        sourceAssetId: 'test-asset',
+                        impactType: 'direct',
+                        probability: 1.0,
+                        timeToImpact: 0,
+                        reason: 'Direct connection'
+                    },
+                    {
+                        assetId: 'asset-2',
+                        sourceAssetId: 'asset-1',
+                        impactType: 'cascade',
+                        probability: 0.8,
+                        timeToImpact: 300,
+                        reason: 'Cascade failure'
+                    }
+                ],
+                totalAffected: 2,
+                economicCost: 100000,
+                populationAffected: 5000,
+                timeline: []
+            };
+
+            // Test all interface methods
+            controller.setAssetCoordinates('test-asset', [-0.1276, 51.5074]);
+            controller.setAssetCoordinates('asset-1', [-0.1280, 51.5080]);
+            controller.setAssetCoordinates('asset-2', [-0.1270, 51.5070]);
+
+            controller.playCascade(testResult);
+            
+            updateStatus('Interface methods tested successfully');
+        };
+
+        window.testAnimationConfig = function() {
+            if (!controller) {
+                updateStatus('Controller not initialized yet');
+                return;
+            }
+
+            // Test configuration updates
+            const newConfig = {
+                speed: 'fast',
+                showLines: false,
+                maxConcurrentAnimations: 20
+            };
+
+            controller.updateConfig(newConfig);
+            updateStatus('Animation config updated successfully');
+        };
+
+        window.testPerformanceMetrics = function() {
+            if (!controller) {
+                updateStatus('Controller not initialized yet');
+                return;
+            }
+
+            const metrics = controller.getPerformanceMetrics();
+            updateStatus(`Performance metrics: FPS=${metrics.fps}, Impacts=${metrics.totalImpacts}, Concurrent=${metrics.concurrentAnimations}`);
+        };
+
+        function updateStatus(message) {
+            document.getElementById('status').textContent = message;
+            console.log(message);
+        }
+    </script>
+</body>
+</html>

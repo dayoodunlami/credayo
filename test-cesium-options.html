@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesium 3D Tile Options Comparison</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        html, body {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #cesiumContainer {
+            width: 100%; height: 100%;
+        }
+        #controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 1000;
+            min-width: 250px;
+        }
+        .option-btn {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 8px 12px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 12px;
+        }
+        .option-btn:hover {
+            background: #555;
+        }
+        .option-btn.active {
+            background: #0078ff;
+        }
+        .option-btn.loading {
+            background: #ff6600;
+        }
+        .option-btn.error {
+            background: #ff3333;
+        }
+        #status {
+            margin-top: 10px;
+            padding: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+    <div id="controls">
+        <div><strong>🏢 3D Tile Options</strong></div>
+        <button id="osmAsync" class="option-btn">🏢 OSM Buildings (Async) - Default [1]</button>
+        <button id="osmIon" class="option-btn">🏗️ OSM Buildings (Ion Asset) [2]</button>
+        <button id="googlePhoto" class="option-btn">🌍 Google Photorealistic [3]</button>
+        <button id="terrainOnly" class="option-btn">🌄 Terrain Only [4]</button>
+        
+        <div id="status">
+            <div><strong>Status:</strong> <span id="currentStatus">Initializing...</span></div>
+            <div><strong>Current:</strong> <span id="currentOption">None</span></div>
+            <div><strong>Performance:</strong> <span id="performance">-</span></div>
+        </div>
+        
+        <div style="margin-top: 10px; font-size: 10px; color: #ccc;">
+            <div>🖱️ Click buttons or use keyboard [1-4]</div>
+            <div>🏢 OSM Async: Fastest, most reliable</div>
+            <div>🌍 Google: High quality, slower loading</div>
+            <div><strong>Auto-loading OSM Buildings...</strong></div>
+        </div>
+    </div>
+
+    <script>
+        let viewer;
+        let currentTileset = null;
+        
+        const statusEl = document.getElementById('currentStatus');
+        const optionEl = document.getElementById('currentOption');
+        const performanceEl = document.getElementById('performance');
+        
+        function updateStatus(status) {
+            statusEl.textContent = status;
+        }
+        
+        function updateOption(option) {
+            optionEl.textContent = option;
+        }
+        
+        function updatePerformance(perf) {
+            performanceEl.textContent = perf;
+        }
+        
+        function setButtonState(buttonId, state) {
+            const btn = document.getElementById(buttonId);
+            btn.className = `option-btn ${state}`;
+        }
+        
+        function clearAllButtonStates() {
+            ['osmAsync', 'osmIon', 'googlePhoto', 'terrainOnly'].forEach(id => {
+                setButtonState(id, '');
+            });
+        }
+        
+        async function initializeCesium() {
+            try {
+                updateStatus('Setting up Cesium...');
+                
+                // Set token
+                const cesiumIonToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0ZjFhOTM3NS03YmNhLTQxODYtYjg3Yi1lM2M3OGNkMjc4NmMiLCJpZCI6MzQzNzAyLCJpYXQiOjE3NjE1NjIyOTV9.Gi8tUMcyoo_cKyM-lhhaZ3BcA7f9xmDZ1RciL2bfI8c';
+                Cesium.Ion.defaultAccessToken = cesiumIonToken;
+                
+                // Create terrain
+                const terrainProvider = await Cesium.createWorldTerrainAsync();
+                
+                // Create viewer
+                viewer = new Cesium.Viewer('cesiumContainer', {
+                    terrainProvider: terrainProvider,
+                    animation: false,
+                    baseLayerPicker: false,
+                    fullscreenButton: false,
+                    geocoder: false,
+                    homeButton: false,
+                    infoBox: true,
+                    sceneModePicker: false,
+                    selectionIndicator: true,
+                    timeline: false,
+                    navigationHelpButton: false,
+                    navigationInstructionsInitiallyVisible: false,
+                    requestRenderMode: true,
+                    maximumRenderTimeChange: Infinity
+                });
+                
+                // Set initial camera to London
+                viewer.camera.setView({
+                    destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 1000),
+                    orientation: {
+                        heading: 0.0,
+                        pitch: Cesium.Math.toRadians(-45),
+                        roll: 0.0
+                    }
+                });
+                
+                updateStatus('✅ Ready - Loading OSM Buildings...');
+                updateOption('Initializing...');
+                updatePerformance('Setting up...');
+                
+                // Set up button handlers
+                setupButtonHandlers();
+                
+                return true; // Return success for chaining
+                
+            } catch (error) {
+                updateStatus('❌ Failed to initialize');
+                console.error('Cesium initialization failed:', error);
+                return false;
+            }
+        }
+        
+        function setupButtonHandlers() {
+            document.getElementById('osmAsync').onclick = () => loadOsmAsync();
+            document.getElementById('osmIon').onclick = () => loadOsmIon();
+            document.getElementById('googlePhoto').onclick = () => loadGooglePhoto();
+            document.getElementById('terrainOnly').onclick = () => loadTerrainOnly();
+            
+            // Add keyboard shortcuts
+            document.addEventListener('keydown', (event) => {
+                switch(event.key) {
+                    case '1':
+                        loadOsmAsync();
+                        break;
+                    case '2':
+                        loadOsmIon();
+                        break;
+                    case '3':
+                        loadGooglePhoto();
+                        break;
+                    case '4':
+                        loadTerrainOnly();
+                        break;
+                }
+            });
+        }
+        
+        function clearCurrentTileset() {
+            if (currentTileset) {
+                viewer.scene.primitives.remove(currentTileset);
+                currentTileset = null;
+            }
+        }
+        
+        async function loadOsmAsync() {
+            try {
+                clearAllButtonStates();
+                setButtonState('osmAsync', 'loading');
+                updateStatus('🏢 Loading OSM Buildings (Async)...);
+                ;
+                
+                );
+                
+                const startTime = performance.now();
+                currentTileset = await Cesium.createOsmBuildsAsync();
+                viewer.scene.primitives.add(currentTileset);
+                rtTime;
+                
+                // Configure for performance
+                currentTileset.maximumScreenSpaceError = 2;
+                 true;
+                
+                // Set optimal camera for OSM buildings
+                viewer.camera.setView({
+                    destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 800)
+                n: {
+                        headi: 0.0,
+                        pitch: Cesium.Math.toRadians-45),
+                        roll: 0.0
+                    }
+              });
+                
+        active');
+                updateStatus('✅ OSM B);
+                u');
+                updatePerformance(`⚡ ${
+                
+            } catch (error) {
+                ror');
+                updateStatus('❌ OSM As);
+                
+                console.error('OSM Async failed:', e
+            }
+        }r);rroo load');ce('Failed tPerformanupdateailed'ync f 'er'osmAsync',uttonState(etBsrmance`);nt perfo - Excelle}ms(loadTime)Math.roundfault) - Dencsyldings (A'OSM Buiption(pdateOy!'- ReadAsync) uildings (Async', 'smte('oonStaetButt    s    
+        
+        async function loadOsmIon() {
+            try {
+                clearAllButtonStates();
+                setButtonState('osmIon', 'loading');
+                updateStatus('Loading OSM Buildings (Ion Asset)...');
+                
+                clearCurrentTileset();
+                
+                const startTime = performance.now();
+                currentTileset = await Cesium.Cesium3DTileset.fromIonAssetId(96188);
+                viewer.scene.primitives.add(currentTileset);
+                const loadTime = performance.now() - startTime;
+                
+                // Configure for performance
+                currentTileset.maximumScreenSpaceError = 2;
+                currentTileset.skipLevelOfDetail = true;
+                
+                setButtonState('osmIon', 'active');
+                updateStatus('✅ OSM Buildings (Ion) loaded');
+                updateOption('OSM Buildings (Ion Asset)');
+                updatePerformance(`Loaded in ${Math.round(loadTime)}ms - Good`);
+                
+            } catch (error) {
+                setButtonState('osmIon', 'error');
+                updateStatus('❌ OSM Ion failed');
+                console.error('OSM Ion failed:', error);
+            }
+        }
+        
+        async function loadGooglePhoto() {
+            if (typeof Cesium.createGooglePhotorealistic3DTileset !== 'function') {
+                setButtonState('googlePhoto', 'error');
+                updateStatus('❌ Google Photorealistic not available');
+                updatePerformance('Not supported in this Cesium version');
+                return;
+            }
+            
+            try {
+                clearAllButtonStates();
+                setButtonState('googlePhoto', 'loading');
+                updateStatus('Loading Google Photorealistic...');
+                
+                clearCurrentTileset();
+                
+                const startTime = performance.now();
+                currentTileset = await Cesium.createGooglePhotorealistic3DTileset();
+                viewer.scene.primitives.add(currentTileset);
+                const loadTime = performance.now() - startTime;
+                
+                // Configure for quality
+                currentTileset.maximumScreenSpaceError = 1;
+                currentTileset.skipLevelOfDetail = true;
+                
+                // Adjust camera for photorealistic viewing
+                viewer.camera.setView({
+                    destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 500),
+                    orientation: {
+                        heading: 0.0,
+                        pitch: Cesium.Math.toRadians(-30),
+                        roll: 0.0
+                    }
+                });
+                
+                setButtonState('googlePhoto', 'active');
+                updateStatus('✅ Google Photorealistic loaded');
+                updateOption('Google Photorealistic 3D');
+                updatePerformance(`Loaded in ${Math.round(loadTime)}ms - High quality, slower`);
+                
+            } catch (error) {
+                setButtonState('googlePhoto', 'error');
+                updateStatus('❌ Google Photorealistic failed');
+                console.error('Google Photorealistic failed:', error);
+            }
+        }
+        
+        function loadTerrainOnly() {
+            clearAllButtonStates();
+            setButtonState('terrainOnly', 'active');
+            updateStatus('✅ Terrain only mode');
+            
+            clearCurrentTileset();
+            
+            updateOption('Terrain only');
+            updatePerformance('Fastest - No 3D buildings');
+            
+            // Reset camera
+            viewer.camera.setView({
+                destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 2000),
+                orientation: {
+                    heading: 0.0,
+                    pitch: Cesium.Math.toRadians(-30),
+                    roll: 0.0
+                }
+            });
+        }
+        
+        // Initialize and auto-load OSM Buildings
+        initializeCesium().then(() => {
+            // Auto-load OSM Buildings as default after initialization
+            setTimeout(() => {
+                loadOsmAsync();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

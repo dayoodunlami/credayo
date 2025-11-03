@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CReDo - Infrastructure Resilience Platform</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow: hidden;
+        }
+        
+        #cesiumContainer {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Header */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #111827;
+        }
+        
+        .header-subtitle {
+            margin-left: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #059669;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        /* Control Panel */
+        .control-panel {
+            position: absolute;
+            top: 80px;
+            left: 16px;
+            z-index: 10;
+            width: 320px;
+            max-height: calc(100vh - 120px);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+        }
+        
+        .panel-header {
+            padding: 16px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .panel-title {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        
+        .panel-tabs {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .tab-btn {
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .tab-btn.active {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+        
+        .tab-btn:not(.active) {
+            background: transparent;
+            color: #6b7280;
+        }
+        
+        .tab-btn:not(.active):hover {
+            background: #f3f4f6;
+            color: #111827;
+        }
+        
+        .panel-content {
+            padding: 16px;
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+        }
+        
+        /* View Mode Toggle */
+        .view-toggle {
+            position: absolute;
+            top: 140px;
+            right: 16px;
+            z-index: 10;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 1px solid #e5e7eb;
+            padding: 4px;
+        }
+        
+        .view-toggle-content {
+            display: flex;
+            gap: 4px;
+        }
+        
+        .view-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 500;
+            transition: all 0.2s;
+            min-width: 60px;
+        }
+        
+        .view-btn.active {
+            background: #1d4ed8;
+            color: white;
+            box-shadow: 0 2px 4px rgba(29, 78, 216, 0.3);
+        }
+        
+        .view-btn:not(.active) {
+            background: transparent;
+            color: #6b7280;
+        }
+        
+        .view-btn:not(.active):hover {
+            background: #f3f4f6;
+            color: #111827;
+        }
+        
+        .view-icon {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        
+        /* Infrastructure Layers */
+        .layer-section {
+            margin-bottom: 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .layer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            background: #f9fafb;
+            cursor: pointer;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .layer-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .layer-icon {
+            font-size: 16px;
+        }
+        
+        .layer-name {
+            font-weight: 500;
+            color: #111827;
+        }
+        
+        .layer-count {
+            font-size: 12px;
+            color: #6b7280;
+            background: #e5e7eb;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+        
+        .layer-toggle {
+            width: 40px;
+            height: 20px;
+            background: #d1d5db;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .layer-toggle.active {
+            background: #10b981;
+        }
+        
+        .layer-toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+        
+        .layer-toggle.active::after {
+            transform: translateX(20px);
+        }
+        
+        /* 3D Tile Controls */
+        .tile-controls {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .tile-title {
+            font-weight: 600;
+            color: #0c4a6e;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tile-options {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .tile-btn {
+            padding: 8px 12px;
+            border: 1px solid #0ea5e9;
+            border-radius: 6px;
+            background: white;
+            color: #0c4a6e;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+            text-align: left;
+        }
+        
+        .tile-btn:hover {
+            background: #0ea5e9;
+            color: white;
+        }
+        
+        .tile-btn.active {
+            background: #0ea5e9;
+            color: white;
+            box-shadow: 0 2px 4px rgba(14, 165, 233, 0.3);
+        }
+        
+        .tile-btn.loading {
+            background: #f59e0b;
+            color: white;
+            border-color: #f59e0b;
+        }
+        
+        /* Status Panel */
+        .status-panel {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 16px;
+        }
+        
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            font-size: 12px;
+        }
+        
+        .status-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .status-value {
+            color: #1e293b;
+            font-weight: 600;
+        }
+        
+        /* Loading Indicator */
+        .loading-spinner {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #e2e8f0;
+            border-top: 2px solid #0ea5e9;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 6px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Navigation */
+        .nav-button {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 30;
+            padding: 8px 16px;
+            background: #1d4ed8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .nav-button:hover {
+            background: #1e40af;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cesium Container -->
+    <div id="cesiumContainer"></div>
+    
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <h1 class="header-title">CReDo</h1>
+                <span class="header-subtitle">Infrastructure Resilience Platform</span>
+            </div>
+            <div class="header-right">
+                <div>London, UK</div>
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span id="systemStatus">System Online</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Button -->
+    <button class="nav-button" onclick="window.history.back()">← Back to Main App</button>
+    
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <div class="panel-header">
+            <h3 class="panel-title">Controls</h3>
+            <div class="panel-tabs">
+                <button class="tab-btn active" onclick="showTab('layers')">🗺️ Layers</button>
+                <button class="tab-btn" onclick="showTab('3d')">🏢 3D Tiles</button>
+                <button class="tab-btn" onclick="showTab('simulation')">🚨 Simulate</button>
+            </div>
+        </div>
+        
+        <div class="panel-content">
+            <!-- Layers Tab -->
+            <div id="layersTab" class="tab-content">
+                <!-- Infrastructure Layers -->
+                <div class="layer-section">
+                    <div class="layer-header" onclick="toggleLayer('power')">
+                        <div class="layer-info">
+                            <span class="layer-icon">⚡</span>
+                            <span class="layer-name">Power Infrastructure</span>
+                            <span class="layer-count" id="powerCount">26,272</span>
+                        </div>
+                        <div class="layer-toggle active" id="powerToggle"></div>
+                    </div>
+                </div>
+                
+                <div class="layer-section">
+                    <div class="layer-header" onclick="toggleLayer('water')">
+                        <div class="layer-info">
+                            <span class="layer-icon">💧</span>
+                            <span class="layer-name">Water Infrastructure</span>
+                            <span class="layer-count" id="waterCount">466</span>
+                        </div>
+                        <div class="layer-toggle active" id="waterToggle"></div>
+                    </div>
+                </div>
+                
+                <div class="layer-section">
+                    <div class="layer-header" onclick="toggleLayer('telecoms')">
+                        <div class="layer-info">
+                            <span class="layer-icon">📡</span>
+                            <span class="layer-name">Telecommunications</span>
+                            <span class="layer-count" id="telecomsCount">541</span>
+                        </div>
+                        <div class="layer-toggle active" id="telecomsToggle"></div>
+                    </div>
+                </div>
+                
+                <div class="layer-section">
+                    <div class="layer-header" onclick="toggleLayer('transport')">
+                        <div class="layer-info">
+                            <span class="layer-icon">🚇</span>
+                            <span class="layer-name">Transport Infrastructure</span>
+                            <span class="layer-count" id="transportCount">755</span>
+                        </div>
+                        <div class="layer-toggle active" id="transportToggle"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3D Tiles Tab -->
+            <div id="3dTab" class="tab-content" style="display: none;">
+                <div class="tile-controls">
+                    <div class="tile-title">
+                        <span>🏢</span>
+                        <span>3D Building Sources</span>
+                    </div>
+                    <div class="tile-options">
+                        <button class="tile-btn active" id="osmAsyncBtn" onclick="loadTileSource('osm-async')">
+                            🏢 OSM Buildings (Recommended)
+                        </button>
+                        <button class="tile-btn" id="osmIonBtn" onclick="loadTileSource('osm-ion')">
+                            🏗️ OSM Buildings (Ion Asset)
+                        </button>
+                        <button class="tile-btn" id="googleBtn" onclick="loadTileSource('google')">
+                            🌍 Google Photorealistic
+                        </button>
+                        <button class="tile-btn" id="terrainBtn" onclick="loadTileSource('terrain')">
+                            🌄 Terrain Only
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="status-panel">
+                    <div class="status-row">
+                        <span class="status-label">Current Source:</span>
+                        <span class="status-value" id="currentSource">OSM Buildings (Async)</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-label">Load Time:</span>
+                        <span class="status-value" id="loadTime">-</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-label">Performance:</span>
+                        <span class="status-value" id="performance">Excellent</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Simulation Tab -->
+            <div id="simulationTab" class="tab-content" style="display: none;">
+                <div style="text-align: center; padding: 20px; color: #6b7280;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">🚨</div>
+                    <div style="font-weight: 600; margin-bottom: 8px;">Cascade Simulation</div>
+                    <div style="font-size: 14px;">Click on infrastructure assets to trigger cascade simulations</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- View Mode Toggle -->
+    <div class="view-toggle">
+        <div class="view-toggle-content">
+            <button class="view-btn" onclick="setViewMode('2d')">
+                <span class="view-icon">🗺️</span>
+                <span>2D</span>
+            </button>
+            <button class="view-btn" onclick="setViewMode('3d')">
+                <span class="view-icon">🏢</span>
+                <span>3D</span>
+            </button>
+            <button class="view-btn active" onclick="setViewMode('photorealistic')">
+                <span class="view-icon">🌍</span>
+                <span>Photo 3D</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let viewer;
+        let currentTileset = null;
+        let currentViewMode = 'photorealistic';
+        
+        // Initialize Cesium
+        async function initializeCesium() {
+            try {
+                console.log('🌍 Initializing Cesium Infrastructure Platform...');
+                
+                // Set Cesium Ion token
+                const cesiumIonToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0ZjFhOTM3NS03YmNhLTQxODYtYjg3Yi1lM2M3OGNkMjc4NmMiLCJpZCI6MzQzNzAyLCJpYXQiOjE3NjE1NjIyOTV9.Gi8tUMcyoo_cKyM-lhhaZ3BcA7f9xmDZ1RciL2bfI8c';
+                Cesium.Ion.defaultAccessToken = cesiumIonToken;
+                
+                // Create terrain
+                const terrainProvider = await Cesium.createWorldTerrainAsync();
+                
+                // Create viewer
+                viewer = new Cesium.Viewer('cesiumContainer', {
+                    terrainProvider: terrainProvider,
+                    animation: false,
+                    baseLayerPicker: false,
+                    fullscreenButton: false,
+                    geocoder: false,
+                    homeButton: false,
+                    infoBox: true,
+                    sceneModePicker: false,
+                    selectionIndicator: true,
+                    timeline: false,
+                    navigationHelpButton: false,
+                    navigationInstructionsInitiallyVisible: false,
+                    requestRenderMode: true,
+                    maximumRenderTimeChange: Infinity
+                });
+                
+                // Set initial camera to London
+                viewer.camera.setView({
+                    destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 800),
+                    orientation: {
+                        heading: 0.0,
+                        pitch: Cesium.Math.toRadians(-45),
+                        roll: 0.0
+                    }
+                });
+                
+                // Auto-load OSM Buildings
+                setTimeout(() => {
+                    loadTileSource('osm-async');
+                }, 1000);
+                
+                console.log('✅ Cesium Infrastructure Platform initialized');
+                
+            } catch (error) {
+                console.error('❌ Failed to initialize Cesium:', error);
+                document.getElementById('systemStatus').textContent = 'System Error';
+            }
+        }
+        
+        // Tab Management
+        function showTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show/hide tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            const tabMap = {
+                'layers': 'layersTab',
+                '3d': '3dTab',
+                'simulation': 'simulationTab'
+            };
+            
+            document.getElementById(tabMap[tabName]).style.display = 'block';
+        }
+        
+        // Layer Management
+        function toggleLayer(layerType) {
+            const toggle = document.getElementById(layerType + 'Toggle');
+            toggle.classList.toggle('active');
+            
+            // In a real implementation, this would control actual map layers
+            console.log(`Toggled ${layerType} layer:`, toggle.classList.contains('active'));
+        }
+        
+        // View Mode Management
+        function setViewMode(mode) {
+            currentViewMode = mode;
+            
+            // Update view buttons
+            document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // In a real implementation, this would switch between 2D/3D views
+            console.log('View mode changed to:', mode);
+        }
+        
+        // 3D Tile Source Management
+        function clearCurrentTileset() {
+            if (currentTileset) {
+                viewer.scene.primitives.remove(currentTileset);
+                currentTileset = null;
+            }
+        }
+        
+        function updateTileButtons(activeId, state = 'active') {
+            // Clear all button states
+            ['osmAsyncBtn', 'osmIonBtn', 'googleBtn', 'terrainBtn'].forEach(id => {
+                const btn = document.getElementById(id);
+                btn.classList.remove('active', 'loading');
+            });
+            
+            // Set active button state
+            if (activeId) {
+                document.getElementById(activeId).classList.add(state);
+            }
+        }
+        
+        async function loadTileSource(source) {
+            const startTime = performance.now();
+            
+            try {
+                switch (source) {
+                    case 'osm-async':
+                        updateTileButtons('osmAsyncBtn', 'loading');
+                        document.getElementById('currentSource').innerHTML = '<span class="loading-spinner"></span>Loading OSM Buildings...';
+                        
+                        clearCurrentTileset();
+                        currentTileset = await Cesium.createOsmBuildingsAsync();
+                        viewer.scene.primitives.add(currentTileset);
+                        
+                        // Configure for performance
+                        currentTileset.maximumScreenSpaceError = 2;
+                        currentTileset.skipLevelOfDetail = true;
+                        
+                        // Set camera
+                        viewer.camera.flyTo({
+                            destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 800),
+                            orientation: {
+                                heading: 0.0,
+                                pitch: Cesium.Math.toRadians(-45),
+                                roll: 0.0
+                            },
+                            duration: 2.0
+                        });
+                        
+                        updateTileButtons('osmAsyncBtn', 'active');
+                        document.getElementById('currentSource').textContent = 'OSM Buildings (Async)';
+                        break;
+                        
+                    case 'osm-ion':
+                        updateTileButtons('osmIonBtn', 'loading');
+                        document.getElementById('currentSource').innerHTML = '<span class="loading-spinner"></span>Loading OSM Ion...';
+                        
+                        clearCurrentTileset();
+                        currentTileset = await Cesium.Cesium3DTileset.fromIonAssetId(96188);
+                        viewer.scene.primitives.add(currentTileset);
+                        
+                        updateTileButtons('osmIonBtn', 'active');
+                        document.getElementById('currentSource').textContent = 'OSM Buildings (Ion Asset)';
+                        break;
+                        
+                    case 'google':
+                        if (typeof Cesium.createGooglePhotorealistic3DTileset !== 'function') {
+                            throw new Error('Google Photorealistic not available in this Cesium version');
+                        }
+                        
+                        updateTileButtons('googleBtn', 'loading');
+                        document.getElementById('currentSource').innerHTML = '<span class="loading-spinner"></span>Loading Google Photorealistic...';
+                        
+                        clearCurrentTileset();
+                        currentTileset = await Cesium.createGooglePhotorealistic3DTileset();
+                        viewer.scene.primitives.add(currentTileset);
+                        
+                        // Set camera for photorealistic
+                        viewer.camera.flyTo({
+                            destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 500),
+                            orientation: {
+                                heading: 0.0,
+                                pitch: Cesium.Math.toRadians(-30),
+                                roll: 0.0
+                            },
+                            duration: 2.0
+                        });
+                        
+                        updateTileButtons('googleBtn', 'active');
+                        document.getElementById('currentSource').textContent = 'Google Photorealistic';
+                        break;
+                        
+                    case 'terrain':
+                        updateTileButtons('terrainBtn', 'loading');
+                        document.getElementById('currentSource').textContent = 'Terrain Only';
+                        
+                        clearCurrentTileset();
+                        
+                        // Set camera for terrain
+                        viewer.camera.flyTo({
+                            destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 2000),
+                            orientation: {
+                                heading: 0.0,
+                                pitch: Cesium.Math.toRadians(-30),
+                                roll: 0.0
+                            },
+                            duration: 2.0
+                        });
+                        
+                        updateTileButtons('terrainBtn', 'active');
+                        break;
+                }
+                
+                const loadTime = performance.now() - startTime;
+                document.getElementById('loadTime').textContent = `${Math.round(loadTime)}ms`;
+                
+                // Update performance rating
+                const perfRating = loadTime < 1000 ? 'Excellent' : 
+                                 loadTime < 3000 ? 'Good' : 
+                                 loadTime < 5000 ? 'Fair' : 'Slow';
+                document.getElementById('performance').textContent = perfRating;
+                
+            } catch (error) {
+                console.error(`Failed to load ${source}:`, error);
+                document.getElementById('currentSource').textContent = 'Failed to load';
+                document.getElementById('performance').textContent = 'Error';
+                updateTileButtons(null);
+            }
+        }
+        
+        // Initialize the application
+        initializeCesium();
+    </script>
+</body>
+</html>

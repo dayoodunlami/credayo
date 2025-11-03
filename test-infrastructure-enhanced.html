@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CReDo - Enhanced Infrastructure Resilience</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        html, body {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        #cesiumContainer { width: 100%; height: 100%; }
+        
+        /* Header */
+        #header {
+            position: absolute; top: 0; left: 0; right: 0; height: 60px;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo { font-size: 24px; font-weight: bold; color: #1a1a1a; }
+        .nav-buttons { display: flex; gap: 10px; }
+        .nav-btn {
+            padding: 8px 16px; background: #f0f0f0; border: none;
+            border-radius: 6px; cursor: pointer; font-size: 14px; transition: all 0.2s;
+        }
+        .nav-btn:hover { background: #e0e0e0; }
+        .nav-btn.active { background: #007acc; color: white; }
+        
+        /* Control Panel */
+        #controlPanel {
+            position: absolute; top: 80px; left: 20px; width: 340px;
+            max-height: calc(100vh - 100px); background: rgba(0, 0, 0, 0.85);
+            color: white; border-radius: 12px; backdrop-filter: blur(10px);
+            z-index: 900; overflow-y: auto; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .panel-header { padding: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .panel-title { font-size: 18px; font-weight: bold; margin-bottom: 5px; }
+        .panel-subtitle { font-size: 12px; color: #ccc; }
+        .panel-section { padding: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .section-title { font-size: 14px; font-weight: 600; margin-bottom: 15px; color: #fff; }
+        
+        .control-btn {
+            display: block; width: 100%; margin: 8px 0; padding: 12px 16px;
+            background: #2a2a2a; color: white; border: 2px solid #444;
+            border-radius: 8px; cursor: pointer; text-align: left;
+            font-size: 13px; transition: all 0.2s ease;
+        }
+        .control-btn:hover { background: #3a3a3a; border-color: #666; }
+        .control-btn.active { background: linear-gradient(135deg, #007acc, #005999); border-color: #007acc; }
+        .control-btn.loading { background: linear-gradient(135deg, #ff6600, #cc5200); animation: pulse 1.5s infinite; }
+        .control-btn.cascade { background: linear-gradient(135deg, #dc2626, #991b1b); border-color: #dc2626; }
+        
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        
+        /* Infrastructure Info Panel */
+        .infra-info {
+            background: rgba(0, 120, 255, 0.1); border: 1px solid rgba(0, 120, 255, 0.3);
+            border-radius: 6px; padding: 12px; margin: 10px 0; font-size: 11px;
+        }
+        .infra-count { font-weight: bold; color: #4fc3f7; }
+        
+        /* Cascade Info */
+        .cascade-info {
+            background: rgba(220, 38, 38, 0.1); border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 6px; padding: 10px; margin: 10px 0; font-size: 11px;
+        }
+        .cascade-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .legend-item { display: flex; align-items: center; font-size: 10px; }
+        .legend-color { width: 12px; height: 12px; border-radius: 2px; margin-right: 5px; }
+        
+        /* Status Panel */
+        #statusPanel {
+            position: absolute; bottom: 20px; right: 20px;
+            background: rgba(0, 0, 0, 0.8); color: white; padding: 15px;
+            border-radius: 8px; backdrop-filter: blur(10px); z-index: 900; min-width: 220px;
+        }
+        .status-row { display: flex; justify-content: space-between; margin: 5px 0; font-size: 12px; }
+        .status-label { color: #ccc; }
+        .status-value { color: #fff; font-weight: 500; }
+        
+        /* Loading Indicator */
+        .loading-indicator {
+            display: inline-block; width: 12px; height: 12px;
+            border: 2px solid #666; border-top: 2px solid #007acc;
+            border-radius: 50%; animation: spin 1s linear infinite; margin-right: 8px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* Asset Popup Styles */
+        .cesium-infoBox { background: rgba(0, 0, 0, 0.8) !important; }
+        .cesium-infoBox-title { color: white !important; }
+        .cesium-infoBox-description { color: #ccc !important; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header">
+        <div class="logo">🏢 CReDo Enhanced</div>
+        <div class="nav-buttons">
+            <button class="nav-btn active">Infrastructure Analysis</button>
+            <button class="nav-btn" onclick="window.location.href='test-cesium-improved.html'">Test 3D Tiles</button>
+            <button class="nav-btn" onclick="window.location.href='/'">← Back to App</button>
+        </div>
+    </div>
+
+    <!-- Cesium Container -->
+    <div id="cesiumContainer"></div>
+
+    <!-- Control Panel -->
+    <div id="controlPanel">
+        <div class="panel-header">
+            <div class="panel-title">🏢 Infrastructure Analysis</div>
+            <div class="panel-subtitle">Hybrid Cesium + Critical Assets</div>
+        </div>
+        
+        <!-- 3D Visualization -->
+        <div class="panel-section">
+            <div class="section-title">🌍 3D Buildings</div>
+            <button id="osmAsync" class="control-btn active">🏢 OSM Buildings (Rich Metadata)</button>
+            <button id="googlePhoto" class="control-btn">🌍 Google Photorealistic</button>
+            <button id="terrainOnly" class="control-btn">🌄 Terrain Only</button>
+        </div>
+        
+        <!-- Critical Infrastructure Overlay -->
+        <div class="panel-section">
+            <div class="section-title">⚡ Critical Infrastructure</div>
+            <button id="showCriticalAssets" class="control-btn">🎯 Show Critical Assets</button>
+            <button id="hideCriticalAssets" class="control-btn">👁️ Hide Critical Assets</button>
+            
+            <div class="infra-info" id="infraInfo" style="display: none;">
+                <div><strong>📊 Critical Assets Loaded</strong></div>
+                <div>Power Substations: <span class="infra-count" id="powerCount">0</span></div>
+                <div>Generation Sites: <span class="infra-count" id="genCount">0</span></div>
+                <div>Click any asset for cascade analysis</div>
+            </div>
+        </div>
+        
+        <!-- View Mode Toggle -->
+        <div class="panel-section">
+            <div class="section-title">🌍 3D View Options</div>
+            <button id="googlePhoto" class="control-btn">🌍 Google Photorealistic</button>
+            <button id="terrainOnly" class="control-btn">🌄 Terrain Only</button>
+        </div>
+        
+        <!-- Cascade Simulation -->
+        <div class="panel-section">
+            <div class="section-title">🚨 Cascade Simulation</div>
+            <button id="primaryCascade" class="control-btn cascade">⚡ Primary Substation Failure</button>
+            <button id="secondaryCascade" class="control-btn cascade">🔌 Secondary Substation Failure</button>
+            <button id="resetCascade" class="control-btn">🔄 Reset Cascade</button>
+            
+            <div class="cascade-info" id="cascadeInfo" style="display: none;">
+                <div><strong>🎯 Cascade Analysis Active</strong></div>
+                <div id="cascadeInstructions">Click any substation to trigger cascade</div>
+                
+                <div class="cascade-legend">
+                    <div style="margin-bottom: 8px;">
+                        <div style="font-weight: bold; color: #fff; margin-bottom: 3px;">Primary Impact (4km):</div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #dc2626;"></div>
+                            <span>Critical (0-500m) - 100% fail</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #f59e0b;"></div>
+                            <span>High (500m-1.5km) - 95% fail</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #eab308;"></div>
+                            <span>Medium (1.5-3km) - 85% fail</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #22c55e;"></div>
+                            <span>Low (3-4km) - 70% fail</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div style="font-weight: bold; color: #fff; margin-bottom: 3px;">Secondary Impact (640m):</div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #dc2626;"></div>
+                            <span>Critical (0-200m) - 100% fail</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #f59e0b;"></div>
+                            <span>High (200-400m) - 95% fail</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #eab308;"></div>
+                            <span>Medium (400-600m) - 80% fail</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #22c55e;"></div>
+                            <span>Low (600-640m) - 60% fail</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Camera Controls -->
+        <div class="panel-section">
+            <div class="section-title">🎬 Navigation</div>
+            <button id="flyToLondon" class="control-btn">🏙️ London Overview</button>
+            <button id="flyToCanaryWharf" class="control-btn">🏢 Canary Wharf</button>
+            <button id="flyToCity" class="control-btn">🏛️ City of London</button>
+        </div>
+    </div>
+
+    <!-- Status Panel -->
+    <div id="statusPanel">
+        <div class="status-row">
+            <span class="status-label">System:</span>
+            <span class="status-value" id="systemStatus">Initializing...</span>
+        </div>
+        <div class="status-row">
+            <span class="status-label">3D Source:</span>
+            <span class="status-value" id="tileSource">OSM Buildings</span>
+        </div>
+        <div class="status-row">
+            <span class="status-label">Critical Assets:</span>
+            <span class="status-value" id="assetCount">0</span>
+        </div>
+        <div class="status-row">
+            <span class="status-label">Analysis Mode:</span>
+            <span class="status-value" id="analysisMode">Ready</span>
+        </div>
+    </div>
+
+    <script>
+        let viewer;
+        let osmBuildingsTileset = null;
+        let currentTileset = null;
+        let criticalAssets = [];
+        let assetEntities = [];
+        let cascadeHandler = null;
+        let isCascadeMode = false;
+        let currentAnalysisMode = 'none';
+        
+        // Realistic London electrical infrastructure with proper hierarchy
+        const sampleInfrastructure = {
+            // PRIMARY SUBSTATIONS (supply secondary substations within 4km in London)
+            primary: [
+                {
+                    id: "primary_vauxhall",
+                    name: "Vauxhall Primary Substation",
+                    coordinates: [-0.1276, 51.4864], // Vauxhall
+                    criticality: "critical",
+                    type: "primary",
+                    voltage: "132kV",
+                    operator: "UK Power Networks",
+                    serviceRadius: 4000, // 4km for dense London
+                    supplies: "secondary_substations"
+                },
+                {
+                    id: "primary_kings_cross",
+                    name: "King's Cross Primary Substation", 
+                    coordinates: [-0.1240, 51.5308], // King's Cross
+                    criticality: "critical",
+                    type: "primary",
+                    voltage: "132kV",
+                    operator: "UK Power Networks",
+                    serviceRadius: 4000,
+                    supplies: "secondary_substations"
+                },
+                {
+                    id: "primary_canary_wharf",
+                    name: "Canary Wharf Primary Substation",
+                    coordinates: [-0.0235, 51.5054], // Canary Wharf
+                    criticality: "critical", 
+                    type: "primary",
+                    voltage: "132kV",
+                    operator: "UK Power Networks",
+                    serviceRadius: 4000,
+                    supplies: "secondary_substations"
+                }
+            ],
+            
+            // SECONDARY SUBSTATIONS (supply buildings within 640m in London)
+            secondary: [
+                {
+                    id: "secondary_westminster",
+                    name: "Westminster Secondary",
+                    coordinates: [-0.1347, 51.4994], // Westminster
+                    criticality: "high",
+                    type: "secondary",
+                    voltage: "11kV",
+                    operator: "UK Power Networks",
+                    serviceRadius: 640, // 640m for dense London
+                    supplies: "end_customers",
+                    suppliedBy: "primary_vauxhall"
+                },
+                {
+                    id: "secondary_lambeth",
+                    name: "Lambeth Secondary",
+                    coordinates: [-0.1077, 51.4975], // Lambeth
+                    criticality: "high",
+                    type: "secondary", 
+                    voltage: "11kV",
+                    operator: "UK Power Networks",
+                    serviceRadius: 640,
+                    supplies: "end_customers",
+                    suppliedBy: "primary_vauxhall"
+                },
+                {
+                    id: "secondary_bloomsbury",
+                    name: "Bloomsbury Secondary",
+                    coordinates: [-0.1276, 51.5214], // Bloomsbury
+                    criticality: "high",
+                    type: "secondary",
+                    voltage: "11kV", 
+                    operator: "UK Power Networks",
+                    serviceRadius: 640,
+                    supplies: "end_customers",
+                    suppliedBy: "primary_kings_cross"
+                },
+                {
+                    id: "secondary_shoreditch",
+                    name: "Shoreditch Secondary",
+                    coordinates: [-0.0731, 51.5244], // Shoreditch
+                    criticality: "high",
+                    type: "secondary",
+                    voltage: "11kV",
+                    operator: "UK Power Networks", 
+                    serviceRadius: 640,
+                    supplies: "end_customers",
+                    suppliedBy: "primary_kings_cross"
+                },
+                {
+                    id: "secondary_isle_of_dogs",
+                    name: "Isle of Dogs Secondary",
+                    coordinates: [-0.0089, 51.4951], // Isle of Dogs
+                    criticality: "high",
+                    type: "secondary",
+                    voltage: "11kV",
+                    operator: "UK Power Networks",
+                    serviceRadius: 640,
+                    supplies: "end_customers", 
+                    suppliedBy: "primary_canary_wharf"
+                }
+            ],
+            
+            // CRITICAL END CUSTOMERS (hospitals, data centers, etc.)
+            critical: [
+                {
+                    id: "critical_st_thomas",
+                    name: "St Thomas' Hospital",
+                    coordinates: [-0.1177, 51.4989], // Near Westminster Secondary
+                    criticality: "critical",
+                    type: "hospital",
+                    backup: "48hr_generator",
+                    operator: "NHS",
+                    suppliedBy: "secondary_westminster"
+                },
+                {
+                    id: "critical_ucl_hospital", 
+                    name: "UCL Hospital",
+                    coordinates: [-0.1340, 51.5217], // Near Bloomsbury Secondary
+                    criticality: "critical",
+                    type: "hospital",
+                    backup: "72hr_generator",
+                    operator: "NHS",
+                    suppliedBy: "secondary_bloomsbury"
+                },
+                {
+                    id: "critical_canary_data",
+                    name: "Canary Wharf Data Center",
+                    coordinates: [-0.0205, 51.5049], // Near Isle of Dogs Secondary
+                    criticality: "critical",
+                    type: "data_center", 
+                    backup: "24hr_ups_generator",
+                    operator: "Equinix",
+                    suppliedBy: "secondary_isle_of_dogs"
+                }
+            ]
+        };
+        
+        // IMPACT ZONES - Realistic electrical distribution
+        const IMPACT_ZONES = {
+            // PRIMARY SUBSTATIONS: Supply secondary substations within 4km
+            primary: {
+                serviceRadius: 4000, // 4km for dense London (vs 5km suburban)
+                supplies: 'secondary_substations',
+                zones: {
+                    critical: { min: 0, max: 500, failureProbability: 1.0, color: '#dc2626', name: 'Critical' },
+                    high: { min: 500, max: 1500, failureProbability: 0.95, color: '#f59e0b', name: 'High' },
+                    medium: { min: 1500, max: 3000, failureProbability: 0.85, color: '#eab308', name: 'Medium' },
+                    low: { min: 3000, max: 4000, failureProbability: 0.7, color: '#22c55e', name: 'Low' },
+                    none: { min: 4000, max: Infinity, failureProbability: 0, color: '#6b7280', name: 'No Impact' }
+                }
+            },
+            
+            // SECONDARY SUBSTATIONS: Supply buildings within 640m  
+            secondary: {
+                serviceRadius: 640, // 640m for dense London (vs 800m suburban)
+                supplies: 'end_customers',
+                zones: {
+                    critical: { min: 0, max: 200, failureProbability: 1.0, color: '#dc2626', name: 'Critical' },
+                    high: { min: 200, max: 400, failureProbability: 0.95, color: '#f59e0b', name: 'High' },
+                    medium: { min: 400, max: 600, failureProbability: 0.8, color: '#eab308', name: 'Medium' },
+                    low: { min: 600, max: 640, failureProbability: 0.6, color: '#22c55e', name: 'Low' },
+                    none: { min: 640, max: Infinity, failureProbability: 0, color: '#6b7280', name: 'No Impact' }
+                }
+            }
+        };
+        
+        // Initialize Cesium
+        async function initializeCesium() {
+            try {
+                updateStatus('Initializing Cesium...');
+                
+                const cesiumIonToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0ZjFhOTM3NS03YmNhLTQxODYtYjg3Yi1lM2M3OGNkMjc4NmMiLCJpZCI6MzQzNzAyLCJpYXQiOjE3NjE1NjIyOTV9.Gi8tUMcyoo_cKyM-lhhaZ3BcA7f9xmDZ1RciL2bfI8c';
+                Cesium.Ion.defaultAccessToken = cesiumIonToken;
+                
+                const terrainProvider = await Cesium.createWorldTerrainAsync();
+                
+                viewer = new Cesium.Viewer('cesiumContainer', {
+                    terrainProvider: terrainProvider,
+                    animation: false,
+                    baseLayerPicker: false,
+                    fullscreenButton: false,
+                    geocoder: false,
+                    homeButton: false,
+                    infoBox: true,
+                    sceneModePicker: false,
+                    selectionIndicator: true,
+                    timeline: false,
+                    navigationHelpButton: false,
+                    navigationInstructionsInitiallyVisible: false,
+                    requestRenderMode: true,
+                    maximumRenderTimeChange: Infinity
+                });
+                
+                // Set initial camera to London
+                viewer.camera.setView({
+                    destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 1200),
+                    orientation: {
+                        heading: 0.0,
+                        pitch: Cesium.Math.toRadians(-45),
+                        roll: 0.0
+                    }
+                });
+                
+                cascadeHandler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+                
+                updateStatus('Ready');
+                setupEventHandlers();
+                
+                // Auto-load OSM Buildings
+                setTimeout(() => {
+                    loadOsmBuildings();
+                }, 1000);
+                
+                return true;
+                
+            } catch (error) {
+                updateStatus('Failed to initialize');
+                console.error('Cesium initialization failed:', error);
+                return false;
+            }
+        }
+        
+        // Event handlers
+        function setupEventHandlers() {
+            // 3D Visualization
+            document.getElementById('osmAsync').onclick = () => loadOsmBuildings();
+            document.getElementById('googlePhoto').onclick = () => loadGooglePhotorealistic();
+            document.getElementById('terrainOnly').onclick = () => loadTerrainOnly();
+            
+            // Critical Infrastructure
+            document.getElementById('showCriticalAssets').onclick = () => showCriticalAssets();
+            document.getElementById('hideCriticalAssets').onclick = () => hideCriticalAssets();
+            
+            // View Mode Toggle
+            document.getElementById('googlePhoto').onclick = () => loadGooglePhotorealistic();
+            document.getElementById('terrainOnly').onclick = () => loadTerrainOnly();
+            
+            // Cascade Simulation
+            document.getElementById('primaryCascade').onclick = () => enablePrimaryCascade();
+            document.getElementById('secondaryCascade').onclick = () => enableSecondaryCascade();
+            document.getElementById('resetCascade').onclick = () => resetCascade();
+            
+            // Camera Controls
+            document.getElementById('flyToLondon').onclick = () => flyToLondon();
+            document.getElementById('flyToCanaryWharf').onclick = () => flyToCanaryWharf();
+            document.getElementById('flyToCity').onclick = () => flyToCity();
+        }
+        
+        // Status updates
+        function updateStatus(status) {
+            document.getElementById('systemStatus').innerHTML = status;
+        }
+        
+        function updateAnalysisMode(mode) {
+            document.getElementById('analysisMode').textContent = mode;
+        }
+        
+        function setButtonActive(buttonId) {
+            const button = document.getElementById(buttonId);
+            const section = button.closest('.panel-section');
+            section.querySelectorAll('.control-btn').forEach(btn => {
+                btn.classList.remove('active', 'loading');
+            });
+            button.classList.add('active');
+        }
+        
+        // 3D Tile Loading
+        async function loadOsmBuildings() {
+            try {
+                setButtonActive('osmAsync');
+                updateStatus('<span class="loading-indicator"></span>Loading OSM Buildings...');
+                
+                clearCurrentTileset();
+                
+                const startTime = performance.now();
+                osmBuildingsTileset = await Cesium.createOsmBuildingsAsync();
+                currentTileset = osmBuildingsTileset;
+                viewer.scene.primitives.add(currentTileset);
+                const loadTime = performance.now() - startTime;
+                
+                currentTileset.maximumScreenSpaceError = 2;
+                currentTileset.skipLevelOfDetail = true;
+                
+                updateStatus('✅ OSM Buildings Ready');
+                document.getElementById('tileSource').textContent = 'OSM Buildings';
+                
+                console.log(`✅ OSM Buildings loaded in ${Math.round(loadTime)}ms`);
+                
+            } catch (error) {
+                updateStatus('❌ OSM Buildings failed');
+                console.error('OSM Buildings failed:', error);
+            }
+        }
+        
+        async function loadGooglePhotorealistic() {
+            if (typeof Cesium.createGooglePhotorealistic3DTileset !== 'function') {
+                updateStatus('❌ Google tiles not available');
+                return;
+            }
+            
+            try {
+                setButtonActive('googlePhoto');
+                updateStatus('<span class="loading-indicator"></span>Loading Google Photorealistic...');
+                
+                clearCurrentTileset();
+                
+                const startTime = performance.now();
+                currentTileset = await Cesium.createGooglePhotorealistic3DTileset();
+                viewer.scene.primitives.add(currentTileset);
+                const loadTime = performance.now() - startTime;
+                
+                currentTileset.maximumScreenSpaceError = 1;
+                currentTileset.skipLevelOfDetail = true;
+                
+                updateStatus('✅ Google Photorealistic Ready');
+                document.getElementById('tileSource').textContent = 'Google Photorealistic';
+                
+            } catch (error) {
+                updateStatus('❌ Google tiles failed');
+                console.error('Google Photorealistic failed:', error);
+            }
+        }
+        
+        function loadTerrainOnly() {
+            setButtonActive('terrainOnly');
+            updateStatus('✅ Terrain Only');
+            clearCurrentTileset();
+            document.getElementById('tileSource').textContent = 'Terrain Only';
+        }
+        
+        function clearCurrentTileset() {
+            if (currentTileset) {
+                viewer.scene.primitives.remove(currentTileset);
+                currentTileset = null;
+                osmBuildingsTileset = null;
+            }
+        }
+        
+        // Critical Infrastructure Functions
+        function showCriticalAssets() {
+            setButtonActive('showCriticalAssets');
+            
+            // Clear existing entities
+            hideCriticalAssets();
+            
+            let totalAssets = 0;
+            
+            // Add PRIMARY substations
+            sampleInfrastructure.primary.forEach(asset => {
+                const entity = viewer.entities.add({
+                    id: asset.id,
+                    position: Cesium.Cartesian3.fromDegrees(asset.coordinates[0], asset.coordinates[1], 80),
+                    billboard: {
+                        image: createAssetIcon('primary', asset.criticality),
+                        scale: 1.2, // Larger for primary
+                        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+                    },
+                    label: {
+                        text: asset.name,
+                        font: '14pt sans-serif',
+                        fillColor: Cesium.Color.WHITE,
+                        outlineColor: Cesium.Color.BLACK,
+                        outlineWidth: 2,
+                        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                        pixelOffset: new Cesium.Cartesian2(0, -60),
+                        showBackground: true,
+                        backgroundColor: Cesium.Color.fromCssColorString('#dc2626').withAlpha(0.8)
+                    },
+                    description: createAssetDescription(asset)
+                });
+                
+                assetEntities.push(entity);
+                totalAssets++;
+            });
+            
+            // Add SECONDARY substations
+            sampleInfrastructure.secondary.forEach(asset => {
+                const entity = viewer.entities.add({
+                    id: asset.id,
+                    position: Cesium.Cartesian3.fromDegrees(asset.coordinates[0], asset.coordinates[1], 60),
+                    billboard: {
+                        image: createAssetIcon('secondary', asset.criticality),
+                        scale: 0.9, // Medium size for secondary
+                        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+                    },
+                    label: {
+                        text: asset.name,
+                        font: '12pt sans-serif',
+                        fillColor: Cesium.Color.WHITE,
+                        outlineColor: Cesium.Color.BLACK,
+                        outlineWidth: 2,
+                        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                        pixelOffset: new Cesium.Cartesian2(0, -50),
+                        showBackground: true,
+                        backgroundColor: Cesium.Color.fromCssColorString('#f59e0b').withAlpha(0.8)
+                    },
+                    description: createAssetDescription(asset)
+                });
+                
+                assetEntities.push(entity);
+                totalAssets++;
+            });
+            
+            // Add CRITICAL end customers
+            sampleInfrastructure.critical.forEach(asset => {
+                const entity = viewer.entities.add({
+                    id: asset.id,
+                    position: Cesium.Cartesian3.fromDegrees(asset.coordinates[0], asset.coordinates[1], 40),
+                    billboard: {
+                        image: createAssetIcon(asset.type, asset.criticality),
+                        scale: 0.7, // Smaller for end customers
+                        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+                    },
+                    label: {
+                        text: asset.name,
+                        font: '11pt sans-serif',
+                        fillColor: Cesium.Color.WHITE,
+                        outlineColor: Cesium.Color.BLACK,
+                        outlineWidth: 2,
+                        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                        pixelOffset: new Cesium.Cartesian2(0, -40),
+                        showBackground: true,
+                        backgroundColor: Cesium.Color.fromCssColorString('#dc2626').withAlpha(0.8)
+                    },
+                    description: createAssetDescription(asset)
+                });
+                
+                assetEntities.push(entity);
+                totalAssets++;
+            });
+            
+            document.getElementById('infraInfo').style.display = 'block';
+            document.getElementById('powerCount').textContent = sampleInfrastructure.primary.length + sampleInfrastructure.secondary.length;
+            document.getElementById('genCount').textContent = sampleInfrastructure.critical.length;
+            document.getElementById('assetCount').textContent = totalAssets;
+            
+            updateStatus('✅ Electrical infrastructure displayed');
+        }
+        
+        function hideCriticalAssets() {
+            assetEntities.forEach(entity => {
+                viewer.entities.remove(entity);
+            });
+            assetEntities = [];
+            
+            document.getElementById('infraInfo').style.display = 'none';
+            document.getElementById('assetCount').textContent = '0';
+            
+            if (document.getElementById('hideCriticalAssets')) {
+                setButtonActive('hideCriticalAssets');
+            }
+        }
+        
+        function createAssetIcon(type, criticality) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 40;
+            canvas.height = 40;
+            const ctx = canvas.getContext('2d');
+            
+            // Background circle with type-specific colors
+            ctx.beginPath();
+            ctx.arc(20, 20, 18, 0, 2 * Math.PI);
+            
+            // Color by asset type and criticality
+            let fillColor;
+            if (type === 'primary') {
+                fillColor = '#dc2626'; // Red for primary substations
+            } else if (type === 'secondary') {
+                fillColor = '#f59e0b'; // Orange for secondary substations  
+            } else if (type === 'hospital') {
+                fillColor = '#dc2626'; // Red for hospitals
+            } else if (type === 'data_center') {
+                fillColor = '#3b82f6'; // Blue for data centers
+            } else {
+                fillColor = criticality === 'critical' ? '#dc2626' : '#f59e0b';
+            }
+            
+            ctx.fillStyle = fillColor;
+            ctx.fill();
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            
+            // Icon symbol based on type
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 18px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            let symbol;
+            switch(type) {
+                case 'primary':
+                    symbol = '⚡'; // Lightning for primary substations
+                    break;
+                case 'secondary':
+                    symbol = '🔌'; // Plug for secondary substations
+                    break;
+                case 'hospital':
+                    symbol = '🏥'; // Hospital
+                    break;
+                case 'data_center':
+                    symbol = '💾'; // Data center
+                    break;
+                case 'transmission':
+                    symbol = '⚡';
+                    break;
+                case 'generation':
+                    symbol = '🔋';
+                    break;
+                default:
+                    symbol = '🔌';
+            }
+            
+            ctx.fillText(symbol, 20, 20);
+            
+            return canvas.toDataURL();
+        }
+        
+        function createAssetDescription(asset) {
+            return `
+                <div style="color: white; background: rgba(0,0,0,0.8); padding: 10px; border-radius: 5px;">
+                    <h3 style="margin: 0 0 10px 0; color: #4fc3f7;">${asset.name}</h3>
+                    <p><strong>Type:</strong> ${asset.type}</p>
+                    <p><strong>Criticality:</strong> <span style="color: ${asset.criticality === 'critical' ? '#dc2626' : '#f59e0b'}">${asset.criticality}</span></p>
+                    <p><strong>Voltage:</strong> ${asset.voltage}</p>
+                    <p><strong>Operator:</strong> ${asset.operator}</p>
+                    <p><strong>Coordinates:</strong> ${asset.coordinates[1].toFixed(4)}, ${asset.coordinates[0].toFixed(4)}</p>
+                    <hr style="border-color: #444;">
+                    <p style="font-size: 12px; color: #ccc;">Click "Impact Radius Analysis" to analyze cascade effects from this asset</p>
+                </div>
+            `;
+        }
+        
+        // Building Analysis Functions (using Cesium's built-in metadata)
+        function analyzeByBuildingType() {
+            if (!osmBuildingsTileset) {
+                alert('Please load OSM Buildings first');
+                return;
+            }
+            
+            setButtonActive('analyzeByType');
+            resetBuildingStyle();
+            
+            osmBuildingsTileset.style = new Cesium.Cesium3DTileStyle({
+                color: {
+                    conditions: [
+                        ["${feature['building']} === 'residential'", "color('#22c55e', 0.8)"],      // Green
+                        ["${feature['building']} === 'apartments'", "color('#16a34a', 0.8)"],      // Dark Green
+                        ["${feature['building']} === 'commercial'", "color('#3b82f6', 0.8)"],      // Blue
+                        ["${feature['building']} === 'office'", "color('#1d4ed8', 0.8)"],          // Dark Blue
+                        ["${feature['building']} === 'industrial'", "color('#f59e0b', 0.8)"],      // Orange
+                        ["${feature['building']} === 'retail'", "color('#ec4899', 0.8)"],          // Pink
+                        ["${feature['building']} === 'hotel'", "color('#8b5cf6', 0.8)"],           // Purple
+                        ["${feature['building']} === 'hospital'", "color('#dc2626', 0.8)"],        // Red
+                        ["${feature['building']} === 'school'", "color('#059669', 0.8)"],          // Teal
+                        ["true", "color('#6b7280', 0.6)"]                                          // Gray default
+                    ]
+                }
+            });
+            
+            updateAnalysisMode('Building Type Analysis');
+            updateStatus('🏠 Buildings colored by type');
+        }
+        
+        function analyzeByMaterial() {
+            if (!osmBuildingsTileset) {
+                alert('Please load OSM Buildings first');
+                return;
+            }
+            
+            setButtonActive('analyzeByMaterial');
+            resetBuildingStyle();
+            
+            osmBuildingsTileset.style = new Cesium.Cesium3DTileStyle({
+                defines: {
+                    material: "${feature['building:material']}"
+                },
+                color: {
+                    conditions: [
+                        ["${material} === null", "color('white', 0.7)"],
+                        ["${material} === 'glass'", "color('skyblue', 0.6)"],
+                        ["${material} === 'concrete'", "color('grey', 0.8)"],
+                        ["${material} === 'brick'", "color('indianred', 0.8)"],
+                        ["${material} === 'stone'", "color('lightslategrey', 0.8)"],
+                        ["${material} === 'metal'", "color('lightgrey', 0.8)"],
+                        ["${material} === 'steel'", "color('lightsteelblue', 0.8)"],
+                        ["${material} === 'wood'", "color('saddlebrown', 0.8)"],
+                        ["true", "color('white', 0.7)"]
+                    ]
+                }
+            });
+            
+            updateAnalysisMode('Material Analysis');
+            updateStatus('🧱 Buildings colored by material');
+        }
+        
+        function analyzeByHeight() {
+            if (!osmBuildingsTileset) {
+                alert('Please load OSM Buildings first');
+                return;
+            }
+            
+            setButtonActive('analyzeByHeight');
+            resetBuildingStyle();
+            
+            osmBuildingsTileset.style = new Cesium.Cesium3DTileStyle({
+                defines: {
+                    height: "${feature['height']}",
+                    levels: "${feature['building:levels']}"
+                },
+                color: {
+                    conditions: [
+                        ["${height} > 100 || ${levels} > 20", "color('#dc2626', 0.9)"],    // Red - Very tall
+                        ["${height} > 50 || ${levels} > 10", "color('#f59e0b', 0.8)"],     // Orange - Tall
+                        ["${height} > 20 || ${levels} > 5", "color('#eab308', 0.8)"],      // Yellow - Medium
+                        ["${height} > 10 || ${levels} > 2", "color('#22c55e', 0.8)"],      // Green - Low
+                        ["true", "color('#6b7280', 0.6)"]                                  // Gray - Unknown/Ground
+                    ]
+                }
+            });
+            
+            updateAnalysisMode('Height Analysis');
+            updateStatus('📏 Buildings colored by height');
+        }
+        
+        function highlightResidential() {
+            if (!osmBuildingsTileset) {
+                alert('Please load OSM Buildings first');
+                return;
+            }
+            
+            setButtonActive('showResidential');
+            resetBuildingStyle();
+            
+            osmBuildingsTileset.style = new Cesium.Cesium3DTileStyle({
+                color: {
+                    conditions: [
+                        ["${feature['building']} === 'apartments' || ${feature['building']} === 'residential'", "color('#22c55e', 0.9)"],
+                        ["true", "color('#6b7280', 0.3)"]
+                    ]
+                }
+            });
+            
+            updateAnalysisMode('Residential Focus');
+            updateStatus('🏘️ Residential buildings highlighted');
+        }
+        
+        function highlightCommercial() {
+            if (!osmBuildingsTileset) {
+                alert('Please load OSM Buildings first');
+                return;
+            }
+            
+            setButtonActive('showCommercial');
+            resetBuildingStyle();
+            
+            osmBuildingsTileset.style = new Cesium.Cesium3DTileStyle({
+                color: {
+                    conditions: [
+                        ["${feature['building']} === 'commercial' || ${feature['building']} === 'office' || ${feature['building']} === 'retail'", "color('#3b82f6', 0.9)"],
+                        ["true", "color('#6b7280', 0.3)"]
+                    ]
+                }
+            });
+            
+            updateAnalysisMode('Commercial Focus');
+            updateStatus('🏢 Commercial buildings highlighted');
+        }
+        
+        // Cascade Analysis Functions
+        function enableCascadeRadius() {
+            if (!osmBuildingsTileset) {
+                alert('Please load OSM Buildings first');
+                return;
+            }
+            
+            setButtonActive('cascadeRadius');
+            document.getElementById('cascadeInfo').style.display = 'block';
+            document.getElementById('cascadeInstructions').textContent = 'Click any infrastructure asset to simulate failure';
+            isCascadeMode = true;
+            currentAnalysisMode = 'cascade';
+            
+            // Add click handler for realistic cascade simulation
+            cascadeHandler.setInputAction(function (movement) {
+                const pickedObject = viewer.scene.pick(movement.position);
+                if (pickedObject && pickedObject.id && pickedObject.id.id) {
+                    const assetId = pickedObject.id.id;
+                    
+                    // Find the clicked asset
+                    let clickedAsset = null;
+                    let assetType = null;
+                    
+                    // Check primary substations
+                    clickedAsset = sampleInfrastructure.primary.find(a => a.id === assetId);
+                    if (clickedAsset) assetType = 'primary';
+                    
+                    // Check secondary substations
+                    if (!clickedAsset) {
+                        clickedAsset = sampleInfrastructure.secondary.find(a => a.id === assetId);
+                        if (clickedAsset) assetType = 'secondary';
+                    }
+                    
+                    // Check critical customers
+                    if (!clickedAsset) {
+                        clickedAsset = sampleInfrastructure.critical.find(a => a.id === assetId);
+                        if (clickedAsset) assetType = 'critical';
+                    }
+                    
+                    if (clickedAsset && assetType) {
+                        simulateRealisticCascade(clickedAsset, assetType);
+                    }
+                } else {
+                    // Clicked on a building - show generic building impact
+                    if (pickedObject && pickedObject.getProperty && pickedObject.getProperty("cesium#latitude")) {
+                        const lat = pickedObject.getProperty("cesium#latitude");
+                        const lon = pickedObject.getProperty("cesium#longitude");
+                        showBuildingImpactRadius(lat, lon);
+                    }
+                }
+            }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+            
+            updateAnalysisMode('Realistic Cascade');
+            updateStatus('🎯 Click infrastructure assets to simulate cascade failures');
+        }
+        
+        function colorByDistanceToCoordinate(pickedLatitude, pickedLongitude) {
+            if (!osmBuildingsTileset) return;
+            
+            osmBuildingsTileset.style = new Cesium.Cesium3DTileStyle({
+                defines: {
+                    distance: `distance(vec2(\${feature['cesium#longitude']}, \${feature['cesium#latitude']}), vec2(${pickedLongitude},${pickedLatitude}))`
+                },
+                color: {
+                    conditions: [
+                        ["${distance} > 0.020", "color('#22c55e', 0.6)"],    // Green - Low impact (2km+)
+                        ["${distance} > 0.010", "color('#eab308', 0.7)"],    // Yellow - Medium impact (1-2km)
+                        ["${distance} > 0.005", "color('#f59e0b', 0.8)"],    // Orange - High impact (500m-1km)
+                        ["${distance} > 0.0001", "color('#dc2626', 0.9)"],   // Red - Critical impact (0-500m)
+                        ["true", "color('#ffffff', 1.0)"]                    // White - Epicenter
+                    ]
+                }
+            });
+        }
+        
+        function enableBuildingVulnerability() {
+            if (!osmBuildingsTileset) {
+                alert('Please load OSM Buildings first');
+                return;
+            }
+            
+            setButtonActive('cascadeBuildings');
+            document.getElementById('cascadeInfo').style.display = 'block';
+            document.getElementById('cascadeInstructions').textContent = 'Buildings colored by vulnerability';
+            
+            // Color buildings by vulnerability (based on type and material)
+            osmBuildingsTileset.style = new Cesium.Cesium3DTileStyle({
+                defines: {
+                    material: "${feature['building:material']}",
+                    buildingType: "${feature['building']}"
+                },
+                color: {
+                    conditions: [
+                        // Critical infrastructure buildings
+                        ["${buildingType} === 'hospital' || ${buildingType} === 'school'", "color('#dc2626', 0.9)"],
+                        // Vulnerable materials
+                        ["${material} === 'wood'", "color('#f59e0b', 0.8)"],
+                        ["${material} === 'glass'", "color('#eab308', 0.7)"],
+                        // Residential areas (high population)
+                        ["${buildingType} === 'apartments' || ${buildingType} === 'residential'", "color('#f59e0b', 0.7)"],
+                        // Commercial/office (economic impact)
+                        ["${buildingType} === 'commercial' || ${buildingType} === 'office'", "color('#3b82f6', 0.7)"],
+                        // Industrial (potential hazards)
+                        ["${buildingType} === 'industrial'", "color('#8b5cf6', 0.7)"],
+                        // Default
+                        ["true", "color('#6b7280', 0.5)"]
+                    ]
+                }
+            });
+            
+            updateAnalysisMode('Building Vulnerability');
+            updateStatus('🏢 Buildings colored by vulnerability');
+        }
+        
+        function resetAllAnalysis() {
+            resetBuildingStyle();
+            document.getElementById('cascadeInfo').style.display = 'none';
+            disableCascadeMode();
+            
+            // Reset all button states
+            document.querySelectorAll('.control-btn').forEach(btn => {
+                if (!btn.id.includes('osmAsync') && !btn.id.includes('showCriticalAssets')) {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            updateAnalysisMode('Ready');
+            updateStatus('🔄 All analysis reset');
+        }
+        
+        function resetBuildingStyle() {
+            if (osmBuildingsTileset) {
+                osmBuildingsTileset.style = undefined;
+            }
+        }
+        
+        function disableCascadeMode() {
+            isCascadeMode = false;
+            currentAnalysisMode = 'none';
+            if (cascadeHandler) {
+                cascadeHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_CLICK);
+            }
+        }
+        
+        // Camera Controls
+        function flyToLondon() {
+            viewer.camera.flyTo({
+                destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 1200),
+                orientation: {
+                    heading: 0.0,
+                    pitch: Cesium.Math.toRadians(-45),
+                    roll: 0.0
+                },
+                duration: 2.0
+            });
+        }
+        
+        function flyToCanaryWharf() {
+            viewer.camera.flyTo({
+                destination: Cesium.Cartesian3.fromDegrees(-0.0235, 51.5054, 600),
+                orientation: {
+                    heading: Cesium.Math.toRadians(45),
+                    pitch: Cesium.Math.toRadians(-35),
+                    roll: 0.0
+                },
+                duration: 2.0
+            });
+        }
+        
+        function flyToCity() {
+            viewer.camera.flyTo({
+                destination: Cesium.Cartesian3.fromDegrees(-0.0927, 51.5155, 500),
+                orientation: {
+                    heading: Cesium.Math.toRadians(-45),
+                    pitch: Cesium.Math.toRadians(-40),
+                    roll: 0.0
+                },
+                duration: 2.0
+            });
+        }
+        
+        // Initialize
+        initializeCesium();
+    </script>
+</body>
+</html>

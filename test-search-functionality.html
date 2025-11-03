@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Functionality Test</title>
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+        #map { width: 100%; height: 400px; border: 1px solid #ccc; margin-bottom: 20px; }
+        .controls { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .controls input, .controls button, .controls select { padding: 8px; }
+        .results { background: #f5f5f5; padding: 15px; border-radius: 5px; }
+        .asset-item { background: white; margin: 5px 0; padding: 10px; border-radius: 3px; border-left: 4px solid #007cba; }
+        .critical { border-left-color: #dc2626; }
+        .high { border-left-color: #ea580c; }
+        .medium { border-left-color: #ca8a04; }
+        .low { border-left-color: #65a30d; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Search & Filter Test - Phase 2</h1>
+    
+    <div id="map"></div>
+    
+    <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search assets, operators, types..." />
+        <select id="operatorFilter">
+            <option value="">All Operators</option>
+        </select>
+        <button id="criticalOnly">🔴 Critical Only</button>
+        <button id="highVoltageOnly">⚡ High Voltage</button>
+        <button id="crossSectorOnly">🔗 Cross-Sector</button>
+        <button id="clearSearch">🧹 Clear</button>
+    </div>
+    
+    <div class="results">
+        <h3>Search Results: <span id="resultCount">0</span></h3>
+        <div id="resultsList"></div>
+        <div id="statistics"></div>
+    </div>
+
+    <script>
+        // Mock SearchService for testing
+        class MockSearchService {
+            constructor() {
+                this.allAssets = [];
+                this.operators = new Set();
+                this.isLoaded = false;
+            }
+
+            async loadAssets() {
+                console.log('🔍 Loading mock assets for search testing...');
+                
+                // Generate mock infrastructure data
+                this.allAssets = [
+                    // Power assets
+                    { id: 'pow_001', name: 'Battersea Power Station', type: 'power', subtype: 'generation', criticality: 'critical', operator: 'National Grid', voltage: 400000, coordinates: [-0.1445, 51.4816] },
+                    { id: 'pow_002', name: 'Wimbledon Substation', type: 'power', subtype: 'transmission', criticality: 'high', operator: 'National Grid', voltage: 275000, coordinates: [-0.2044, 51.4214] },
+                    { id: 'pow_003', name: 'Canary Wharf Substation', type: 'power', subtype: 'primary', criticality: 'high', operator: 'UK Power Networks', voltage: 132000, coordinates: [-0.0235, 51.5048] },
+                    
+                    // Water assets
+                    { id: 'wat_001', name: 'Thames Water Treatment Plant', type: 'water', subtype: 'treatment', criticality: 'critical', operator: 'Thames Water', coordinates: [-0.3340, 51.4700] },
+                    { id: 'wat_002', name: 'Beckton Sewage Treatment', type: 'water', subtype: 'wastewater', criticality: 'high', operator: 'Thames Water', coordinates: [0.0736, 51.5156] },
+                    
+                    // Telecoms assets
+                    { id: 'tel_001', name: 'BT Tower', type: 'telecoms', subtype: 'towers', criticality: 'high', operator: 'BT Group', coordinates: [-0.1389, 51.5215] },
+                    { id: 'tel_002', name: 'Telehouse Data Centre', type: 'telecoms', subtype: 'datacenter', criticality: 'critical', operator: 'Telehouse', coordinates: [-0.0736, 51.5156] },
+                    
+                    // Transport assets
+                    { id: 'tra_001', name: 'Heathrow Airport', type: 'transport', subtype: 'airport', criticality: 'critical', operator: 'Heathrow Airport Holdings', coordinates: [-0.4543, 51.4700] },
+                    { id: 'tra_002', name: 'King\'s Cross Station', type: 'transport', subtype: 'rail', criticality: 'high', operator: 'Network Rail', coordinates: [-0.1238, 51.5308] }
+                ];
+
+                // Build operator index
+                this.allAssets.forEach(asset => {
+                    if (asset.operator) this.operators.add(asset.operator);
+                });
+
+                this.isLoaded = true;
+                console.log(`✅ Loaded ${this.allAssets.length} mock assets`);
+                return this.allAssets;
+            }
+
+            search(filters = {}) {
+                if (!this.isLoaded) return { assets: [], totalCount: 0, operatorCounts: {}, criticalityCounts: {}, typeCounts: {} };
+
+                const {
+                    query = '',
+                    operators = [],
+                    showCriticalOnly = false,
+                    showHighVoltageOnly = false,
+                    showCrossSectorOnly = false
+                } = filters;
+
+                let filteredAssets = [...this.allAssets];
+
+                // Text search
+                if (query.trim()) {
+                    const searchTerm = query.toLowerCase();
+                    filteredAssets = filteredAssets.filter(asset => 
+                        asset.name.toLowerCase().includes(searchTerm) ||
+                        asset.operator?.toLowerCase().includes(searchTerm) ||
+                        asset.subtype.toLowerCase().includes(searchTerm) ||
+                        asset.type.toLowerCase().includes(searchTerm)
+                    );
+                }
+
+                // Operator filter
+                if (operators.length > 0) {
+                    filteredAssets = filteredAssets.filter(asset => 
+                        asset.operator && operators.includes(asset.operator)
+                    );
+                }
+
+                // Quick filters
+                if (showCriticalOnly) {
+                    filteredAssets = filteredAssets.filter(asset => asset.criticality === 'critical');
+                }
+
+                if (showHighVoltageOnly) {
+                    filteredAssets = filteredAssets.filter(asset => asset.voltage && asset.voltage >= 110000);
+                }
+
+                if (showCrossSectorOnly) {
+                    filteredAssets = filteredAssets.filter(asset => 
+                        (asset.type === 'power' && asset.subtype === 'generation') ||
+                        (asset.type === 'water' && asset.subtype === 'treatment') ||
+                        (asset.type === 'telecoms' && asset.subtype === 'datacenter') ||
+                        (asset.type === 'transport' && asset.subtype === 'airport')
+                    );
+                }
+
+                // Calculate statistics
+                const operatorCounts = {};
+                const criticalityCounts = {};
+                const typeCounts = {};
+
+                filteredAssets.forEach(asset => {
+                    if (asset.operator) {
+                        operatorCounts[asset.operator] = (operatorCounts[asset.operator] || 0) + 1;
+                    }
+                    criticalityCounts[asset.criticality] = (criticalityCounts[asset.criticality] || 0) + 1;
+                    typeCounts[asset.type] = (typeCounts[asset.type] || 0) + 1;
+                });
+
+                return {
+                    assets: filteredAssets,
+                    totalCount: filteredAssets.length,
+                    operatorCounts,
+                    criticalityCounts,
+                    typeCounts
+                };
+            }
+
+            getOperators() {
+                return Array.from(this.operators).sort();
+            }
+
+            highlightAssets(map, assetIds) {
+                console.log(`🎯 Highlighting ${assetIds.length} assets`);
+                
+                // Clear existing highlights
+                this.clearHighlights(map);
+                
+                if (assetIds.length === 0) return;
+                
+                // Get matching assets
+                const highlightAssets = this.allAssets.filter(asset => assetIds.includes(asset.id));
+                
+                // Create GeoJSON
+                const highlightGeoJSON = {
+                    type: 'FeatureCollection',
+                    features: highlightAssets.map(asset => ({
+                        type: 'Feature',
+                        properties: { id: asset.id, name: asset.name, criticality: asset.criticality },
+                        geometry: { type: 'Point', coordinates: asset.coordinates }
+                    }))
+                };
+                
+                // Add to map
+                try {
+                    map.addSource('search-highlights', {
+                        type: 'geojson',
+                        data: highlightGeoJSON
+                    });
+                    
+                    map.addLayer({
+                        id: 'search-highlights',
+                        type: 'circle',
+                        source: 'search-highlights',
+                        paint: {
+                            'circle-radius': 12,
+                            'circle-color': '#ffff00',
+                            'circle-opacity': 0.8,
+                            'circle-stroke-width': 3,
+                            'circle-stroke-color': '#ffffff'
+                        }
+                    });
+                    
+                    // Fit map to highlights
+                    if (highlightAssets.length > 0) {
+                        const bounds = new maplibregl.LngLatBounds();
+                        highlightAssets.forEach(asset => bounds.extend(asset.coordinates));
+                        map.fitBounds(bounds, { padding: 50 });
+                    }
+                    
+                } catch (error) {
+                    console.error('Failed to highlight:', error);
+                }
+            }
+
+            clearHighlights(map) {
+                try {
+                    if (map.getLayer('search-highlights')) {
+                        map.removeLayer('search-highlights');
+                    }
+                    if (map.getSource('search-highlights')) {
+                        map.removeSource('search-highlights');
+                    }
+                } catch (error) {
+                    console.error('Failed to clear highlights:', error);
+                }
+            }
+        }
+
+        // Initialize map and search service
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://api.maptiler.com/maps/streets/style.json?key=demo',
+            center: [-0.1276, 51.5074], // London
+            zoom: 10
+        });
+
+        const searchService = new MockSearchService();
+        let currentFilters = {
+            query: '',
+            operators: [],
+            showCriticalOnly: false,
+            showHighVoltageOnly: false,
+            showCrossSectorOnly: false
+        };
+
+        // Load data when map is ready
+        map.on('load', async () => {
+            await searchService.loadAssets();
+            
+            // Populate operator dropdown
+            const operatorSelect = document.getElementById('operatorFilter');
+            searchService.getOperators().forEach(operator => {
+                const option = document.createElement('option');
+                option.value = operator;
+                option.textContent = operator;
+                operatorSelect.appendChild(option);
+            });
+            
+            // Initial search
+            performSearch();
+        });
+
+        // Search function
+        function performSearch() {
+            const results = searchService.search(currentFilters);
+            displayResults(results);
+            
+            // Highlight on map if reasonable number of results
+            if (results.assets.length > 0 && results.assets.length <= 20) {
+                searchService.highlightAssets(map, results.assets.map(a => a.id));
+            } else {
+                searchService.clearHighlights(map);
+            }
+        }
+
+        // Display results
+        function displayResults(results) {
+            document.getElementById('resultCount').textContent = results.totalCount;
+            
+            const resultsList = document.getElementById('resultsList');
+            resultsList.innerHTML = '';
+            
+            results.assets.slice(0, 10).forEach(asset => {
+                const div = document.createElement('div');
+                div.className = `asset-item ${asset.criticality}`;
+                div.innerHTML = `
+                    <strong>${asset.name}</strong> 
+                    <span style="color: #666;">(${asset.type} - ${asset.subtype})</span><br>
+                    <small>Operator: ${asset.operator || 'Unknown'} | Criticality: ${asset.criticality}</small>
+                    ${asset.voltage ? `<br><small>Voltage: ${(asset.voltage/1000).toFixed(0)}kV</small>` : ''}
+                `;
+                resultsList.appendChild(div);
+            });
+            
+            if (results.totalCount > 10) {
+                const more = document.createElement('div');
+                more.innerHTML = `<em>... and ${results.totalCount - 10} more results</em>`;
+                resultsList.appendChild(more);
+            }
+            
+            // Display statistics
+            const stats = document.getElementById('statistics');
+            stats.innerHTML = `
+                <h4>Statistics</h4>
+                <p><strong>By Type:</strong> ${Object.entries(results.typeCounts).map(([k,v]) => `${k}: ${v}`).join(', ')}</p>
+                <p><strong>By Criticality:</strong> ${Object.entries(results.criticalityCounts).map(([k,v]) => `${k}: ${v}`).join(', ')}</p>
+                <p><strong>Top Operators:</strong> ${Object.entries(results.operatorCounts).slice(0, 3).map(([k,v]) => `${k}: ${v}`).join(', ')}</p>
+            `;
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            currentFilters.query = e.target.value;
+            setTimeout(performSearch, 300); // Debounce
+        });
+
+        document.getElementById('operatorFilter').addEventListener('change', (e) => {
+            currentFilters.operators = e.target.value ? [e.target.value] : [];
+            performSearch();
+        });
+
+        document.getElementById('criticalOnly').addEventListener('click', () => {
+            currentFilters.showCriticalOnly = !currentFilters.showCriticalOnly;
+            document.getElementById('criticalOnly').style.backgroundColor = currentFilters.showCriticalOnly ? '#fecaca' : '';
+            performSearch();
+        });
+
+        document.getElementById('highVoltageOnly').addEventListener('click', () => {
+            currentFilters.showHighVoltageOnly = !currentFilters.showHighVoltageOnly;
+            document.getElementById('highVoltageOnly').style.backgroundColor = currentFilters.showHighVoltageOnly ? '#fed7aa' : '';
+            performSearch();
+        });
+
+        document.getElementById('crossSectorOnly').addEventListener('click', () => {
+            currentFilters.showCrossSectorOnly = !currentFilters.showCrossSectorOnly;
+            document.getElementById('crossSectorOnly').style.backgroundColor = currentFilters.showCrossSectorOnly ? '#e9d5ff' : '';
+            performSearch();
+        });
+
+        document.getElementById('clearSearch').addEventListener('click', () => {
+            currentFilters = {
+                query: '',
+                operators: [],
+                showCriticalOnly: false,
+                showHighVoltageOnly: false,
+                showCrossSectorOnly: false
+            };
+            
+            document.getElementById('searchInput').value = '';
+            document.getElementById('operatorFilter').value = '';
+            document.getElementById('criticalOnly').style.backgroundColor = '';
+            document.getElementById('highVoltageOnly').style.backgroundColor = '';
+            document.getElementById('crossSectorOnly').style.backgroundColor = '';
+            
+            searchService.clearHighlights(map);
+            performSearch();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesium Compatibility Check</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        html, body, #cesiumContainer {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+        }
+        #debug {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 1000;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-width: 400px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .available { color: #4ade80; }
+        .unavailable { color: #f87171; }
+        .testing { color: #fbbf24; }
+    </style>
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+    <div id="debug">
+        <div><strong>🔍 Cesium Compatibility Check</strong></div>
+        <hr style="margin: 10px 0; border-color: #444;">
+        <div id="results">Checking Cesium functions...</div>
+    </div>
+
+    <script>
+        const resultsEl = document.getElementById('results');
+
+        function addResult(name, available, details = '') {
+            const status = available ? 
+                `<span class="available">✅ ${name}</span>` : 
+                `<span class="unavailable">❌ ${name}</span>`;
+            const info = details ? `<br>&nbsp;&nbsp;&nbsp;${details}` : '';
+            resultsEl.innerHTML += `<div>${status}${info}</div>`;
+        }
+
+        function addSection(title) {
+            resultsEl.innerHTML += `<br><strong>${title}</strong><br>`;
+        }
+
+        async function checkCesiumCompatibility() {
+            try {
+                // Set token first
+                const cesiumIonToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0ZjFhOTM3NS03YmNhLTQxODYtYjg3Yi1lM2M3OGNkMjc4NmMiLCJpZCI6MzQzNzAyLCJpYXQiOjE3NjE1NjIyOTV9.Gi8tUMcyoo_cKyM-lhhaZ3BcA7f9xmDZ1RciL2bfI8c';
+                Cesium.Ion.defaultAccessToken = cesiumIonToken;
+
+                addSection('🌍 Core Cesium Functions');
+                addResult('Cesium.Viewer', typeof Cesium.Viewer === 'function');
+                addResult('Cesium.Ion', typeof Cesium.Ion === 'object');
+                addResult('Cesium.createWorldTerrainAsync', typeof Cesium.createWorldTerrainAsync === 'function');
+
+                addSection('🏢 3D Tiles Functions');
+                addResult('Cesium.Cesium3DTileset', typeof Cesium.Cesium3DTileset === 'function');
+                addResult('Cesium.createGooglePhotorealistic3DTileset', typeof Cesium.createGooglePhotorealistic3DTileset === 'function');
+                addResult('Cesium.createOsmBuildingsAsync', typeof Cesium.createOsmBuildingsAsync === 'function');
+
+                addSection('🔍 Geocoder Functions');
+                addResult('Cesium.IonGeocodeProviderType', typeof Cesium.IonGeocodeProviderType === 'object');
+                if (typeof Cesium.IonGeocodeProviderType === 'object' && Cesium.IonGeocodeProviderType) {
+                    addResult('IonGeocodeProviderType.GOOGLE', 'GOOGLE' in Cesium.IonGeocodeProviderType, 
+                        `Available types: ${Object.keys(Cesium.IonGeocodeProviderType).join(', ')}`);
+                }
+
+                addSection('🎮 Testing Basic Viewer');
+                resultsEl.innerHTML += `<div class="testing">⏳ Creating basic viewer...</div>`;
+
+                // Test basic viewer creation
+                const viewer = new Cesium.Viewer('cesiumContainer', {
+                    animation: false,
+                    baseLayerPicker: false,
+                    fullscreenButton: false,
+                    geocoder: false,
+                    homeButton: false,
+                    infoBox: false,
+                    sceneModePicker: false,
+                    selectionIndicator: false,
+                    timeline: false,
+                    navigationHelpButton: false,
+                    navigationInstructionsInitiallyVisible: false,
+                    requestRenderMode: true,
+                    maximumRenderTimeChange: Infinity
+                });
+
+                addResult('Basic Viewer Creation', true, 'Viewer created successfully');
+
+                // Test terrain
+                resultsEl.innerHTML += `<div class="testing">⏳ Testing terrain...</div>`;
+                try {
+                    const terrainProvider = await Cesium.createWorldTerrainAsync();
+                    viewer.terrainProvider = terrainProvider;
+                    addResult('World Terrain', true, 'Terrain loaded successfully');
+                } catch (terrainError) {
+                    addResult('World Terrain', false, `Error: ${terrainError.message}`);
+                }
+
+                // Test OSM Buildings
+                resultsEl.innerHTML += `<div class="testing">⏳ Testing OSM Buildings...</div>`;
+                try {
+                    const osmTileset = await Cesium.Cesium3DTileset.fromIonAssetId(96188);
+                    viewer.scene.primitives.add(osmTileset);
+                    addResult('OSM Buildings (96188)', true, 'OSM Buildings loaded successfully');
+                } catch (osmError) {
+                    addResult('OSM Buildings (96188)', false, `Error: ${osmError.message}`);
+                }
+
+                // Test Google Photorealistic (if available)
+                if (typeof Cesium.createGooglePhotorealistic3DTileset === 'function') {
+                    resultsEl.innerHTML += `<div class="testing">⏳ Testing Google Photorealistic...</div>`;
+                    try {
+                        const googleTileset = await Cesium.createGooglePhotorealistic3DTileset();
+                        // Don't add to scene to avoid conflicts, just test creation
+                        addResult('Google Photorealistic 3D Tiles', true, 'Google tiles created successfully');
+                    } catch (googleError) {
+                        addResult('Google Photorealistic 3D Tiles', false, `Error: ${googleError.message}`);
+                    }
+                } else {
+                    addResult('Google Photorealistic 3D Tiles', false, 'Function not available in this Cesium version');
+                }
+
+                // Set camera to London
+                viewer.camera.setView({
+                    destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 1000),
+                    orientation: {
+                        heading: 0.0,
+                        pitch: Cesium.Math.toRadians(-45),
+                        roll: 0.0
+                    }
+                });
+
+                addSection('✅ Test Complete');
+                resultsEl.innerHTML += `<div class="available">All tests completed. Check results above.</div>`;
+                resultsEl.innerHTML += `<br><div style="font-size: 10px; color: #888;">You should see a 3D map of London with buildings if OSM Buildings loaded successfully.</div>`;
+
+            } catch (error) {
+                addResult('Overall Test', false, `Critical error: ${error.message}`);
+                console.error('Cesium compatibility test failed:', error);
+            }
+        }
+
+        // Start the compatibility check
+        checkCesiumCompatibility();
+    </script>
+</body>
+</html>

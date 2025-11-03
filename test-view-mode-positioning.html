@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Mode Toggle Positioning Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .layout-demo {
+            position: relative;
+            height: 500px;
+            background: #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .mock-map {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, #10b981, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .mock-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 20;
+        }
+        .mock-left-panel {
+            position: absolute;
+            top: 70px;
+            left: 16px;
+            width: 320px;
+            height: 400px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            z-index: 10;
+            padding: 16px;
+        }
+        .mock-left-panel.collapsed {
+            width: 48px;
+            height: 48px;
+        }
+        .view-toggle-old {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            z-index: 10;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            padding: 8px;
+            color: red;
+            font-weight: bold;
+        }
+        .view-toggle-new {
+            position: absolute;
+            top: 80px;
+            right: 16px;
+            z-index: 10;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            padding: 4px;
+            display: flex;
+            gap: 4px;
+        }
+        .view-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 6px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .view-btn.active {
+            background: #3b82f6;
+            color: white;
+        }
+        .view-btn:not(.active) {
+            color: #6b7280;
+        }
+        .view-btn:not(.active):hover {
+            background: #f3f4f6;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .comparison-item {
+            padding: 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+        }
+        .comparison-item h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .comparison-item.problem {
+            background: #fef2f2;
+            border-color: #fca5a5;
+        }
+        .comparison-item.solution {
+            background: #f0fdf4;
+            border-color: #86efac;
+        }
+        .toggle-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            margin: 5px;
+        }
+        .toggle-btn:hover {
+            background: #2563eb;
+        }
+        .instructions {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .instructions h4 {
+            margin: 0 0 10px 0;
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 View Mode Toggle Positioning Fix</h1>
+            <p>Resolving UI overlap between controls panel and view mode toggle</p>
+        </div>
+        
+        <div class="content">
+            <!-- Problem vs Solution Comparison -->
+            <div class="comparison">
+                <div class="comparison-item problem">
+                    <h3>❌ Before: Overlap Problem</h3>
+                    <p>View mode toggle positioned at <code>bottom-4 left-4</code> conflicts with the expandable controls panel, making it inaccessible when panel is open.</p>
+                </div>
+                <div class="comparison-item solution">
+                    <h3>✅ After: Top-Right Position</h3>
+                    <p>View mode toggle moved to <code>top-20 right-4</code> with compact design, avoiding all overlaps while remaining easily accessible.</p>
+                </div>
+            </div>
+
+            <!-- Interactive Layout Demo -->
+            <div class="layout-demo">
+                <div class="mock-map">
+                    🗺️ Map Area
+                </div>
+                
+                <!-- Mock Header -->
+                <div class="mock-header">
+                    <div style="font-weight: bold;">CReDo - Infrastructure Resilience</div>
+                    <div style="font-size: 14px; color: #6b7280;">London, UK</div>
+                </div>
+                
+                <!-- Mock Left Panel -->
+                <div class="mock-left-panel" id="leftPanel">
+                    <div style="font-weight: 600; margin-bottom: 10px;">Controls Panel</div>
+                    <div style="font-size: 14px; color: #6b7280; margin-bottom: 15px;">
+                        🗺️ Layers | 🔍 Search | ⚡ Simulation
+                    </div>
+                    <div style="background: #f3f4f6; padding: 10px; border-radius: 4px; font-size: 12px;">
+                        Layer controls, search filters, simulation settings, etc.
+                    </div>
+                </div>
+                
+                <!-- Old Position (Problematic) -->
+                <div class="view-toggle-old" id="oldToggle" style="display: none;">
+                    ❌ HIDDEN<br>
+                    <small>Covered by panel</small>
+                </div>
+                
+                <!-- New Position (Fixed) -->
+                <div class="view-toggle-new" id="newToggle">
+                    <div class="view-btn active">
+                        <span>🗺️</span>
+                        <span>2D</span>
+                    </div>
+                    <div class="view-btn">
+                        <span>🏢</span>
+                        <span>3D</span>
+                    </div>
+                    <div class="view-btn">
+                        <span>🌍</span>
+                        <span>Photo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button class="toggle-btn" onclick="togglePanel()">Toggle Controls Panel</button>
+                <button class="toggle-btn" onclick="showOldPosition()">Show Old Position</button>
+                <button class="toggle-btn" onclick="showNewPosition()">Show New Position</button>
+            </div>
+
+            <!-- Benefits -->
+            <div class="instructions">
+                <h4>✨ Benefits of New Positioning</h4>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><strong>No Overlap:</strong> Never conflicts with left controls panel</li>
+                    <li><strong>Always Accessible:</strong> Visible in both collapsed and expanded panel states</li>
+                    <li><strong>Compact Design:</strong> Smaller footprint with tighter spacing</li>
+                    <li><strong>Consistent UX:</strong> Follows Google Maps pattern (controls on right)</li>
+                    <li><strong>Future-Proof:</strong> Won't conflict with additional left panel features</li>
+                </ul>
+            </div>
+
+            <!-- Usage Instructions -->
+            <div class="instructions">
+                <h4>🎮 How to Use in Your App</h4>
+                <ol style="margin: 0; padding-left: 20px;">
+                    <li>Start your development server: <code>npm run dev</code></li>
+                    <li>Open <code>http://localhost:5173</code></li>
+                    <li>Look for the compact view toggle in the <strong>top-right corner</strong></li>
+                    <li>Click between <strong>🗺️ 2D</strong>, <strong>🏢 3D</strong>, and <strong>🌍 Photo 3D</strong></li>
+                    <li>Toggle the controls panel to verify no overlap occurs</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let panelCollapsed = false;
+        let showingOld = false;
+
+        function togglePanel() {
+            const panel = document.getElementById('leftPanel');
+            panelCollapsed = !panelCollapsed;
+            
+            if (panelCollapsed) {
+                panel.classList.add('collapsed');
+                panel.innerHTML = '<div style="text-align: center; padding-top: 8px;">☰</div>';
+            } else {
+                panel.classList.remove('collapsed');
+                panel.innerHTML = `
+                    <div style="font-weight: 600; margin-bottom: 10px;">Controls Panel</div>
+                    <div style="font-size: 14px; color: #6b7280; margin-bottom: 15px;">
+                        🗺️ Layers | 🔍 Search | ⚡ Simulation
+                    </div>
+                    <div style="background: #f3f4f6; padding: 10px; border-radius: 4px; font-size: 12px;">
+                        Layer controls, search filters, simulation settings, etc.
+                    </div>
+                `;
+            }
+        }
+
+        function showOldPosition() {
+            document.getElementById('oldToggle').style.display = 'block';
+            document.getElementById('newToggle').style.display = 'none';
+            showingOld = true;
+        }
+
+        function showNewPosition() {
+            document.getElementById('oldToggle').style.display = 'none';
+            document.getElementById('newToggle').style.display = 'flex';
+            showingOld = false;
+        }
+
+        // Add click handlers to view buttons
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

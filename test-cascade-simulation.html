@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascade Simulation Test - Phase 3</title>
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; background: #f5f5f5; }
+        .container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 350px 1fr; gap: 20px; }
+        .controls { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); height: fit-content; }
+        .map-container { background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden; }
+        #map { width: 100%; height: 600px; }
+        .control-group { margin: 15px 0; }
+        .control-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #333; }
+        .control-group input, .control-group select { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        .control-group input[type="range"] { margin: 10px 0; }
+        .button { padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin: 5px 0; width: 100%; }
+        .button-primary { background: #dc2626; color: white; }
+        .button-primary:hover { background: #b91c1c; }
+        .button-secondary { background: #6b7280; color: white; }
+        .button-secondary:hover { background: #4b5563; }
+        .button:disabled { background: #d1d5db; cursor: not-allowed; }
+        .status { padding: 15px; margin: 15px 0; border-radius: 4px; }
+        .status-active { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+        .status-ready { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+        .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+        .stat { text-align: center; padding: 10px; background: #f9fafb; border-radius: 4px; }
+        .stat-value { font-size: 24px; font-weight: bold; color: #dc2626; }
+        .stat-label { font-size: 12px; color: #6b7280; }
+        .scenario-buttons { display: grid; gap: 8px; margin: 15px 0; }
+        .scenario-button { padding: 8px; text-align: left; background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 4px; cursor: pointer; font-size: 12px; }
+        .scenario-button:hover { background: #e5e7eb; }
+        .scenario-button .title { font-weight: bold; margin-bottom: 2px; }
+        .scenario-button .desc { color: #6b7280; }
+        .progress-bar { width: 100%; height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; margin: 10px 0; }
+        .progress-fill { height: 100%; background: #dc2626; transition: width 0.3s ease; }
+        .asset-list { max-height: 200px; overflow-y: auto; border: 1px solid #e5e7eb; border-radius: 4px; margin: 10px 0; }
+        .asset-item { padding: 8px; border-bottom: 1px solid #f3f4f6; font-size: 12px; }
+        .asset-item:last-child { border-bottom: none; }
+        .asset-failed { background: #fef2f2; color: #991b1b; }
+        .asset-degraded { background: #fffbeb; color: #92400e; }
+        .legend { display: flex; gap: 10px; margin: 10px 0; font-size: 12px; }
+        .legend-item { display: flex; align-items: center; gap: 5px; }
+        .legend-color { width: 12px; height: 12px; border-radius: 50%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <h1>🚨 Cascade Simulation</h1>
+            
+            <div class="control-group">
+                <label>Trigger Asset ID</label>
+                <input type="text" id="triggerAsset" placeholder="Enter asset ID or click map..." />
+            </div>
+            
+            <div class="control-group">
+                <label>Cascade Radius: <span id="radiusValue">5</span>km</label>
+                <input type="range" id="radius" min="1" max="15" step="0.5" value="5" />
+            </div>
+            
+            <div class="control-group">
+                <label>Speed: <span id="speedValue">Normal</span></label>
+                <input type="range" id="speed" min="0.25" max="3" step="0.25" value="1" />
+            </div>
+            
+            <div class="control-group">
+                <label>Severity: <span id="severityValue">70</span>%</label>
+                <input type="range" id="severity" min="0.1" max="1" step="0.1" value="0.7" />
+            </div>
+            
+            <div class="control-group">
+                <label>
+                    <input type="checkbox" id="crossSector" checked /> Enable Cross-Sector Cascades
+                </label>
+            </div>
+            
+            <div class="scenario-buttons">
+                <div class="scenario-button" data-scenario="power">
+                    <div class="title">⚡ Major Power Station</div>
+                    <div class="desc">High severity, cross-sector enabled</div>
+                </div>
+                <div class="scenario-button" data-scenario="water">
+                    <div class="title">💧 Water Treatment Plant</div>
+                    <div class="desc">Medium severity, affects power generation</div>
+                </div>
+                <div class="scenario-button" data-scenario="telecom">
+                    <div class="title">📡 Data Center Outage</div>
+                    <div class="desc">Localized impact, telecoms only</div>
+                </div>
+            </div>
+            
+            <button id="startBtn" class="button button-primary">🚨 Start Cascade</button>
+            <button id="resetBtn" class="button button-secondary" style="display: none;">Reset Simulation</button>
+            
+            <div id="status" class="status status-ready">
+                ✅ Ready to simulate cascade failure
+            </div>
+            
+            <div id="progress" style="display: none;">
+                <h3>Simulation Progress</h3>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div id="affectedCount" class="stat-value">0</div>
+                        <div class="stat-label">Assets Affected</div>
+                    </div>
+                    <div class="stat">
+                        <div id="populationCount" class="stat-value">0</div>
+                        <div class="stat-label">Population</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="assetList" style="display: none;">
+                <h3>Affected Assets</h3>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #dc2626;"></div>
+                        <span>Failed</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #f59e0b;"></div>
+                        <span>Degraded</span>
+                    </div>
+                </div>
+                <div class="asset-list" id="affectedAssets"></div>
+            </div>
+        </div>
+        
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script>
+        // Mock Cascade Simulator for testing
+        class MockCascadeSimulator {
+            constructor() {
+                this.assets = this.generateMockAssets();
+                this.isRunning = false;
+                this.affectedAssets = new Map();
+                this.currentStep = 0;
+                this.totalSteps = 0;
+                this.config = null;
+                this.callbacks = [];
+                this.timer = null;
+            }
+
+            generateMockAssets() {
+                const assets = [];
+                const types = ['power', 'water', 'telecoms', 'transport'];
+                const criticalities = ['critical', 'high', 'medium', 'low'];
+                
+                // Generate assets around London
+                for (let i = 0; i < 100; i++) {
+                    const type = types[Math.floor(Math.random() * types.length)];
+                    const criticality = criticalities[Math.floor(Math.random() * criticalities.length)];
+                    
+                    assets.push({
+                        id: `${type}_${String(i).padStart(3, '0')}`,
+                        name: `${type.charAt(0).toUpperCase() + type.slice(1)} Asset ${i}`,
+                        type,
+                        criticality,
+                        coordinates: [
+                            -0.1276 + (Math.random() - 0.5) * 0.5, // London longitude ± 25km
+                            51.5074 + (Math.random() - 0.5) * 0.3  // London latitude ± 15km
+                        ],
+                        servicePopulation: Math.floor(Math.random() * 100000) + 10000
+                    });
+                }
+                
+                return assets;
+            }
+
+            async initializeSimulation(triggerId, config) {
+                console.log('🚨 Starting cascade simulation:', triggerId, config);
+                
+                this.isRunning = true;
+                this.config = config;
+                this.affectedAssets.clear();
+                this.currentStep = 0;
+                this.totalSteps = Math.ceil(config.radiusKm * 2);
+                
+                // Add trigger asset
+                const triggerAsset = this.assets.find(a => a.id === triggerId);
+                if (!triggerAsset) {
+                    throw new Error(`Asset not found: ${triggerId}`);
+                }
+                
+                this.affectedAssets.set(triggerId, {
+                    id: triggerId,
+                    status: 'failed',
+                    impactTime: 0,
+                    failureReason: 'trigger',
+                    asset: triggerAsset
+                });
+                
+                this.notifyCallbacks();
+                this.startTimer();
+            }
+
+            startTimer() {
+                const stepDelay = 1000 / this.config.speedMultiplier;
+                
+                this.timer = setInterval(() => {
+                    this.stepSimulation();
+                }, stepDelay);
+            }
+
+            stepSimulation() {
+                if (!this.isRunning) return;
+                
+                this.currentStep++;
+                const newlyAffected = [];
+                
+                // Find assets to affect in this step
+                for (const [affectedId, affectedState] of this.affectedAssets) {
+                    const affectedAsset = affectedState.asset;
+                    
+                    // Find nearby assets
+                    const nearbyAssets = this.assets.filter(asset => {
+                        if (this.affectedAssets.has(asset.id)) return false;
+                        
+                        const distance = this.calculateDistance(
+                            affectedAsset.coordinates,
+                            asset.coordinates
+                        );
+                        
+                        return distance <= this.config.radiusKm;
+                    });
+                    
+                    // Randomly affect some nearby assets based on severity
+                    for (const nearby of nearbyAssets) {
+                        if (Math.random() < this.config.severity * 0.3) { // 30% base chance
+                            const status = Math.random() < 0.7 ? 'failed' : 'degraded';
+                            
+                            this.affectedAssets.set(nearby.id, {
+                                id: nearby.id,
+                                status,
+                                impactTime: this.currentStep,
+                                failureReason: 'proximity',
+                                asset: nearby
+                            });
+                            
+                            newlyAffected.push(nearby);
+                        }
+                    }
+                }
+                
+                // Check if simulation should end
+                if (this.currentStep >= this.totalSteps || newlyAffected.length === 0) {
+                    this.isRunning = false;
+                    clearInterval(this.timer);
+                    console.log('✅ Cascade simulation complete');
+                }
+                
+                this.notifyCallbacks();
+            }
+
+            calculateDistance(coord1, coord2) {
+                const [lng1, lat1] = coord1;
+                const [lng2, lat2] = coord2;
+                
+                const R = 6371; // Earth's radius in km
+                const dLat = (lat2 - lat1) * Math.PI / 180;
+                const dLng = (lng2 - lng1) * Math.PI / 180;
+                
+                const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                          Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                          Math.sin(dLng / 2) * Math.sin(dLng / 2);
+                
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                return R * c;
+            }
+
+            resetSimulation() {
+                this.isRunning = false;
+                if (this.timer) {
+                    clearInterval(this.timer);
+                    this.timer = null;
+                }
+                this.affectedAssets.clear();
+                this.currentStep = 0;
+                this.notifyCallbacks();
+            }
+
+            subscribeToUpdates(callback) {
+                this.callbacks.push(callback);
+                return () => {
+                    const index = this.callbacks.indexOf(callback);
+                    if (index > -1) this.callbacks.splice(index, 1);
+                };
+            }
+
+            notifyCallbacks() {
+                const state = this.isRunning ? {
+                    isActive: this.isRunning,
+                    currentStep: this.currentStep,
+                    totalSteps: this.totalSteps,
+                    affectedAssets: this.affectedAssets
+                } : null;
+                
+                this.callbacks.forEach(callback => callback(state));
+            }
+
+            getCascadeStatistics() {
+                if (this.affectedAssets.size === 0) return null;
+                
+                const stats = {
+                    totalAffected: this.affectedAssets.size,
+                    byType: {},
+                    byCriticality: {},
+                    totalPopulationAffected: 0
+                };
+                
+                for (const [id, state] of this.affectedAssets) {
+                    const asset = state.asset;
+                    stats.byType[asset.type] = (stats.byType[asset.type] || 0) + 1;
+                    stats.byCriticality[asset.criticality] = (stats.byCriticality[asset.criticality] || 0) + 1;
+                    stats.totalPopulationAffected += asset.servicePopulation;
+                }
+                
+                return stats;
+            }
+        }
+
+        // Initialize map and simulator
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://api.maptiler.com/maps/streets/style.json?key=demo',
+            center: [-0.1276, 51.5074], // London
+            zoom: 10
+        });
+
+        const simulator = new MockCascadeSimulator();
+        let currentConfig = {
+            radiusKm: 5,
+            speedMultiplier: 1,
+            severity: 0.7,
+            crossSectorEnabled: true
+        };
+
+        // UI Elements
+        const elements = {
+            triggerAsset: document.getElementById('triggerAsset'),
+            radius: document.getElementById('radius'),
+            radiusValue: document.getElementById('radiusValue'),
+            speed: document.getElementById('speed'),
+            speedValue: document.getElementById('speedValue'),
+            severity: document.getElementById('severity'),
+            severityValue: document.getElementById('severityValue'),
+            crossSector: document.getElementById('crossSector'),
+            startBtn: document.getElementById('startBtn'),
+            resetBtn: document.getElementById('resetBtn'),
+            status: document.getElementById('status'),
+            progress: document.getElementById('progress'),
+            progressFill: document.getElementById('progressFill'),
+            affectedCount: document.getElementById('affectedCount'),
+            populationCount: document.getElementById('populationCount'),
+            assetList: document.getElementById('assetList'),
+            affectedAssets: document.getElementById('affectedAssets')
+        };
+
+        // Add assets to map when loaded
+        map.on('load', () => {
+            // Add asset points
+            map.addSource('assets', {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: simulator.assets.map(asset => ({
+                        type: 'Feature',
+                        properties: {
+                            id: asset.id,
+                            name: asset.name,
+                            type: asset.type,
+                            criticality: asset.criticality
+                        },
+                        geometry: {
+                            type: 'Point',
+                            coordinates: asset.coordinates
+                        }
+                    }))
+                }
+            });
+
+            map.addLayer({
+                id: 'assets',
+                type: 'circle',
+                source: 'assets',
+                paint: {
+                    'circle-radius': [
+                        'case',
+                        ['==', ['get', 'criticality'], 'critical'], 8,
+                        ['==', ['get', 'criticality'], 'high'], 6,
+                        4
+                    ],
+                    'circle-color': [
+                        'case',
+                        ['==', ['get', 'type'], 'power'], '#dc2626',
+                        ['==', ['get', 'type'], 'water'], '#2563eb',
+                        ['==', ['get', 'type'], 'telecoms'], '#16a34a',
+                        '#7c3aed'
+                    ],
+                    'circle-opacity': 0.7,
+                    'circle-stroke-width': 1,
+                    'circle-stroke-color': '#ffffff'
+                }
+            });
+
+            // Click handler for asset selection
+            map.on('click', 'assets', (e) => {
+                const assetId = e.features[0].properties.id;
+                elements.triggerAsset.value = assetId;
+            });
+
+            // Add cascade visualization layers
+            map.addSource('cascade-effects', {
+                type: 'geojson',
+                data: { type: 'FeatureCollection', features: [] }
+            });
+
+            map.addLayer({
+                id: 'cascade-effects',
+                type: 'circle',
+                source: 'cascade-effects',
+                paint: {
+                    'circle-radius': 12,
+                    'circle-color': [
+                        'case',
+                        ['==', ['get', 'status'], 'failed'], '#dc2626',
+                        ['==', ['get', 'status'], 'degraded'], '#f59e0b',
+                        '#6b7280'
+                    ],
+                    'circle-opacity': 0.8,
+                    'circle-stroke-width': 2,
+                    'circle-stroke-color': '#ffffff'
+                }
+            });
+        });
+
+        // Control event listeners
+        elements.radius.addEventListener('input', (e) => {
+            currentConfig.radiusKm = parseFloat(e.target.value);
+            elements.radiusValue.textContent = e.target.value;
+        });
+
+        elements.speed.addEventListener('input', (e) => {
+            currentConfig.speedMultiplier = parseFloat(e.target.value);
+            const speed = parseFloat(e.target.value);
+            elements.speedValue.textContent = speed <= 0.5 ? 'Slow' : speed >= 2 ? 'Fast' : 'Normal';
+        });
+
+        elements.severity.addEventListener('input', (e) => {
+            currentConfig.severity = parseFloat(e.target.value);
+            elements.severityValue.textContent = Math.round(parseFloat(e.target.value) * 100);
+        });
+
+        elements.crossSector.addEventListener('change', (e) => {
+            currentConfig.crossSectorEnabled = e.target.checked;
+        });
+
+        // Scenario buttons
+        document.querySelectorAll('.scenario-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const scenario = button.dataset.scenario;
+                
+                if (scenario === 'power') {
+                    elements.triggerAsset.value = 'power_001';
+                    elements.radius.value = '10';
+                    elements.severity.value = '0.8';
+                    elements.crossSector.checked = true;
+                } else if (scenario === 'water') {
+                    elements.triggerAsset.value = 'water_001';
+                    elements.radius.value = '5';
+                    elements.severity.value = '0.6';
+                    elements.crossSector.checked = true;
+                } else if (scenario === 'telecom') {
+                    elements.triggerAsset.value = 'telecoms_001';
+                    elements.radius.value = '3';
+                    elements.severity.value = '0.4';
+                    elements.crossSector.checked = false;
+                }
+                
+                // Update UI
+                elements.radiusValue.textContent = elements.radius.value;
+                elements.severityValue.textContent = Math.round(parseFloat(elements.severity.value) * 100);
+                
+                // Update config
+                currentConfig.radiusKm = parseFloat(elements.radius.value);
+                currentConfig.severity = parseFloat(elements.severity.value);
+                currentConfig.crossSectorEnabled = elements.crossSector.checked;
+            });
+        });
+
+        // Start simulation
+        elements.startBtn.addEventListener('click', async () => {
+            const triggerId = elements.triggerAsset.value.trim();
+            if (!triggerId) {
+                alert('Please enter a trigger asset ID or click on an asset on the map');
+                return;
+            }
+
+            try {
+                await simulator.initializeSimulation(triggerId, currentConfig);
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+
+        // Reset simulation
+        elements.resetBtn.addEventListener('click', () => {
+            simulator.resetSimulation();
+        });
+
+        // Subscribe to simulation updates
+        simulator.subscribeToUpdates((state) => {
+            if (state && state.isActive) {
+                // Show simulation is running
+                elements.status.className = 'status status-active';
+                elements.status.innerHTML = '🚨 Cascade simulation running...';
+                elements.startBtn.style.display = 'none';
+                elements.resetBtn.style.display = 'block';
+                elements.progress.style.display = 'block';
+                elements.assetList.style.display = 'block';
+                
+                // Update progress
+                const progress = (state.currentStep / state.totalSteps) * 100;
+                elements.progressFill.style.width = progress + '%';
+                
+                // Update statistics
+                const stats = simulator.getCascadeStatistics();
+                if (stats) {
+                    elements.affectedCount.textContent = stats.totalAffected;
+                    elements.populationCount.textContent = (stats.totalPopulationAffected / 1000).toFixed(0) + 'K';
+                }
+                
+                // Update affected assets list
+                const assetListHTML = Array.from(state.affectedAssets.values())
+                    .slice(0, 20) // Show first 20
+                    .map(assetState => `
+                        <div class="asset-item asset-${assetState.status}">
+                            <strong>${assetState.asset.name}</strong><br>
+                            <small>Status: ${assetState.status} | Reason: ${assetState.failureReason}</small>
+                        </div>
+                    `).join('');
+                
+                elements.affectedAssets.innerHTML = assetListHTML;
+                
+                // Update map visualization
+                const cascadeFeatures = Array.from(state.affectedAssets.values()).map(assetState => ({
+                    type: 'Feature',
+                    properties: {
+                        id: assetState.id,
+                        status: assetState.status,
+                        reason: assetState.failureReason
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: assetState.asset.coordinates
+                    }
+                }));
+                
+                map.getSource('cascade-effects').setData({
+                    type: 'FeatureCollection',
+                    features: cascadeFeatures
+                });
+                
+            } else {
+                // Simulation stopped or reset
+                elements.status.className = 'status status-ready';
+                elements.status.innerHTML = '✅ Ready to simulate cascade failure';
+                elements.startBtn.style.display = 'block';
+                elements.resetBtn.style.display = 'none';
+                
+                if (!state) {
+                    // Reset
+                    elements.progress.style.display = 'none';
+                    elements.assetList.style.display = 'none';
+                    elements.progressFill.style.width = '0%';
+                    elements.affectedCount.textContent = '0';
+                    elements.populationCount.textContent = '0';
+                    
+                    // Clear map
+                    map.getSource('cascade-effects').setData({
+                        type: 'FeatureCollection',
+                        features: []
+                    });
+                }
+            }
+        });
+
+        console.log('🚨 Cascade Simulation Test Ready');
+        console.log('📊 Features:');
+        console.log('  ✓ Interactive asset selection');
+        console.log('  ✓ Configurable cascade parameters');
+        console.log('  ✓ Real-time visualization');
+        console.log('  ✓ Progress tracking and statistics');
+        console.log('  ✓ Scenario presets');
+    </script>
+</body>
+</html>

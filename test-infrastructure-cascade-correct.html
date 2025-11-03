@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CReDo - Infrastructure Resilience Platform</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        html, body {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #cesiumContainer { width: 100%; height: 100%; }
+        
+        #controls {
+            position: absolute; top: 20px; left: 20px; width: 320px;
+            background: rgba(0, 0, 0, 0.85); color: white; padding: 20px;
+            border-radius: 12px; z-index: 1000; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn {
+            display: block; width: 100%; margin: 10px 0; padding: 12px;
+            background: #2a2a2a; color: white; border: 2px solid #444; border-radius: 8px;
+            cursor: pointer; font-size: 14px; transition: all 0.2s;
+        }
+        
+        .btn:hover { background: #3a3a3a; border-color: #666; }
+        .btn.active { background: linear-gradient(135deg, #007acc, #005999); border-color: #007acc; }
+        .btn.cascade { background: linear-gradient(135deg, #dc2626, #991b1b); border-color: #dc2626; }
+        
+        #status {
+            margin-top: 15px; padding: 12px; background: rgba(255,255,255,0.1);
+            border-radius: 8px; font-size: 12px;
+        }
+        
+        .legend {
+            margin-top: 15px; font-size: 11px;
+        }
+        
+        .legend-section {
+            margin-bottom: 10px;
+        }
+        
+        .legend-title {
+            font-weight: bold; color: #fff; margin-bottom: 5px;
+        }
+        
+        .legend-item {
+            display: flex; align-items: center; margin: 3px 0;
+        }
+        
+        .legend-color {
+            width: 12px; height: 12px; margin-right: 8px; border-radius: 2px;
+        }
+        
+        .nav-link {
+            display: inline-block; margin: 5px 10px 0 0; padding: 5px 10px;
+            background: #007acc; color: white; text-decoration: none;
+            border-radius: 4px; font-size: 12px;
+        }
+        
+        .nav-link:hover { background: #005999; }
+    </style>
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+    
+    <div id="controls">
+        <h3>⚡ Infrastructure Resilience Platform</h3>
+        <p style="font-size: 12px; color: #ccc; margin: 0 0 15px 0;">
+            Primary → Secondary → Buildings
+        </p>
+        
+        <button id="loadBuildings" class="btn active">🏢 Load OSM Buildings</button>
+        <button id="googlePhoto" class="btn">🌍 Google Photorealistic</button>
+        <button id="terrainOnly" class="btn">🌄 Terrain Only</button>
+        
+        <hr style="border-color: #555; margin: 15px 0;">
+        
+        <button id="showAssets" class="btn">⚡ Show Power Infrastructure</button>
+        <button id="hideAssets" class="btn">👁️ Hide Infrastructure</button>
+        
+        <hr style="border-color: #555; margin: 15px 0;">
+        
+        <button id="primaryCascade" class="btn cascade">🚨 Primary Substation Failure</button>
+        <button id="secondaryCascade" class="btn cascade">🔌 Secondary Substation Failure</button>
+        <button id="reset" class="btn">🔄 Reset All</button>
+        
+        <hr style="border-color: #555; margin: 15px 0;">
+        
+        <div style="font-size: 13px; font-weight: bold; margin-bottom: 10px;">🎬 Camera Controls</div>
+        <button id="orbitToggle" class="btn">🌍 Start Orbit</button>
+        <button id="flyToLondon" class="btn">🏙️ London Overview</button>
+        <button id="flyToCanary" class="btn">🏢 Canary Wharf</button>
+        <button id="flyToCity" class="btn">🏛️ City of London</button>
+        
+        <div id="orbitControls" style="display: none; margin-top: 10px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 5px;">
+            <div style="font-size: 11px; color: #ccc; margin-bottom: 5px;">🌍 Orbit Speed:</div>
+            <input type="range" id="orbitSpeed" min="0.001" max="0.02" step="0.001" value="0.005" 
+                   style="width: 100%; margin-bottom: 5px;">
+            <div style="font-size: 10px; color: #999; display: flex; justify-content: space-between;">
+                <span>Slow</span>
+                <span>Fast</span>
+            </div>
+            <div style="font-size: 10px; color: #aaa; margin-top: 5px; text-align: center;">
+                Orbiting around current view center
+            </div>
+        </div>
+        
+        <div id="status">
+            <div><strong>Status:</strong> <span id="statusText">Initializing...</span></div>
+            <div><strong>Mode:</strong> <span id="modeText">Ready</span></div>
+            <div><strong>Failed Assets:</strong> <span id="failedCount">0</span></div>
+        </div>
+        
+        <div class="legend" id="legend" style="display: none;">
+            <div class="legend-section">
+                <div class="legend-title">Primary Impact (4km radius):</div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #dc2626;"></div>
+                    <span>Critical (0-500m) - 100% secondary fail</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f59e0b;"></div>
+                    <span>High (500m-1.5km) - 95% secondary fail</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #eab308;"></div>
+                    <span>Medium (1.5-3km) - 85% secondary fail</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #22c55e;"></div>
+                    <span>Low (3-4km) - 70% secondary fail</span>
+                </div>
+            </div>
+            
+            <div class="legend-section">
+                <div class="legend-title">Secondary Impact (640m radius):</div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #dc2626;"></div>
+                    <span>Critical (0-200m) - 100% building fail</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f59e0b;"></div>
+                    <span>High (200-400m) - 95% building fail</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #eab308;"></div>
+                    <span>Medium (400-600m) - 80% building fail</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #22c55e;"></div>
+                    <span>Low (600-640m) - 60% building fail</span>
+                </div>
+            </div>
+        </div>
+        
+        <hr style="border-color: #555; margin: 15px 0;">
+        <div style="font-size: 11px; color: #999;">
+            <div style="margin-bottom: 8px;"><strong>Navigation:</strong></div>
+            <a href="test-infrastructure-enhanced.html" class="nav-link">Enhanced View</a>
+            <a href="test-cesium-improved.html" class="nav-link">3D Tiles Test</a>
+            <a href="/" class="nav-link">← Main App</a>
+        </div>
+        
+        <div style="font-size: 10px; color: #666; margin-top: 10px; line-height: 1.3;">
+            <strong>🎯 Auto-Cascade Logic:</strong><br>
+            • Primary fails → All secondaries in 4km auto-trigger<br>
+            • Each failed secondary → Buildings in 640m affected<br>
+            • Realistic London electrical distribution hierarchy
+        </div>
+        
+        <div style="font-size: 9px; color: #555; margin-top: 8px; line-height: 1.2; border-top: 1px solid #444; padding-top: 8px;">
+            <strong>🎮 Camera Controls:</strong><br>
+            • <strong>Left drag:</strong> Rotate view<br>
+            • <strong>Right drag:</strong> Pan<br>
+            • <strong>Wheel:</strong> Zoom in/out<br>
+            • <strong>Ctrl + drag:</strong> Tilt/pitch<br>
+            • <strong>Orbit:</strong> Auto-rotate around point
+        </div>
+    </div>
+
+    <script>
+        let viewer;
+        let osmBuildings = null;
+        let powerAssets = [];
+        let cascadeHandler = null;
+        let cascadeMode = 'none';
+        let isOrbiting = false;
+        let orbitCenter = null;
+        let orbitTransform = null;
+        let orbitSpeed = 0.005;
+        
+        // Correct power infrastructure hierarchy (London density adjusted)
+        const infrastructure = {
+            primary: [
+                { 
+                    id: "primary_vauxhall", 
+                    name: "Vauxhall Primary", 
+                    coords: [-0.1276, 51.5074],
+                    voltage: "275kV",
+                    serviceRadius: 4000 // 4km for London density
+                },
+                { 
+                    id: "primary_canary", 
+                    name: "Canary Wharf Primary", 
+                    coords: [-0.0235, 51.5054],
+                    voltage: "275kV",
+                    serviceRadius: 4000
+                }
+            ],
+            secondary: [
+                { 
+                    id: "secondary_westminster", 
+                    name: "Westminster Secondary", 
+                    coords: [-0.1247, 51.5099],
+                    voltage: "33kV",
+                    serviceRadius: 640, // 640m for London density
+                    suppliedBy: "primary_vauxhall"
+                },
+                { 
+                    id: "secondary_lambeth", 
+                    name: "Lambeth Secondary", 
+                    coords: [-0.1156, 51.4994],
+                    voltage: "33kV",
+                    serviceRadius: 640,
+                    suppliedBy: "primary_vauxhall"
+                },
+                { 
+                    id: "secondary_kennington", 
+                    name: "Kennington Secondary", 
+                    coords: [-0.1067, 51.4889],
+                    voltage: "33kV",
+                    serviceRadius: 640,
+                    suppliedBy: "primary_vauxhall"
+                },
+                { 
+                    id: "secondary_canary_a", 
+                    name: "Canary Secondary A", 
+                    coords: [-0.0198, 51.5045],
+                    voltage: "33kV",
+                    serviceRadius: 640,
+                    suppliedBy: "primary_canary"
+                },
+                { 
+                    id: "secondary_canary_b", 
+                    name: "Canary Secondary B", 
+                    coords: [-0.0272, 51.5063],
+                    voltage: "33kV",
+                    serviceRadius: 640,
+                    suppliedBy: "primary_canary"
+                }
+            ]
+        };
+        
+        // Impact zone definitions
+        const IMPACT_ZONES = {
+            primary: {
+                critical: { min: 0, max: 500, probability: 1.0, color: '#dc2626' },
+                high: { min: 500, max: 1500, probability: 0.95, color: '#f59e0b' },
+                medium: { min: 1500, max: 3000, probability: 0.85, color: '#eab308' },
+                low: { min: 3000, max: 4000, probability: 0.7, color: '#22c55e' }
+            },
+            secondary: {
+                critical: { min: 0, max: 200, probability: 1.0, color: '#dc2626' },
+                high: { min: 200, max: 400, probability: 0.95, color: '#f59e0b' },
+                medium: { min: 400, max: 600, probability: 0.8, color: '#eab308' },
+                low: { min: 600, max: 640, probability: 0.6, color: '#22c55e' }
+            }
+        };
+        
+        // Initialize Cesium
+        async function init() {
+            try {
+                updateStatus("Setting up Cesium...");
+                
+                // Set Cesium Ion token
+                Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0ZjFhOTM3NS03YmNhLTQxODYtYjg3Yi1lM2M3OGNkMjc4NmMiLCJpZCI6MzQzNzAyLCJpYXQiOjE3NjE1NjIyOTV9.Gi8tUMcyoo_cKyM-lhhaZ3BcA7f9xmDZ1RciL2bfI8c';
+                
+                // Create viewer with enhanced camera controls
+                viewer = new Cesium.Viewer('cesiumContainer', {
+                    animation: false,
+                    baseLayerPicker: false,
+                    fullscreenButton: false,
+                    geocoder: false,
+                    homeButton: false,
+                    infoBox: true,
+                    sceneModePicker: false,
+                    selectionIndicator: true,
+                    timeline: false,
+                    navigationHelpButton: false,
+                    navigationInstructionsInitiallyVisible: false,
+                    requestRenderMode: true,
+                    maximumRenderTimeChange: Infinity
+                });
+                
+                // Enhanced camera controls
+                const controller = viewer.scene.screenSpaceCameraController;
+                
+                // Enable smooth camera movements
+                controller.enableRotate = true;
+                controller.enableTranslate = true;
+                controller.enableZoom = true;
+                controller.enableTilt = true;
+                controller.enableLook = true;
+                
+                // Allow camera to go underground for better infrastructure viewing
+                controller.enableCollisionDetection = false;
+                
+                // Adjust camera movement sensitivity
+                controller.zoomEventTypes = [
+                    Cesium.CameraEventType.WHEEL,
+                    Cesium.CameraEventType.PINCH
+                ];
+                controller.tiltEventTypes = [
+                    Cesium.CameraEventType.PINCH,
+                    {
+                        eventType: Cesium.CameraEventType.LEFT_DRAG,
+                        modifier: Cesium.KeyboardEventModifier.CTRL
+                    },
+                    {
+                        eventType: Cesium.CameraEventType.RIGHT_DRAG,
+                        modifier: Cesium.KeyboardEventModifier.CTRL
+                    }
+                ];
+                
+                // Set camera to London
+                viewer.camera.setView({
+                    destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 1500),
+                    orientation: {
+                        heading: 0.0,
+                        pitch: Cesium.Math.toRadians(-45),
+                        roll: 0.0
+                    }
+                });
+                
+                cascadeHandler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+                
+                setupEvents();
+                updateStatus("Ready");
+                
+                // Auto-load buildings
+                setTimeout(loadBuildings, 1000);
+                
+            } catch (error) {
+                updateStatus("Failed: " + error.message);
+                console.error("Initialization failed:", error);
+            }
+        }
+        
+        function setupEvents() {
+            document.getElementById('loadBuildings').onclick = loadBuildings;
+            document.getElementById('googlePhoto').onclick = loadGooglePhotorealistic;
+            document.getElementById('terrainOnly').onclick = loadTerrainOnly;
+            document.getElementById('showAssets').onclick = showAssets;
+            document.getElementById('hideAssets').onclick = hideAssets;
+            document.getElementById('primaryCascade').onclick = enablePrimaryCascade;
+            document.getElementById('secondaryCascade').onclick = enableSecondaryCascade;
+            document.getElementById('reset').onclick = reset;
+            
+            // Camera controls
+            document.getElementById('orbitToggle').onclick = toggleOrbit;
+            document.getElementById('flyToLondon').onclick = flyToLondon;
+            document.getElementById('flyToCanary').onclick = flyToCanary;
+            document.getElementById('flyToCity').onclick = flyToCity;
+            
+            // Orbit speed control
+            document.getElementById('orbitSpeed').oninput = function(e) {
+                orbitSpeed = parseFloat(e.target.value);
+            };
+        }
+        
+        function updateStatus(text) {
+            document.getElementById('statusText').textContent = text;
+        }
+        
+        function updateMode(text) {
+            document.getElementById('modeText').textContent = text;
+        }
+        
+        function updateFailedCount(count) {
+            document.getElementById('failedCount').textContent = count;
+        }
+        
+        async function loadBuildings() {
+            try {
+                updateStatus("Loading OSM Buildings...");
+                
+                if (osmBuildings) {
+                    viewer.scene.primitives.remove(osmBuildings);
+                }
+                
+                osmBuildings = await Cesium.createOsmBuildingsAsync();
+                viewer.scene.primitives.add(osmBuildings);
+                
+                // Configure for performance
+                osmBuildings.maximumScreenSpaceError = 2;
+                osmBuildings.skipLevelOfDetail = true;
+                
+                updateStatus("✅ OSM Buildings loaded");
+                
+            } catch (error) {
+                updateStatus("❌ Buildings failed");
+                console.error("Buildings failed:", error);
+            }
+        }
+        
+        async function loadGooglePhotorealistic() {
+            if (typeof Cesium.createGooglePhotorealistic3DTileset !== 'function') {
+                updateStatus('❌ Google tiles not available');
+                return;
+            }
+            
+            try {
+                updateStatus("Loading Google Photorealistic...");
+                
+                if (osmBuildings) {
+                    viewer.scene.primitives.remove(osmBuildings);
+                }
+                
+                osmBuildings = await Cesium.createGooglePhotorealistic3DTileset();
+                viewer.scene.primitives.add(osmBuildings);
+                
+                // Configure for quality
+                osmBuildings.maximumScreenSpaceError = 1;
+                osmBuildings.skipLevelOfDetail = true;
+                
+                updateStatus("✅ Google Photorealistic loaded");
+                
+            } catch (error) {
+                updateStatus("❌ Google tiles failed");
+                console.error("Google Photorealistic failed:", error);
+            }
+        }
+        
+        function loadTerrainOnly() {
+            if (osmBuildings) {
+                viewer.scene.primitives.remove(osmBuildings);
+                osmBuildings = null;
+            }
+            updateStatus("✅ Terrain only mode");
+        }
+        
+        function hideAssets() {
+            // Clear existing assets
+            powerAssets.forEach(entity => viewer.entities.remove(entity));
+            powerAssets = [];
+            updateStatus("👁️ Infrastructure hidden");
+        }
+        
+        function showAssets() {
+            // Clear existing assets
+            powerAssets.forEach(entity => viewer.entities.remove(entity));
+            powerAssets = [];
+            
+            // Add primary substations (large red circles)
+            infrastructure.primary.forEach(asset => {
+                const entity = viewer.entities.add({
+                    id: asset.id,
+                    position: Cesium.Cartesian3.fromDegrees(asset.coords[0], asset.coords[1], 100),
+                    point: {
+                        pixelSize: 25,
+                        color: Cesium.Color.RED,
+                        outlineColor: Cesium.Color.WHITE,
+                        outlineWidth: 4,
+                        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+                    },
+                    label: {
+                        text: `⚡ ${asset.name}\\n${asset.voltage}`,
+                        font: '14pt sans-serif',
+                        fillColor: Cesium.Color.WHITE,
+                        outlineColor: Cesium.Color.BLACK,
+                        outlineWidth: 2,
+                        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                        pixelOffset: new Cesium.Cartesian2(0, -40),
+                        showBackground: true,
+                        backgroundColor: Cesium.Color.BLACK.withAlpha(0.7)
+                    },
+                    description: `
+                        <div style="color: white; background: rgba(0,0,0,0.8); padding: 15px; border-radius: 8px;">
+                            <h3 style="margin: 0 0 10px 0; color: #dc2626;">${asset.name}</h3>
+                            <p><strong>Type:</strong> Primary Substation</p>
+                            <p><strong>Voltage:</strong> ${asset.voltage}</p>
+                            <p><strong>Service Radius:</strong> ${asset.serviceRadius}m</p>
+                            <p><strong>Supplies:</strong> Secondary substations within ${asset.serviceRadius}m</p>
+                            <hr style="border-color: #444;">
+                            <p style="font-size: 12px; color: #ccc;">Click "Primary Cascade" then click this substation to simulate failure</p>
+                        </div>
+                    `
+                });
+                powerAssets.push(entity);
+            });
+            
+            // Add secondary substations (medium orange circles)
+            infrastructure.secondary.forEach(asset => {
+                const entity = viewer.entities.add({
+                    id: asset.id,
+                    position: Cesium.Cartesian3.fromDegrees(asset.coords[0], asset.coords[1], 50),
+                    point: {
+                        pixelSize: 18,
+                        color: Cesium.Color.ORANGE,
+                        outlineColor: Cesium.Color.WHITE,
+                        outlineWidth: 3,
+                        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+                    },
+                    label: {
+                        text: `🔌 ${asset.name}\\n${asset.voltage}`,
+                        font: '12pt sans-serif',
+                        fillColor: Cesium.Color.WHITE,
+                        outlineColor: Cesium.Color.BLACK,
+                        outlineWidth: 2,
+                        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                        pixelOffset: new Cesium.Cartesian2(0, -35),
+                        showBackground: true,
+                        backgroundColor: Cesium.Color.BLACK.withAlpha(0.7)
+                    },
+                    description: `
+                        <div style="color: white; background: rgba(0,0,0,0.8); padding: 15px; border-radius: 8px;">
+                            <h3 style="margin: 0 0 10px 0; color: #f59e0b;">${asset.name}</h3>
+                            <p><strong>Type:</strong> Secondary Substation</p>
+                            <p><strong>Voltage:</strong> ${asset.voltage}</p>
+                            <p><strong>Service Radius:</strong> ${asset.serviceRadius}m</p>
+                            <p><strong>Supplied by:</strong> ${asset.suppliedBy}</p>
+                            <p><strong>Supplies:</strong> Buildings within ${asset.serviceRadius}m</p>
+                            <hr style="border-color: #444;">
+                            <p style="font-size: 12px; color: #ccc;">Click "Secondary Cascade" then click this substation to simulate failure</p>
+                        </div>
+                    `
+                });
+                powerAssets.push(entity);
+            });
+            
+            updateStatus(`✅ Power infrastructure shown (${infrastructure.primary.length} primary, ${infrastructure.secondary.length} secondary)`);
+        }
+        
+        function enablePrimaryCascade() {
+            if (!osmBuildings) {
+                alert('Please load OSM Buildings first');
+                return;
+            }
+            
+            cascadeMode = 'primary';
+            updateMode("Primary Cascade - Click red primary substation");
+            document.getElementById('legend').style.display = 'block';
+            
+            // Add click handler for primary substations
+            cascadeHandler.setInputAction(function (click) {
+                const picked = viewer.scene.pick(click.position);
+                if (picked && picked.id && picked.id.id) {
+                    const assetId = picked.id.id;
+                    const primary = infrastructure.primary.find(p => p.id === assetId);
+                    if (primary) {
+                        simulatePrimaryFailure(primary);
+                    }
+                }
+            }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+            
+            updateStatus("🎯 Primary cascade mode active - Click any red substation");
+        }
+        
+        function enableSecondaryCascade() {
+            if (!osmBuildings) {
+                alert('Please load OSM Buildings first');
+                return;
+            }
+            
+            cascadeMode = 'secondary';
+            updateMode("Secondary Cascade - Click orange secondary substation");
+            document.getElementById('legend').style.display = 'block';
+            
+            // Add click handler for secondary substations
+            cascadeHandler.setInputAction(function (click) {
+                const picked = viewer.scene.pick(click.position);
+                if (picked && picked.id && picked.id.id) {
+                    const assetId = picked.id.id;
+                    const secondary = infrastructure.secondary.find(s => s.id === assetId);
+                    if (secondary) {
+                        simulateSecondaryFailure(secondary);
+                    }
+                }
+            }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+            
+            updateStatus("🎯 Secondary cascade mode active - Click any orange substation");
+        }
+        
+        // PRIMARY SUBSTATION FAILURE - Automatically triggers all relevant secondaries
+        function simulatePrimaryFailure(primary) {
+            console.log(`🚨 PRIMARY FAILURE: ${primary.name}`);
+            
+            let failedSecondaries = 0;
+            let totalAffectedBuildings = 0;
+            const failedSecondaryList = [];
+            
+            // Step 1: Find and automatically fail secondary substations within 4km
+            infrastructure.secondary.forEach(secondary => {
+                const distance = getDistance(primary.coords, secondary.coords);
+                
+                if (distance <= primary.serviceRadius) {
+                    const zone = getImpactZone('primary', distance);
+                    const entity = powerAssets.find(e => e.id === secondary.id);
+                    
+                    // Auto-trigger secondary failure based on probability
+                    if (entity && zone.probability >= 0.7) { // Lowered threshold for more cascading
+                        // Secondary fails - change its color
+                        entity.point.color = Cesium.Color.fromCssColorString(zone.color);
+                        failedSecondaries++;
+                        failedSecondaryList.push(secondary);
+                        
+                        // Step 2: Each failed secondary automatically affects buildings in its 640m radius
+                        const buildingCount = simulateBuildingFailure(secondary);
+                        totalAffectedBuildings += buildingCount;
+                        
+                        console.log(`  → ${secondary.name} failed (${Math.round(distance)}m, ${Math.round(zone.probability * 100)}% probability)`);
+                    }
+                }
+            });
+            
+            // Step 3: Visualize building impacts from all failed secondaries
+            visualizeBuildingImpacts();
+            
+            // Step 4: Show cascade progression with timing
+            setTimeout(() => {
+                updateStatus(`🚨 ${primary.name} failed → ${failedSecondaries} secondaries auto-triggered → ~${totalAffectedBuildings} buildings affected`);
+            }, 500);
+            
+            updateFailedCount(failedSecondaries);
+            
+            console.log(`📊 Auto-Cascade Complete: ${failedSecondaries} secondaries failed, ~${totalAffectedBuildings} buildings affected`);
+            console.log(`📋 Failed secondaries:`, failedSecondaryList.map(s => s.name));
+        }
+        
+        // SECONDARY SUBSTATION FAILURE - Affects buildings within 640m
+        function simulateSecondaryFailure(secondary) {
+            console.log(`🔌 SECONDARY FAILURE: ${secondary.name}`);
+            
+            // Color buildings in 640m radius around this secondary
+            const lat = secondary.coords[1];
+            const lon = secondary.coords[0];
+            
+            if (osmBuildings) {
+                osmBuildings.style = new Cesium.Cesium3DTileStyle({
+                    defines: {
+                        distance: `distance(vec2(\${feature['cesium#longitude']}, \${feature['cesium#latitude']}), vec2(${lon},${lat}))`
+                    },
+                    color: {
+                        conditions: [
+                            ["${distance} > 0.006", "color('#6b7280', 0.4)"],     // Beyond service area
+                            ["${distance} > 0.005", "color('#22c55e', 0.6)"],     // Low impact (600-640m)
+                            ["${distance} > 0.004", "color('#eab308', 0.7)"],     // Medium impact (400-600m)
+                            ["${distance} > 0.002", "color('#f59e0b', 0.8)"],     // High impact (200-400m)
+                            ["${distance} > 0.0001", "color('#dc2626', 0.9)"],    // Critical impact (0-200m)
+                            ["true", "color('#ffffff', 1.0)"]                     // Epicenter
+                        ]
+                    }
+                });
+            }
+            
+            // Estimate affected buildings
+            const serviceArea = Math.PI * Math.pow(secondary.serviceRadius, 2);
+            const estimatedBuildings = Math.round(serviceArea * 0.00002); // London building density
+            
+            updateFailedCount(1);
+            updateStatus(`🔌 ${secondary.name} failed → ~${estimatedBuildings} buildings in ${secondary.serviceRadius}m radius affected`);
+        }
+        
+        function simulateBuildingFailure(secondary) {
+            // Estimate buildings affected by this secondary
+            const serviceArea = Math.PI * Math.pow(secondary.serviceRadius, 2);
+            return Math.round(serviceArea * 0.00002); // Rough London building density
+        }
+        
+        function visualizeBuildingImpacts() {
+            if (!osmBuildings) return;
+            
+            // Create conditions for all failed secondaries
+            const conditions = [];
+            
+            infrastructure.secondary.forEach(secondary => {
+                const entity = powerAssets.find(e => e.id === secondary.id);
+                
+                // Check if this secondary failed (color changed from orange)
+                if (entity && entity.point.color.toString() !== Cesium.Color.ORANGE.toString()) {
+                    const lat = secondary.coords[1];
+                    const lon = secondary.coords[0];
+                    
+                    // Add building impact zones around this failed secondary
+                    conditions.push([
+                        `distance(vec2(\${feature['cesium#longitude']}, \${feature['cesium#latitude']}), vec2(${lon},${lat})) <= 0.006`,
+                        "color('#dc2626', 0.8)"
+                    ]);
+                    conditions.push([
+                        `distance(vec2(\${feature['cesium#longitude']}, \${feature['cesium#latitude']}), vec2(${lon},${lat})) <= 0.004`,
+                        "color('#f59e0b', 0.7)"
+                    ]);
+                    conditions.push([
+                        `distance(vec2(\${feature['cesium#longitude']}, \${feature['cesium#latitude']}), vec2(${lon},${lat})) <= 0.002`,
+                        "color('#eab308', 0.6)"
+                    ]);
+                }
+            });
+            
+            // Default condition
+            conditions.push(["true", "color('#6b7280', 0.4)"]);
+            
+            osmBuildings.style = new Cesium.Cesium3DTileStyle({
+                color: { conditions: conditions }
+            });
+        }
+        
+        function getImpactZone(type, distance) {
+            const zones = IMPACT_ZONES[type];
+            
+            for (const [zoneName, zone] of Object.entries(zones)) {
+                if (distance >= zone.min && distance < zone.max) {
+                    return { ...zone, name: zoneName };
+                }
+            }
+            
+            return { probability: 0, color: '#6b7280', name: 'none' };
+        }
+        
+        function getDistance(coord1, coord2) {
+            const R = 6371000; // Earth radius in meters
+            const lat1 = coord1[1] * Math.PI / 180;
+            const lat2 = coord2[1] * Math.PI / 180;
+            const deltaLat = (coord2[1] - coord1[1]) * Math.PI / 180;
+            const deltaLon = (coord2[0] - coord1[0]) * Math.PI / 180;
+            
+            const a = Math.sin(deltaLat/2) * Math.sin(deltaLat/2) +
+                      Math.cos(lat1) * Math.cos(lat2) *
+                      Math.sin(deltaLon/2) * Math.sin(deltaLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            
+            return R * c;
+        }
+        
+        function reset() {
+            // Reset building colors
+            if (osmBuildings) {
+                osmBuildings.style = undefined;
+            }
+            
+            // Reset asset colors to original
+            powerAssets.forEach(entity => {
+                if (entity.point) {
+                    const isPrimary = infrastructure.primary.find(p => p.id === entity.id);
+                    entity.point.color = isPrimary ? Cesium.Color.RED : Cesium.Color.ORANGE;
+                }
+            });
+            
+            // Remove click handler
+            if (cascadeHandler) {
+                cascadeHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_CLICK);
+            }
+            
+            // Reset UI
+            cascadeMode = 'none';
+            document.getElementById('legend').style.display = 'none';
+            updateMode("Ready");
+            updateFailedCount(0);
+            updateStatus("🔄 All systems reset");
+        }
+        
+        // Camera Control Functions
+        function toggleOrbit() {
+            const button = document.getElementById('orbitToggle');
+            const controls = document.getElementById('orbitControls');
+            
+            if (!isOrbiting) {
+                startOrbit();
+                button.textContent = '⏹️ Stop Orbit';
+                button.style.background = '#dc2626';
+                controls.style.display = 'block';
+                updateStatus('🌍 Camera orbiting around current view');
+            } else {
+                stopOrbit();
+                button.textContent = '🌍 Start Orbit';
+                button.style.background = '#2a2a2a';
+                controls.style.display = 'none';
+                updateStatus('⏹️ Orbit stopped');
+            }
+        }
+        
+        function startOrbit() {
+            if (!viewer) return;
+            
+            // Get current camera position as orbit center
+            const camera = viewer.camera;
+            const currentPosition = camera.positionCartographic;
+            
+            // Create orbit center at current view target
+            orbitCenter = Cesium.Cartesian3.fromRadians(
+                currentPosition.longitude,
+                currentPosition.latitude,
+                currentPosition.height
+            );
+            
+            // Create transform for orbit
+            orbitTransform = Cesium.Transforms.eastNorthUpToFixedFrame(orbitCenter);
+            
+            // Lock camera to orbit center
+            camera.lookAtTransform(
+                orbitTransform,
+                new Cesium.HeadingPitchRange(0, -Math.PI / 8, 1500) // Adjust distance as needed
+            );
+            
+            // Start orbit animation
+            isOrbiting = true;
+            viewer.clock.onTick.addEventListener(orbitTick);
+        }
+        
+        function stopOrbit() {
+            if (!viewer || !isOrbiting) return;
+            
+            isOrbiting = false;
+            viewer.clock.onTick.removeEventListener(orbitTick);
+            
+            // Release camera transform
+            viewer.camera.lookAtTransform(Cesium.Matrix4.IDENTITY);
+        }
+        
+        function orbitTick(clock) {
+            if (isOrbiting && viewer) {
+                viewer.scene.camera.rotateRight(orbitSpeed);
+            }
+        }
+        
+        function flyToLondon() {
+            if (!viewer) return;
+            
+            stopOrbit(); // Stop orbit if active
+            
+            viewer.camera.flyTo({
+                destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 1500),
+                orientation: {
+                    heading: 0.0,
+                    pitch: Cesium.Math.toRadians(-45),
+                    roll: 0.0
+                },
+                duration: 2.0
+            });
+            
+            updateStatus('🏙️ Flying to London overview');
+        }
+        
+        function flyToCanary() {
+            if (!viewer) return;
+            
+            stopOrbit(); // Stop orbit if active
+            
+            viewer.camera.flyTo({
+                destination: Cesium.Cartesian3.fromDegrees(-0.0235, 51.5054, 800),
+                orientation: {
+                    heading: Cesium.Math.toRadians(45),
+                    pitch: Cesium.Math.toRadians(-35),
+                    roll: 0.0
+                },
+                duration: 2.0
+            });
+            
+            updateStatus('🏢 Flying to Canary Wharf');
+        }
+        
+        function flyToCity() {
+            if (!viewer) return;
+            
+            stopOrbit(); // Stop orbit if active
+            
+            viewer.camera.flyTo({
+                destination: Cesium.Cartesian3.fromDegrees(-0.0927, 51.5155, 600),
+                orientation: {
+                    heading: Cesium.Math.toRadians(-45),
+                    pitch: Cesium.Math.toRadians(-40),
+                    roll: 0.0
+                },
+                duration: 2.0
+            });
+            
+            updateStatus('🏛️ Flying to City of London');
+        }
+        
+        // Initialize the application
+        init();
+    </script>
+</body>
+</html>

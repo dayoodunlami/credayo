@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Photorealistic 3D Tiles Test</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        html, body, #cesiumContainer {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+        }
+        #debug {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+            font-family: monospace;
+            font-size: 12px;
+            max-width: 300px;
+        }
+        .status-good { color: #4ade80; }
+        .status-warn { color: #fbbf24; }
+        .status-error { color: #f87171; }
+    </style>
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+    <div id="debug">
+        <div><strong>Google Photorealistic 3D Tiles Test</strong></div>
+        <div>Status: <span id="status">Initializing...</span></div>
+        <div>Tiles: <span id="tiles">Loading...</span></div>
+        <div>Location: <span id="location">London, UK</span></div>
+        <div>Error: <span id="error">None</span></div>
+        <hr style="margin: 10px 0; border-color: #444;">
+        <div style="font-size: 10px; color: #ccc;">
+            <div>• Mouse: Left drag = pan, Right drag = zoom</div>
+            <div>• Keyboard: CTRL + drag = tilt camera</div>
+            <div>• This should show photorealistic buildings</div>
+        </div>
+    </div>
+
+    <script>
+        const statusEl = document.getElementById('status');
+        const tilesEl = document.getElementById('tiles');
+        const errorEl = document.getElementById('error');
+
+        function updateStatus(status, type = 'normal') {
+            statusEl.textContent = status;
+            statusEl.className = type === 'good' ? 'status-good' : 
+                               type === 'warn' ? 'status-warn' : 
+                               type === 'error' ? 'status-error' : '';
+            console.log('Status:', status);
+        }
+
+        function updateTiles(info) {
+            tilesEl.textContent = info;
+        }
+
+        function updateError(error) {
+            errorEl.textContent = error;
+            console.error('Error:', error);
+        }
+
+        async function initializePhotorealisticCesium() {
+            try {
+                updateStatus('Setting Cesium Ion token...');
+                
+                // Your Cesium Ion token
+                const cesiumIonToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0ZjFhOTM3NS03YmNhLTQxODYtYjg3Yi1lM2M3OGNkMjc4NmMiLCJpZCI6MzQzNzAyLCJpYXQiOjE3NjE1NjIyOTV9.Gi8tUMcyoo_cKyM-lhhaZ3BcA7f9xmDZ1RciL2bfI8c';
+                
+                if (!cesiumIonToken) {
+                    throw new Error('No Cesium Ion token provided');
+                }
+
+                Cesium.Ion.defaultAccessToken = cesiumIonToken;
+
+                updateStatus('Creating terrain provider...');
+                const terrainProvider = await Cesium.createWorldTerrainAsync();
+
+                updateStatus('Creating Cesium viewer...');
+                const viewer = new Cesium.Viewer('cesiumContainer', {
+                    terrainProvider: terrainProvider,
+                    
+                    // UI Configuration
+                    animation: false,
+                    baseLayerPicker: false,
+                    fullscreenButton: false,
+                    geocoder: false, // Disable geocoder for now to avoid compatibility issues
+                    homeButton: false,
+                    infoBox: true,
+                    sceneModePicker: false,
+                    selectionIndicator: true,
+                    timeline: false,
+                    navigationHelpButton: false,
+                    navigationInstructionsInitiallyVisible: false,
+                    
+                    // Performance settings
+                    requestRenderMode: true,
+                    maximumRenderTimeChange: Infinity
+                });
+
+                updateStatus('Loading Google Photorealistic 3D Tiles...');
+                updateTiles('Connecting to Google...');
+                
+                // Check if Google Photorealistic function exists
+                if (typeof Cesium.createGooglePhotorealistic3DTileset === 'function') {
+                    try {
+                        updateStatus('Loading Google Photorealistic 3D Tiles...');
+                        const tileset = await Cesium.createGooglePhotorealistic3DTileset();
+                        viewer.scene.primitives.add(tileset);
+                        
+                        updateStatus('✅ Google Photorealistic tiles loaded!', 'good');
+                        updateTiles('Google Photorealistic 3D');
+                        
+                        // Configure for optimal photorealistic viewing
+                        tileset.maximumScreenSpaceError = 1;
+                        tileset.skipLevelOfDetail = true;
+                        
+                    } catch (googleError) {
+                        console.warn('Google tiles failed:', googleError);
+                        updateStatus('⚠️ Google tiles failed, using OSM...', 'warn');
+                        updateTiles('Fallback: OSM Buildings');
+                        
+                        // Fallback to OSM Buildings
+                        const osmTileset = await Cesium.Cesium3DTileset.fromIonAssetId(96188);
+                        viewer.scene.primitives.add(osmTileset);
+                        updateStatus('✅ OSM Buildings loaded (fallback)', 'warn');
+                    }
+                } else {
+                    updateStatus('⚠️ Google tiles not available, using OSM...', 'warn');
+                    updateTiles('OSM Buildings (Google not supported)');
+                    
+                    // Use OSM Buildings directly
+                    const osmTileset = await Cesium.Cesium3DTileset.fromIonAssetId(96188);
+                    viewer.scene.primitives.add(osmTileset);
+                    updateStatus('✅ OSM Buildings loaded', 'good');
+                }
+
+                // Enhanced scene configuration for photorealistic viewing
+                viewer.scene.globe.enableLighting = true;
+                viewer.scene.globe.dynamicAtmosphereLighting = true;
+                viewer.scene.globe.atmosphereLightIntensity = 10.0;
+                
+                // Better lighting
+                viewer.scene.light = new Cesium.DirectionalLight({
+                    direction: new Cesium.Cartesian3(0.2, 0.5, -0.8)
+                });
+                
+                // Atmospheric effects
+                viewer.scene.fog.enabled = true;
+                viewer.scene.fog.density = 0.0002;
+                viewer.scene.highDynamicRange = true;
+
+                // Fly to London with optimal viewing angle
+                viewer.camera.setView({
+                    destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 500),
+                    orientation: {
+                        heading: Cesium.Math.toRadians(0),
+                        pitch: Cesium.Math.toRadians(-30),
+                        roll: 0.0
+                    }
+                });
+
+                // Hide debug panel after success
+                setTimeout(() => {
+                    document.getElementById('debug').style.opacity = '0.7';
+                    setTimeout(() => {
+                        document.getElementById('debug').style.display = 'none';
+                    }, 2000);
+                }, 3000);
+
+            } catch (error) {
+                updateError(error.message);
+                updateStatus('❌ Failed to initialize', 'error');
+                console.error('Cesium initialization failed:', error);
+            }
+        }
+
+        // Start initialization
+        initializePhotorealisticCesium();
+    </script>
+</body>
+</html>

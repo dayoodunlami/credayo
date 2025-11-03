@@ -1,0 +1,51 @@
+{
+  "city": "london",
+  "type": "power",
+  "timestamp": 1735174800000,
+  "count": 3,
+  "assets": [
+    {
+      "id": "power_transmission_123456",
+      "name": "National Grid Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [-0.1276, 51.5074],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 400,
+      "metadata": {
+        "operator": "National Grid",
+        "voltage": "400000",
+        "substation_type": "transmission"
+      }
+    },
+    {
+      "id": "power_primary_789012",
+      "name": "London Distribution Hub",
+      "type": "power",
+      "subtype": "primary",
+      "coordinates": [-0.1000, 51.5200],
+      "status": "normal",
+      "criticality": "high",
+      "voltage": 132,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "voltage": "132000"
+      }
+    },
+    {
+      "id": "power_generation_345678",
+      "name": "Thames Solar Farm",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [-0.0800, 51.4900],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "operator": "Thames Energy",
+        "fuel_type": "solar"
+      }
+    }
+  ]
+}

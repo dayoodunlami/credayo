@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Cascade Animation Test</title>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
+    <style>
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        #map { width: 100%; height: 100vh; }
+        
+        .controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            max-width: 300px;
+        }
+        
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .start-btn {
+            background: #dc2626;
+            color: white;
+        }
+        
+        .start-btn:hover {
+            background: #b91c1c;
+        }
+        
+        .reset-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .reset-btn:hover {
+            background: #4b5563;
+        }
+        
+        .info {
+            background: #f0f8ff;
+            padding: 12px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <div class="controls">
+        <h3>🚀 Enhanced Cascade Test</h3>
+        
+        <div class="info">
+            <strong>New Features:</strong><br>
+            • Expanding ripple from trigger asset<br>
+            • Continuous pulses on affected assets<br>
+            • Double-click map to clear<br>
+            • Secondary cascades for power networks
+        </div>
+        
+        <button onclick="startEnhancedCascade()" class="start-btn">
+            🎬 Start Enhanced Cascade
+        </button>
+        
+        <button onclick="clearAllAnimations()" class="reset-btn">
+            🧹 Clear All Animations
+        </button>
+        
+        <div class="info">
+            <strong>Instructions:</strong><br>
+            1. Click "Start Enhanced Cascade"<br>
+            2. Watch for expanding ripple<br>
+            3. See continuous pulses on affected assets<br>
+            4. Double-click map to clear<br>
+            5. Try reset button
+        </div>
+    </div>
+
+    <script type="module">
+        import { OptimizedCascadeAnimationController } from './src/services/OptimizedCascadeAnimationController.js';
+        
+        let map;
+        let controller;
+        
+        // Initialize MapTiler
+        maptiler.config.apiKey = '9TGjdYW7sdX8esnxc6jG';
+        
+        map = new maptiler.Map({
+            container: 'map',
+            style: maptiler.MapStyle.STREETS,
+            center: [-0.1276, 51.5074], // London
+            zoom: 11
+        });
+
+        // Sample London power network
+        const powerAssets = [
+            { id: 'battersea', name: 'Battersea Power Station', coordinates: [-0.1445, 51.4816] },
+            { id: 'kings-cross', name: 'Kings Cross Substation', coordinates: [-0.1240, 51.5308] },
+            { id: 'canary-wharf', name: 'Canary Wharf Grid', coordinates: [-0.0235, 51.5048] },
+            { id: 'london-bridge', name: 'London Bridge Substation', coordinates: [-0.0864, 51.5049] },
+            { id: 'westminster', name: 'Westminster Grid', coordinates: [-0.1276, 51.4994] },
+            { id: 'shoreditch', name: 'Shoreditch Substation', coordinates: [-0.0731, 51.5244] }
+        ];
+
+        // Add power assets to map
+        map.on('load', () => {
+            // Add asset points
+            map.addSource('power-assets', {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: powerAssets.map(asset => ({
+                        type: 'Feature',
+                        properties: {
+                            id: asset.id,
+                            name: asset.name
+                        },
+                        geometry: {
+                            type: 'Point',
+                            coordinates: asset.coordinates
+                        }
+                    }))
+                }
+            });
+
+            map.addLayer({
+                id: 'power-assets',
+                type: 'circle',
+                source: 'power-assets',
+                paint: {
+                    'circle-radius': 8,
+                    'circle-color': '#dc2626',
+                    'circle-opacity': 0.8,
+                    'circle-stroke-width': 2,
+                    'circle-stroke-color': '#ffffff'
+                }
+            });
+
+            // Add labels
+            map.addLayer({
+                id: 'power-labels',
+                type: 'symbol',
+                source: 'power-assets',
+                layout: {
+                    'text-field': ['get', 'name'],
+                    'text-font': ['Open Sans Regular'],
+                    'text-offset': [0, 2],
+                    'text-anchor': 'top',
+                    'text-size': 11
+                },
+                paint: {
+                    'text-color': '#333',
+                    'text-halo-color': '#fff',
+                    'text-halo-width': 2
+                }
+            });
+
+            // Initialize controller
+            controller = new OptimizedCascadeAnimationController(map, {
+                speed: 'normal',
+                showLines: true,
+                showPulses: true,
+                maxConcurrentAnimations: 20
+            });
+
+            // Set asset coordinates
+            powerAssets.forEach(asset => {
+                controller.setAssetCoordinates(asset.id, asset.coordinates);
+            });
+
+            // Add double-click to clear
+            map.on('dblclick', () => {
+                console.log('🧹 Double-click - clearing animations');
+                clearAllAnimations();
+            });
+
+            console.log('✅ Enhanced cascade test ready!');
+        });
+
+        // Start enhanced cascade with all new features
+        window.startEnhancedCascade = function() {
+            console.log('🚀 Starting enhanced cascade animation');
+            
+            // Create sample cascade result with secondary cascades
+            const cascadeResult = {
+                initiatingAsset: {
+                    id: 'battersea',
+                    coordinates: [-0.1445, 51.4816],
+                    name: 'Battersea Power Station'
+                },
+                impacts: [
+                    // Primary impacts
+                    {
+                        assetId: 'westminster',
+                        sourceAssetId: 'battersea',
+                        impactType: 'direct',
+                        probability: 0.9,
+                        timeToImpact: 1000,
+                        reason: 'Direct power grid connection'
+                    },
+                    {
+                        assetId: 'london-bridge',
+                        sourceAssetId: 'battersea',
+                        impactType: 'cascade',
+                        probability: 0.7,
+                        timeToImpact: 2000,
+                        reason: 'Power grid cascade'
+                    },
+                    // Secondary cascades
+                    {
+                        assetId: 'shoreditch',
+                        sourceAssetId: 'westminster',
+                        impactType: 'cascade',
+                        probability: 0.6,
+                        timeToImpact: 3500,
+                        reason: 'Secondary cascade from Westminster'
+                    },
+                    {
+                        assetId: 'canary-wharf',
+                        sourceAssetId: 'london-bridge',
+                        impactType: 'cascade',
+                        probability: 0.5,
+                        timeToImpact: 4000,
+                        reason: 'Secondary cascade from London Bridge'
+                    }
+                ],
+                timeline: [], // Will be populated
+                totalAffected: 5,
+                economicCost: 25000000,
+                populationAffected: 500000
+            };
+
+            // Sort timeline
+            cascadeResult.timeline = cascadeResult.impacts.sort((a, b) => a.timeToImpact - b.timeToImpact);
+
+            // Start the enhanced animation
+            controller.playCascade(cascadeResult);
+        };
+
+        // Clear all animations
+        window.clearAllAnimations = function() {
+            console.log('🧹 Clearing all cascade animations');
+            if (controller) {
+                controller.reset();
+            }
+        };
+    </script>
+</body>
+</html>

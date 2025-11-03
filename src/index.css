@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for Infrastructure Resilience Platform */
+@layer base {
+  body {
+    @apply m-0 min-h-screen bg-gray-50 text-gray-900;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  /* Map container styles */
+  .map-container {
+    @apply w-full h-full relative;
+  }
+  
+  /* Dashboard styles */
+  .dashboard-card {
+    @apply bg-white rounded-lg shadow-md p-4 border border-gray-200;
+  }
+  
+  .metric-card {
+    @apply bg-white rounded-lg p-4 shadow-sm border border-gray-100;
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-md font-medium transition-colors;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-medium transition-colors;
+  }
+  
+  /* Status indicators */
+  .status-normal {
+    @apply text-normal;
+  }
+  
+  .status-degraded {
+    @apply text-degraded;
+  }
+  
+  .status-failed {
+    @apply text-failed;
+  }
+  
+  .status-offline {
+    @apply text-offline;
+  }
+  
+  /* Priority indicators */
+  .priority-critical {
+    @apply text-critical font-semibold;
+  }
+  
+  .priority-high {
+    @apply text-high font-medium;
+  }
+  
+  .priority-medium {
+    @apply text-medium;
+  }
+  
+  .priority-low {
+    @apply text-low;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-expand {
+    animation: expand 2s ease-out forwards;
+  }
+  
+  .animate-counter {
+    animation: counter 0.5s ease-out;
+  }
+}

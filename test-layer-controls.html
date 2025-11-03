@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Layer Controls Test</title>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
+    <style>
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        #map { position: absolute; top: 0; bottom: 0; width: 70%; }
+        .controls { 
+            position: absolute; top: 0; right: 0; width: 30%; height: 100%; 
+            background: white; padding: 15px; overflow-y: auto; box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        }
+        .layer-control { 
+            margin: 15px 0; 
+            padding: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            background: #f9f9f9;
+        }
+        .layer-header { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            margin-bottom: 10px;
+        }
+        .layer-color { 
+            width: 16px; 
+            height: 16px; 
+            border-radius: 50%; 
+            border: 1px solid #ccc; 
+        }
+        .layer-count { 
+            color: #666; 
+            font-size: 12px; 
+            margin-left: 5px;
+        }
+        .opacity-control { 
+            margin-top: 10px; 
+        }
+        .opacity-control input[type="range"] {
+            width: 100%;
+            margin: 5px 0;
+        }
+        .status { 
+            background: #e0f2fe; 
+            padding: 10px; 
+            border-radius: 4px; 
+            margin: 10px 0; 
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div class="controls">
+        <h3>Layer Controls Test</h3>
+        <div class="status" id="status">Loading map...</div>
+        
+        <div id="layer-controls"></div>
+        
+        <div style="margin-top: 20px; padding: 10px; background: #fef3c7; border-radius: 4px; font-size: 12px;">
+            <strong>Test Instructions:</strong><br>
+            • Toggle checkboxes to show/hide layers<br>
+            • Use opacity sliders to change transparency<br>
+            • Check console for control feedback<br>
+            • Verify layers actually appear/disappear on map
+        </div>
+    </div>
+
+    <script>
+        maptilersdk.config.apiKey = '9TGjdYW7sdX8esnxc6jG';
+
+        const map = new maptilersdk.Map({
+            container: 'map',
+            style: maptilersdk.MapStyle.STREETS,
+            center: [-0.1276, 51.5074], // London
+            zoom: 11
+        });
+
+        const statusDiv = document.getElementById('status');
+        
+        // Layer configuration matching MainLayout
+        const layers = [
+            { id: 'power', name: 'Power Infrastructure', color: '#ef4444', visible: true, opacity: 80, count: 26272 },
+            { id: 'transport', name: 'Transport Infrastructure', color: '#3b82f6', visible: true, opacity: 80, count: 755 },
+            { id: 'telecom', name: 'Telecommunications', color: '#10b981', visible: true, opacity: 80, count: 541 },
+            { id: 'water', name: 'Water Infrastructure', color: '#0284c7', visible: true, opacity: 80, count: 466 }
+        ];
+
+        // Map layer IDs for each infrastructure type
+        const getLayerIdsForType = (layerType) => {
+            switch (layerType) {
+                case 'power':
+                    return ['power-substations', 'power-substations-secondary', 'power-generation'];
+                case 'transport':
+                    return ['transport-hubs', 'transport-logistics'];
+                case 'telecom':
+                    return ['telecom-towers', 'telecom-datacenters'];
+                case 'water':
+                    return ['water-treatment', 'water-wastewater', 'water-storage', 'water-pumping'];
+                default:
+                    return [];
+            }
+        };
+
+        function updateStatus(message) {
+            statusDiv.textContent = message;
+        }
+
+        function toggleLayer(layerId, visible) {
+            console.log(`🔄 Toggle ${layerId} layer: ${visible}`);
+            
+            // Update layer state
+            const layer = layers.find(l => l.id === layerId);
+            if (layer) {
+                layer.visible = visible;
+            }
+            
+            // Control actual map layers
+            const layerIds = getLayerIdsForType(layerId);
+            let toggledCount = 0;
+            
+            layerIds.forEach(id => {
+                try {
+                    if (map.getLayer(id)) {
+                        map.setLayoutProperty(id, 'visibility', visible ? 'visible' : 'none');
+                        toggledCount++;
+                    }
+                } catch (error) {
+                    console.warn(`Could not toggle layer ${id}:`, error);
+                }
+            });
+            
+            updateStatus(`✅ Toggled ${layerId}: ${toggledCount} map layers ${visible ? 'shown' : 'hidden'}`);
+            renderControls(); // Re-render to update UI
+        }
+
+        function changeOpacity(layerId, opacity) {
+            console.log(`🎨 Change ${layerId} opacity: ${opacity}%`);
+            
+            // Update layer state
+            const layer = layers.find(l => l.id === layerId);
+            if (layer) {
+                layer.opacity = parseInt(opacity);
+            }
+            
+            // Update map layer opacity
+            const layerIds = getLayerIdsForType(layerId);
+            const opacityValue = opacity / 100;
+            let changedCount = 0;
+            
+            layerIds.forEach(id => {
+                try {
+                    if (map.getLayer(id)) {
+                        const layerDef = map.getLayer(id);
+                        if (layerDef.type === 'circle') {
+                            map.setPaintProperty(id, 'circle-opacity', opacityValue);
+                        } else if (layerDef.type === 'line') {
+                            map.setPaintProperty(id, 'line-opacity', opacityValue);
+                        } else if (layerDef.type === 'symbol') {
+                            map.setPaintProperty(id, 'icon-opacity', opacityValue);
+                        }
+                        changedCount++;
+                    }
+                } catch (error) {
+                    console.warn(`Could not change opacity for layer ${id}:`, error);
+                }
+            });
+            
+            updateStatus(`✅ Changed ${layerId} opacity: ${changedCount} map layers to ${opacity}%`);
+        }
+
+        function renderControls() {
+            const container = document.getElementById('layer-controls');
+            container.innerHTML = '';
+            
+            layers.forEach(layer => {
+                const layerDiv = document.createElement('div');
+                layerDiv.className = 'layer-control';
+                
+                layerDiv.innerHTML = `
+                    <div class="layer-header">
+                        <label>
+                            <input type="checkbox" ${layer.visible ? 'checked' : ''} 
+                                   onchange="toggleLayer('${layer.id}', this.checked)">
+                            ${layer.name}
+                            <span class="layer-count">(${layer.count})</span>
+                        </label>
+                        <div class="layer-color" style="background-color: ${layer.color}"></div>
+                    </div>
+                    ${layer.visible ? `
+                        <div class="opacity-control">
+                            <label>Opacity: ${layer.opacity}%</label>
+                            <input type="range" min="0" max="100" value="${layer.opacity}" 
+                                   onchange="changeOpacity('${layer.id}', this.value)">
+                        </div>
+                    ` : ''}
+                `;
+                
+                container.appendChild(layerDiv);
+            });
+        }
+
+        // Load infrastructure data and set up controls
+        async function loadInfrastructure() {
+            try {
+                updateStatus('Loading infrastructure data...');
+                
+                // Simulate DataService loading (simplified version)
+                const [powerData, transportData, telecomData, waterData] = await Promise.all([
+                    fetch('/data/london-power.json').then(r => r.json()),
+                    fetch('/data/london-transport.json').then(r => r.json()),
+                    fetch('/data/london-telecom.json').then(r => r.json()),
+                    fetch('/data/london-water.json').then(r => r.json())
+                ]);
+
+                // Add simplified layers (just a few samples for testing)
+                addSampleLayers(powerData, transportData, telecomData, waterData);
+                
+                updateStatus('✅ Infrastructure loaded! Test the controls →');
+                renderControls();
+                
+            } catch (error) {
+                updateStatus('❌ Error loading data: ' + error.message);
+                console.error('Error:', error);
+            }
+        }
+
+        function addSampleLayers(powerData, transportData, telecomData, waterData) {
+            // Add sample power layers
+            const powerSample = {
+                type: 'FeatureCollection',
+                features: powerData.assets.slice(0, 50).map(asset => ({
+                    type: 'Feature',
+                    geometry: { type: 'Point', coordinates: asset.coordinates },
+                    properties: asset
+                }))
+            };
+            
+            map.addSource('power-infrastructure', { type: 'geojson', data: powerSample });
+            map.addLayer({
+                id: 'power-substations',
+                type: 'circle',
+                source: 'power-infrastructure',
+                paint: {
+                    'circle-radius': 6,
+                    'circle-color': '#ef4444',
+                    'circle-stroke-width': 2,
+                    'circle-stroke-color': '#ffffff'
+                }
+            });
+
+            // Add sample water layers
+            const waterSample = {
+                type: 'FeatureCollection',
+                features: waterData.assets.slice(0, 20).map(asset => ({
+                    type: 'Feature',
+                    geometry: { type: 'Point', coordinates: asset.coordinates },
+                    properties: asset
+                }))
+            };
+            
+            map.addSource('water-infrastructure', { type: 'geojson', data: waterSample });
+            map.addLayer({
+                id: 'water-treatment',
+                type: 'circle',
+                source: 'water-infrastructure',
+                paint: {
+                    'circle-radius': 6,
+                    'circle-color': '#0284c7',
+                    'circle-stroke-width': 2,
+                    'circle-stroke-color': '#ffffff'
+                }
+            });
+
+            console.log('✅ Sample layers added for testing');
+        }
+
+        map.on('load', () => {
+            updateStatus('Map loaded, loading infrastructure...');
+            loadInfrastructure();
+        });
+
+        map.on('error', (e) => {
+            updateStatus('❌ Map error: ' + e.error.message);
+        });
+    </script>
+</body>
+</html>

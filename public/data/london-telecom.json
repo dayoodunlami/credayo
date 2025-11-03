@@ -1,0 +1,8178 @@
+{
+  "city": "london",
+  "type": "telecom",
+  "timestamp": 1761445930699,
+  "count": 541,
+  "assets": [
+    {
+      "id": "telecom_tower_60240570",
+      "name": "Alexandra Palace transmitter",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1291683,
+        51.5945021
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_389979794",
+      "name": "Telecom 389979794",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.344058,
+        51.5733168
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_420326659",
+      "name": "Telecom 420326659",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0431016,
+        51.3997402
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_552477779",
+      "name": "Wrotham",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2877555,
+        51.3207169
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Arqiva",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_573578658",
+      "name": "Telecom 573578658",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3405002,
+        51.6251843
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_618348456",
+      "name": "Telecom 618348456",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0703696,
+        51.5362967
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "telecom_tower_667374046",
+      "name": "Telecom 667374046",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1345989,
+        51.3955299
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1275821202",
+      "name": "Telecom 1275821202",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.321789,
+        51.4920147
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1295864944",
+      "name": "Telecom 1295864944",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1769806,
+        51.4148054
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1296074714",
+      "name": "Telecom 1296074714",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1724844,
+        51.4182554
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1312736735",
+      "name": "Telecom 1312736735",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4262033,
+        51.6123729
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1333991103",
+      "name": "Telecom 1333991103",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3574688,
+        51.5510253
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1333991145",
+      "name": "Telecom 1333991145",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3575994,
+        51.5512047
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1404299061",
+      "name": "Telecom 1404299061",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3250179,
+        51.48744
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Vodafone",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1411689500",
+      "name": "Telecom 1411689500",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.296106,
+        51.5997069
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1418673004",
+      "name": "Telecom 1418673004",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4615173,
+        51.5459412
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1489725235",
+      "name": "Woolwich TV Repeater",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1021561,
+        51.4946123
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1538769920",
+      "name": "Telecom 1538769920",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0166213,
+        51.3030857
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1538769925",
+      "name": "Telecom 1538769925",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0165399,
+        51.3032271
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1538769928",
+      "name": "Telecom 1538769928",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0165634,
+        51.3034074
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1630976562",
+      "name": "Telecom 1630976562",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4639374,
+        51.3630322
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1686079057",
+      "name": "Telecom 1686079057",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2677345,
+        51.6121121
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1689138432",
+      "name": "3 Mobile Mast",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3876887,
+        51.6782614
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Three",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1861526861",
+      "name": "Telecom 1861526861",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.100615,
+        51.5265297
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1892605895",
+      "name": "Telecom 1892605895",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1994806,
+        51.3216203
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_1998572685",
+      "name": "Telecom 1998572685",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0833548,
+        51.4191742
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2027174986",
+      "name": "Swain's Lane Television Receiving Station",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1482419,
+        51.5698186
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2095574204",
+      "name": "Telecom 2095574204",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4438993,
+        51.3211326
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2127743488",
+      "name": "Telecom 2127743488",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2867261,
+        51.3207545
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2134283762",
+      "name": "Telecom 2134283762",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0571499,
+        51.3495387
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2297225890",
+      "name": "Telecom 2297225890",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2185312,
+        51.514998
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2297225894",
+      "name": "Telecom 2297225894",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2184768,
+        51.5150007
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2297330582",
+      "name": "Telecom 2297330582",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.218592,
+        51.5149949
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2387557595",
+      "name": "Telecom 2387557595",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0024319,
+        51.6479728
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2399864641",
+      "name": "Telecom 2399864641",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0933682,
+        51.3171029
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2435245083",
+      "name": "Glade Lane Transmitter",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.359872,
+        51.5044636
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2488718021",
+      "name": "Telecom 2488718021",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1869869,
+        51.3263301
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2488718039",
+      "name": "Telecom 2488718039",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.182773,
+        51.3285364
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2512254691",
+      "name": "Telecom 2512254691",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3134284,
+        51.5844087
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2549896209",
+      "name": "Telecom 2549896209",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3408037,
+        51.5796598
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2551849800",
+      "name": "Telecom 2551849800",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2884059,
+        51.553249
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2551849836",
+      "name": "Telecom 2551849836",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2887638,
+        51.5534328
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2640272607",
+      "name": "Telecom 2640272607",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0071686,
+        51.495318
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_2877524265",
+      "name": "Epsom NDB",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3723343,
+        51.3196046
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3079321246",
+      "name": "Telecom 3079321246",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0141802,
+        51.2845578
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3179213040",
+      "name": "Telecom 3179213040",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0845056,
+        51.5377968
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3313368201",
+      "name": "Telecom 3313368201",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3427568,
+        51.6749882
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3335309039",
+      "name": "Telecom 3335309039",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.3246932,
+        51.4794504
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3579230106",
+      "name": "Telecom 3579230106",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0293801,
+        51.6502191
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3656140271",
+      "name": "Telecom 3656140271",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2009815,
+        51.5219353
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3748018828",
+      "name": "Telecom 3748018828",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0487348,
+        51.5723585
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3752246096",
+      "name": "Telecom 3752246096",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.272005,
+        51.4850521
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3754544129",
+      "name": "Telecom 3754544129",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0386308,
+        51.5618799
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3802869385",
+      "name": "Telecom 3802869385",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2963393,
+        51.4930408
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3802869386",
+      "name": "Telecom 3802869386",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2856869,
+        51.4912894
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3802869387",
+      "name": "Telecom 3802869387",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2816975,
+        51.4908296
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3802871815",
+      "name": "Telecom 3802871815",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2879936,
+        51.4934011
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3805414295",
+      "name": "Telecom 3805414295",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2829995,
+        51.4820238
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3805414296",
+      "name": "Telecom 3805414296",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2834461,
+        51.4843606
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3842183563",
+      "name": "Telecom 3842183563",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2181055,
+        51.3011647
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3842183564",
+      "name": "Telecom 3842183564",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2146865,
+        51.3024497
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3842183884",
+      "name": "Telecom 3842183884",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1997879,
+        51.304051
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3842184426",
+      "name": "Telecom 3842184426",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1446182,
+        51.2916929
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3842185230",
+      "name": "Telecom 3842185230",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1053101,
+        51.283401
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3842210180",
+      "name": "Telecom 3842210180",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2706221,
+        51.2856624
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3842210486",
+      "name": "Telecom 3842210486",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2848591,
+        51.2919527
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3845271661",
+      "name": "Telecom 3845271661",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3190796,
+        51.3014675
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3845274526",
+      "name": "Telecom 3845274526",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.340413,
+        51.3161622
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3845274527",
+      "name": "Telecom 3845274527",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3399369,
+        51.31622
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3845274528",
+      "name": "Telecom 3845274528",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3405839,
+        51.3162214
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3845274529",
+      "name": "Telecom 3845274529",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3401276,
+        51.3164447
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3845275334",
+      "name": "Telecom 3845275334",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3966386,
+        51.305865
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3845278103",
+      "name": "Telecom 3845278103",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4774958,
+        51.328365
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3845280704",
+      "name": "Telecom 3845280704",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4990597,
+        51.3613129
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3845280824",
+      "name": "Telecom 3845280824",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4833405,
+        51.3330824
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3848620208",
+      "name": "Telecom 3848620208",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.5090921,
+        51.4699718
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3848625299",
+      "name": "Telecom 3848625299",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4998895,
+        51.5037124
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3848625875",
+      "name": "Telecom 3848625875",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.5006931,
+        51.5125455
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_3848630083",
+      "name": "Telecom 3848630083",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.5058345,
+        51.54485
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4060588606",
+      "name": "Telecom 4060588606",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2507142,
+        51.4381135
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "O2;Vodafone",
+        "reference": "42513;77811",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4096038405",
+      "name": "Telecom 4096038405",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2705764,
+        51.4927684
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4106638850",
+      "name": "Telecom 4106638850",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.3041879,
+        51.4758516
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4110575389",
+      "name": "Telecom 4110575389",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.3175791,
+        51.4951733
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "EE/Three",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4147091976",
+      "name": "Telecom 4147091976",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.3065541,
+        51.4867396
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4147734769",
+      "name": "Telecom 4147734769",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2738472,
+        51.4727463
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4351711781",
+      "name": "Telecom 4351711781",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1240327,
+        51.4870849
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4351711787",
+      "name": "Telecom 4351711787",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1239468,
+        51.4871801
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4354841216",
+      "name": "EE",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0687732,
+        51.5188096
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4369644708",
+      "name": "Telecom 4369644708",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0850862,
+        51.5283621
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Vodafone",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4410446187",
+      "name": "Telecom 4410446187",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2817578,
+        51.5089585
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "O2",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4412514581",
+      "name": "Telecom 4412514581",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2830089,
+        51.5088179
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4414149980",
+      "name": "Telecom 4414149980",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2869475,
+        51.5154907
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4414149981",
+      "name": "Telecom 4414149981",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2869321,
+        51.5152166
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4414150194",
+      "name": "Telecom 4414150194",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.274973,
+        51.5020922
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4414150196",
+      "name": "Telecom 4414150196",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2900583,
+        51.5207452
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4414150197",
+      "name": "Telecom 4414150197",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2897585,
+        51.523242
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4496706425",
+      "name": "Telecom 4496706425",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1406423,
+        51.5371639
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4708960982",
+      "name": "Telecom 4708960982",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3994141,
+        51.3249068
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4880412374",
+      "name": "Telecom 4880412374",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4206026,
+        51.4589423
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4880412376",
+      "name": "Telecom 4880412376",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4205154,
+        51.4594102
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4880412377",
+      "name": "Telecom 4880412377",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.420282,
+        51.4592774
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4929686970",
+      "name": "Telecom 4929686970",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1009771,
+        51.5201246
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4929686971",
+      "name": "Telecom 4929686971",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1009443,
+        51.5201538
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_4943567199",
+      "name": "Telecom 4943567199",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4787233,
+        51.3283726
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_5197086183",
+      "name": "Telecom 5197086183",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1463923,
+        51.4902802
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Vodafone Ltd",
+        "reference": "34055",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_5220823054",
+      "name": "Telecom 5220823054",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1274347,
+        51.3788467
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_5274064390",
+      "name": "Telecom 5274064390",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3506237,
+        51.5590015
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_5314243241",
+      "name": "Telecom 5314243241",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1301038,
+        51.5757025
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "telecom_tower_5317915571",
+      "name": "Telecom 5317915571",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0929967,
+        51.4270355
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_5328080344",
+      "name": "Telecom 5328080344",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2481049,
+        51.4506982
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_5328080354",
+      "name": "Telecom 5328080354",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2471567,
+        51.4514441
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_5330867037",
+      "name": "Telecom 5330867037",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0742669,
+        51.4255934
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_5678302905",
+      "name": "Telecom 5678302905",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0842495,
+        51.5438334
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "BT"
+      }
+    },
+    {
+      "id": "telecom_tower_5678302906",
+      "name": "Telecom 5678302906",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0842918,
+        51.5438409
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "BT"
+      }
+    },
+    {
+      "id": "telecom_tower_5678302907",
+      "name": "Telecom 5678302907",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.088582,
+        51.5446044
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "BT"
+      }
+    },
+    {
+      "id": "telecom_tower_5678302908",
+      "name": "Telecom 5678302908",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0886698,
+        51.5446186
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "BT"
+      }
+    },
+    {
+      "id": "telecom_tower_5678302909",
+      "name": "Telecom 5678302909",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0886295,
+        51.5446123
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Virgin Media"
+      }
+    },
+    {
+      "id": "telecom_tower_5850066052",
+      "name": "Telecom 5850066052",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4129993,
+        51.6694941
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "T-Mobile",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_5850066053",
+      "name": "Telecom 5850066053",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4131378,
+        51.6696129
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "O2",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_6282872653",
+      "name": "Telecom 6282872653",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1335847,
+        51.3837609
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_6296079197",
+      "name": "Telecom 6296079197",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1835205,
+        51.5725659
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_6410265834",
+      "name": "Telecom 6410265834",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4238602,
+        51.3707325
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_6417878439",
+      "name": "Telecom 6417878439",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.102931,
+        51.5905309
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_6475285729",
+      "name": "Telecom 6475285729",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3907415,
+        51.6546385
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_6587447779",
+      "name": "Telecom 6587447779",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.275171,
+        51.4767641
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_6662879487",
+      "name": "Telecom 6662879487",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.029759,
+        51.6819545
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_6662879488",
+      "name": "Telecom 6662879488",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0856938,
+        51.6888348
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_6833537165",
+      "name": "Telecom 6833537165",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2604095,
+        51.6070167
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_6926809194",
+      "name": "Telecom 6926809194",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0138075,
+        51.6852908
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7134505844",
+      "name": "Telecom 7134505844",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2919863,
+        51.5620293
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7134513661",
+      "name": "Telecom 7134513661",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0387655,
+        51.6124699
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7134513662",
+      "name": "Telecom 7134513662",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0459471,
+        51.6120181
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7134513663",
+      "name": "Telecom 7134513663",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.045939,
+        51.6120797
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7134513664",
+      "name": "Telecom 7134513664",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0493637,
+        51.6114601
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7179804546",
+      "name": "Telecom 7179804546",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0989227,
+        51.6886729
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7328917440",
+      "name": "Telecom 7328917440",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1862832,
+        51.6472442
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "O2/Vodafone",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7394813236",
+      "name": "Telecom 7394813236",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4567426,
+        51.3557669
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "EE",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7394813237",
+      "name": "Telecom 7394813237",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.454727,
+        51.3643956
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "EE",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7417443413",
+      "name": "Telecom 7417443413",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4592934,
+        51.35239
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "EE",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7417443414",
+      "name": "Telecom 7417443414",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4590252,
+        51.352601
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "O2 Vodafone",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7417443415",
+      "name": "Telecom 7417443415",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4563135,
+        51.3618568
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Vodafone",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7417443416",
+      "name": "Telecom 7417443416",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4513755,
+        51.3713534
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7437532724",
+      "name": "Telecom 7437532724",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4566676,
+        51.3740603
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Vodafone",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7476114830",
+      "name": "Telecom 7476114830",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4775324,
+        51.3464446
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7476114831",
+      "name": "Telecom 7476114831",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.478905,
+        51.3470369
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7477349717",
+      "name": "Telecom 7477349717",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2633705,
+        51.3624871
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7563121876",
+      "name": "Telecom 7563121876",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0776731,
+        51.3585641
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "O2",
+        "reference": "4656",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7649663748",
+      "name": "Telecom 7649663748",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4701054,
+        51.3248109
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7662534890",
+      "name": "Telecom 7662534890",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2380139,
+        51.4343249
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7685976091",
+      "name": "Telecom 7685976091",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2168432,
+        51.4437526
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7717172801",
+      "name": "Telecom 7717172801",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4327441,
+        51.3794635
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach",
+        "reference": "58"
+      }
+    },
+    {
+      "id": "telecom_tower_7727604321",
+      "name": "Telecom 7727604321",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2085994,
+        51.4244612
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7732645420",
+      "name": "Telecom 7732645420",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.217725,
+        51.4453817
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7747044789",
+      "name": "Telecom 7747044789",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2376947,
+        51.4415144
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7754876199",
+      "name": "Telecom 7754876199",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2163718,
+        51.4437271
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7754876200",
+      "name": "Telecom 7754876200",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2163966,
+        51.4437798
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7785802985",
+      "name": "Telecom 7785802985",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0616814,
+        51.5143809
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7788324338",
+      "name": "Telecom 7788324338",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1592467,
+        51.5905193
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7819547731",
+      "name": "Telecom 7819547731",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0406935,
+        51.4945739
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7819547732",
+      "name": "Telecom 7819547732",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0367617,
+        51.4998819
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7832951968",
+      "name": "Telecom 7832951968",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0279559,
+        51.5023654
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7832951969",
+      "name": "Telecom 7832951969",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0203804,
+        51.5036988
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7833582627",
+      "name": "Telecom 7833582627",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0373015,
+        51.5092686
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7833582688",
+      "name": "Telecom 7833582688",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0496696,
+        51.5033648
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7833582689",
+      "name": "Telecom 7833582689",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0497053,
+        51.5033635
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7833582690",
+      "name": "Telecom 7833582690",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0497081,
+        51.503411
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7833582691",
+      "name": "Telecom 7833582691",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0496707,
+        51.5034106
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7833582692",
+      "name": "Telecom 7833582692",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0496753,
+        51.50345
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7833582693",
+      "name": "Telecom 7833582693",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.049709,
+        51.5034495
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7833582694",
+      "name": "Telecom 7833582694",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0497104,
+        51.5034779
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7833582695",
+      "name": "Telecom 7833582695",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0496766,
+        51.5034792
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7835004691",
+      "name": "Telecom 7835004691",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0248549,
+        51.5026171
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7840122797",
+      "name": "Telecom 7840122797",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.473991,
+        51.4416523
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "British Telecom",
+        "reference": "39"
+      }
+    },
+    {
+      "id": "telecom_tower_7840153333",
+      "name": "Telecom 7840153333",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4743946,
+        51.4432828
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "British Telecom",
+        "reference": "10"
+      }
+    },
+    {
+      "id": "telecom_tower_7840153661",
+      "name": "Telecom 7840153661",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4688151,
+        51.4441856
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "British Telecom",
+        "reference": "9"
+      }
+    },
+    {
+      "id": "telecom_tower_7840153663",
+      "name": "Telecom 7840153663",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4726919,
+        51.4397254
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "British Telecom",
+        "reference": "11"
+      }
+    },
+    {
+      "id": "telecom_tower_7840640770",
+      "name": "Telecom 7840640770",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4552049,
+        51.4359094
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "British Telecom",
+        "reference": "32"
+      }
+    },
+    {
+      "id": "telecom_tower_7840699656",
+      "name": "Telecom 7840699656",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4478193,
+        51.4477958
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach",
+        "reference": "35"
+      }
+    },
+    {
+      "id": "telecom_tower_7881319840",
+      "name": "Telecom 7881319840",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0072702,
+        51.5119744
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7900705248",
+      "name": "Telecom 7900705248",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0333714,
+        51.511279
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7900711979",
+      "name": "Telecom 7900711979",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.017377,
+        51.505644
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7900711980",
+      "name": "Telecom 7900711980",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0174283,
+        51.5056471
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7900711981",
+      "name": "Telecom 7900711981",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0174391,
+        51.5056794
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7900776485",
+      "name": "Telecom 7900776485",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0242867,
+        51.511277
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7900776486",
+      "name": "Telecom 7900776486",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0243187,
+        51.5112803
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7900792680",
+      "name": "Telecom 7900792680",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.001756,
+        51.5120776
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7900792681",
+      "name": "Telecom 7900792681",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0013645,
+        51.5121423
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_7911146301",
+      "name": "Telecom 7911146301",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2040396,
+        51.5208685
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8042698140",
+      "name": "Telecom 8042698140",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4654758,
+        51.6761555
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8048929984",
+      "name": "Telecom 8048929984",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2875366,
+        51.4779152
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8068756051",
+      "name": "Telecom 8068756051",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3971695,
+        51.5972533
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8084768814",
+      "name": "Telecom 8084768814",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4038407,
+        51.6228482
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8087671096",
+      "name": "Telecom 8087671096",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0595098,
+        51.5001574
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8088227389",
+      "name": "Telecom 8088227389",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0699504,
+        51.5080517
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8088227390",
+      "name": "Telecom 8088227390",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0701561,
+        51.5082805
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8094706172",
+      "name": "Telecom 8094706172",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0504125,
+        51.5163849
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8094706174",
+      "name": "Telecom 8094706174",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0601524,
+        51.5158877
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8151427829",
+      "name": "Telecom 8151427829",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2522959,
+        51.3603214
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8158203827",
+      "name": "Telecom 8158203827",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0636317,
+        51.501556
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8158203828",
+      "name": "Telecom 8158203828",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0636387,
+        51.5015176
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8162754161",
+      "name": "Telecom 8162754161",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0199511,
+        51.5147996
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8165772571",
+      "name": "Telecom 8165772571",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0477654,
+        51.5094188
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8165772572",
+      "name": "Telecom 8165772572",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0486573,
+        51.509283
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8176576092",
+      "name": "Telecom 8176576092",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.061712,
+        51.5205794
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8176662677",
+      "name": "Telecom 8176662677",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0608837,
+        51.5337654
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8176667363",
+      "name": "Telecom 8176667363",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0565001,
+        51.5281921
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8176693991",
+      "name": "Telecom 8176693991",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0735338,
+        51.5140637
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8195162703",
+      "name": "Telecom 8195162703",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0428694,
+        51.5131621
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8195162704",
+      "name": "Telecom 8195162704",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.042666,
+        51.5134235
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8195224726",
+      "name": "Telecom 8195224726",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0316367,
+        51.5222677
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8195224727",
+      "name": "Telecom 8195224727",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0316169,
+        51.5213752
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8197279153",
+      "name": "Telecom 8197279153",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.494192,
+        51.6550556
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8200085653",
+      "name": "Telecom 8200085653",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2635627,
+        51.3677329
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8258731367",
+      "name": "Telecom 8258731367",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1827932,
+        51.6627056
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8261833980",
+      "name": "Telecom 8261833980",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2384743,
+        51.3009483
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8262348883",
+      "name": "Telecom 8262348883",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.011872,
+        51.5113137
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8269764866",
+      "name": "Telecom 8269764866",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2660587,
+        51.3658459
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8276045572",
+      "name": "Telecom 8276045572",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4110721,
+        51.6179283
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8285858591",
+      "name": "Telecom 8285858591",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0754355,
+        51.6339894
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8288927947",
+      "name": "Telecom 8288927947",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0616737,
+        51.6390234
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8297418171",
+      "name": "Telecom 8297418171",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0557777,
+        51.513414
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8311833958",
+      "name": "Telecom 8311833958",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1571297,
+        51.6671013
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8328836278",
+      "name": "Telecom 8328836278",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0011189,
+        51.5212499
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8356081204",
+      "name": "Telecom 8356081204",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0858632,
+        51.5291071
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Vodafone",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8357976996",
+      "name": "Telecom 8357976996",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0408479,
+        51.5105625
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8429643120",
+      "name": "Telecom 8429643120",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2106695,
+        51.5178869
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8429643121",
+      "name": "Telecom 8429643121",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2108808,
+        51.5177765
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8429643130",
+      "name": "Telecom 8429643130",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2014597,
+        51.5218201
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8461946181",
+      "name": "Telecom 8461946181",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0898413,
+        51.497919
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8473999472",
+      "name": "Telecom 8473999472",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2185055,
+        51.5228037
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8476257591",
+      "name": "Telecom 8476257591",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4779454,
+        51.6497896
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8494489129",
+      "name": "Telecom 8494489129",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0202952,
+        51.6708801
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8494489130",
+      "name": "Telecom 8494489130",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0197948,
+        51.6705688
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8494489131",
+      "name": "Telecom 8494489131",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.019561,
+        51.6711764
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8538621520",
+      "name": "Telecom 8538621520",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2098694,
+        51.5196894
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8550837868",
+      "name": "Telecom 8550837868",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4788105,
+        51.3403661
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "O2; Vodafone",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8550837869",
+      "name": "Telecom 8550837869",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4430117,
+        51.3668327
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Vodafone",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8550837870",
+      "name": "Telecom 8550837870",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4430352,
+        51.3668163
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "O2",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8570316642",
+      "name": "Telecom 8570316642",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1892973,
+        51.5287322
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Vodafone",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8570316643",
+      "name": "Telecom 8570316643",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1892318,
+        51.5293999
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8592193748",
+      "name": "Telecom 8592193748",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2604814,
+        51.3412537
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8593112800",
+      "name": "Telecom 8593112800",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4506992,
+        51.5257849
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8618206327",
+      "name": "Telecom 8618206327",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0576647,
+        51.4036373
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8618563329",
+      "name": "Telecom 8618563329",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0953463,
+        51.3624488
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8618626490",
+      "name": "Telecom 8618626490",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4343229,
+        51.4942871
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8618650046",
+      "name": "Telecom 8618650046",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3936229,
+        51.4880363
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8622109235",
+      "name": "Telecom 8622109235",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0741396,
+        51.387404
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8622195907",
+      "name": "Telecom 8622195907",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0814442,
+        51.5031082
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8622195908",
+      "name": "Telecom 8622195908",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.081617,
+        51.503183
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8628135342",
+      "name": "Telecom 8628135342",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.497642,
+        51.5151138
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8629107738",
+      "name": "Telecom 8629107738",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1856233,
+        51.4252663
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8633244050",
+      "name": "Telecom 8633244050",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0390105,
+        51.5203515
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8640445017",
+      "name": "Telecom 8640445017",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.285653,
+        51.4816947
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8663231621",
+      "name": "Telecom 8663231621",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2267754,
+        51.4518386
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "EE Ltd and Hutchison 3G UK Ltd",
+        "reference": "DFD007",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8663231622",
+      "name": "Telecom 8663231622",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2267814,
+        51.4518813
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8665872804",
+      "name": "Telecom 8665872804",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0136617,
+        51.5250483
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8681355741",
+      "name": "Telecom 8681355741",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.222626,
+        51.6575868
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8687001720",
+      "name": "Telecom 8687001720",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4914376,
+        51.4971392
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8687016385",
+      "name": "Telecom 8687016385",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.5004659,
+        51.5037715
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8692087352",
+      "name": "Telecom 8692087352",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.239715,
+        51.4551927
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8692087353",
+      "name": "Telecom 8692087353",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.239883,
+        51.455049
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8727679205",
+      "name": "Telecom 8727679205",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.398578,
+        51.6522497
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8740353722",
+      "name": "Telecom 8740353722",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.103289,
+        51.3431579
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8743374655",
+      "name": "Telecom 8743374655",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0259649,
+        51.4071499
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8754225652",
+      "name": "Telecom 8754225652",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0020841,
+        51.5402195
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8780886563",
+      "name": "Telecom 8780886563",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2161284,
+        51.4379332
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "O2",
+        "reference": "71888",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8781000905",
+      "name": "Telecom 8781000905",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0264348,
+        51.4541544
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8833910366",
+      "name": "Telecom 8833910366",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2215124,
+        51.6886468
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8865840274",
+      "name": "Telecom 8865840274",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2659447,
+        51.3398868
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8866731767",
+      "name": "Telecom 8866731767",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2659396,
+        51.3397641
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8866731768",
+      "name": "Telecom 8866731768",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2663476,
+        51.3398276
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8871459470",
+      "name": "Telecom 8871459470",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2293922,
+        51.385488
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8874682964",
+      "name": "Telecom 8874682964",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4474937,
+        51.4043961
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8879691797",
+      "name": "Telecom 8879691797",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4056794,
+        51.3987972
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8879691806",
+      "name": "Telecom 8879691806",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4057982,
+        51.3985572
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8879691811",
+      "name": "Telecom 8879691811",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4060535,
+        51.3984171
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8916784845",
+      "name": "Telecom 8916784845",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0022174,
+        51.5328141
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8926078331",
+      "name": "Telecom 8926078331",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3408318,
+        51.3823369
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8936438303",
+      "name": "Telecom 8936438303",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0275918,
+        51.4772794
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8967746558",
+      "name": "Telecom 8967746558",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4842088,
+        51.5037521
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8972117056",
+      "name": "Telecom 8972117056",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2782867,
+        51.5482372
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8972210874",
+      "name": "Telecom 8972210874",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1365622,
+        51.5526005
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_8999766287",
+      "name": "Telecom 8999766287",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3799739,
+        51.6113
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9023071058",
+      "name": "Telecom 9023071058",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0107612,
+        51.506987
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9023071059",
+      "name": "Telecom 9023071059",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0109007,
+        51.5068499
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9026007699",
+      "name": "Telecom 9026007699",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0556351,
+        51.4887014
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9028639459",
+      "name": "Telecom 9028639459",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4526851,
+        51.5323023
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9035797827",
+      "name": "Telecom 9035797827",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4742761,
+        51.5101325
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9037708016",
+      "name": "Telecom 9037708016",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4720854,
+        51.5106808
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9051619886",
+      "name": "Telecom 9051619886",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0014019,
+        51.5121295
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9054753643",
+      "name": "Telecom 9054753643",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0019923,
+        51.530214
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9054753644",
+      "name": "Telecom 9054753644",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.001846,
+        51.5299418
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9054774716",
+      "name": "Telecom 9054774716",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0242026,
+        51.5444953
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9054776622",
+      "name": "Telecom 9054776622",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0240215,
+        51.5444806
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9106412762",
+      "name": "Telecom 9106412762",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4823872,
+        51.5474779
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9106412763",
+      "name": "Telecom 9106412763",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4825975,
+        51.547373
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9106412764",
+      "name": "Telecom 9106412764",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4828363,
+        51.5473572
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9106955048",
+      "name": "Telecom 9106955048",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1104504,
+        51.6191066
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9111379203",
+      "name": "Telecom 9111379203",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0254901,
+        51.5376655
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9111457351",
+      "name": "Telecom 9111457351",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0097703,
+        51.4925684
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9121284114",
+      "name": "Telecom 9121284114",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0845339,
+        51.4607278
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9124065185",
+      "name": "Telecom 9124065185",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1801283,
+        51.5465198
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9165680383",
+      "name": "Telecom 9165680383",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3301763,
+        51.4872656
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9165680384",
+      "name": "Telecom 9165680384",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.330027,
+        51.4872163
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9165680385",
+      "name": "Telecom 9165680385",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3300554,
+        51.4872045
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9165680386",
+      "name": "Telecom 9165680386",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3300658,
+        51.4871913
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9217364603",
+      "name": "Telecom 9217364603",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1222385,
+        51.4876263
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9219669065",
+      "name": "Telecom 9219669065",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1177493,
+        51.5321074
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9250421903",
+      "name": "Telecom 9250421903",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2193752,
+        51.4596392
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9250421919",
+      "name": "Telecom 9250421919",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2198741,
+        51.4596246
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9261876132",
+      "name": "Telecom 9261876132",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4154966,
+        51.3263984
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9261876133",
+      "name": "Telecom 9261876133",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4158336,
+        51.3268113
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9261876134",
+      "name": "Telecom 9261876134",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4159821,
+        51.3270497
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9281373904",
+      "name": "Telecom 9281373904",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0021716,
+        51.5822737
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9309122603",
+      "name": "Telecom 9309122603",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0587224,
+        51.5184561
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9328358019",
+      "name": "Telecom 9328358019",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2826868,
+        51.509735
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9383554939",
+      "name": "Telecom 9383554939",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.165106,
+        51.5262481
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9394354403",
+      "name": "Telecom 9394354403",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4566492,
+        51.4383279
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9394354404",
+      "name": "Telecom 9394354404",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4564769,
+        51.4394574
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9415183297",
+      "name": "Telecom 9415183297",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4788948,
+        51.6503255
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9482326135",
+      "name": "Telecom 9482326135",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2518266,
+        51.4158811
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9482326136",
+      "name": "Telecom 9482326136",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2516751,
+        51.4158285
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9573012935",
+      "name": "Telecom 9573012935",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3991993,
+        51.6560573
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9573681270",
+      "name": "Telecom 9573681270",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3365371,
+        51.5118235
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9609210700",
+      "name": "Telecom 9609210700",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0516372,
+        51.6019744
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9628491319",
+      "name": "Telecom 9628491319",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1534099,
+        51.2873336
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9677237697",
+      "name": "Telecom 9677237697",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4874463,
+        51.6388779
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9690047696",
+      "name": "Telecom 9690047696",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0140535,
+        51.4668503
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9729553443",
+      "name": "Telecom 9729553443",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4957886,
+        51.6556457
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9730063991",
+      "name": "Telecom 9730063991",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4819696,
+        51.644232
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9730069987",
+      "name": "Telecom 9730069987",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4722965,
+        51.6492296
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9731137480",
+      "name": "Telecom 9731137480",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1818231,
+        51.4597231
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9770681862",
+      "name": "Telecom 9770681862",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4203239,
+        51.3106503
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Wireless Infrastructure Group",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9773939875",
+      "name": "Telecom 9773939875",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2748254,
+        51.532714
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9773939876",
+      "name": "Telecom 9773939876",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2771965,
+        51.5304443
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9773939877",
+      "name": "Telecom 9773939877",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2871046,
+        51.5670295
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9792372529",
+      "name": "Telecom 9792372529",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4584425,
+        51.508146
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9827990918",
+      "name": "Denham PCP 11",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.498994,
+        51.584176
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach",
+        "reference": "11"
+      }
+    },
+    {
+      "id": "telecom_tower_9827990919",
+      "name": "Denham PCP 5",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.50769,
+        51.580282
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach",
+        "reference": "5"
+      }
+    },
+    {
+      "id": "telecom_tower_9827990920",
+      "name": "Denham PCP 13",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.504405,
+        51.568643
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach",
+        "reference": "13"
+      }
+    },
+    {
+      "id": "telecom_tower_9827990921",
+      "name": "Denham PCP 1",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.503803,
+        51.574667
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach",
+        "reference": "1"
+      }
+    },
+    {
+      "id": "telecom_tower_9827990922",
+      "name": "Denham PCP 9",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.504707,
+        51.571521
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach",
+        "reference": "9"
+      }
+    },
+    {
+      "id": "telecom_tower_9827990923",
+      "name": "Denham PCP 2",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.499891,
+        51.565376
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach",
+        "reference": "2"
+      }
+    },
+    {
+      "id": "telecom_tower_9827990924",
+      "name": "Denham PCP 10",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.502212,
+        51.583908
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach",
+        "reference": "10"
+      }
+    },
+    {
+      "id": "telecom_tower_9827990925",
+      "name": "Denham PCP 6",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.498943,
+        51.580298
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach",
+        "reference": "6"
+      }
+    },
+    {
+      "id": "telecom_tower_9827990926",
+      "name": "Denham PCP 7",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.500675,
+        51.580857
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach",
+        "reference": "7"
+      }
+    },
+    {
+      "id": "telecom_tower_9878510024",
+      "name": "Telecom 9878510024",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2569087,
+        51.614644
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9878510025",
+      "name": "Telecom 9878510025",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2711029,
+        51.5903819
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9898957717",
+      "name": "Telecom 9898957717",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1923009,
+        51.5230726
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_9916871627",
+      "name": "Telecom 9916871627",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1664324,
+        51.4918125
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10008605988",
+      "name": "Telecom 10008605988",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4499658,
+        51.6397375
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10012138976",
+      "name": "Telecom 10012138976",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2356673,
+        51.5445658
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10019477809",
+      "name": "Telecom 10019477809",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4284909,
+        51.5530314
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10019477811",
+      "name": "Telecom 10019477811",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4286718,
+        51.5531137
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10025815291",
+      "name": "Telecom 10025815291",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4284627,
+        51.5531619
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10030316629",
+      "name": "Telecom 10030316629",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4150684,
+        51.557905
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10087536419",
+      "name": "Telecom 10087536419",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0241693,
+        51.6831347
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10087536420",
+      "name": "Telecom 10087536420",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.002603,
+        51.6825543
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10087536421",
+      "name": "Telecom 10087536421",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0036195,
+        51.6823539
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10087536422",
+      "name": "Telecom 10087536422",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0048399,
+        51.6819531
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10160305411",
+      "name": "Telecom 10160305411",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0840945,
+        51.556476
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10206902404",
+      "name": "EE",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0872688,
+        51.4942052
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "EE",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10240945735",
+      "name": "Telecom 10240945735",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.122174,
+        51.5361615
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10273137557",
+      "name": "Telecom 10273137557",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4140137,
+        51.2952122
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10291355852",
+      "name": "Telecom 10291355852",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0467784,
+        51.5906486
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10291434430",
+      "name": "Telecom 10291434430",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0355354,
+        51.591753
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10291444817",
+      "name": "Telecom 10291444817",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0415902,
+        51.598241
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10295390966",
+      "name": "Telecom 10295390966",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3632435,
+        51.3484985
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10295390967",
+      "name": "Telecom 10295390967",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3633441,
+        51.3491996
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10297073121",
+      "name": "Telecom 10297073121",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.3042667,
+        51.4936284
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "EE",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10302760951",
+      "name": "Telecom 10302760951",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0937268,
+        51.5354545
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10305205397",
+      "name": "Telecom 10305205397",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0863709,
+        51.5341743
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10309025337",
+      "name": "Telecom 10309025337",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0295984,
+        51.5258765
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10314126895",
+      "name": "Telecom 10314126895",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1293058,
+        51.5056299
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Serco",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10556871121",
+      "name": "Telecom 10556871121",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0150119,
+        51.5959312
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10556871122",
+      "name": "Telecom 10556871122",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0151088,
+        51.5958056
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10556871123",
+      "name": "Telecom 10556871123",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.015112,
+        51.5958568
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10556871125",
+      "name": "Telecom 10556871125",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0148071,
+        51.5958784
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10556871133",
+      "name": "Telecom 10556871133",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0213315,
+        51.5961991
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10573585277",
+      "name": "Telecom 10573585277",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3667016,
+        51.3732041
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10580298147",
+      "name": "Telecom 10580298147",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1403271,
+        51.5613662
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10593160888",
+      "name": "Telecom 10593160888",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3595555,
+        51.5015518
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10602380585",
+      "name": "Telecom 10602380585",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0588814,
+        51.5816677
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10605201886",
+      "name": "Telecom 10605201886",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.038135,
+        51.6345512
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10606717482",
+      "name": "Telecom 10606717482",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1461147,
+        51.4395926
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10699450307",
+      "name": "Telecom 10699450307",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0694209,
+        51.5163927
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10705750089",
+      "name": "Telecom 10705750089",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0681527,
+        51.5912768
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10705761351",
+      "name": "Telecom 10705761351",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0839601,
+        51.5934526
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10743984453",
+      "name": "Telecom 10743984453",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0195602,
+        51.4388374
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Vodafone",
+        "reference": "87866",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10743986986",
+      "name": "Telecom 10743986986",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0192468,
+        51.4382837
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10771411848",
+      "name": "Telecom 10771411848",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0740389,
+        51.551343
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10778114773",
+      "name": "Telecom 10778114773",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3063528,
+        51.5003243
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "O2; Vodafone",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10785429072",
+      "name": "Telecom 10785429072",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.036881,
+        51.5330079
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10822882975",
+      "name": "Telecom 10822882975",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3671809,
+        51.5111876
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10833479694",
+      "name": "Telecom 10833479694",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2902381,
+        51.5012787
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10881857335",
+      "name": "Telecom 10881857335",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0362608,
+        51.4656233
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10916244428",
+      "name": "Telecom 10916244428",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.100543,
+        51.4645032
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10931720610",
+      "name": "Telecom 10931720610",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3226476,
+        51.5575228
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10935101750",
+      "name": "Telecom 10935101750",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2754255,
+        51.6157346
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Three",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_10951817489",
+      "name": "Telecom 10951817489",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2705672,
+        51.4927765
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "BT",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11005474149",
+      "name": "Telecom 11005474149",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4744831,
+        51.6397413
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11006982273",
+      "name": "Telecom 11006982273",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3413835,
+        51.4825463
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11006982274",
+      "name": "Telecom 11006982274",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3410757,
+        51.4825764
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11006982275",
+      "name": "Telecom 11006982275",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.32098,
+        51.5128039
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11009039114",
+      "name": "Telecom 11009039114",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2793977,
+        51.5047625
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11025821959",
+      "name": "Telecom 11025821959",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0093502,
+        51.5930139
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11030925326",
+      "name": "Telecom 11030925326",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.282353,
+        51.3902334
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11031964869",
+      "name": "Telecom 11031964869",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.050686,
+        51.4403973
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach"
+      }
+    },
+    {
+      "id": "telecom_tower_11055571615",
+      "name": "Telecom 11055571615",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0072618,
+        51.4453295
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11057374571",
+      "name": "Telecom 11057374571",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0038155,
+        51.4538608
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "reference": "Vodafone 87809",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11072763701",
+      "name": "Telecom 11072763701",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0249711,
+        51.5072057
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11084735124",
+      "name": "Telecom 11084735124",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3346693,
+        51.5278589
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11159223662",
+      "name": "Telecom 11159223662",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0231019,
+        51.4884327
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11197598214",
+      "name": "St Columba Radio Mast",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1753319,
+        51.5664056
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11215457331",
+      "name": "Telecom 11215457331",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1326955,
+        51.4960417
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11215457332",
+      "name": "Telecom 11215457332",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1328535,
+        51.4958427
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11215457333",
+      "name": "Telecom 11215457333",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1328517,
+        51.4958141
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11215457334",
+      "name": "Telecom 11215457334",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.13257,
+        51.4960642
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11229516357",
+      "name": "Telecom 11229516357",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3898498,
+        51.6754904
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Vodafone",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11330151171",
+      "name": "Telecom 11330151171",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2655116,
+        51.5361331
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11403687618",
+      "name": "Telecom 11403687618",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0818382,
+        51.58789
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11447823506",
+      "name": "Telecom 11447823506",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.05693,
+        51.6862928
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11447871886",
+      "name": "Telecom 11447871886",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0566776,
+        51.6865934
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11510668046",
+      "name": "Telecom 11510668046",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0565116,
+        51.5477201
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11528368844",
+      "name": "Telecom 11528368844",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1348188,
+        51.5475487
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11545779553",
+      "name": "Telecom 11545779553",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2227647,
+        51.2962173
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11546554134",
+      "name": "Telecom 11546554134",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.052074,
+        51.4605351
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11575746677",
+      "name": "Telecom 11575746677",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.006291,
+        51.5255847
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11599853053",
+      "name": "Telecom 11599853053",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1578989,
+        51.323356
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11640787539",
+      "name": "Netwise",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0009807,
+        51.5206017
+      ],
+      "status": "normal",
+      "criticality": "medium"
+    },
+    {
+      "id": "telecom_tower_11693699416",
+      "name": "Telecom 11693699416",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3808104,
+        51.484873
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11728361691",
+      "name": "Telecom 11728361691",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.067392,
+        51.5287024
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11732358697",
+      "name": "Telecom 11732358697",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3639152,
+        51.4783929
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11782593343",
+      "name": "Telecom 11782593343",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3056652,
+        51.4955772
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11896607933",
+      "name": "Telecom 11896607933",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.3260089,
+        51.610165
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11904127294",
+      "name": "Telecom 11904127294",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4619804,
+        51.5108849
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11913454840",
+      "name": "Telecom 11913454840",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0735365,
+        51.6536205
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11915119365",
+      "name": "Telecom 11915119365",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0836854,
+        51.6422706
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11930604454",
+      "name": "Telecom 11930604454",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4573193,
+        51.5118961
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11947960986",
+      "name": "Telecom 11947960986",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1375668,
+        51.5465867
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11948711548",
+      "name": "Telecom 11948711548",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2069579,
+        51.6046897
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11957030323",
+      "name": "Telecom 11957030323",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0017771,
+        51.4962774
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11970742952",
+      "name": "Telecom 11970742952",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0323472,
+        51.4929635
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11974146518",
+      "name": "Telecom 11974146518",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3638551,
+        51.5303426
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11979604939",
+      "name": "Telecom 11979604939",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0508996,
+        51.4927102
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11979604940",
+      "name": "Telecom 11979604940",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0501513,
+        51.492674
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_11979604941",
+      "name": "Telecom 11979604941",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0501277,
+        51.4928665
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12006591280",
+      "name": "Telecom 12006591280",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4569493,
+        51.6127795
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12014813944",
+      "name": "Telecom 12014813944",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4682547,
+        51.573021
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12014831889",
+      "name": "Telecom 12014831889",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1017537,
+        51.4634048
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12036088951",
+      "name": "Telecom 12036088951",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.382442,
+        51.4174468
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12036122978",
+      "name": "Telecom 12036122978",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.372606,
+        51.4160015
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12056161450",
+      "name": "Telecom 12056161450",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4528899,
+        51.5754368
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12088760729",
+      "name": "Telecom 12088760729",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3567007,
+        51.463861
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12088760730",
+      "name": "Telecom 12088760730",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3480447,
+        51.4700134
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12100801673",
+      "name": "Telecom 12100801673",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1164173,
+        51.3117706
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12101365416",
+      "name": "Telecom 12101365416",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2660594,
+        51.5235102
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "reference": "EAL186",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12105992042",
+      "name": "Telecom 12105992042",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1773661,
+        51.2993756
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12145763795",
+      "name": "Telecom 12145763795",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.22595,
+        51.5409984
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12149482999",
+      "name": "Telecom 12149482999",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.3167575,
+        51.6142368
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12176984843",
+      "name": "Telecom 12176984843",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4544721,
+        51.3169962
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12204890223",
+      "name": "Telecom 12204890223",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1903486,
+        51.4129816
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12204890224",
+      "name": "Telecom 12204890224",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1892579,
+        51.4156393
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12204890225",
+      "name": "Telecom 12204890225",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1980171,
+        51.4189709
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12259267704",
+      "name": "Telecom 12259267704",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0992157,
+        51.6054415
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12259267705",
+      "name": "Telecom 12259267705",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0993243,
+        51.6050317
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12345250033",
+      "name": "Telecom 12345250033",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0199089,
+        51.5315435
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12373684269",
+      "name": "Telecom 12373684269",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4511147,
+        51.4871871
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12375943302",
+      "name": "Telecom 12375943302",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4545358,
+        51.490117
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12376415298",
+      "name": "Telecom 12376415298",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4468323,
+        51.4839162
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12466730704",
+      "name": "Telecom 12466730704",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4560984,
+        51.4324536
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12476017352",
+      "name": "Telecom 12476017352",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4118282,
+        51.6180954
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12476017353",
+      "name": "Telecom 12476017353",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4117356,
+        51.6180766
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12476017354",
+      "name": "Telecom 12476017354",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.411643,
+        51.6180807
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12476017355",
+      "name": "Telecom 12476017355",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4115491,
+        51.6180839
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12506768509",
+      "name": "Telecom 12506768509",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2710851,
+        51.6221732
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12565862216",
+      "name": "Telecom 12565862216",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2528122,
+        51.2861043
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12574070321",
+      "name": "Telecom 12574070321",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1637585,
+        51.3446525
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12578820348",
+      "name": "Telecom 12578820348",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0692701,
+        51.4711695
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12622276551",
+      "name": "Telecom 12622276551",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0257779,
+        51.4280184
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12641303087",
+      "name": "Telecom 12641303087",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4799085,
+        51.3934121
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12641303088",
+      "name": "Telecom 12641303088",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4803391,
+        51.3934165
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12642938593",
+      "name": "Telecom 12642938593",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.0110992,
+        51.3755831
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12643677691",
+      "name": "Telecom 12643677691",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.509468,
+        51.4113552
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12645415217",
+      "name": "Telecom 12645415217",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.5087702,
+        51.3922537
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12682560706",
+      "name": "Telecom 12682560706",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2185179,
+        51.5151076
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12683716928",
+      "name": "Telecom 12683716928",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2185619,
+        51.5151054
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12683716929",
+      "name": "Telecom 12683716929",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2184739,
+        51.5151098
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12683716930",
+      "name": "Telecom 12683716930",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2184264,
+        51.5150849
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12683716931",
+      "name": "Telecom 12683716931",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.218423,
+        51.5150579
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12683716932",
+      "name": "Telecom 12683716932",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2184195,
+        51.5150308
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12686748340",
+      "name": "Telecom 12686748340",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4117758,
+        51.4983306
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12686931023",
+      "name": "Telecom 12686931023",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4851083,
+        51.3567949
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12690901659",
+      "name": "Telecom 12690901659",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4895984,
+        51.4684146
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12702273939",
+      "name": "Telecom 12702273939",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.118401,
+        51.4018421
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12710038181",
+      "name": "Telecom 12710038181",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4921091,
+        51.3528779
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12713433173",
+      "name": "Telecom 12713433173",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.42011,
+        51.308978
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Three UK;EE",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12717245933",
+      "name": "Telecom 12717245933",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2674155,
+        51.4753765
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12729203135",
+      "name": "Telecom 12729203135",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4005618,
+        51.4305374
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12730186946",
+      "name": "Telecom 12730186946",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2626179,
+        51.428399
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12730186949",
+      "name": "Telecom 12730186949",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2392921,
+        51.4555648
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12734136459",
+      "name": "Telecom 12734136459",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4776608,
+        51.4339991
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12770500816",
+      "name": "Telecom 12770500816",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4133066,
+        51.3907837
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12772073751",
+      "name": "Telecom 12772073751",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4072673,
+        51.3744063
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12772073784",
+      "name": "Telecom 12772073784",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3901753,
+        51.3454121
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12776364395",
+      "name": "Telecom 12776364395",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1344007,
+        51.3888765
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12776601039",
+      "name": "Telecom 12776601039",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1965547,
+        51.323874
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12787620104",
+      "name": "Telecom 12787620104",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4890843,
+        51.2935562
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12791389174",
+      "name": "Telecom 12791389174",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3787598,
+        51.5053198
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12798621561",
+      "name": "Telecom 12798621561",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.5064604,
+        51.4319508
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12798621562",
+      "name": "Telecom 12798621562",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.5064128,
+        51.4319335
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12823743968",
+      "name": "Telecom 12823743968",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3849987,
+        51.6438701
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12828232817",
+      "name": "Telecom 12828232817",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4067295,
+        51.3362478
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12828232909",
+      "name": "Telecom 12828232909",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.397574,
+        51.3409027
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12879202751",
+      "name": "Telecom 12879202751",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1172604,
+        51.5863762
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Openreach"
+      }
+    },
+    {
+      "id": "telecom_tower_12888827458",
+      "name": "Telecom 12888827458",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1292706,
+        51.5055819
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Serco",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12888827459",
+      "name": "Telecom 12888827459",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.129352,
+        51.5054496
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Serco",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12888827460",
+      "name": "Telecom 12888827460",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1294021,
+        51.505442
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Serco",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12888969868",
+      "name": "Telecom 12888969868",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.3900071,
+        51.3813714
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12895513221",
+      "name": "Telecom 12895513221",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4796754,
+        51.4342922
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12913864735",
+      "name": "Telecom 12913864735",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1003997,
+        51.4503983
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12947134158",
+      "name": "Telecom 12947134158",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1205882,
+        51.5274459
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12951986238",
+      "name": "Telecom 12951986238",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.2731832,
+        51.6257454
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_12986175383",
+      "name": "Telecom 12986175383",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.4868563,
+        51.5053397
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "railway_type": "radio",
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13004889633",
+      "name": "Telecom 13004889633",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0376094,
+        51.5054526
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13004889634",
+      "name": "Telecom 13004889634",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0380237,
+        51.5055235
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13011918921",
+      "name": "Telecom 13011918921",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0029518,
+        51.536997
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13027841677",
+      "name": "Telecom 13027841677",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.1767272,
+        51.6744521
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13048617533",
+      "name": "Telecom 13048617533",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2492644,
+        51.4208519
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13063168255",
+      "name": "Telecom 13063168255",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.3002897,
+        51.4162027
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13071867699",
+      "name": "Telecom 13071867699",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.3223994,
+        51.4792874
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13071867700",
+      "name": "Telecom 13071867700",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.3224169,
+        51.4792111
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13078065834",
+      "name": "Telecom 13078065834",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2174302,
+        51.4122023
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13094304437",
+      "name": "Telecom 13094304437",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.082201,
+        51.3665796
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13136387264",
+      "name": "Telecom 13136387264",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.5025758,
+        51.3478814
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13140727053",
+      "name": "Telecom 13140727053",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.464936,
+        51.3931596
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13144006235",
+      "name": "Frog Island Radar",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.1787948,
+        51.5054157
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13144034810",
+      "name": "Broadness Radar",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.3112428,
+        51.4645659
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13161353548",
+      "name": "Telecom 13161353548",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2685896,
+        51.5038445
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13174281047",
+      "name": "Telecom 13174281047",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        0.2959264,
+        51.5134626
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "tower_type": "communication"
+      }
+    },
+    {
+      "id": "telecom_tower_13255733728",
+      "name": "Telecom 13255733728",
+      "type": "telecom",
+      "subtype": "tower",
+      "coordinates": [
+        -0.0983841,
+        51.5767496
+      ],
+      "status": "normal",
+      "criticality": "medium",
+      "metadata": {
+        "operator": "Vodafone",
+        "tower_type": "communication"
+      }
+    }
+  ]
+}

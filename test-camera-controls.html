@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Controls Test</title>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        #map { height: 100vh; width: 100%; }
+        .controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+        }
+        .btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 12px;
+        }
+        .btn:hover { background: #2563eb; }
+        .btn:disabled { background: #9ca3af; cursor: not-allowed; }
+        .btn.active { background: #dc2626; }
+        .btn.story { background: #7c3aed; }
+        .btn.story:hover { background: #6d28d9; }
+        .status { 
+            margin: 10px 0; 
+            padding: 8px; 
+            border-radius: 4px; 
+            font-size: 12px;
+            background: #f3f4f6;
+            color: #374151;
+        }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <div class="controls">
+        <h3>🎬 Camera Controls Test</h3>
+        
+        <div class="status" id="status">
+            Initializing camera controls...
+        </div>
+        
+        <div class="grid">
+            <button class="btn" id="orbitBtn" onclick="toggleOrbit()">
+                🌍 Start Orbit
+            </button>
+            
+            <button class="btn story" id="storyBtn" onclick="startStoryMode()">
+                🎬 Generic Storm
+            </button>
+        </div>
+        
+        <div class="grid">
+            <button class="btn" style="background: #dc2626;" onclick="startStormArwen()">
+                🌪️ Storm Arwen 2021
+            </button>
+        </div>
+        
+        <div class="grid">
+            <button class="btn" onclick="flyToLondon()">
+                🏙️ London View
+            </button>
+            
+            <button class="btn" onclick="flyToUK()">
+                🇬🇧 UK Overview
+            </button>
+        </div>
+        
+        <div class="grid">
+            <button class="btn" onclick="nextStoryPoint()">
+                ⏭️ Next Point
+            </button>
+            
+            <button class="btn" onclick="resetCamera()">
+                🔄 Reset Camera
+            </button>
+        </div>
+        
+        <div id="storyInfo" style="margin-top: 10px; font-size: 11px; color: #6b7280;"></div>
+    </div>
+
+    <script>
+        // Camera Service (embedded for testing)
+        class CameraService {
+            constructor(map) {
+                this.map = map;
+                this.isOrbiting = false;
+                this.orbitAnimation = null;
+                this.currentStoryIndex = 0;
+                
+                // UK Storm Story Points
+                this.stormStoryPoints = [
+                    {
+                        id: 'overview',
+                        name: 'UK Overview',
+                        description: 'Storm approaching the UK from the Atlantic',
+                        center: [-2.0, 54.0],
+                        zoom: 5.5,
+                        bearing: 0,
+                        pitch: 0,
+                        duration: 3000
+                    },
+                    {
+                        id: 'scotland',
+                        name: 'Scotland Impact',
+                        description: 'High winds affecting Scottish power infrastructure',
+                        center: [-4.0, 56.5],
+                        zoom: 7,
+                        bearing: 15,
+                        pitch: 30,
+                        duration: 4000
+                    },
+                    {
+                        id: 'manchester',
+                        name: 'Manchester Region',
+                        description: 'Storm moving south, affecting transport hubs',
+                        center: [-2.2426, 53.4808],
+                        zoom: 9,
+                        bearing: 45,
+                        pitch: 45,
+                        duration: 4000
+                    },
+                    {
+                        id: 'london',
+                        name: 'London Critical Infrastructure',
+                        description: 'Storm reaches London, testing resilience systems',
+                        center: [-0.1276, 51.5074],
+                        zoom: 11,
+                        bearing: 0,
+                        pitch: 60,
+                        duration: 5000
+                    }
+                ];
+
+                // Storm Arwen Story Points (November 2021 - Real Event)
+                this.stormArwenStoryPoints = [
+                    {
+                        id: 'arwen-approach',
+                        name: 'Storm Arwen Approaches',
+                        description: 'November 26, 2021 - Storm Arwen brings 100mph winds from the North Sea',
+                        center: [-1.5, 55.5],
+                        zoom: 6,
+                        bearing: 45,
+                        pitch: 20,
+                        duration: 4000
+                    },
+                    {
+                        id: 'northumberland-impact',
+                        name: 'Northumberland Devastation',
+                        description: '240,000 homes lose power. Kielder Forest devastated',
+                        center: [-2.1, 55.2],
+                        zoom: 8,
+                        bearing: 30,
+                        pitch: 45,
+                        duration: 5000
+                    },
+                    {
+                        id: 'durham-cascades',
+                        name: 'Durham Power Cascades',
+                        description: 'Substations fail, triggering cascading outages to water treatment',
+                        center: [-1.8, 54.7],
+                        zoom: 9,
+                        bearing: 60,
+                        pitch: 50,
+                        duration: 5000
+                    },
+                    {
+                        id: 'recovery-overview',
+                        name: 'Recovery Operations',
+                        description: 'Military deployed. Some areas without power for 9 days',
+                        center: [-2.0, 54.8],
+                        zoom: 7,
+                        bearing: 0,
+                        pitch: 60,
+                        duration: 6000
+                    }
+                ];
+            }
+
+            startOrbit(center, radius = 0.01, speed = 1) {
+                if (this.isOrbiting) {
+                    this.stopOrbit();
+                }
+
+                this.isOrbiting = true;
+                let angle = 0;
+
+                const orbit = () => {
+                    if (!this.isOrbiting) return;
+
+                    angle += speed * 0.01; // Slower orbit
+                    
+                    const offsetX = Math.cos(angle) * radius;
+                    const offsetY = Math.sin(angle) * radius;
+
+                    this.map.easeTo({
+                        center: [center[0] + offsetX, center[1] + offsetY],
+                        bearing: (angle * 180 / Math.PI) % 360,
+                        duration: 100,
+                        easing: (t) => t
+                    });
+
+                    this.orbitAnimation = requestAnimationFrame(orbit);
+                };
+
+                orbit();
+            }
+
+            stopOrbit() {
+                this.isOrbiting = false;
+                if (this.orbitAnimation) {
+                    cancelAnimationFrame(this.orbitAnimation);
+                    this.orbitAnimation = null;
+                }
+            }
+
+            toggleOrbit(center) {
+                if (this.isOrbiting) {
+                    this.stopOrbit();
+                    return false;
+                } else {
+                    const orbitCenter = center || this.map.getCenter().toArray();
+                    this.startOrbit(orbitCenter);
+                    return true;
+                }
+            }
+
+            async startStoryMode() {
+                console.log('🎬 Starting UK Storm Story Mode');
+                this.currentStoryIndex = 0;
+
+                for (let i = 0; i < this.stormStoryPoints.length; i++) {
+                    const point = this.stormStoryPoints[i];
+                    
+                    console.log(`📍 Story Point ${i + 1}: ${point.name}`);
+                    updateStoryInfo(point);
+                    
+                    await this.flyToPoint(point);
+                    await this.sleep(point.duration || 3000);
+                }
+
+                console.log('✅ Story mode completed');
+                updateStoryInfo(null);
+            }
+
+            async flyToPoint(point) {
+                return new Promise((resolve) => {
+                    this.map.flyTo({
+                        center: point.center,
+                        zoom: point.zoom,
+                        bearing: point.bearing || 0,
+                        pitch: point.pitch || 0,
+                        duration: 2000,
+                        essential: true
+                    });
+
+                    setTimeout(resolve, 2500);
+                });
+            }
+
+            nextStoryPoint() {
+                if (this.currentStoryIndex < this.stormStoryPoints.length - 1) {
+                    this.currentStoryIndex++;
+                    const point = this.stormStoryPoints[this.currentStoryIndex];
+                    this.flyToPoint(point);
+                    updateStoryInfo(point);
+                }
+            }
+
+            flyToLondon() {
+                this.map.flyTo({
+                    center: [-0.1276, 51.5074],
+                    zoom: 11,
+                    bearing: 0,
+                    pitch: 0,
+                    duration: 2000
+                });
+            }
+
+            flyToUKOverview() {
+                this.map.flyTo({
+                    center: [-2.0, 54.0],
+                    zoom: 5.5,
+                    bearing: 0,
+                    pitch: 0,
+                    duration: 2000
+                });
+            }
+
+            resetCamera() {
+                this.stopOrbit();
+                this.flyToLondon();
+            }
+
+            sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            isCurrentlyOrbiting() {
+                return this.isOrbiting;
+            }
+        }
+
+        // Initialize map and camera service
+        let map, cameraService;
+
+        async function initializeMap() {
+            try {
+                maptilersdk.config.apiKey = 'get_your_own_OpIi9ZULNHzrESv6T2vL';
+                
+                map = new maptilersdk.Map({
+                    container: 'map',
+                    style: maptilersdk.MapStyle.STREETS,
+                    center: [-0.1276, 51.5074],
+                    zoom: 10
+                });
+
+                await map.on('load');
+                
+                cameraService = new CameraService(map);
+                
+                updateStatus('✅ Camera controls ready');
+                console.log('✅ Camera service initialized');
+
+            } catch (error) {
+                console.error('❌ Initialization failed:', error);
+                updateStatus(`❌ Failed to initialize: ${error.message}`);
+            }
+        }
+
+        function updateStatus(message) {
+            document.getElementById('status').textContent = message;
+        }
+
+        function updateStoryInfo(point) {
+            const infoEl = document.getElementById('storyInfo');
+            if (point) {
+                infoEl.innerHTML = `
+                    <strong>${point.name}</strong><br>
+                    ${point.description}
+                `;
+            } else {
+                infoEl.innerHTML = '';
+            }
+        }
+
+        // Control functions
+        function toggleOrbit() {
+            if (!cameraService) return;
+            
+            const isNowOrbiting = cameraService.toggleOrbit();
+            const btn = document.getElementById('orbitBtn');
+            
+            if (isNowOrbiting) {
+                btn.textContent = '⏹️ Stop Orbit';
+                btn.classList.add('active');
+                updateStatus('🌍 Camera orbiting around current view');
+            } else {
+                btn.textContent = '🌍 Start Orbit';
+                btn.classList.remove('active');
+                updateStatus('⏹️ Orbit stopped');
+            }
+        }
+
+        async function startStoryMode() {
+            if (!cameraService) return;
+            
+            const btn = document.getElementById('storyBtn');
+            btn.disabled = true;
+            btn.textContent = '🎬 Playing...';
+            
+            updateStatus('🎬 Playing Generic Storm Story');
+            
+            try {
+                await cameraService.startStoryMode();
+                updateStatus('✅ Story mode completed');
+            } catch (error) {
+                console.error('❌ Story mode failed:', error);
+                updateStatus('❌ Story mode failed');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '🎬 Generic Storm';
+            }
+        }
+
+        async function startStormArwen() {
+            if (!cameraService) return;
+            
+            updateStatus('🌪️ Playing Storm Arwen 2021 Story');
+            
+            try {
+                // Show popup for each story point
+                for (let i = 0; i < cameraService.stormArwenStoryPoints.length; i++) {
+                    const point = cameraService.stormArwenStoryPoints[i];
+                    
+                    // Simple popup simulation
+                    if (confirm(`${point.name}\n\n${point.description}\n\nContinue to next point?`)) {
+                        await cameraService.flyToPoint(point);
+                        await cameraService.sleep(2000);
+                    } else {
+                        break;
+                    }
+                }
+                updateStatus('✅ Storm Arwen story completed');
+            } catch (error) {
+                console.error('❌ Storm Arwen story failed:', error);
+                updateStatus('❌ Storm Arwen story failed');
+            }
+        }
+
+        function flyToLondon() {
+            if (!cameraService) return;
+            cameraService.flyToLondon();
+            updateStatus('🏙️ Flying to London');
+        }
+
+        function flyToUK() {
+            if (!cameraService) return;
+            cameraService.flyToUKOverview();
+            updateStatus('🇬🇧 Flying to UK Overview');
+        }
+
+        function nextStoryPoint() {
+            if (!cameraService) return;
+            cameraService.nextStoryPoint();
+            updateStatus('⏭️ Moving to next story point');
+        }
+
+        function resetCamera() {
+            if (!cameraService) return;
+            cameraService.resetCamera();
+            
+            // Reset orbit button
+            const orbitBtn = document.getElementById('orbitBtn');
+            orbitBtn.textContent = '🌍 Start Orbit';
+            orbitBtn.classList.remove('active');
+            
+            updateStatus('🔄 Camera reset to London');
+        }
+
+        // Initialize everything
+        initializeMap();
+    </script>
+</body>
+</html>

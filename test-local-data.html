@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Local Data Loading</title>
+</head>
+<body>
+    <h1>Local Data Test</h1>
+    <button onclick="testLocalData()">Test Sample Data</button>
+    <div id="results"></div>
+
+    <script>
+        async function testLocalData() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p>Testing...</p>';
+            
+            try {
+                console.log('🧪 Testing local data loading...');
+                
+                const response = await fetch('/data/london-power-sample.json');
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                console.log('✅ Data loaded:', data);
+                
+                resultsDiv.innerHTML = `
+                    <h2>✅ Success!</h2>
+                    <p><strong>City:</strong> ${data.city}</p>
+                    <p><strong>Type:</strong> ${data.type}</p>
+                    <p><strong>Count:</strong> ${data.count}</p>
+                    <p><strong>Assets:</strong> ${data.assets.length}</p>
+                    <h3>First Asset:</h3>
+                    <pre>${JSON.stringify(data.assets[0], null, 2)}</pre>
+                `;
+                
+            } catch (error) {
+                console.error('❌ Test failed:', error);
+                resultsDiv.innerHTML = `<h2>❌ Failed</h2><p>${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

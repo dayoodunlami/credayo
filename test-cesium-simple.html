@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Cesium Test</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        html, body, #cesiumContainer {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+        }
+        #debug {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+    <div id="debug">
+        <div>Status: <span id="status">Initializing...</span></div>
+        <div>Token: <span id="token">Checking...</span></div>
+        <div>Error: <span id="error">None</span></div>
+    </div>
+
+    <script>
+        const debugEl = document.getElementById('debug');
+        const statusEl = document.getElementById('status');
+        const tokenEl = document.getElementById('token');
+        const errorEl = document.getElementById('error');
+
+        function updateStatus(status) {
+            statusEl.textContent = status;
+            console.log('Status:', status);
+        }
+
+        function updateError(error) {
+            errorEl.textContent = error;
+            console.error('Error:', error);
+        }
+
+        async function initializeCesium() {
+            try {
+                updateStatus('Setting token...');
+                
+                // Use your token from .env
+                const cesiumIonToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0ZjFhOTM3NS03YmNhLTQxODYtYjg3Yi1lM2M3OGNkMjc4NmMiLCJpZCI6MzQzNzAyLCJpYXQiOjE3NjE1NjIyOTV9.Gi8tUMcyoo_cKyM-lhhaZ3BcA7f9xmDZ1RciL2bfI8c';
+                
+                if (!cesiumIonToken) {
+                    throw new Error('No Cesium Ion token provided');
+                }
+
+                Cesium.Ion.defaultAccessToken = cesiumIonToken;
+                tokenEl.textContent = 'Set (' + cesiumIonToken.substring(0, 20) + '...)';
+
+                updateStatus('Creating terrain...');
+                const terrainProvider = await Cesium.createWorldTerrainAsync();
+
+                updateStatus('Creating viewer...');
+                const viewer = new Cesium.Viewer('cesiumContainer', {
+                    terrainProvider: terrainProvider,
+                    animation: false,
+                    baseLayerPicker: false,
+                    fullscreenButton: false,
+                    geocoder: false,
+                    homeButton: false,
+                    infoBox: false,
+                    sceneModePicker: false,
+                    selectionIndicator: false,
+                    timeline: false,
+                    navigationHelpButton: false,
+                    navigationInstructionsInitiallyVisible: false
+                });
+
+                updateStatus('Loading 3D tiles...');
+                
+                try {
+                    const tileset = await Cesium.Cesium3DTileset.fromIonAssetId(96188);
+                    viewer.scene.primitives.add(tileset);
+                    updateStatus('3D tiles loaded successfully');
+                } catch (tileError) {
+                    console.warn('3D tiles failed:', tileError);
+                    updateStatus('Basic terrain only (3D tiles failed)');
+                }
+
+                // Fly to London
+                viewer.camera.setView({
+                    destination: Cesium.Cartesian3.fromDegrees(-0.1276, 51.5074, 1000),
+                    orientation: {
+                        heading: 0.0,
+                        pitch: -0.5,
+                        roll: 0.0
+                    }
+                });
+
+                updateStatus('✅ Cesium initialized successfully');
+                
+                // Hide debug panel after 3 seconds if successful
+                setTimeout(() => {
+                    debugEl.style.display = 'none';
+                }, 3000);
+
+            } catch (error) {
+                updateError(error.message);
+                updateStatus('❌ Failed to initialize');
+                console.error('Cesium initialization failed:', error);
+            }
+        }
+
+        // Start initialization
+        initializeCesium();
+    </script>
+</body>
+</html>

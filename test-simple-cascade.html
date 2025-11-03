@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Cascade Test</title>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        #map { height: 100vh; width: 100%; }
+        .controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+        }
+        
+        /* Scrollytelling Styles */
+        .story-sidebar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+            z-index: 500;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .story-sidebar.active {
+            transform: translateX(0);
+        }
+        
+        .story-header {
+            background: linear-gradient(135deg, #dc2626, #f97316);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .story-chapter {
+            padding: 30px 20px;
+            border-bottom: 1px solid #e5e7eb;
+            min-height: 400px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+            display: none;
+        }
+        
+        .story-chapter.visible {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+        
+        .story-chapter.active {
+            background: rgba(239, 68, 68, 0.05);
+            border-left: 4px solid #dc2626;
+        }
+        
+        .story-chapter.fade-out {
+            opacity: 0.3;
+            transform: translateY(-20px);
+        }
+        
+        .story-chapter h3 {
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            color: #1f2937;
+        }
+        
+        .story-chapter p {
+            margin: 0 0 15px 0;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+        
+        .story-stats {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .story-stats h4 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #374151;
+        }
+        
+        .story-stat {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            font-size: 13px;
+        }
+        
+        .story-stat .label {
+            color: #6b7280;
+        }
+        
+        .story-stat .value {
+            font-weight: bold;
+            color: #dc2626;
+        }
+        
+        .story-controls {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            padding: 15px 20px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+        }
+        
+        .story-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .story-progress {
+            background: #f3f4f6;
+            height: 4px;
+            border-radius: 2px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        
+        .story-progress-bar {
+            background: #dc2626;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        
+        .story-instruction {
+            font-size: 12px;
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .story-btn {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background-color 0.2s;
+        }
+        
+        .story-btn.close {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .story-btn.close:hover {
+            background: #4b5563;
+        }
+        .btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .btn:hover { background: #b91c1c; }
+        .btn:disabled { background: #9ca3af; cursor: not-allowed; }
+        .status { 
+            margin: 10px 0; 
+            padding: 8px; 
+            border-radius: 4px; 
+            font-size: 12px;
+        }
+        .status.success { background: #dcfce7; color: #166534; }
+        .status.error { background: #fef2f2; color: #dc2626; }
+        .status.info { background: #dbeafe; color: #1d4ed8; }
+        select { width: 100%; padding: 5px; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <!-- Story Sidebar -->
+    <div class="story-sidebar" id="storySidebar">
+        <div class="story-header">
+            <h2 id="storyTitle">🌪️ Storm Arwen - November 2021</h2>
+            <p style="margin: 5px 0 0 0; opacity: 0.9; font-size: 14px;">Real Infrastructure Resilience Event</p>
+        </div>
+        
+        <div id="storyChapters">
+            <!-- Story chapters will be populated by JavaScript -->
+        </div>
+        
+        <div class="story-controls">
+            <div class="story-progress">
+                <div class="story-progress-bar" id="storyProgressBar" style="width: 0%"></div>
+            </div>
+            
+            <div class="story-instruction" id="storyInstruction">
+                Scroll down or press SPACE to continue the story
+            </div>
+            
+            <div class="story-nav">
+                <button class="story-btn" id="prevBtn" onclick="previousChapter()" style="background: #6b7280; color: white; flex: 1;" disabled>
+                    ← Previous
+                </button>
+                <button class="story-btn" id="nextBtn" onclick="nextChapter()" style="background: #dc2626; color: white; flex: 1;">
+                    Next →
+                </button>
+            </div>
+            
+            <button class="story-btn close" onclick="closeStoryMode()">Close Story</button>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <h3>🚀 Simple Cascade Test</h3>
+        
+        <div class="status info" id="status">
+            Loading simple cascade service...
+        </div>
+        
+        <div>
+            <label>Select Asset:</label>
+            <select id="assetSelect" disabled>
+                <option>Loading assets...</option>
+            </select>
+        </div>
+        
+        <div>
+            <button class="btn" id="triggerBtn" disabled>🚨 Trigger Cascade</button>
+            <button class="btn" id="resetBtn" onclick="resetAll()">🧹 Reset</button>
+        </div>
+        
+        <div>
+            <label>Animation System:</label>
+            <select id="animationSelect">
+                <option value="basic">Basic Visualization</option>
+                <option value="advanced">Advanced Animation</option>
+                <option value="optimized" selected>Optimized Animation</option>
+            </select>
+        </div>
+
+        <!-- Camera Controls -->
+        <div style="border-top: 1px solid #e5e7eb; margin-top: 15px; padding-top: 15px;">
+            <h4 style="margin: 0 0 10px 0; font-size: 14px;">🎬 Camera Controls</h4>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-bottom: 10px;">
+                <button class="btn" id="orbitBtn" onclick="toggleOrbit()" style="background: #3b82f6; font-size: 12px;">
+                    🌍 Start Orbit
+                </button>
+                
+                <button class="btn" onclick="resetCamera()" style="background: #6b7280; font-size: 12px;">
+                    🔄 Reset View
+                </button>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-bottom: 10px;">
+                <button class="btn" onclick="flyToLondon()" style="background: #10b981; font-size: 12px;">
+                    🏙️ London
+                </button>
+                
+                <button class="btn" onclick="flyToUK()" style="background: #0284c7; font-size: 12px;">
+                    🇬🇧 UK View
+                </button>
+            </div>
+            
+            <div style="margin-bottom: 10px;">
+                <button class="btn" id="storyBtn" onclick="startScrollStoryMode('generic')" style="background: #7c3aed; width: 100%; font-size: 12px;">
+                    🎬 Generic Storm Story
+                </button>
+            </div>
+            
+            <div style="margin-bottom: 10px;">
+                <button class="btn" id="arwenBtn" onclick="startScrollStoryMode('arwen')" style="background: #dc2626; width: 100%; font-size: 12px;">
+                    🌪️ Storm Arwen 2021 (Scroll Story)
+                </button>
+            </div>
+            
+            <div id="cameraStatus" style="font-size: 11px; color: #6b7280; margin-top: 5px;">
+                📹 Camera controls ready
+            </div>
+        </div>
+        
+        <div id="results" style="margin-top: 10px; font-size: 12px;"></div>
+    </div>
+
+    <script>
+        // Simple Cascade Service (embedded for testing)
+        class SimpleCascadeService {
+            constructor() {
+                this.assets = new Map();
+                this.isLoaded = false;
+            }
+
+            async loadAssets() {
+                try {
+                    console.log('📂 Loading assets with pre-computed cascades...');
+                    
+                    const response = await fetch('/data/london-power-sample.json');
+                    const data = await response.json();
+                    
+                    const assets = this.convertToSimpleCascadeAssets(data.features || data);
+                    
+                    assets.forEach(asset => {
+                        this.assets.set(asset.id, asset);
+                    });
+                    
+                    this.isLoaded = true;
+                    console.log(`✅ Loaded ${assets.length} assets with cascade relationships`);
+                    return assets;
+                    
+                } catch (error) {
+                    console.error('❌ Failed to load cascade assets:', error);
+                    throw error;
+                }
+            }
+
+            convertToSimpleCascadeAssets(features) {
+                const assets = [];
+                
+                features.forEach(feature => {
+                    const asset = {
+                        id: feature.properties?.id || feature.id,
+                        name: feature.properties?.name || `${feature.properties?.type} Asset`,
+                        type: feature.properties?.type || 'power',
+                        coordinates: feature.geometry?.coordinates || [0, 0],
+                        criticality: feature.properties?.criticality || 'medium',
+                        cascadeTargets: []
+                    };
+                    
+                    assets.push(asset);
+                });
+                
+                // Compute cascade relationships
+                assets.forEach(sourceAsset => {
+                    const cascadeRadius = 5000; // 5km
+                    
+                    assets.forEach(targetAsset => {
+                        if (sourceAsset.id === targetAsset.id) return;
+                        
+                        const distance = this.calculateDistance(
+                            sourceAsset.coordinates,
+                            targetAsset.coordinates
+                        );
+                        
+                        if (distance <= cascadeRadius) {
+                            let impactType = 'cascade';
+                            let baseProbability = 0.5;
+                            
+                            if (distance < 1000) {
+                                impactType = 'direct';
+                                baseProbability = 0.8;
+                            } else if (sourceAsset.type !== targetAsset.type) {
+                                impactType = 'cross-sector';
+                                baseProbability = 0.4;
+                            } else if (distance > 3000) {
+                                impactType = 'potential';
+                                baseProbability = 0.3;
+                            }
+                            
+                            const criticalityMultiplier = {
+                                'critical': 1.2,
+                                'high': 1.0,
+                                'medium': 0.8,
+                                'low': 0.6
+                            }[targetAsset.criticality];
+                            
+                            const finalProbability = Math.min(1.0, baseProbability * criticalityMultiplier);
+                            
+                            if (finalProbability > 0.1) {
+                                sourceAsset.cascadeTargets.push({
+                                    assetId: targetAsset.id,
+                                    impactType,
+                                    probability: finalProbability,
+                                    delayMs: distance < 1000 ? 500 : distance < 2000 ? 1000 : 2000,
+                                    distance
+                                });
+                            }
+                        }
+                    });
+                });
+                
+                return assets;
+            }
+
+            getCascadeResult(triggerId) {
+                if (!this.isLoaded) {
+                    console.warn('⚠️ Assets not loaded yet');
+                    return null;
+                }
+                
+                const triggerAsset = this.assets.get(triggerId);
+                if (!triggerAsset) {
+                    console.warn(`⚠️ Asset ${triggerId} not found`);
+                    return null;
+                }
+                
+                const impacts = triggerAsset.cascadeTargets.map(target => ({
+                    assetId: target.assetId,
+                    impactType: target.impactType,
+                    probability: target.probability,
+                    delayMs: target.delayMs,
+                    reason: `${target.impactType} impact (${Math.round(target.distance)}m away)`
+                }));
+                
+                const timeline = impacts
+                    .map(impact => ({
+                        time: impact.delayMs,
+                        assetId: impact.assetId,
+                        impactType: impact.impactType
+                    }))
+                    .sort((a, b) => a.time - b.time);
+                
+                console.log(`⚡ Retrieved cascade for ${triggerId}: ${impacts.length} impacts`);
+                
+                return {
+                    triggerId,
+                    impacts,
+                    totalAffected: impacts.length + 1,
+                    timeline
+                };
+            }
+
+            getAvailableAssets() {
+                return Array.from(this.assets.keys());
+            }
+
+            getAsset(assetId) {
+                return this.assets.get(assetId);
+            }
+
+            calculateDistance(coord1, coord2) {
+                const R = 6371000; // Earth's radius in meters
+                const dLat = (coord2[1] - coord1[1]) * Math.PI / 180;
+                const dLon = (coord2[0] - coord1[0]) * Math.PI / 180;
+                const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                        Math.cos(coord1[1] * Math.PI / 180) * Math.cos(coord2[1] * Math.PI / 180) *
+                        Math.sin(dLon/2) * Math.sin(dLon/2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                return R * c;
+            }
+
+            getStats() {
+                const totalAssets = this.assets.size;
+                const totalRelationships = Array.from(this.assets.values())
+                    .reduce((sum, asset) => sum + asset.cascadeTargets.length, 0);
+                
+                return {
+                    totalAssets,
+                    totalCascadeRelationships: totalRelationships,
+                    averageTargetsPerAsset: Math.round(totalRelationships / totalAssets)
+                };
+            }
+        }
+
+        // Camera Service (embedded for testing)
+        class CameraService {
+            constructor(map) {
+                this.map = map;
+                this.isOrbiting = false;
+                this.orbitAnimation = null;
+                this.currentStoryIndex = 0;
+                
+                // Generic Storm Story Points
+                this.stormStoryPoints = [
+                    {
+                        id: 'overview',
+                        name: 'UK Overview',
+                        description: 'Storm approaching the UK from the Atlantic',
+                        center: [-2.0, 54.0],
+                        zoom: 5.5,
+                        bearing: 0,
+                        pitch: 0,
+                        duration: 3000
+                    },
+                    {
+                        id: 'scotland',
+                        name: 'Scotland Impact',
+                        description: 'High winds affecting Scottish power infrastructure',
+                        center: [-4.0, 56.5],
+                        zoom: 7,
+                        bearing: 15,
+                        pitch: 30,
+                        duration: 4000
+                    },
+                    {
+                        id: 'manchester',
+                        name: 'Manchester Region',
+                        description: 'Storm moving south, affecting transport hubs',
+                        center: [-2.2426, 53.4808],
+                        zoom: 9,
+                        bearing: 45,
+                        pitch: 45,
+                        duration: 4000
+                    },
+                    {
+                        id: 'london',
+                        name: 'London Critical Infrastructure',
+                        description: 'Storm reaches London, testing resilience systems',
+                        center: [-0.1276, 51.5074],
+                        zoom: 11,
+                        bearing: 0,
+                        pitch: 60,
+                        duration: 5000
+                    }
+                ];
+
+                // Storm Arwen Story Points (November 2021 - Real Event)
+                this.stormArwenStoryPoints = [
+                    {
+                        id: 'arwen-approach',
+                        name: 'Storm Arwen Approaches',
+                        description: 'November 26, 2021 - Storm Arwen brings 100mph winds from the North Sea, targeting Northern England and Scotland',
+                        center: [-1.5, 55.5],
+                        zoom: 6,
+                        bearing: 45,
+                        pitch: 20,
+                        duration: 4000
+                    },
+                    {
+                        id: 'northumberland-impact',
+                        name: 'Northumberland Devastation',
+                        description: 'First major impact: 240,000 homes lose power. Kielder Forest devastated, blocking major roads and rail lines',
+                        center: [-2.1, 55.2],
+                        zoom: 8,
+                        bearing: 30,
+                        pitch: 45,
+                        duration: 5000
+                    },
+                    {
+                        id: 'durham-cascades',
+                        name: 'Durham Power Cascades',
+                        description: 'Power lines down across County Durham. Substations fail, triggering cascading outages to water treatment plants',
+                        center: [-1.8, 54.7],
+                        zoom: 9,
+                        bearing: 60,
+                        pitch: 50,
+                        duration: 5000
+                    },
+                    {
+                        id: 'yorkshire-transport',
+                        name: 'Yorkshire Transport Collapse',
+                        description: 'A1 and East Coast Main Line blocked by fallen trees. Leeds Bradford Airport closes. Transport network paralyzed',
+                        center: [-1.5, 54.0],
+                        zoom: 8.5,
+                        bearing: 15,
+                        pitch: 40,
+                        duration: 5000
+                    },
+                    {
+                        id: 'scotland-isolation',
+                        name: 'Scottish Borders Isolated',
+                        description: 'Cross-border infrastructure fails. Scottish Power reports 135,000 customers without power. Rural communities cut off',
+                        center: [-2.8, 55.6],
+                        zoom: 8,
+                        bearing: 90,
+                        pitch: 35,
+                        duration: 5000
+                    },
+                    {
+                        id: 'recovery-overview',
+                        name: 'Recovery Operations',
+                        description: 'Day 3: Military deployed. 1,000+ engineers working. Some areas remain without power for 9 days',
+                        center: [-2.0, 54.8],
+                        zoom: 7,
+                        bearing: 0,
+                        pitch: 60,
+                        duration: 6000
+                    }
+                ];
+            }
+
+            startOrbit(center, radius = 0.01, speed = 1) {
+                if (this.isOrbiting) {
+                    this.stopOrbit();
+                }
+
+                this.isOrbiting = true;
+                let angle = 0;
+
+                const orbit = () => {
+                    if (!this.isOrbiting) return;
+
+                    angle += speed * 0.002; // Very slow orbit
+                    
+                    const offsetX = Math.cos(angle) * radius;
+                    const offsetY = Math.sin(angle) * radius;
+
+                    this.map.easeTo({
+                        center: [center[0] + offsetX, center[1] + offsetY],
+                        bearing: (angle * 180 / Math.PI) % 360,
+                        duration: 200,
+                        easing: (t) => t * (2 - t) // Smooth easing
+                    });
+
+                    this.orbitAnimation = requestAnimationFrame(orbit);
+                };
+
+                orbit();
+            }
+
+            stopOrbit() {
+                this.isOrbiting = false;
+                if (this.orbitAnimation) {
+                    cancelAnimationFrame(this.orbitAnimation);
+                    this.orbitAnimation = null;
+                }
+            }
+
+            toggleOrbit(center) {
+                if (this.isOrbiting) {
+                    this.stopOrbit();
+                    return false;
+                } else {
+                    const orbitCenter = center || this.map.getCenter().toArray();
+                    this.startOrbit(orbitCenter);
+                    return true;
+                }
+            }
+
+            async startStoryMode() {
+                console.log('🎬 Starting Generic Storm Story Mode');
+                this.currentStoryIndex = 0;
+
+                for (let i = 0; i < this.stormStoryPoints.length; i++) {
+                    const point = this.stormStoryPoints[i];
+                    
+                    console.log(`📍 Story Point ${i + 1}: ${point.name}`);
+                    updateCameraStatus(`📍 ${point.name}`);
+                    
+                    await this.flyToPoint(point);
+                    await this.sleep(point.duration || 3000);
+                }
+
+                console.log('✅ Generic story mode completed');
+                updateCameraStatus('✅ Story mode completed');
+            }
+
+            async startStormArwenMode() {
+                console.log('🌪️ Starting Storm Arwen Story Mode (November 2021)');
+                this.currentStoryIndex = 0;
+
+                for (let i = 0; i < this.stormArwenStoryPoints.length; i++) {
+                    const point = this.stormArwenStoryPoints[i];
+                    
+                    console.log(`📍 Arwen Point ${i + 1}: ${point.name}`);
+                    updateCameraStatus(`🌪️ ${point.name}`);
+                    
+                    // Show simple alert with story info
+                    if (confirm(`${point.name}\n\n${point.description}\n\nContinue to next point?`)) {
+                        await this.flyToPoint(point);
+                        await this.sleep(point.duration || 4000);
+                    } else {
+                        break;
+                    }
+                }
+
+                console.log('✅ Storm Arwen story mode completed');
+                updateCameraStatus('✅ Storm Arwen story completed');
+            }
+
+            async flyToPoint(point) {
+                return new Promise((resolve) => {
+                    this.map.flyTo({
+                        center: point.center,
+                        zoom: point.zoom,
+                        bearing: point.bearing || 0,
+                        pitch: point.pitch || 0,
+                        duration: 2000,
+                        essential: true
+                    });
+
+                    setTimeout(resolve, 2500);
+                });
+            }
+
+            flyToLondon() {
+                this.map.flyTo({
+                    center: [-0.1276, 51.5074],
+                    zoom: 11,
+                    bearing: 0,
+                    pitch: 0,
+                    duration: 2000
+                });
+            }
+
+            flyToUKOverview() {
+                this.map.flyTo({
+                    center: [-2.0, 54.0],
+                    zoom: 5.5,
+                    bearing: 0,
+                    pitch: 0,
+                    duration: 2000
+                });
+            }
+
+            resetCamera() {
+                this.stopOrbit();
+                this.flyToLondon();
+            }
+
+            sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            isCurrentlyOrbiting() {
+                return this.isOrbiting;
+            }
+        }
+
+        // Scrollytelling Story Data
+        const storyData = {
+            generic: {
+                title: '🎬 Generic UK Storm Story',
+                subtitle: 'Hypothetical Infrastructure Resilience Scenario',
+                chapters: {
+                    'overview': {
+                        title: 'UK Overview',
+                        description: 'A powerful storm system approaches the UK from the Atlantic, bringing high winds and heavy rain that threaten critical infrastructure across multiple regions.',
+                        center: [-2.0, 54.0],
+                        zoom: 5.5,
+                        bearing: 0,
+                        pitch: 0,
+                        stats: [
+                            { label: 'Wind Speed', value: '80+ mph' },
+                            { label: 'Affected Regions', value: '4 Counties' },
+                            { label: 'Duration', value: '12 Hours' },
+                            { label: 'Warning Level', value: 'Amber' }
+                        ]
+                    },
+                    'scotland': {
+                        title: 'Scotland Impact',
+                        description: 'High winds first impact Scottish infrastructure, affecting power generation and transmission networks. Remote communities face potential isolation.',
+                        center: [-4.0, 56.5],
+                        zoom: 7,
+                        bearing: 15,
+                        pitch: 30,
+                        stats: [
+                            { label: 'Power Outages', value: '150,000' },
+                            { label: 'Wind Gusts', value: '95 mph' },
+                            { label: 'Communities Affected', value: '200+' },
+                            { label: 'Response Teams', value: '50' }
+                        ]
+                    },
+                    'manchester': {
+                        title: 'Manchester Region',
+                        description: 'The storm moves south, disrupting transport networks and urban infrastructure. Manchester Airport faces potential closure as winds intensify.',
+                        center: [-2.2426, 53.4808],
+                        zoom: 9,
+                        bearing: 45,
+                        pitch: 45,
+                        stats: [
+                            { label: 'Flight Cancellations', value: '200+' },
+                            { label: 'Train Delays', value: '150+' },
+                            { label: 'Road Closures', value: '25' },
+                            { label: 'Emergency Calls', value: '500+' }
+                        ]
+                    },
+                    'london': {
+                        title: 'London Critical Infrastructure',
+                        description: 'The storm reaches London, testing the resilience of the capital\'s critical infrastructure systems and emergency response capabilities.',
+                        center: [-0.1276, 51.5074],
+                        zoom: 11,
+                        bearing: 0,
+                        pitch: 60,
+                        stats: [
+                            { label: 'Underground Disruption', value: '3 Lines' },
+                            { label: 'Power Substations', value: '12 Affected' },
+                            { label: 'Emergency Response', value: 'Level 2' },
+                            { label: 'Recovery Time', value: '6 Hours' }
+                        ]
+                    }
+                }
+            },
+            arwen: {
+                title: '🌪️ Storm Arwen - November 2021',
+                subtitle: 'Real Infrastructure Resilience Event',
+                chapters: {
+                    'arwen-approach': {
+                        title: 'Storm Arwen Approaches',
+                        description: 'November 26, 2021 - Storm Arwen brings unprecedented 100mph winds from the North Sea, targeting Northern England and Scotland with rare Red Weather Warnings.',
+                        center: [-1.5, 55.5],
+                        zoom: 6,
+                        bearing: 45,
+                        pitch: 20,
+                        stats: [
+                            { label: 'Wind Speed', value: '100+ mph' },
+                            { label: 'Weather Warning', value: 'Red (Rare)' },
+                            { label: 'Affected Regions', value: '6 Counties' },
+                            { label: 'Duration', value: '18 Hours' }
+                        ]
+                    },
+                    'northumberland-impact': {
+                        title: 'Northumberland Devastation',
+                        description: 'First major impact: 240,000 homes lose power as Kielder Forest is devastated. Over 16,000 trees fall, blocking major roads and rail lines across the region.',
+                        center: [-2.1, 55.2],
+                        zoom: 8,
+                        bearing: 30,
+                        pitch: 45,
+                        stats: [
+                            { label: 'Homes Without Power', value: '240,000' },
+                            { label: 'Trees Down', value: '16,000+' },
+                            { label: 'Roads Blocked', value: '200+' },
+                            { label: 'Rail Lines Closed', value: '12' }
+                        ]
+                    },
+                    'durham-cascades': {
+                        title: 'Durham Power Cascades',
+                        description: 'Power lines collapse across County Durham. Multiple substations fail, triggering cascading outages that affect water treatment plants and mobile networks.',
+                        center: [-1.8, 54.7],
+                        zoom: 9,
+                        bearing: 60,
+                        pitch: 50,
+                        stats: [
+                            { label: 'Power Outages', value: '180,000' },
+                            { label: 'Water Supplies Lost', value: '45,000' },
+                            { label: 'Substations Failed', value: '23' },
+                            { label: 'Mobile Towers Down', value: '150+' }
+                        ]
+                    },
+                    'yorkshire-transport': {
+                        title: 'Yorkshire Transport Collapse',
+                        description: 'A1 and East Coast Main Line blocked by fallen trees for over 50 miles. Leeds Bradford Airport closes. The entire transport network is paralyzed.',
+                        center: [-1.5, 54.0],
+                        zoom: 8.5,
+                        bearing: 15,
+                        pitch: 40,
+                        stats: [
+                            { label: 'A1 Closures', value: '50+ Miles' },
+                            { label: 'Train Cancellations', value: '400+' },
+                            { label: 'Airport Closures', value: '3' },
+                            { label: 'Bus Services', value: '90% Suspended' }
+                        ]
+                    },
+                    'scotland-isolation': {
+                        title: 'Scottish Borders Isolated',
+                        description: 'Cross-border infrastructure fails completely. Scottish Power reports 135,000 customers without power. Over 50 rural communities are completely cut off.',
+                        center: [-2.8, 55.6],
+                        zoom: 8,
+                        bearing: 90,
+                        pitch: 35,
+                        stats: [
+                            { label: 'Scottish Outages', value: '135,000' },
+                            { label: 'Villages Cut Off', value: '50+' },
+                            { label: 'Emergency Calls', value: '2,000+' },
+                            { label: 'Rescue Operations', value: '200+' }
+                        ]
+                    },
+                    'recovery-overview': {
+                        title: 'Recovery Operations',
+                        description: 'Day 3: Military deployed with 300 personnel. Over 1,000 engineers work around the clock. Some remote areas remain without power for 9 days. Total cost exceeds £50M.',
+                        center: [-2.0, 54.8],
+                        zoom: 7,
+                        bearing: 0,
+                        pitch: 60,
+                        stats: [
+                            { label: 'Engineers Deployed', value: '1,000+' },
+                            { label: 'Military Personnel', value: '300' },
+                            { label: 'Max Outage Duration', value: '9 Days' },
+                            { label: 'Total Cost', value: '£50M+' }
+                        ]
+                    }
+                }
+            }
+        };
+
+        // Initialize map and services
+        let map, cascadeService, cameraService;
+        let activeAnimations = [];
+        let currentStoryMode = null;
+        let currentChapterIndex = 0;
+        let storyChapterKeys = [];
+        let isStoryActive = false;
+
+        async function initializeMap() {
+            try {
+                // Initialize MapTiler map
+                maptilersdk.config.apiKey = 'get_your_own_OpIi9ZULNHzrESv6T2vL'; // Demo key
+                
+                map = new maptilersdk.Map({
+                    container: 'map',
+                    style: maptilersdk.MapStyle.STREETS,
+                    center: [-0.1276, 51.5074], // London
+                    zoom: 10
+                });
+
+                await map.on('load');
+                console.log('✅ Map loaded');
+
+                // Initialize cascade service
+                cascadeService = new SimpleCascadeService();
+                const assets = await cascadeService.loadAssets();
+
+                // Initialize camera service
+                cameraService = new CameraService(map);
+                console.log('✅ Camera service initialized');
+                
+                // Update UI
+                updateStatus('success', `✅ Loaded ${assets.length} assets with cascade relationships`);
+                populateAssetSelect(assets);
+                
+                // Add assets to map
+                addAssetsToMap(assets);
+                
+                // Show stats
+                const stats = cascadeService.getStats();
+                document.getElementById('results').innerHTML = `
+                    <strong>Statistics:</strong><br>
+                    • ${stats.totalAssets} assets<br>
+                    • ${stats.totalCascadeRelationships} cascade relationships<br>
+                    • ${stats.averageTargetsPerAsset} avg targets per asset
+                `;
+
+            } catch (error) {
+                console.error('❌ Initialization failed:', error);
+                updateStatus('error', `❌ Failed to initialize: ${error.message}`);
+            }
+        }
+
+        function updateStatus(type, message) {
+            const statusEl = document.getElementById('status');
+            statusEl.className = `status ${type}`;
+            statusEl.textContent = message;
+        }
+
+        function populateAssetSelect(assets) {
+            const select = document.getElementById('assetSelect');
+            select.innerHTML = '<option value="">Select an asset...</option>';
+            
+            assets.slice(0, 20).forEach(asset => { // Show first 20 for testing
+                const option = document.createElement('option');
+                option.value = asset.id;
+                option.textContent = `${asset.name} (${asset.type}, ${asset.criticality})`;
+                select.appendChild(option);
+            });
+            
+            select.disabled = false;
+            document.getElementById('triggerBtn').disabled = false;
+        }
+
+        function addAssetsToMap(assets) {
+            // Add assets as points on the map
+            map.addSource('assets', {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: assets.map(asset => ({
+                        type: 'Feature',
+                        properties: {
+                            id: asset.id,
+                            name: asset.name,
+                            type: asset.type,
+                            criticality: asset.criticality
+                        },
+                        geometry: {
+                            type: 'Point',
+                            coordinates: asset.coordinates
+                        }
+                    }))
+                }
+            });
+
+            map.addLayer({
+                id: 'assets',
+                type: 'circle',
+                source: 'assets',
+                paint: {
+                    'circle-radius': [
+                        'case',
+                        ['==', ['get', 'criticality'], 'critical'], 8,
+                        ['==', ['get', 'criticality'], 'high'], 6,
+                        4
+                    ],
+                    'circle-color': [
+                        'case',
+                        ['==', ['get', 'type'], 'power'], '#dc2626',
+                        ['==', ['get', 'type'], 'water'], '#0284c7',
+                        ['==', ['get', 'type'], 'telecoms'], '#10b981',
+                        '#6b7280'
+                    ],
+                    'circle-stroke-width': 2,
+                    'circle-stroke-color': '#ffffff'
+                }
+            });
+
+            // Add click handler
+            map.on('click', 'assets', (e) => {
+                const assetId = e.features[0].properties.id;
+                document.getElementById('assetSelect').value = assetId;
+            });
+        }
+
+        async function triggerCascade() {
+            const assetId = document.getElementById('assetSelect').value;
+            if (!assetId) {
+                updateStatus('error', '❌ Please select an asset first');
+                return;
+            }
+
+            try {
+                updateStatus('info', '🚨 Triggering cascade...');
+                
+                // Get cascade result
+                const result = cascadeService.getCascadeResult(assetId);
+                if (!result) {
+                    updateStatus('error', '❌ No cascade data found for this asset');
+                    return;
+                }
+
+                console.log('Cascade result:', result);
+                
+                // Animate the cascade
+                await animateCascade(result);
+                
+                updateStatus('success', `✅ Cascade complete: ${result.impacts.length} impacts`);
+                
+                // Update results
+                document.getElementById('results').innerHTML = `
+                    <strong>Cascade Results:</strong><br>
+                    • Trigger: ${assetId}<br>
+                    • Total affected: ${result.totalAffected}<br>
+                    • Direct impacts: ${result.impacts.filter(i => i.impactType === 'direct').length}<br>
+                    • Cascade impacts: ${result.impacts.filter(i => i.impactType === 'cascade').length}<br>
+                    • Cross-sector: ${result.impacts.filter(i => i.impactType === 'cross-sector').length}<br>
+                    • Potential: ${result.impacts.filter(i => i.impactType === 'potential').length}
+                `;
+
+            } catch (error) {
+                console.error('❌ Cascade failed:', error);
+                updateStatus('error', `❌ Cascade failed: ${error.message}`);
+            }
+        }
+
+        async function animateCascade(result) {
+            // Clear previous animations
+            resetAll();
+
+            const animationType = document.getElementById('animationSelect').value;
+            console.log(`🎬 Starting ${animationType} animation`);
+
+            // Add animation layers
+            if (!map.getSource('cascade-effects')) {
+                map.addSource('cascade-effects', {
+                    type: 'geojson',
+                    data: { type: 'FeatureCollection', features: [] }
+                });
+
+                map.addLayer({
+                    id: 'cascade-effects',
+                    type: 'circle',
+                    source: 'cascade-effects',
+                    paint: {
+                        'circle-radius': ['get', 'radius'],
+                        'circle-color': ['get', 'color'],
+                        'circle-opacity': ['get', 'opacity'],
+                        'circle-stroke-width': 2,
+                        'circle-stroke-color': '#ffffff'
+                    }
+                });
+            }
+
+            // Animate impacts in sequence
+            for (const impact of result.timeline) {
+                await new Promise(resolve => setTimeout(resolve, impact.time));
+                
+                const asset = cascadeService.getAsset(impact.assetId);
+                if (asset) {
+                    animateImpact(asset, impact.impactType);
+                }
+            }
+        }
+
+        function animateImpact(asset, impactType) {
+            const colors = {
+                direct: '#dc2626',
+                cascade: '#f97316',
+                potential: '#fbbf24',
+                'cross-sector': '#a855f7'
+            };
+
+            const color = colors[impactType] || '#6b7280';
+            
+            // Create expanding circle
+            const startTime = Date.now();
+            const duration = 1000;
+            
+            const animate = () => {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const radius = 20 + (progress * 30);
+                const opacity = 0.8 * (1 - progress);
+
+                const feature = {
+                    type: 'Feature',
+                    properties: {
+                        id: `impact-${asset.id}-${startTime}`,
+                        radius,
+                        color,
+                        opacity
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: asset.coordinates
+                    }
+                };
+
+                const source = map.getSource('cascade-effects');
+                const currentData = source._data || { type: 'FeatureCollection', features: [] };
+                
+                // Update or add feature
+                const existingIndex = currentData.features.findIndex(f => f.properties.id === feature.properties.id);
+                if (existingIndex >= 0) {
+                    currentData.features[existingIndex] = feature;
+                } else {
+                    currentData.features.push(feature);
+                }
+
+                source.setData(currentData);
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    // Remove feature after animation
+                    setTimeout(() => {
+                        const source = map.getSource('cascade-effects');
+                        if (source && source._data) {
+                            source._data.features = source._data.features.filter(f => f.properties.id !== feature.properties.id);
+                            source.setData(source._data);
+                        }
+                    }, 500);
+                }
+            };
+
+            animate();
+        }
+
+        function resetAll() {
+            console.log('🧹 Resetting all animations');
+            
+            // Clear animation layers
+            if (map.getSource('cascade-effects')) {
+                map.getSource('cascade-effects').setData({ type: 'FeatureCollection', features: [] });
+            }
+            
+            // Clear results
+            document.getElementById('results').innerHTML = '';
+            updateStatus('info', 'Ready for cascade simulation');
+        }
+
+        // Event listeners
+        document.getElementById('triggerBtn').addEventListener('click', triggerCascade);
+
+        // Progressive Story Mode Functions
+        function startScrollStoryMode(storyType) {
+            currentStoryMode = storyType;
+            currentChapterIndex = 0;
+            isStoryActive = true;
+            
+            const story = storyData[storyType];
+            storyChapterKeys = Object.keys(story.chapters);
+            
+            // Update story header
+            document.getElementById('storyTitle').textContent = story.title;
+            document.querySelector('.story-header p').textContent = story.subtitle;
+            
+            // Populate chapters (all hidden initially)
+            const chaptersContainer = document.getElementById('storyChapters');
+            chaptersContainer.innerHTML = '';
+            
+            storyChapterKeys.forEach((chapterKey, index) => {
+                const chapter = story.chapters[chapterKey];
+                
+                const chapterDiv = document.createElement('div');
+                chapterDiv.className = 'story-chapter';
+                chapterDiv.id = chapterKey;
+                
+                chapterDiv.innerHTML = `
+                    <h3>${chapter.title}</h3>
+                    <p>${chapter.description}</p>
+                    <div class="story-stats">
+                        <h4>📊 Impact Statistics</h4>
+                        ${chapter.stats.map(stat => `
+                            <div class="story-stat">
+                                <span class="label">${stat.label}:</span>
+                                <span class="value">${stat.value}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                chaptersContainer.appendChild(chapterDiv);
+            });
+            
+            // Show sidebar
+            document.getElementById('storySidebar').classList.add('active');
+            
+            // Set up keyboard listener for spacebar
+            document.addEventListener('keydown', onKeyPress);
+            
+            // Set up scroll listener for progressive reveal
+            chaptersContainer.addEventListener('scroll', onProgressiveScroll);
+            
+            // Show first chapter and fly to its location
+            showChapter(0);
+            
+            updateCameraStatus(`📖 ${story.title} - Chapter 1/${storyChapterKeys.length}`);
+        }
+        
+        function showChapter(index) {
+            if (!isStoryActive || index < 0 || index >= storyChapterKeys.length) return;
+            
+            const chapterKey = storyChapterKeys[index];
+            const story = storyData[currentStoryMode];
+            const chapter = story.chapters[chapterKey];
+            
+            console.log(`🎬 Showing chapter ${index + 1}: ${chapter.title}`);
+            
+            // Hide all chapters first
+            storyChapterKeys.forEach((key, i) => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.classList.remove('visible', 'active', 'fade-out');
+                    if (i < index) {
+                        // Previous chapters fade out
+                        element.classList.add('fade-out');
+                    } else if (i === index) {
+                        // Current chapter is visible and active
+                        element.classList.add('visible', 'active');
+                    }
+                    // Future chapters remain hidden
+                }
+            });
+            
+            // Update map view
+            map.flyTo({
+                center: chapter.center,
+                zoom: chapter.zoom,
+                bearing: chapter.bearing || 0,
+                pitch: chapter.pitch || 0,
+                duration: 2000,
+                essential: true
+            });
+            
+            // Update progress bar
+            const progress = ((index + 1) / storyChapterKeys.length) * 100;
+            document.getElementById('storyProgressBar').style.width = `${progress}%`;
+            
+            // Update navigation buttons
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.disabled = index === 0;
+            prevBtn.style.opacity = index === 0 ? '0.5' : '1';
+            
+            if (index === storyChapterKeys.length - 1) {
+                nextBtn.textContent = 'Finish';
+                nextBtn.style.background = '#10b981';
+            } else {
+                nextBtn.textContent = 'Next →';
+                nextBtn.style.background = '#dc2626';
+            }
+            
+            // Update instruction text
+            const instruction = document.getElementById('storyInstruction');
+            if (index === storyChapterKeys.length - 1) {
+                instruction.textContent = 'Story complete! Click Finish or Close Story';
+            } else {
+                instruction.textContent = 'Scroll down or press SPACE to continue the story';
+            }
+            
+            currentChapterIndex = index;
+            updateCameraStatus(`📍 ${chapter.title} (${index + 1}/${storyChapterKeys.length})`);
+        }
+        
+        function nextChapter() {
+            if (currentChapterIndex < storyChapterKeys.length - 1) {
+                showChapter(currentChapterIndex + 1);
+            } else {
+                // Story finished
+                closeStoryMode();
+            }
+        }
+        
+        function previousChapter() {
+            if (currentChapterIndex > 0) {
+                showChapter(currentChapterIndex - 1);
+            }
+        }
+        
+        function onKeyPress(event) {
+            if (!isStoryActive) return;
+            
+            if (event.code === 'Space') {
+                event.preventDefault();
+                nextChapter();
+            } else if (event.code === 'ArrowLeft') {
+                event.preventDefault();
+                previousChapter();
+            } else if (event.code === 'ArrowRight') {
+                event.preventDefault();
+                nextChapter();
+            } else if (event.code === 'Escape') {
+                event.preventDefault();
+                closeStoryMode();
+            }
+        }
+        
+        function onProgressiveScroll() {
+            if (!isStoryActive) return;
+            
+            const container = document.getElementById('storyChapters');
+            const scrollTop = container.scrollTop;
+            const scrollHeight = container.scrollHeight;
+            const clientHeight = container.clientHeight;
+            
+            // If user scrolls near the bottom, advance to next chapter
+            const scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
+            
+            if (scrollPercentage > 0.8 && currentChapterIndex < storyChapterKeys.length - 1) {
+                // Small delay to prevent rapid triggering
+                setTimeout(() => {
+                    if (scrollPercentage > 0.8) {
+                        nextChapter();
+                    }
+                }, 500);
+            }
+        }
+        
+        function closeStoryMode() {
+            document.getElementById('storySidebar').classList.remove('active');
+            currentStoryMode = null;
+            currentChapterIndex = 0;
+            storyChapterKeys = [];
+            isStoryActive = false;
+            
+            // Remove event listeners
+            document.removeEventListener('keydown', onKeyPress);
+            
+            // Reset camera
+            if (cameraService) {
+                cameraService.resetCamera();
+            }
+            
+            updateCameraStatus('📹 Camera controls ready');
+        }
+        
+        // Camera Control Functions
+        function toggleOrbit() {
+            if (!cameraService) return;
+            
+            const isNowOrbiting = cameraService.toggleOrbit();
+            const btn = document.getElementById('orbitBtn');
+            
+            if (isNowOrbiting) {
+                btn.textContent = '⏹️ Stop Orbit';
+                btn.style.background = '#dc2626';
+                updateCameraStatus('🌍 Camera orbiting around current view');
+            } else {
+                btn.textContent = '🌍 Start Orbit';
+                btn.style.background = '#3b82f6';
+                updateCameraStatus('⏹️ Orbit stopped');
+            }
+        }
+        
+        function flyToLondon() {
+            if (!cameraService) return;
+            cameraService.flyToLondon();
+            updateCameraStatus('🏙️ Flying to London');
+        }
+        
+        function flyToUK() {
+            if (!cameraService) return;
+            cameraService.flyToUKOverview();
+            updateCameraStatus('🇬🇧 Flying to UK Overview');
+        }
+        
+        function resetCamera() {
+            if (!cameraService) return;
+            cameraService.resetCamera();
+            
+            // Reset orbit button
+            const orbitBtn = document.getElementById('orbitBtn');
+            orbitBtn.textContent = '🌍 Start Orbit';
+            orbitBtn.style.background = '#3b82f6';
+            
+            updateCameraStatus('🔄 Camera reset to London');
+        }
+        
+        function updateCameraStatus(message) {
+            const statusEl = document.getElementById('cameraStatus');
+            if (statusEl) {
+                statusEl.textContent = message;
+            }
+        }
+
+        // Legacy story mode functions (keep for compatibility)
+        async function startStoryMode() {
+            startScrollStoryMode('generic');
+        }
+        
+        async function startStormArwen() {
+            startScrollStoryMode('arwen');
+        }
+
+        // Initialize everything
+        initializeMap();
+    </script>
+</body>
+</html>

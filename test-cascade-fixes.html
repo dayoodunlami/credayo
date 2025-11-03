@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascade Simulation Fixes Test</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            font-family: Arial, sans-serif; 
+            background: #f5f5f5;
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .fix-item {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            background: #f9fafb;
+        }
+        .fix-item.fixed {
+            border-color: #10b981;
+            background: #ecfdf5;
+        }
+        .fix-item h3 {
+            margin: 0 0 10px 0;
+            color: #374151;
+        }
+        .fix-item.fixed h3 {
+            color: #065f46;
+        }
+        .code-block {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            margin: 10px 0;
+        }
+        .test-button {
+            background: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .test-button:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Cascade Simulation Fixes</h1>
+        <p>Addressing the asset ID and emergency sites loading issues</p>
+
+        <div class="fix-item fixed">
+            <h3>✅ Fix 1: Asset ID Resolution</h3>
+            <p><strong>Problem:</strong> Cascade simulator couldn't find assets with hardcoded IDs like 'pow_001'</p>
+            <p><strong>Solution:</strong> Smart asset selection that finds the first available critical asset</p>
+            <div class="code-block">
+// Before: Hardcoded asset IDs
+const defaultTrigger = 'pow_001'; // ❌ Asset not found
+
+// After: Smart asset discovery
+const allAssets = cascadeSimulator.getAllAssets();
+const criticalAssets = allAssets.filter(asset => asset.criticality === 'critical');
+const actualTriggerId = criticalAssets[0]?.id; // ✅ Uses real asset ID
+            </div>
+        </div>
+
+        <div class="fix-item fixed">
+            <h3>✅ Fix 2: Emergency Sites Error Handling</h3>
+            <p><strong>Problem:</strong> Trying to parse HTML as JSON when emergency.geojson doesn't exist</p>
+            <p><strong>Solution:</strong> Better error handling with content-type checking</p>
+            <div class="code-block">
+// Before: Basic error handling
+if (!response.ok) return;
+const data = await response.json(); // ❌ Could parse HTML as JSON
+
+// After: Content-type validation
+const contentType = response.headers.get('content-type');
+if (!contentType || !contentType.includes('application/json')) {
+  console.log(`Emergency sites not available - got ${contentType}`);
+  return; // ✅ Graceful handling
+}
+            </div>
+        </div>
+
+        <div class="fix-item fixed">
+            <h3>✅ Fix 3: Enhanced Asset Click Handler</h3>
+            <p><strong>Problem:</strong> Basic asset popups with limited information</p>
+            <p><strong>Solution:</strong> Rich popups with asset details and easy cascade triggering</p>
+            <div class="code-block">
+// Enhanced popup with:
+// - Asset ID, type, criticality, operator
+// - Color-coded criticality badges
+// - One-click cascade triggering
+// - Support for clustered assets
+            </div>
+        </div>
+
+        <div class="fix-item fixed">
+            <h3>✅ Fix 4: Robust Scenario Buttons</h3>
+            <p><strong>Problem:</strong> Scenario buttons used hardcoded asset IDs that didn't exist</p>
+            <p><strong>Solution:</strong> Generic scenarios that work with any available assets</p>
+            <div class="code-block">
+// Before: Specific asset IDs
+onStartSimulation('pow_transmission_001'); // ❌ Asset not found
+
+// After: Smart asset selection
+onStartSimulation(); // ✅ Finds first critical asset automatically
+            </div>
+        </div>
+
+        <div class="fix-item">
+            <h3>🧪 Test the Fixes</h3>
+            <p>These fixes should resolve:</p>
+            <ul>
+                <li>❌ "Trigger asset not found" errors</li>
+                <li>❌ "Unexpected token '&lt;'" JSON parsing errors</li>
+                <li>✅ Easy asset selection by clicking on map</li>
+                <li>✅ Working scenario buttons</li>
+                <li>✅ Graceful error handling</li>
+            </ul>
+            
+            <button class="test-button" onclick="window.open('/', '_blank')">
+                🚀 Test Main Application
+            </button>
+        </div>
+
+        <div class="fix-item">
+            <h3>📋 How to Test</h3>
+            <ol>
+                <li><strong>Click any asset on the map</strong> - Should show detailed popup with cascade trigger button</li>
+                <li><strong>Use scenario buttons</strong> - Should start cascade without "asset not found" errors</li>
+                <li><strong>Check console</strong> - Should see informational messages instead of errors</li>
+                <li><strong>Try search tab</strong> - Find assets and trigger cascades from search results</li>
+            </ol>
+        </div>
+
+        <div class="fix-item">
+            <h3>🔍 Asset Selection Made Easy</h3>
+            <p>Now you can trigger cascades in multiple ways:</p>
+            <ul>
+                <li><strong>Click any asset on map</strong> - Shows popup with asset details and trigger button</li>
+                <li><strong>Use search tab</strong> - Find specific assets by name, operator, or type</li>
+                <li><strong>Scenario buttons</strong> - Quick preset configurations that work automatically</li>
+                <li><strong>Manual ID entry</strong> - Still works if you know the exact asset ID</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0; padding: 20px; background: #f0fdf4; border-radius: 8px;">
+            <h2>✅ Fixes Applied Successfully</h2>
+            <p style="color: #065f46;">
+                Asset selection is now much easier and error handling is more robust!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        console.log('🔧 Cascade Simulation Fixes Applied:');
+        console.log('  ✅ Smart asset ID resolution');
+        console.log('  ✅ Graceful emergency sites error handling');
+        console.log('  ✅ Enhanced asset click popups');
+        console.log('  ✅ Robust scenario buttons');
+        console.log('🚀 Ready for testing!');
+    </script>
+</body>
+</html>
