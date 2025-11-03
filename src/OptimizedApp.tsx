@@ -10,6 +10,7 @@
  */
 
 import OptimizedMainLayout from './components/OptimizedMainLayout';
+import DemoNavigation from './components/DemoNavigation';
 import './App.css';
 
 function OptimizedApp() {
@@ -17,8 +18,11 @@ function OptimizedApp() {
     <div className="optimized-app">
       <OptimizedMainLayout />
       
+      {/* Demo Navigation */}
+      <DemoNavigation />
+      
       {/* Development Info - Remove in production */}
-      <div className="fixed top-20 right-4 z-50">
+      <div className="fixed top-20 right-80 z-40">
         <details className="bg-white rounded-lg shadow-lg border max-w-xs">
           <summary className="px-4 py-2 cursor-pointer text-sm font-medium text-gray-700 hover:bg-gray-50">
             🚀 Optimized Version

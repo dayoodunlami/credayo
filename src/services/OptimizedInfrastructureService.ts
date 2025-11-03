@@ -162,54 +162,88 @@ export class OptimizedInfrastructureService {
   }
 
   /**
-   * Load assets - demo mode for fast startup
+   * PHASE 1: Chunked loading with progress
    */
   private async loadInitialAssets(): Promise<void> {
-    const isDemoMode = window.location.search.includes('demo=true') || 
-                      window.location.search.includes('optimized=true');
+    console.log('🚀 PHASE 1: Starting chunked loading...');
     
-    if (isDemoMode) {
-      console.log('🚀 DEMO MODE: Loading minimal assets for instant startup...');
+    try {
+      // Step 1: Load metadata to know total chunks
+      const metadataResponse = await fetch('/data/chunks/london-power-metadata.json');
+      const metadata = await metadataResponse.json();
       
-      // Use only hardcoded assets for instant loading
+      console.log(`📊 Found ${metadata.totalChunks} chunks (${metadata.totalCount} total assets)`);
+      
+      // Step 2: Load first chunk immediately (1000 assets)
+      const firstChunkResponse = await fetch('/data/chunks/london-power-chunk-0.json');
+      const firstChunk = await firstChunkResponse.json();
+      
+      // Add first chunk assets to map
+      firstChunk.assets.forEach((asset: any) => {
+        this.assets.set(asset.id, {
+          id: asset.id,
+          name: asset.name,
+          type: asset.subtype === 'generation' ? 'primary' : 'secondary',
+          coordinates: asset.coordinates,
+          criticality: asset.criticality,
+          voltage: asset.voltage || '11kV',
+          serviceRadius: asset.subtype === 'generation' ? 4000 : 640,
+          properties: asset
+        });
+      });
+      
+      console.log(`✅ FAST LOAD: ${firstChunk.assets.length} assets ready (chunk 0/${metadata.totalChunks})`);
+      this.isLoaded = true;
+      
+      // Step 3: Load remaining chunks in background with progress
+      this.loadRemainingChunksWithProgress(metadata.totalChunks);
+      
+    } catch (error) {
+      console.warn('⚠️ Chunked loading failed, using hardcoded assets');
       this.INITIAL_ASSETS.forEach(asset => {
         this.assets.set(asset.id, asset);
       });
-      
-      console.log(`✅ DEMO: Loaded ${this.assets.size} assets instantly`);
-    } else {
-      console.log('📦 Loading sample data file...');
-      
+      this.isLoaded = true;
+    }
+  }
+
+  /**
+   * Load remaining chunks with progress updates
+   */
+  private async loadRemainingChunksWithProgress(totalChunks: number): Promise<void> {
+    console.log('📦 Background loading remaining chunks...');
+    
+    for (let i = 1; i < totalChunks; i++) {
       try {
-        // Load small sample file instead of 9.2MB file
-        const response = await fetch('/data/london-power-sample.json');
-        const data = await response.json();
+        const response = await fetch(`/data/chunks/london-power-chunk-${i}.json`);
+        const chunk = await response.json();
         
-        if (data.assets) {
-          data.assets.forEach((asset: any) => {
-            this.assets.set(asset.id, {
-              id: asset.id,
-              name: asset.name,
-              type: asset.subtype === 'generation' ? 'primary' : 'secondary',
-              coordinates: asset.coordinates,
-              criticality: asset.criticality,
-              voltage: asset.voltage || '11kV',
-              serviceRadius: asset.subtype === 'generation' ? 4000 : 640,
-              properties: asset
-            });
+        // Add chunk assets to map
+        chunk.assets.forEach((asset: any) => {
+          this.assets.set(asset.id, {
+            id: asset.id,
+            name: asset.name,
+            type: asset.subtype === 'generation' ? 'primary' : 'secondary',
+            coordinates: asset.coordinates,
+            criticality: asset.criticality,
+            voltage: asset.voltage || '11kV',
+            serviceRadius: asset.subtype === 'generation' ? 4000 : 640,
+            properties: asset
           });
-        }
-        
-        console.log(`✅ Loaded ${this.assets.size} assets from sample data`);
-      } catch (error) {
-        console.warn('⚠️ Sample data failed, using hardcoded assets');
-        this.INITIAL_ASSETS.forEach(asset => {
-          this.assets.set(asset.id, asset);
         });
+        
+        const progress = Math.round((i / (totalChunks - 1)) * 100);
+        console.log(`📦 Loaded chunk ${i}/${totalChunks} (${progress}% complete, ${this.assets.size} total assets)`);
+        
+        // Small delay to prevent blocking UI
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
+      } catch (error) {
+        console.warn(`⚠️ Failed to load chunk ${i}, continuing...`);
       }
     }
-
-    this.isLoaded = true;
+    
+    console.log(`✅ COMPLETE: All ${this.assets.size} assets loaded`);
   }
 
   /**

@@ -1,6 +1,7 @@
 import MainLayout from './components/layout/MainLayout';
 import OptimizedApp from './OptimizedApp';
 import ApiKeyDebugger from './components/ApiKeyDebugger';
+import DemoNavigation from './components/DemoNavigation';
 import './App.css';
 
 function App() {
@@ -14,9 +15,10 @@ function App() {
   return (
     <>
       <MainLayout />
+      <DemoNavigation />
       
       {/* Performance Comparison Panel */}
-      <div className="fixed bottom-4 right-4 z-50">
+      <div className="fixed bottom-4 right-4 z-40">
         <details className="bg-white rounded-lg shadow-lg border">
           <summary className="px-4 py-2 cursor-pointer text-sm font-medium text-gray-700">
             🚀 Performance Options
