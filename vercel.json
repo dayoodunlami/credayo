@@ -6,17 +6,8 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=86400, s-maxage=86400"
-        },
-        {
-          "key": "Content-Encoding",
-          "value": "gzip"
         }
       ]
     }
-  ],
-  "functions": {
-    "app/api/**/*.js": {
-      "maxDuration": 30
-    }
-  }
+  ]
 }
