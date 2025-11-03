@@ -50,7 +50,7 @@ export interface CascadeStepResult {
 export class CascadeSimulator {
   private allAssets: Asset[] = [];
   private currentState: CascadeState | null = null;
-  private simulationTimer: NodeJS.Timeout | null = null;
+  private simulationTimer: number | null = null;
   private updateCallbacks: ((state: CascadeState) => void)[] = [];
   private stepInterval = 1000; // 1 second per step
 

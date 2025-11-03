@@ -9,19 +9,23 @@
  * - Performance optimizations for large datasets
  */
 
-export enum ImpactType {
-    DIRECT = 'direct',           // Immediate failure
-    CASCADE = 'cascade',         // Downstream failure
-    POTENTIAL = 'potential',     // May fail (conditional)
-    CROSS_SECTOR = 'cross-sector' // Different infrastructure type
-}
+export const ImpactType = {
+    DIRECT: 'direct',           // Immediate failure
+    CASCADE: 'cascade',         // Downstream failure
+    POTENTIAL: 'potential',     // May fail (conditional)
+    CROSS_SECTOR: 'cross-sector' // Different infrastructure type
+} as const;
 
-export enum AssetCriticality {
-    CRITICAL = 'critical',
-    HIGH = 'high',
-    MEDIUM = 'medium',
-    LOW = 'low'
-}
+export type ImpactType = typeof ImpactType[keyof typeof ImpactType];
+
+export const AssetCriticality = {
+    CRITICAL: 'critical',
+    HIGH: 'high',
+    MEDIUM: 'medium',
+    LOW: 'low'
+} as const;
+
+export type AssetCriticality = typeof AssetCriticality[keyof typeof AssetCriticality];
 
 export interface AdvancedAsset {
     id: string;
@@ -73,8 +77,8 @@ export interface AdvancedCascadeConfig {
  */
 export class AdvancedCascadeEngine {
     private assets: Map<string, AdvancedAsset>;
-    private adjacencyList: Map<string, string[]>;
-    private reverseAdjacencyList: Map<string, string[]>;
+    private adjacencyList: Map<string, string[]> = new Map();
+    private reverseAdjacencyList: Map<string, string[]> = new Map();
 
     constructor(assets: AdvancedAsset[]) {
         this.assets = new Map(assets.map(a => [a.id, a]));

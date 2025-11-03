@@ -9,7 +9,6 @@
  * - Clean component structure
  */
 
-import React from 'react';
 import OptimizedMainLayout from './components/OptimizedMainLayout';
 import './App.css';
 
