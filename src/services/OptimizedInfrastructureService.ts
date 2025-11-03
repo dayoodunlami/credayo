@@ -37,7 +37,7 @@ export class OptimizedInfrastructureService {
   private cascadeLayerId: string | null = null;
   private isLoaded = false;
 
-  // London infrastructure data (10% initial load)
+  // London infrastructure data (DEMO MODE - ultra fast)
   private readonly INITIAL_ASSETS: InfrastructureAsset[] = [
     // Primary substations (critical infrastructure)
     {
@@ -162,17 +162,54 @@ export class OptimizedInfrastructureService {
   }
 
   /**
-   * Load 10% of assets for fast startup
+   * Load assets - demo mode for fast startup
    */
   private async loadInitialAssets(): Promise<void> {
-    console.log('📦 Loading initial assets (10% for fast startup)...');
+    const isDemoMode = window.location.search.includes('demo=true') || 
+                      window.location.search.includes('optimized=true');
     
-    this.INITIAL_ASSETS.forEach(asset => {
-      this.assets.set(asset.id, asset);
-    });
+    if (isDemoMode) {
+      console.log('🚀 DEMO MODE: Loading minimal assets for instant startup...');
+      
+      // Use only hardcoded assets for instant loading
+      this.INITIAL_ASSETS.forEach(asset => {
+        this.assets.set(asset.id, asset);
+      });
+      
+      console.log(`✅ DEMO: Loaded ${this.assets.size} assets instantly`);
+    } else {
+      console.log('📦 Loading sample data file...');
+      
+      try {
+        // Load small sample file instead of 9.2MB file
+        const response = await fetch('/data/london-power-sample.json');
+        const data = await response.json();
+        
+        if (data.assets) {
+          data.assets.forEach((asset: any) => {
+            this.assets.set(asset.id, {
+              id: asset.id,
+              name: asset.name,
+              type: asset.subtype === 'generation' ? 'primary' : 'secondary',
+              coordinates: asset.coordinates,
+              criticality: asset.criticality,
+              voltage: asset.voltage || '11kV',
+              serviceRadius: asset.subtype === 'generation' ? 4000 : 640,
+              properties: asset
+            });
+          });
+        }
+        
+        console.log(`✅ Loaded ${this.assets.size} assets from sample data`);
+      } catch (error) {
+        console.warn('⚠️ Sample data failed, using hardcoded assets');
+        this.INITIAL_ASSETS.forEach(asset => {
+          this.assets.set(asset.id, asset);
+        });
+      }
+    }
 
     this.isLoaded = true;
-    console.log(`✅ Loaded ${this.assets.size} initial assets`);
   }
 
   /**

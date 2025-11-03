@@ -219,7 +219,7 @@ const StreamlinedControls: React.FC<StreamlinedControlsProps> = ({
       {/* Performance Info */}
       <div className="p-3 bg-gray-50 rounded-b-lg">
         <div className="text-xs text-gray-500 text-center">
-          ⚡ Electrical Cascade: Primary→Secondary→Buildings • Persistent zones
+          ⚡ DEMO MODE: Instant loading • Electrical cascade • Persistent zones
         </div>
       </div>
     </div>
