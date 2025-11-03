@@ -1,0 +1,4430 @@
+{
+  "chunkNumber": 26,
+  "totalChunks": 27,
+  "count": 272,
+  "assets": [
+    {
+      "id": "power_transmission_1392474751",
+      "name": "Vauxhall TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1227743,
+        51.4851488
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1392474752",
+      "name": "Clapham Junction DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.167003,
+        51.4656568
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1392474754",
+      "name": "Wandsworth Common DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1651975,
+        51.4471967
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1392474755",
+      "name": "Walworth TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0957418,
+        51.4844829
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1392474757",
+      "name": "Herne Hill TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1039099,
+        51.4556522
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1392474759",
+      "name": "Sydenham Hill DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0826201,
+        51.433745
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_secondary_1392671286",
+      "name": "Power 1392671286",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.1979636,
+        51.5396502
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_transmission_1392888457",
+      "name": "Voltaire Road TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1346732,
+        51.4667526
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1392888458",
+      "name": "Brixton TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1180164,
+        51.46385
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1392888461",
+      "name": "Lee DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.0333171,
+        51.4453527
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1392888462",
+      "name": "Belvedere DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1506491,
+        51.4918574
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393508301",
+      "name": "Old Kent Road TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0532439,
+        51.4800142
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1393508302",
+      "name": "Bexleyheath DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1249534,
+        51.4637268
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393508303",
+      "name": "Falconwood DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.0862639,
+        51.460177
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393508305",
+      "name": "South Bermondsey DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0577622,
+        51.4909326
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393508306",
+      "name": "New Cross TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0362144,
+        51.4810616
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1393508307",
+      "name": "New Cross Gate TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.041805,
+        51.4784558
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1393508308",
+      "name": "Charlton DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.0293259,
+        51.4867374
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393508310",
+      "name": "Crofton Park TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0332479,
+        51.453912
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393582693",
+      "name": "Beckenham Hill TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0175522,
+        51.427954
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1393582695",
+      "name": "Albermerle Road TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0147376,
+        51.4100133
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1393582696",
+      "name": "Ladywell TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0205104,
+        51.4543889
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1393582697",
+      "name": "Elmers End DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0497717,
+        51.3976589
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393582698",
+      "name": "Tweed Hill DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.2061398,
+        51.4025482
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393582699",
+      "name": "Forest Hill TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0527,
+        51.4406696
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1393582700",
+      "name": "Gipsy Hill TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.095295,
+        51.4275994
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1393582701",
+      "name": "Grove Road TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1561155,
+        51.4053934
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1393586887",
+      "name": "Sutton DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1891552,
+        51.359204
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393615420",
+      "name": "Streatham DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1374088,
+        51.420829
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393615421",
+      "name": "Wimbledon DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2151814,
+        51.4150511
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393615422",
+      "name": "Earlsfield DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.183128,
+        51.4468225
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393615423",
+      "name": "Durnsford Road DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1951468,
+        51.4337763
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393615424",
+      "name": "St Helier Primary Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.196382,
+        51.3808276
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "voltage": "33000;11000"
+      }
+    },
+    {
+      "id": "power_transmission_1393615425",
+      "name": "St Helier DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1964927,
+        51.3805975
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1393615426",
+      "name": "West Sutton TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2026478,
+        51.3673582
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1393637204",
+      "name": "Abbey Wood DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1192986,
+        51.4908452
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_secondary_1394403099",
+      "name": "Power 1394403099",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2526025,
+        51.3978065
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1394438449",
+      "name": "Sweeps Lane",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.1229987,
+        51.3912019
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "446303"
+      }
+    },
+    {
+      "id": "power_transmission_1395262271",
+      "name": "Waltham Abbey Primary",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.0004674,
+        51.6834562
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "voltage": "33000"
+      }
+    },
+    {
+      "id": "power_transmission_1395262272",
+      "name": "Waltham Park Grid",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0461088,
+        51.6837692
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 132000,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "voltage": "132000;11000"
+      }
+    },
+    {
+      "id": "power_secondary_1395327315",
+      "name": "Manor Green Road",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2809055,
+        51.3345711
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "123779"
+      }
+    },
+    {
+      "id": "power_generation_1395668273",
+      "name": "Power 1395668273",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0505239,
+        51.586528
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1395668274",
+      "name": "Power 1395668274",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0504979,
+        51.5864577
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1395695895",
+      "name": "Power 1395695895",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1030672,
+        51.3897559
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1395695896",
+      "name": "Power 1395695896",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.10294,
+        51.3896631
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_transmission_1395807020",
+      "name": "Silwood Junction TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0463371,
+        51.4902957
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1395807021",
+      "name": "Kingsland DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0769201,
+        51.5480431
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_generation_1396090928",
+      "name": "Power 1396090928",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.2908627,
+        51.6276365
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1396115248",
+      "name": "Power 1396115248",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.2847367,
+        51.6279653
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1396115249",
+      "name": "Power 1396115249",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.2845175,
+        51.6279986
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1396116049",
+      "name": "Power 1396116049",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.2854942,
+        51.6277597
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1396116052",
+      "name": "Power 1396116052",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.2862478,
+        51.627906
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1396120221",
+      "name": "Power 1396120221",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.2765459,
+        51.6153802
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1396120222",
+      "name": "Power 1396120222",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.2765803,
+        51.6153748
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_transmission_1396181116",
+      "name": "Rotherhithe Switching Station",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0531454,
+        51.4849124
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000"
+      }
+    },
+    {
+      "id": "power_secondary_1396237024",
+      "name": "Power 1396237024",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0655476,
+        51.5336022
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "40010"
+      }
+    },
+    {
+      "id": "power_secondary_1396474338",
+      "name": "Southfields TPH",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2071893,
+        51.447942
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "Network Rail"
+      }
+    },
+    {
+      "id": "power_transmission_1396474339",
+      "name": "Chiswick DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.277844,
+        51.4868227
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1396474340",
+      "name": "Isleworth DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.3408435,
+        51.4728739
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1396474341",
+      "name": "Hounslow Junction DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.3718558,
+        51.4542691
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1396474342",
+      "name": "Mortlake TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2760966,
+        51.4669759
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_generation_1396593375",
+      "name": "Power 1396593375",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1064064,
+        51.3916708
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_transmission_1396629512",
+      "name": "Epsom DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2678114,
+        51.3351524
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1396668718",
+      "name": "New Beckenham DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0354997,
+        51.4129041
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_secondary_1408430104",
+      "name": "Power 1408430104",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0409656,
+        51.5518239
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "44382"
+      }
+    },
+    {
+      "id": "power_secondary_1408444670",
+      "name": "Power 1408444670",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0505864,
+        51.5285144
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "reference": "63054"
+      }
+    },
+    {
+      "id": "power_secondary_1408742024",
+      "name": "Power 1408742024",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0499076,
+        51.5132433
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "reference": "66234"
+      }
+    },
+    {
+      "id": "power_transmission_1408918593",
+      "name": "West Ealing ATS",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.3264204,
+        51.5136558
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 25000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "25000"
+      }
+    },
+    {
+      "id": "power_transmission_1408926649",
+      "name": "Cheam TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2168825,
+        51.3551863
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1408926650",
+      "name": "Barnett Wood TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.3205652,
+        51.3125383
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1409206792",
+      "name": "Motspure Park TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2423105,
+        51.3887592
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1409206793",
+      "name": "Worcester Park DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2441916,
+        51.3832733
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1409206794",
+      "name": "Stoneleigh TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2483205,
+        51.3630812
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1409206795",
+      "name": "Tolworth DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2825104,
+        51.3750244
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1409206796",
+      "name": "Chessington South TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.3074879,
+        51.3575273
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1409296450",
+      "name": "Berrylands DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2802335,
+        51.399572
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1409296451",
+      "name": "Kingston DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.304012,
+        51.4131885
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1409296452",
+      "name": "Fulwell DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.3430568,
+        51.4353345
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1409296453",
+      "name": "Hampton DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.3775094,
+        51.4163374
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1409296454",
+      "name": "Kempton Park TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.4048837,
+        51.4224569
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1409296455",
+      "name": "Feltham DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.4024231,
+        51.4494976
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1409296456",
+      "name": "Bedfont DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.4344321,
+        51.4427906
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1409296457",
+      "name": "Ashford DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.4705197,
+        51.4360756
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1409296458",
+      "name": "Staines DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.5060414,
+        51.4330543
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1409481099",
+      "name": "Malden TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2597835,
+        51.4030207
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1409481100",
+      "name": "Surbiton TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.3093139,
+        51.3901381
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1409733121",
+      "name": "Oaken Lane TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.3477313,
+        51.3666424
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1409733122",
+      "name": "Oxshott TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.36796,
+        51.3329487
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1409733123",
+      "name": "Cobham DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.3914125,
+        51.3170293
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1409733124",
+      "name": "Withy Bed TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.4017736,
+        51.305205
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1409733125",
+      "name": "Bookham TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.3727194,
+        51.2931939
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_secondary_1409876324",
+      "name": "Power 1409876324",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2575346,
+        51.3993032
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1410341604",
+      "name": "Power 1410341604",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.1119982,
+        51.5996032
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_transmission_1410706453",
+      "name": "Oatlands DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.4330917,
+        51.3690451
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1410706454",
+      "name": "Esher TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.3653477,
+        51.3794538
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1410706455",
+      "name": "Weybridge DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.462864,
+        51.3586598
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1410706456",
+      "name": "New Haw DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.4839219,
+        51.3481696
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_secondary_1410847933",
+      "name": "Power 1410847933",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0063997,
+        51.5440277
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1410847934",
+      "name": "Power 1410847934",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0064178,
+        51.5439839
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_generation_1410910055",
+      "name": "Power 1410910055",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1222325,
+        51.3764113
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_secondary_1410914799",
+      "name": "Power 1410914799",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0159448,
+        51.555407
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "reference": "53001"
+      }
+    },
+    {
+      "id": "power_generation_1411225011",
+      "name": "Power 1411225011",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1069986,
+        51.4946632
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1411410097",
+      "name": "Bulphan Fen Solar Farm Battery Storage",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.3238606,
+        51.537447
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "operator": "Warley Green Limited"
+      }
+    },
+    {
+      "id": "power_generation_1411602882",
+      "name": "Power 1411602882",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1029631,
+        51.3970383
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1411602883",
+      "name": "Power 1411602883",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1028687,
+        51.3970785
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1411602884",
+      "name": "Power 1411602884",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.10278,
+        51.3971155
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1411602885",
+      "name": "Power 1411602885",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1027021,
+        51.3971482
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1411602886",
+      "name": "Power 1411602886",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1026299,
+        51.397184
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1411602888",
+      "name": "Power 1411602888",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1024428,
+        51.3970116
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1411602889",
+      "name": "Power 1411602889",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1025583,
+        51.3969962
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1411602890",
+      "name": "Power 1411602890",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1026656,
+        51.3969525
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1411602891",
+      "name": "Power 1411602891",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.102726,
+        51.3969253
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1411602892",
+      "name": "Power 1411602892",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1028237,
+        51.3969004
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1411602893",
+      "name": "Power 1411602893",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1029084,
+        51.3968519
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1411602894",
+      "name": "Power 1411602894",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1027912,
+        51.3968764
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_transmission_1411692480",
+      "name": "Addlestone DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.4922297,
+        51.3776987
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412090714",
+      "name": "Norwood Junction DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0703782,
+        51.4050702
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412090715",
+      "name": "Norbury TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1175671,
+        51.4098626
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1412090716",
+      "name": "Belle Vue DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1020503,
+        51.4001054
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412090717",
+      "name": "Selhurst DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0840447,
+        51.3880571
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412090718",
+      "name": "West Croydon TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1073785,
+        51.3753228
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1412090719",
+      "name": "Wallington DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.161649,
+        51.3580146
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412090720",
+      "name": "East Croydon DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.093006,
+        51.3738043
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412090721",
+      "name": "Purley Oaks TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0994975,
+        51.3463366
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_generation_1412477942",
+      "name": "Power 1412477942",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1118711,
+        51.50454
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1412477943",
+      "name": "Power 1412477943",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.111909,
+        51.5045717
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_transmission_1412483404",
+      "name": "Purley DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1162123,
+        51.3351151
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;11000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412483405",
+      "name": "Coulsdon North DC Traction Subtation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.136087,
+        51.3186952
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412483406",
+      "name": "Star Lane DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1509103,
+        51.2980109
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412483412",
+      "name": "Belmont TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.199366,
+        51.3417244
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1412483413",
+      "name": "Banstead DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2185189,
+        51.3296301
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412483414",
+      "name": "Riddlesdown TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0992656,
+        51.3324726
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1412483415",
+      "name": "Upper Warlingham DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0733046,
+        51.3021012
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 11000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "11000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412483416",
+      "name": "Woldingham DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0520291,
+        51.290452
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 11000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "11000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412593855",
+      "name": "Kenley TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0929969,
+        51.3212184
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1412593856",
+      "name": "Smitham TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1394686,
+        51.3220541
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1412593857",
+      "name": "Chipstead DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1669369,
+        51.3110809
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 11000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "11000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412593858",
+      "name": "Outwood Lane TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1823381,
+        51.2990491
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1412593859",
+      "name": "Tadworth TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.2355102,
+        51.2909449
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1412868589",
+      "name": "Bromley South TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.0278815,
+        51.3996406
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1412868590",
+      "name": "St Mary Cray DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1008283,
+        51.3947881
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412868591",
+      "name": "Kevingtown DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1385936,
+        51.3932551
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412868592",
+      "name": "Swanley DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.170387,
+        51.3935714
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412868593",
+      "name": "Darenth DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.2469041,
+        51.4010684
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412868594",
+      "name": "Fawkham DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.2868578,
+        51.3994848
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412868595",
+      "name": "Hartley DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.3230238,
+        51.3898152
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412912467",
+      "name": "Elmstead Woods TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.0453631,
+        51.4163673
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1412912468",
+      "name": "Petts Wood TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.0695761,
+        51.3942787
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1412912469",
+      "name": "Orpington DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.0908722,
+        51.371305
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412912470",
+      "name": "Chelsfield DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1090802,
+        51.3562687
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1412912471",
+      "name": "Knockholt DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1420668,
+        51.3410979
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_secondary_1413044024",
+      "name": "Power 1413044024",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0632116,
+        51.5338617
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "40145"
+      }
+    },
+    {
+      "id": "power_transmission_1413164331",
+      "name": "Wested Lane TPH",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1879328,
+        51.3869705
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 750,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "750"
+      }
+    },
+    {
+      "id": "power_transmission_1413164332",
+      "name": "Eynsford DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1996208,
+        51.3724055
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1413164333",
+      "name": "Lullingstone DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1950571,
+        51.3486051
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1413164334",
+      "name": "Greenhill DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1883839,
+        51.3240038
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1413164335",
+      "name": "Otford Junction DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1977511,
+        51.3029168
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1413164336",
+      "name": "Noahs Ark DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.2327454,
+        51.2972854
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1413164337",
+      "name": "Oldbury DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.2731048,
+        51.2954108
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1413164338",
+      "name": "Borough Green DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.3100293,
+        51.2933635
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_secondary_1414123243",
+      "name": "Power 1414123243",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.1048929,
+        51.4999366
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "93989"
+      }
+    },
+    {
+      "id": "power_transmission_1414172635",
+      "name": "Ebbsfleet DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.320848,
+        51.4444897
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1414172636",
+      "name": "Swanscombe DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.3031428,
+        51.4497095
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_secondary_1414172637",
+      "name": "Littlebrook DC Traction Substation",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.2384127,
+        51.4490926
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_transmission_1414172638",
+      "name": "Hook Green DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.3077828,
+        51.4139786
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1414172639",
+      "name": "Southfleet ATS",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.3152309,
+        51.419938
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 25000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "25000"
+      }
+    },
+    {
+      "id": "power_secondary_1414172640",
+      "name": "Erith TPH",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.1728729,
+        51.483199
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_transmission_1414172641",
+      "name": "Barnehurst DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.1606234,
+        51.4648443
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_transmission_1414172642",
+      "name": "Crayford DC Traction Substation",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.175698,
+        51.4476054
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "33000;750"
+      }
+    },
+    {
+      "id": "power_secondary_1414623487",
+      "name": "Power 1414623487",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0451875,
+        51.5553438
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "44232"
+      }
+    },
+    {
+      "id": "power_transmission_1415221178",
+      "name": "Ebbsfleet Primary",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.3189357,
+        51.4471511
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 33000,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "voltage": "33000;11000"
+      }
+    },
+    {
+      "id": "power_transmission_1415221179",
+      "name": "Purfleet TSC",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        0.2351376,
+        51.4909382
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 25000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "25000"
+      }
+    },
+    {
+      "id": "power_secondary_1416368870",
+      "name": "Power 1416368870",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.1271684,
+        51.6292251
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_generation_1416633296",
+      "name": "Power 1416633296",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.0128367,
+        51.5606743
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1416633297",
+      "name": "Power 1416633297",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.013243,
+        51.5605373
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1416633298",
+      "name": "Power 1416633298",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.0118491,
+        51.5601034
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1416633299",
+      "name": "Power 1416633299",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.0120422,
+        51.5603168
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1416633300",
+      "name": "Power 1416633300",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.0123039,
+        51.5606061
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1416633301",
+      "name": "Power 1416633301",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.0121724,
+        51.5595903
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1416633302",
+      "name": "Power 1416633302",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.0121496,
+        51.5595645
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_secondary_1417332695",
+      "name": "Power 1417332695",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0668246,
+        51.5423158
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "44215"
+      }
+    },
+    {
+      "id": "power_secondary_1417994692",
+      "name": "Power 1417994692",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0237765,
+        51.49102
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1418658390",
+      "name": "Power 1418658390",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.1278488,
+        51.582554
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1419596029",
+      "name": "Power 1419596029",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0126816,
+        51.4114826
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1419928059",
+      "name": "Power 1419928059",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0656735,
+        51.5363955
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "reference": "60157"
+      }
+    },
+    {
+      "id": "power_generation_1420234908",
+      "name": "Power 1420234908",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.4428137,
+        51.385998
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0
+    },
+    {
+      "id": "power_generation_1420234909",
+      "name": "Power 1420234909",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.4425522,
+        51.3855122
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0
+    },
+    {
+      "id": "power_generation_1421546763",
+      "name": "Power 1421546763",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0006744,
+        51.5249719
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421546764",
+      "name": "Power 1421546764",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0006558,
+        51.5248938
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421546765",
+      "name": "Power 1421546765",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0006343,
+        51.5248334
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421546766",
+      "name": "Power 1421546766",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.000613,
+        51.5247735
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421546767",
+      "name": "Power 1421546767",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0005786,
+        51.5247002
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421546768",
+      "name": "Power 1421546768",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0007827,
+        51.5246726
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421546769",
+      "name": "Power 1421546769",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0008029,
+        51.5247392
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421546770",
+      "name": "Power 1421546770",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0008269,
+        51.5248065
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421546771",
+      "name": "Power 1421546771",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0008483,
+        51.524867
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421546772",
+      "name": "Power 1421546772",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0008863,
+        51.5249507
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421546773",
+      "name": "Power 1421546773",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0008791,
+        51.5250125
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421716771",
+      "name": "Power 1421716771",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0962068,
+        51.5295766
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421716772",
+      "name": "Power 1421716772",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0960696,
+        51.5298674
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421716776",
+      "name": "Power 1421716776",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0961046,
+        51.5297863
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421716777",
+      "name": "Power 1421716777",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0961379,
+        51.5297109
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421716780",
+      "name": "Power 1421716780",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0961692,
+        51.529656
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421725724",
+      "name": "Power 1421725724",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.1000361,
+        51.5299799
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421725725",
+      "name": "Power 1421725725",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0998099,
+        51.5299529
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421725726",
+      "name": "Power 1421725726",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.099722,
+        51.5299454
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421725727",
+      "name": "Power 1421725727",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0997895,
+        51.5297066
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421725728",
+      "name": "Power 1421725728",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0998432,
+        51.5295786
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1421725729",
+      "name": "Power 1421725729",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.0999149,
+        51.5294006
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_secondary_1422371909",
+      "name": "Power 1422371909",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2494776,
+        51.4024862
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_generation_1422497793",
+      "name": "Power 1422497793",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.1086319,
+        51.5230581
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1422497794",
+      "name": "Power 1422497794",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        0.1087393,
+        51.5230844
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1422637895",
+      "name": "Power 1422637895",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1226227,
+        51.5833774
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_secondary_1422837531",
+      "name": "Power 1422837531",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2527219,
+        51.3954978
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1423520563",
+      "name": "Power 1423520563",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.4279391,
+        51.6159246
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_generation_1423591916",
+      "name": "Power 1423591916",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.4823342,
+        51.6411023
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1423591917",
+      "name": "Power 1423591917",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.4823726,
+        51.6410969
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1423591918",
+      "name": "Power 1423591918",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.4821162,
+        51.6410946
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1423591919",
+      "name": "Power 1423591919",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.4821308,
+        51.6410752
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1423591920",
+      "name": "Power 1423591920",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.4822429,
+        51.6410659
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1423591921",
+      "name": "Power 1423591921",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.4821598,
+        51.641043
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_secondary_1424339297",
+      "name": "Power 1424339297",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.1083933,
+        51.4991557
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_generation_1425550251",
+      "name": "Power 1425550251",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.105915,
+        51.4958579
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1425556914",
+      "name": "Power 1425556914",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1103217,
+        51.5022799
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1425556915",
+      "name": "Power 1425556915",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.1104051,
+        51.5022188
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_generation_1425634044",
+      "name": "Power 1425634044",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.0954027,
+        51.486903
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_secondary_1426211757",
+      "name": "Shire Lane W SW Stn",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0443745,
+        51.3485995
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "447442"
+      }
+    },
+    {
+      "id": "power_secondary_1426245761",
+      "name": "Power 1426245761",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0552927,
+        51.5232667
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "reference": "61264"
+      }
+    },
+    {
+      "id": "power_secondary_1426280202",
+      "name": "Power 1426280202",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0537733,
+        51.5252506
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1427341474",
+      "name": "Power 1427341474",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0757701,
+        51.5756941
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1427675231",
+      "name": "Power 1427675231",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.2396312,
+        51.4798312
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1427925334",
+      "name": "Power 1427925334",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0386106,
+        51.53093
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "reference": "60293"
+      }
+    },
+    {
+      "id": "power_secondary_1428841628",
+      "name": "Power 1428841628",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.011906,
+        51.5684378
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1429243087",
+      "name": "Power 1429243087",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0526703,
+        51.5273646
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "63002"
+      }
+    },
+    {
+      "id": "power_secondary_1430734917",
+      "name": "Power 1430734917",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2519866,
+        51.4044885
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1432084373",
+      "name": "Power 1432084373",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0637401,
+        51.5354527
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "43179"
+      }
+    },
+    {
+      "id": "power_secondary_1432115775",
+      "name": "Power 1432115775",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0433455,
+        51.5316949
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1432115816",
+      "name": "Power 1432115816",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.041524,
+        51.532539
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1432260461",
+      "name": "Power 1432260461",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0429471,
+        51.5326189
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1432306818",
+      "name": "Power 1432306818",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0056815,
+        51.5739612
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "reference": "52531"
+      }
+    },
+    {
+      "id": "power_secondary_1432625546",
+      "name": "Wimbourne Close",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2568316,
+        51.3316506
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "12 3792"
+      }
+    },
+    {
+      "id": "power_transmission_1432729256",
+      "name": "Ferme Park FS",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.1105882,
+        51.5832486
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 25000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "25000"
+      }
+    },
+    {
+      "id": "power_secondary_1432768996",
+      "name": "Power 1432768996",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.0754023,
+        51.5660702
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "44414"
+      }
+    },
+    {
+      "id": "power_secondary_1435605004",
+      "name": "Power 1435605004",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.2933167,
+        51.4915683
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks"
+      }
+    },
+    {
+      "id": "power_secondary_1435677981",
+      "name": "Power 1435677981",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0759796,
+        51.5422454
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "Transport for London"
+      }
+    },
+    {
+      "id": "power_generation_1435859905",
+      "name": "Power 1435859905",
+      "type": "power",
+      "subtype": "generation",
+      "coordinates": [
+        -0.2061337,
+        51.5561787
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 0,
+      "metadata": {
+        "fuel_type": "solar"
+      }
+    },
+    {
+      "id": "power_secondary_1436156864",
+      "name": "Power 1436156864",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0302918,
+        51.5253438
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_transmission_1436268951",
+      "name": "South Tottenham MPTSL",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0668099,
+        51.5814802
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 25000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "25000"
+      }
+    },
+    {
+      "id": "power_transmission_1436268952",
+      "name": "Northumberland Park FS",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0522341,
+        51.605014
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 25000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "25000"
+      }
+    },
+    {
+      "id": "power_transmission_1436268953",
+      "name": "Bury Street Junction MPTSC",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0645634,
+        51.6353342
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 25000,
+      "metadata": {
+        "operator": "Network Rail",
+        "voltage": "25000"
+      }
+    },
+    {
+      "id": "power_secondary_1436288978",
+      "name": "Power 1436288978",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0048883,
+        51.486362
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "70551"
+      }
+    },
+    {
+      "id": "power_secondary_1436764043",
+      "name": "Power 1436764043",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.2751454,
+        51.485829
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks"
+      }
+    },
+    {
+      "id": "power_secondary_1436764044",
+      "name": "Power 1436764044",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.2752221,
+        51.485867
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks"
+      }
+    },
+    {
+      "id": "power_secondary_1441697893",
+      "name": "Power 1441697893",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.3252619,
+        51.4976706
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks"
+      }
+    },
+    {
+      "id": "power_secondary_1442099595",
+      "name": "Meadway",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2796312,
+        51.3371451
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "123705"
+      }
+    },
+    {
+      "id": "power_secondary_1442099596",
+      "name": "Hawthorne Place",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2591886,
+        51.3363808
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "12 3803"
+      }
+    },
+    {
+      "id": "power_secondary_1442099597",
+      "name": "Hook Rise Ind No.1",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2911081,
+        51.3724321
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "12 2229"
+      }
+    },
+    {
+      "id": "power_secondary_1442099598",
+      "name": "Hook Rise",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2841845,
+        51.3754366
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "121481"
+      }
+    },
+    {
+      "id": "power_secondary_1442099601",
+      "name": "Hook Rise South TBS IDNO",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2823395,
+        51.3768221
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "122906"
+      }
+    },
+    {
+      "id": "power_secondary_1442154114",
+      "name": "Power 1442154114",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        0.0306388,
+        51.5279171
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "reference": "60711"
+      }
+    },
+    {
+      "id": "power_transmission_1442557489",
+      "name": "Power 1442557489",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0219283,
+        51.6636595
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 275000,
+      "metadata": {
+        "voltage": "275000"
+      }
+    },
+    {
+      "id": "power_transmission_1442557490",
+      "name": "Power 1442557490",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0213207,
+        51.6635555
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 275000,
+      "metadata": {
+        "voltage": "275000"
+      }
+    },
+    {
+      "id": "power_transmission_1442557491",
+      "name": "Power 1442557491",
+      "type": "power",
+      "subtype": "transmission",
+      "coordinates": [
+        -0.0221436,
+        51.663983
+      ],
+      "status": "normal",
+      "criticality": "critical",
+      "voltage": 275000,
+      "metadata": {
+        "voltage": "275000"
+      }
+    },
+    {
+      "id": "power_secondary_1443263508",
+      "name": "Power 1443263508",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.109627,
+        51.5936964
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0
+    },
+    {
+      "id": "power_secondary_1444480253",
+      "name": "Power 1444480253",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.1886061,
+        51.5137723
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "37218"
+      }
+    },
+    {
+      "id": "power_secondary_1444480254",
+      "name": "Power 1444480254",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.1886899,
+        51.5137662
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "37218"
+      }
+    },
+    {
+      "id": "power_secondary_1444480255",
+      "name": "Power 1444480255",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.188747,
+        51.513762
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "37069"
+      }
+    },
+    {
+      "id": "power_secondary_1444480256",
+      "name": "Power 1444480256",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.1888341,
+        51.5137558
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "37069"
+      }
+    },
+    {
+      "id": "power_secondary_1444480259",
+      "name": "Power 1444480259",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2356778,
+        51.5160228
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "10131"
+      }
+    },
+    {
+      "id": "power_secondary_1444480260",
+      "name": "Power 1444480260",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.2053311,
+        51.4987177
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "11667"
+      }
+    },
+    {
+      "id": "power_secondary_1444480261",
+      "name": "Power 1444480261",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.1896386,
+        51.4948323
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "11595"
+      }
+    },
+    {
+      "id": "power_secondary_1444480262",
+      "name": "Power 1444480262",
+      "type": "power",
+      "subtype": "secondary",
+      "coordinates": [
+        -0.1995255,
+        51.4826426
+      ],
+      "status": "normal",
+      "criticality": "low",
+      "voltage": 0,
+      "metadata": {
+        "operator": "UK Power Networks",
+        "reference": "10366"
+      }
+    }
+  ]
+}

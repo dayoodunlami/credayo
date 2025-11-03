@@ -1,0 +1,8 @@
+{
+  "city": "london",
+  "type": "power",
+  "timestamp": 1761445915422,
+  "totalCount": 26272,
+  "chunkSize": 1000,
+  "totalChunks": 27
+}
