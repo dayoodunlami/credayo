@@ -446,7 +446,7 @@ export class CascadeSimulator {
         if (probability > 0.1) {
           candidates.push({ 
             ...nearby, 
-            failureReason: willFail ? 'proximity' : 'potential',
+            failureReason: 'proximity',
             probability 
           });
         }
